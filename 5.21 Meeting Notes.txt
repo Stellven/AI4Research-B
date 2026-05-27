@@ -24,7 +24,7 @@ o	World models
 o	Sysmlv2: good semantic harness but very heavy to use
 o	We need semantic tools to govern skills
 
--	Meta skills:
+-Meta skills:
 o	Useful for self-evolving
 o	Focus more on auditing
 
