@@ -7,3 +7,8 @@ Weekend: Learnt how to use docker
 5.20: Learnt how to use codex
 5.21: Learnt how to present a coding design
 5.22: 
+Weekend:
+5.25: Learnt that how ai can perform better than a carefully designed pipeline
+5.26: Learnt how to divide work
+5.27: Learnt how to 
+5.28: Learnt how to design a pipeline
