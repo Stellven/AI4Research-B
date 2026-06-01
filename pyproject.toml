@@ -1,0 +1,9 @@
+[project]
+name = "ai4research-b"
+version = "0.0.0"
+description = "Preliminary file-first Phase 0 research validation demo for AI4Research-B."
+requires-python = ">=3.9"
+dependencies = [
+  "pypdf>=6.12.2",
+]
+

@@ -1,0 +1,65 @@
+{
+  "schema_version": "0.2",
+  "status": "official_code_smoke_completed_not_reproduced",
+  "scope": "AIME smoke validation only; not SkillGen Table 1 reproduction",
+  "official_code": {
+    "repo": "https://github.com/yccm/SkillGen",
+    "commit": "3c4537bb12ac287ceb1b5d410b491206089fdcb7",
+    "local_path": "runs/skillgen_phase0_demo_20260601_002144/code/official"
+  },
+  "train": {
+    "dataset": "phase_0/smoke_data/aime_train_n8_seed42.json",
+    "config": "phase_0/skillgen_aime_smoke_config.yaml",
+    "command": "cd code/official && .venv/bin/python main.py ../../phase_0/smoke_data/aime_train_n8_seed42.json --config ../../phase_0/skillgen_aime_smoke_config.yaml",
+    "exit_code": 0,
+    "skill_output": "phase_0/raw_benchmark_outputs/skillgen_aime_smoke/skill_output/2026-06-01_15-32-00",
+    "skill_id": "a700933b-e133-43ed-b41e-d75a2192736b",
+    "construction_verification": {
+      "paired_n": 4,
+      "baseline_acc": 0.5,
+      "skill_acc": 0.75,
+      "repair": 2,
+      "regression": 1,
+      "net_gain": 1,
+      "passed": true
+    },
+    "token_usage_total": 56529
+  },
+  "eval": {
+    "dataset": "phase_0/smoke_data/aime_test_n4_seed42.json",
+    "command": "cd code/official && .venv/bin/python eval_skill.py --skill-repo ../../phase_0/raw_benchmark_outputs/skillgen_aime_smoke/skill_output/2026-06-01_15-32-00 --dataset ../../phase_0/smoke_data/aime_test_n4_seed42.json --n 4 --seed 42 --models openai/gpt-5.4-nano --judge-model openai/gpt-5.4-mini --max-workers 1 --output ../../phase_0/raw_benchmark_outputs/skillgen_aime_smoke/eval_results.json",
+    "exit_code": 0,
+    "model": "openai/gpt-5.4-nano",
+    "n_instances": 4,
+    "baseline_acc": 0.5,
+    "skill_acc": 0.25,
+    "delta_acc": -0.25,
+    "repair": 0,
+    "regression": 1,
+    "net_gain": -1,
+    "blank_filter": {
+      "drop_blank": true,
+      "n_paired_raw": 4,
+      "n_blank_baseline": 0,
+      "n_blank_skill": 0,
+      "n_blank_either": 0,
+      "n_blank_both": 0
+    },
+    "token_usage_total": 14118
+  },
+  "interpretation": {
+    "smoke_verdict": "not_reproduced",
+    "reason": "On the 4-instance AIME smoke held-out subset, the generated skill reduced accuracy from 50% to 25% and had net_gain=-1.",
+    "paper_claim_verdict": "blocked",
+    "paper_claim_reason": "The selected smoke target is not the paper Table 1 benchmark claim and uses reduced data/config for cost control."
+  },
+  "raw_outputs": {
+    "train_stdout": "phase_0/benchmark_stdout.txt",
+    "train_stderr": "phase_0/benchmark_stderr.txt",
+    "eval_stdout": "phase_0/raw_benchmark_outputs/skillgen_aime_smoke/eval_stdout.txt",
+    "eval_stderr": "phase_0/raw_benchmark_outputs/skillgen_aime_smoke/eval_stderr.txt",
+    "eval_results": "phase_0/raw_benchmark_outputs/skillgen_aime_smoke/eval_results.json",
+    "eval_token_usage": "phase_0/raw_benchmark_outputs/skillgen_aime_smoke/eval_results.token_usage.json",
+    "train_token_usage": "phase_0/raw_benchmark_outputs/skillgen_aime_smoke/artifacts/runs/20260601-153200/token_usage.json"
+  }
+}

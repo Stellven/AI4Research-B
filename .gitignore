@@ -1,3 +1,9 @@
 *.docs
 *.docx
 .DS_Store
+.env
+.env.*
+.uv-cache/
+.venv/
+__pycache__/
+*.pyc

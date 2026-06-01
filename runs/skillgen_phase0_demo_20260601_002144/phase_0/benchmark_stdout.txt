@@ -1,0 +1,17 @@
+[2m15:32:00[0m [36mINFO    [0m [34mmain[0m Loaded dataset 'aime_olympiad_math_train' with 8 instances (binary)
+[2m15:32:00[0m [36mINFO    [0m [34mpipeline[0m Skill output dir for this run: ../../phase_0/raw_benchmark_outputs/skillgen_aime_smoke/skill_output/2026-06-01_15-32-00
+[2m15:32:00[0m [36mINFO    [0m [34mpipeline[0m Run artifacts will be saved under ../../phase_0/raw_benchmark_outputs/skillgen_aime_smoke/artifacts/runs/20260601-153200
+[2m15:32:00[0m [36mINFO    [0m [34mpipeline[0m Models | baseline=openai/gpt-5.4-nano | baseline_judge=openai/gpt-5.4-mini | generation=openai/gpt-5.4-mini | verification=openai/gpt-5.4-nano
+[2m15:32:00[0m [36mINFO    [0m [34mpipeline[0m Stage 1/3 | Collecting baseline trajectories on 8 instances | inference_model=openai/gpt-5.4-nano | judge_model=openai/gpt-5.4-mini
+[2m15:33:10[0m [36mINFO    [0m [34mpipeline[0m Baseline | 8 trajectories | 6 failures | 2 successes
+[2m15:33:10[0m [36mINFO    [0m [34mpipeline[0m Stage 2/3 | Running multi-aspect induction...
+[2m15:33:40[0m [36mINFO    [0m [34mpipeline[0m Induction | 2 failure clusters | 1 success clusters | 4 contrastive pairs (0 same-type)
+[2m15:33:40[0m [36mINFO    [0m [34mpipeline[0m Verification sample | size=4 (target_n=2 baseline-failures, guard_n=2 baseline-successes) | drawn uniformly from 8 instances
+[2m15:33:40[0m [36mINFO    [0m [34mpipeline[0m Round 1/1 | Generating candidate skill...
+[2m15:34:05[0m [36mINFO    [0m [34mverification[0m [verification round 0] running case analyst on 3 case(s) (model=openai/gpt-5.4-mini, workers=1)
+[2m15:34:16[0m [36mINFO    [0m [34mverification[0m [verification round 0] synthesising revision guidance (model=openai/gpt-5.4-mini) over 3 case analyses
+[2m15:34:23[0m [36mINFO    [0m [34mpipeline[0m Round 1 | paired_n=4 | baseline_acc=50.0% | skill_acc=75.0% | repair=2 | regression=1 | net_gain=+1 | passed=True
+[2m15:34:23[0m [36mINFO    [0m [34mpipeline[0m Skill passes net-gain gate at round 1; stopping refinement.
+[2m15:34:23[0m [36mINFO    [0m [34mpipeline[0m Token usage | prompt=36,254 | completion=20,275 | total=56,529 | 8 (model,stage,call_type) cells -> ../../phase_0/raw_benchmark_outputs/skillgen_aime_smoke/artifacts/runs/20260601-153200/token_usage.json
+[2m15:34:23[0m [36mINFO    [0m [34mpipeline[0m Pipeline complete | skill_id=a700933b-e133-43ed-b41e-d75a2192736b | stored at ../../phase_0/raw_benchmark_outputs/skillgen_aime_smoke/skill_output/2026-06-01_15-32-00
+[2m15:34:23[0m [36mINFO    [0m [34mmain[0m Done. Generated skill id=a700933b-e133-43ed-b41e-d75a2192736b

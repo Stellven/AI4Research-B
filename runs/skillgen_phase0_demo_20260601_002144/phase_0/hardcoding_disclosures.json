@@ -1,0 +1,23 @@
+{
+  "schema_version": "0.1",
+  "hardcodings": [
+    {
+      "id": "target_paper_scope",
+      "description": "The demo is intentionally scoped to SkillGen.pdf.",
+      "reason": "The user explicitly asked for a preliminary demo that only needs to work for this paper.",
+      "impact": "The claim selector prioritizes SkillGen's paired-intervention/Table 1 claim shape."
+    },
+    {
+      "id": "claim_selector_priority",
+      "description": "The demo selects the Table 1 average-gains claim as the primary benchmark claim.",
+      "reason": "The existing Phase 0 SkillGen note and the paper text identify it as the strongest Phase 0 target.",
+      "impact": "Other SkillGen claims are not selected for the preliminary run, though they remain in the parsed paper text."
+    },
+    {
+      "id": "execution_stop_policy",
+      "description": "The demo blocks before official-code execution when hosted APIs, paid token use, external benchmark assets, or missing human approval are detected.",
+      "reason": "Phase 0 rules require a human-visible command gate before risky or costly third-party execution.",
+      "impact": "The demo produces a blocked validation package instead of running official benchmarks."
+    }
+  ]
+}

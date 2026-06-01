@@ -1,0 +1,44 @@
+Loading skill from: ../../phase_0/raw_benchmark_outputs/skillgen_aime_smoke/skill_output/2026-06-01_15-32-00
+  -> a700933b-e133-43ed-b41e-d75a2192736b: 
+
+Loading dataset: ../../phase_0/smoke_data/aime_test_n4_seed42.json
+  -> 4 instances, task_type=binary
+  -> Using all 4 instances
+
+Models to test     : ['openai/gpt-5.4-nano']
+Judge model        : openai/gpt-5.4-mini
+Skill web_search   : disabled
+Skill script exec  : disabled (mock)
+Blank-pair policy  : DROP (paired_n shrinks, cleanest)
+
+-- Model: openai/gpt-5.4-nano --
+
+========================================================================
+  SKILL A/B EVALUATION REPORT
+========================================================================
+  Skill ID   : a700933b-e133-43ed-b41e-d75a2192736b
+  Abstract   : Short-form olympiad math problems asking for exact final answers, often modulo 1000, after multi-step reasoning in algebra, geometry, number theory, or counting. The key task is to build a clean structural model, reduce to valid cases, and carry the computation all the way to a precisely formatted final number.
+  Status     : active
+========================================================================
+
+  Model: openai/gpt-5.4-nano
+      Condition                       N  Pass     Acc   Latency
+      ----------------------------------------------------
+      Without skill                   4     2  50.0%     10.4s
+      With skill                      4     1  25.0%      7.7s
+
+      Accuracy delta : v 25.0%  (baseline=50.0%, skill=25.0%)
+      Repair     : 0/2   (0.0% of baseline failures fixed)
+      Regression : 1/2   (50.0% of baseline successes broken)
+      Net gain   : -1 instances
+
+      Paired outcome matrix (N=4 after filter):
+                               Skill pass   Skill fail
+      Baseline pass                     1            1
+      Baseline fail                     0            2
+
+========================================================================
+
+Results saved to: ../../phase_0/raw_benchmark_outputs/skillgen_aime_smoke/eval_results.json
+Trajectories   : ../../phase_0/raw_benchmark_outputs/skillgen_aime_smoke/eval_results_trajectories/
+Token usage    : prompt=4,318 | completion=9,800 | total=14,118 -> ../../phase_0/raw_benchmark_outputs/skillgen_aime_smoke/eval_results.token_usage.json

@@ -1,0 +1,24 @@
+{
+  "schema_version": "0.1",
+  "status": "intake_complete_command_review_required",
+  "official_code_urls": [
+    "https://github.com/yccm/SkillGen"
+  ],
+  "code_path": "code/official",
+  "clone_depth": 1,
+  "commit": "3c4537bb12ac287ceb1b5d410b491206089fdcb7",
+  "commit_date": "2026-05-08 19:36:46 +0200",
+  "remote": "https://github.com/yccm/SkillGen",
+  "readme_files": [
+    "README.md"
+  ],
+  "environment_files": [
+    "requirements.txt",
+    "config.yaml"
+  ],
+  "entrypoints": [
+    "main.py",
+    "eval_skill.py"
+  ],
+  "note": "Official repository cloned. Install and benchmark execution have not run."
+}

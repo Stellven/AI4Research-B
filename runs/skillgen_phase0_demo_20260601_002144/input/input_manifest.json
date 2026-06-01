@@ -1,0 +1,11 @@
+{
+  "schema_version": "0.1",
+  "run_id": "skillgen_phase0_demo_20260601_002144",
+  "created_at": "2026-06-01T04:21:44.476176+00:00",
+  "paper_source_path": "docs/SkillGen.pdf",
+  "paper_copied_to": "input/paper.pdf",
+  "official_code_urls_extracted": [
+    "https://github.com/yccm/SkillGen"
+  ],
+  "demo_scope": "SkillGen.pdf preliminary Phase 0 demo"
+}

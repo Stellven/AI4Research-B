@@ -1,0 +1,6 @@
+Official dependency installation completed successfully.
+
+Command:
+`env UV_CACHE_DIR=runs/skillgen_phase0_demo_20260601_002144/code/official/.uv-cache uv pip install --python runs/skillgen_phase0_demo_20260601_002144/code/official/.venv/bin/python -r runs/skillgen_phase0_demo_20260601_002144/code/official/requirements.txt`
+
+The full console output was produced by the package manager during execution but was not redirected into this artifact. Installed dependencies are present in `code/official/.venv` and cached under `code/official/.uv-cache`.
