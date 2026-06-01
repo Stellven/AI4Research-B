@@ -3,7 +3,7 @@
 Status: `intake_complete_command_review_required`
 
 - Official URL: `https://github.com/yccm/SkillGen`
-- Local path: `runs/skillgen_phase0_demo_20260601_002144/code/official`
+- Local path: `phase_0/runs/skillgen_phase0_demo_20260601_002144/code/official`
 - Commit: `3c4537bb12ac287ceb1b5d410b491206089fdcb7`
 - Commit date: `2026-05-08 19:36:46 +0200`
 - Clone mode: `git clone --depth 1`

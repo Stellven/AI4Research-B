@@ -378,12 +378,14 @@ def run_demo(paper: Path, output_root: Path, run_id: str | None) -> Path:
         raise SystemExit(f"Run directory already exists: {run_dir}")
 
     input_dir = run_dir / "input"
-    phase_dir = run_dir / "phase_0"
+    artifacts_dir = run_dir / "artifacts"
+    outputs_dir = run_dir / "outputs"
     code_dir = run_dir / "code"
     integration_dir = run_dir / "integration"
     playback_dir = run_dir / "playback"
-    raw_outputs_dir = phase_dir / "raw_benchmark_outputs"
+    raw_outputs_dir = artifacts_dir / "raw_benchmark_outputs"
     input_dir.mkdir(parents=True, exist_ok=True)
+    outputs_dir.mkdir(parents=True, exist_ok=True)
     raw_outputs_dir.mkdir(parents=True, exist_ok=True)
     (code_dir / "official").mkdir(parents=True, exist_ok=True)
 
@@ -411,9 +413,9 @@ def run_demo(paper: Path, output_root: Path, run_id: str | None) -> Path:
     }
     write_json(input_dir / "input_manifest.json", input_manifest)
 
-    write_text(phase_dir / "paper_parse.md", f"# SkillGen Paper Parse\n\n{ text }\n")
+    write_text(artifacts_dir / "paper_parse.md", f"# SkillGen Paper Parse\n\n{ text }\n")
     write_json(
-        phase_dir / "paper_parse.json",
+        artifacts_dir / "paper_parse.json",
         {
             "schema_version": "0.1",
             "metadata": metadata,
@@ -425,18 +427,18 @@ def run_demo(paper: Path, output_root: Path, run_id: str | None) -> Path:
             "parser": "pypdf.PdfReader.extract_text",
         },
     )
-    write_json(phase_dir / "claims.json", {"schema_version": "0.1", "claims": [asdict(c) for c in claims]})
+    write_json(artifacts_dir / "claims.json", {"schema_version": "0.1", "claims": [asdict(c) for c in claims]})
     write_json(
-        phase_dir / "benchmark_claims.json",
+        artifacts_dir / "benchmark_claims.json",
         {"schema_version": "0.1", "benchmark_claims": [asdict(b) for b in benchmark_claims]},
     )
-    write_text(phase_dir / "claims.md", render_claims_md(claims, benchmark_claims))
+    write_text(artifacts_dir / "claims.md", render_claims_md(claims, benchmark_claims))
     write_text(
-        phase_dir / "human_claim_review.md",
+        artifacts_dir / "human_claim_review.md",
         "# Human Claim Review\n\nStatus: `pending`\n\nThe preliminary demo selected the Table 1 paired-intervention accuracy claim. A human must approve, revise, or reject this claim before official benchmark execution.\n",
     )
     write_json(
-        phase_dir / "code_manifest.json",
+        artifacts_dir / "code_manifest.json",
         {
             "schema_version": "0.1",
             "status": STATUS_BLOCKED,
@@ -446,29 +448,29 @@ def run_demo(paper: Path, output_root: Path, run_id: str | None) -> Path:
         },
     )
     write_text(
-        phase_dir / "repo_snapshot.md",
+        artifacts_dir / "repo_snapshot.md",
         "# Repository Snapshot\n\nStatus: `blocked`\n\nOfficial repository snapshot is unavailable in this preliminary run because code intake was not performed. Extracted code URL(s):\n\n"
         + "\n".join(f"- {url}" for url in code_urls)
         + "\n",
     )
     write_text(
-        phase_dir / "official_instructions.md",
+        artifacts_dir / "official_instructions.md",
         "# Official Instructions\n\nStatus: `blocked`\n\nThis demo extracted the official code URL from the paper but did not interpret README commands or execute third-party code. Command extraction must happen after official code intake and human review.\n",
     )
     command_plan = render_command_plan(code_urls, blockers)
-    write_json(phase_dir / "command_plan.json", command_plan)
+    write_json(artifacts_dir / "command_plan.json", command_plan)
     write_text(
-        phase_dir / "human_command_review.md",
+        artifacts_dir / "human_command_review.md",
         "# Human Command Review\n\nStatus: `required`\n\nOfficial install and benchmark commands are blocked pending official code intake. The paper already indicates likely network/API/cost/resource risks, so execution must not proceed silently.\n",
     )
     write_text(
-        phase_dir / "environment_plan.md",
+        artifacts_dir / "environment_plan.md",
         "# Environment Plan\n\nStatus: `blocked`\n\nThe paper reports hosted LLM APIs routed through OpenRouter, external benchmark environments, token costs, and proprietary model providers. This preliminary demo does not attempt to replicate that environment.\n",
     )
-    write_text(phase_dir / "install_stdout.txt", "")
-    write_text(phase_dir / "install_stderr.txt", "Install not run: blocked before official code execution.\n")
+    write_text(outputs_dir / "install_stdout.txt", "")
+    write_text(outputs_dir / "install_stderr.txt", "Install not run: blocked before official code execution.\n")
     write_json(
-        phase_dir / "environment.json",
+        artifacts_dir / "environment.json",
         {
             "schema_version": "0.1",
             "status": STATUS_BLOCKED,
@@ -478,21 +480,21 @@ def run_demo(paper: Path, output_root: Path, run_id: str | None) -> Path:
         },
     )
     write_text(
-        phase_dir / "benchmark_run_plan.md",
+        artifacts_dir / "benchmark_run_plan.md",
         "# Benchmark Run Plan\n\nStatus: `blocked`\n\nTarget benchmark contract: paired no-skill vs SkillGen-skill held-out accuracy under the paper's split protocol. Execution requires official repo instructions, API credentials, benchmark data/environments, and human approval.\n",
     )
-    write_text(phase_dir / "benchmark_stdout.txt", "")
-    write_text(phase_dir / "benchmark_stderr.txt", "Benchmark not run: blocked before official code execution.\n")
+    write_text(outputs_dir / "benchmark_stdout.txt", "")
+    write_text(outputs_dir / "benchmark_stderr.txt", "Benchmark not run: blocked before official code execution.\n")
     write_json(
-        phase_dir / "benchmark_results.json",
+        artifacts_dir / "benchmark_results.json",
         {"schema_version": "0.1", "status": STATUS_BLOCKED, "results": [], "reason": "benchmark_not_run"},
     )
     write_text(
-        phase_dir / "benchmark_results.md",
+        artifacts_dir / "benchmark_results.md",
         "# Benchmark Results\n\nStatus: `blocked`\n\nNo official benchmark results were produced because execution stopped before official code installation and benchmark execution.\n",
     )
     write_json(
-        phase_dir / "claim_comparison.json",
+        artifacts_dir / "claim_comparison.json",
         {
             "schema_version": "0.1",
             "status": STATUS_BLOCKED,
@@ -504,26 +506,26 @@ def run_demo(paper: Path, output_root: Path, run_id: str | None) -> Path:
         },
     )
     write_text(
-        phase_dir / "claim_comparison.md",
+        artifacts_dir / "claim_comparison.md",
         "# Claim Comparison\n\nStatus: `blocked`\n\nThe paper-reported paired accuracy claim was extracted, but no observed benchmark result exists yet. No reproduction verdict is assigned.\n",
     )
     write_text(
-        phase_dir / "human_result_review.md",
+        artifacts_dir / "human_result_review.md",
         "# Human Result Review\n\nStatus: `not_ready`\n\nThere are no official benchmark results to review yet.\n",
     )
-    write_text(phase_dir / "research_validation_report.md", render_report(run_id, claims, benchmark_claims, blockers))
+    write_text(artifacts_dir / "research_validation_report.md", render_report(run_id, claims, benchmark_claims, blockers))
     write_text(
-        phase_dir / "failure_modes.md",
+        artifacts_dir / "failure_modes.md",
         "# Failure Modes And Blockers\n\n"
         + "\n".join(f"- `{b.id}`: {b.description}" for b in blockers)
         + "\n",
     )
     write_json(
-        phase_dir / "hardcoding_disclosures.json",
+        artifacts_dir / "hardcoding_disclosures.json",
         {"schema_version": "0.1", "hardcodings": [asdict(item) for item in hardcodings]},
     )
     write_text(
-        phase_dir / "hardcoding_disclosures.md",
+        artifacts_dir / "hardcoding_disclosures.md",
         "# Hardcoding Disclosures\n\n"
         + "\n\n".join(
             f"## {item.id}\n\n- Description: {item.description}\n- Reason: {item.reason}\n- Impact: {item.impact}"
@@ -542,7 +544,7 @@ def run_demo(paper: Path, output_root: Path, run_id: str | None) -> Path:
             "timestamp": utc_now(),
             "decision": "block_before_execution",
             "evidence": [asdict(b) for b in blockers],
-            "artifact": "phase_0/command_plan.json",
+            "artifact": "artifacts/command_plan.json",
         },
     )
     append_jsonl(
@@ -554,11 +556,11 @@ def run_demo(paper: Path, output_root: Path, run_id: str | None) -> Path:
             "ended_at": utc_now(),
             "artifacts_written": [
                 "input/input_manifest.json",
-                "phase_0/paper_parse.md",
-                "phase_0/claims.json",
-                "phase_0/benchmark_claims.json",
-                "phase_0/command_plan.json",
-                "phase_0/research_validation_report.md",
+                "artifacts/paper_parse.md",
+                "artifacts/claims.json",
+                "artifacts/benchmark_claims.json",
+                "artifacts/command_plan.json",
+                "artifacts/research_validation_report.md",
             ],
         },
     )
@@ -567,8 +569,8 @@ def run_demo(paper: Path, output_root: Path, run_id: str | None) -> Path:
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Run the preliminary SkillGen Phase 0 demo.")
-    parser.add_argument("--paper", type=Path, default=Path("docs/SkillGen.pdf"), help="Path to SkillGen.pdf")
-    parser.add_argument("--output-root", type=Path, default=Path("runs"), help="Directory for run artifacts")
+    parser.add_argument("--paper", type=Path, default=Path("meeting docs/SkillGen.pdf"), help="Path to SkillGen.pdf")
+    parser.add_argument("--output-root", type=Path, default=Path("phase_0/runs"), help="Directory for run artifacts")
     parser.add_argument("--run-id", default=None, help="Optional deterministic run id")
     return parser
 

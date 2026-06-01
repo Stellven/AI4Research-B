@@ -21,8 +21,8 @@ pip install -r requirements.txt
 For this project, the dependency-local equivalent should install into a repo-local virtual environment:
 
 ```bash
-python3 -m venv runs/skillgen_phase0_demo_20260601_002144/code/official/.venv
-env UV_CACHE_DIR=runs/skillgen_phase0_demo_20260601_002144/code/official/.uv-cache uv pip install --python runs/skillgen_phase0_demo_20260601_002144/code/official/.venv/bin/python -r runs/skillgen_phase0_demo_20260601_002144/code/official/requirements.txt
+python3 -m venv phase_0/runs/skillgen_phase0_demo_20260601_002144/code/official/.venv
+env UV_CACHE_DIR=phase_0/runs/skillgen_phase0_demo_20260601_002144/code/official/.uv-cache uv pip install --python phase_0/runs/skillgen_phase0_demo_20260601_002144/code/official/.venv/bin/python -r phase_0/runs/skillgen_phase0_demo_20260601_002144/code/official/requirements.txt
 ```
 
 ## Required Environment Variables

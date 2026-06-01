@@ -6,8 +6,8 @@ Status: `blocked_until_human_approval_and_key_visibility`
 
 All official-code dependencies should be installed under the current repository, specifically:
 
-- virtual environment: `runs/skillgen_phase0_demo_20260601_002144/code/official/.venv/`
-- uv cache: `runs/skillgen_phase0_demo_20260601_002144/code/official/.uv-cache/`
+- virtual environment: `phase_0/runs/skillgen_phase0_demo_20260601_002144/code/official/.venv/`
+- uv cache: `phase_0/runs/skillgen_phase0_demo_20260601_002144/code/official/.uv-cache/`
 
 This satisfies the user's dependency-locality rule while allowing the Python interpreter itself to come from `mise`.
 

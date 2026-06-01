@@ -16,7 +16,7 @@ SkillGen reports average held-out accuracy gains for all eight evaluated base LL
 
 - Repository: `https://github.com/yccm/SkillGen`
 - Commit: `3c4537bb12ac287ceb1b5d410b491206089fdcb7`
-- Local snapshot: `runs/skillgen_phase0_demo_20260601_002144/code/official`
+- Local snapshot: `phase_0/runs/skillgen_phase0_demo_20260601_002144/code/official`
 
 ## Cheapest Validation Target
 
@@ -24,9 +24,9 @@ AIME smoke validation was selected because the official README uses AIME in Quic
 
 This is a recorded deviation from the full paper benchmark:
 
-- train subset: `phase_0/smoke_data/aime_train_n8_seed42.json`
-- test subset: `phase_0/smoke_data/aime_test_n4_seed42.json`
-- smoke config: `phase_0/skillgen_aime_smoke_config.yaml`
+- train subset: `artifacts/smoke_data/aime_train_n8_seed42.json`
+- test subset: `artifacts/smoke_data/aime_test_n4_seed42.json`
+- smoke config: `artifacts/skillgen_aime_smoke_config.yaml`
 
 ## Execution Summary
 
@@ -64,6 +64,6 @@ The smoke result should not be used to reject the paper's Table 1 claim, because
 
 ## Notable Issues
 
-- A first attempted run failed with `AuthenticationError: Missing Authentication header` because the copied `.env` values had literal wrapper quotes. This was fixed by normalizing `.env`; the failed run is preserved under `raw_benchmark_outputs/skillgen_aime_smoke/artifacts/runs/20260601-152909`.
+- A first attempted run failed with `AuthenticationError: Missing Authentication header` because the copied `.env` values had literal wrapper quotes. This was fixed by normalizing `.env`; the failed run is preserved under `artifacts/raw_benchmark_outputs/skillgen_aime_smoke/artifacts/runs/20260601-152909`.
 - The README eval example uses flags that do not match the current `eval_skill.py`; the eval command used the actual CLI's `--skill-repo` and `--dataset` flags.
 - Full Table 1 reproduction still requires the paper's benchmark rows, larger splits, and additional API spend.

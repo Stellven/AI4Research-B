@@ -6,9 +6,9 @@ Status: `requires_human_approval`
 
 Use the official repo's AIME quick-start path as a low-cost smoke validation:
 
-- training subset: `phase_0/smoke_data/aime_train_n8_seed42.json`
-- eval subset: `phase_0/smoke_data/aime_test_n4_seed42.json`
-- smoke config: `phase_0/skillgen_aime_smoke_config.yaml`
+- training subset: `artifacts/smoke_data/aime_train_n8_seed42.json`
+- eval subset: `artifacts/smoke_data/aime_test_n4_seed42.json`
+- smoke config: `artifacts/skillgen_aime_smoke_config.yaml`
 
 This is deliberately **not** a Table 1 reproduction. It validates that the official SkillGen pipeline can run end-to-end under recorded conditions at minimal cost.
 

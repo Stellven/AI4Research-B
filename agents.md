@@ -137,45 +137,47 @@ Each step must have an input artifact, output artifact, status, and failure path
 Use this layout for Phase 0 run evidence:
 
 ```text
-runs/<run_id>/
-  input/
-    paper.pdf
-    research_report.md
-    input_manifest.json
-  phase_0/
-    paper_parse.md
-    paper_parse.json
-    claims.md
-    claims.json
-    benchmark_claims.json
-    human_claim_review.md
-    code_manifest.json
-    repo_snapshot.md
-    official_instructions.md
-    command_plan.json
-    human_command_review.md
-    environment_plan.md
-    install_stdout.txt
-    install_stderr.txt
-    environment.json
-    benchmark_run_plan.md
-    benchmark_stdout.txt
-    benchmark_stderr.txt
-    raw_benchmark_outputs/
-    benchmark_results.json
-    benchmark_results.md
-    claim_comparison.json
-    claim_comparison.md
-    human_result_review.md
-    research_validation_report.md
-    failure_modes.md
-  code/
-    official/
-  integration/
-    pipeline_run_log.jsonl
-  playback/
-    thought_playback.md
-    decision_trace.jsonl
+phase_0/
+  runs/<run_id>/
+    input/
+      paper.pdf
+      research_report.md
+      input_manifest.json
+    artifacts/
+      paper_parse.md
+      paper_parse.json
+      claims.md
+      claims.json
+      benchmark_claims.json
+      human_claim_review.md
+      code_manifest.json
+      repo_snapshot.md
+      official_instructions.md
+      command_plan.json
+      human_command_review.md
+      environment_plan.md
+      environment.json
+      benchmark_run_plan.md
+      raw_benchmark_outputs/
+      benchmark_results.json
+      benchmark_results.md
+      claim_comparison.json
+      claim_comparison.md
+      human_result_review.md
+      research_validation_report.md
+      failure_modes.md
+    outputs/
+      install_stdout.txt
+      install_stderr.txt
+      benchmark_stdout.txt
+      benchmark_stderr.txt
+    code/
+      official/
+    integration/
+      pipeline_run_log.jsonl
+    playback/
+      thought_playback.md
+      decision_trace.jsonl
 ```
 
 Artifacts may be empty or marked unavailable only when the reason is recorded. For example, if benchmark output cannot be parsed, write `benchmark_results.md` explaining why and mark the result `not_testable`; do not silently omit the artifact.
@@ -404,91 +406,53 @@ Returns `accept`, `revise`, or `reject` for major artifacts and final outputs.
 
 ## Run Artifacts
 
-Each run should use a file-first layout:
+Phase 0 runs should use a file-first layout:
 
 ```text
-runs/<run_id>/
-  input/
-    paper.pdf
-    research_report.md
-    input_manifest.json
-    report_bundle_manifest.json
-  phase_0/
-    paper_parse.md
-    paper_parse.json
-    claims.md
-    claims.json
-    benchmark_claims.json
-    human_claim_review.md
-    code_manifest.json
-    repo_snapshot.md
-    official_instructions.md
-    command_plan.json
-    human_command_review.md
-    environment_plan.md
-    install_stdout.txt
-    install_stderr.txt
-    environment.json
-    benchmark_run_plan.md
-    benchmark_stdout.txt
-    benchmark_stderr.txt
-    raw_benchmark_outputs/
-    benchmark_results.json
-    benchmark_results.md
-    claim_comparison.json
-    claim_comparison.md
-    human_result_review.md
-    research_validation_report.md
-    failure_modes.md
-  ingest/
-    report_parse.json
-    report_completeness_check.json
-  extraction/
-    paper_analysis.md
-    solution_candidates.json
-    solution_candidates.md
-    claim_map.json
-    assumption_map.json
-    poc_feasibility_review.md
-  selection/
-    selected_solution.md
-    human_selection.md
-  poc/
-    poc_scope.md
-    requirements.md
-    design.md
-    test_plan.md
-    implementation_report.md
-    validation_report.md
-  code/
-    official/
-    src/
-    tests/
-    benchmarks/
-  integration/
-    handoff_contract.md
-    pipeline_run_log.jsonl
-    failure_modes.md
-    integration_review.md
-    recovery_plan.md
-  pipeline_validation/
-    pipeline_requirements.md
-    pipeline_design.md
-    pipeline_v_model.md
-    system_test_results.md
-  safety/
-    skill_manifest.schema.json
-    skill_safety_policy.md
-    skill_audit_report.md
-    approved_skills.json
-    blocked_skills.json
-  playback/
-    thought_playback.md
-    decision_trace.jsonl
-  review/
-    final_review.md
-    human_approval.md
+phase_0/
+  runs/<run_id>/
+    input/
+      paper.pdf
+      research_report.md
+      input_manifest.json
+    artifacts/
+      paper_parse.md
+      paper_parse.json
+      claims.md
+      claims.json
+      benchmark_claims.json
+      human_claim_review.md
+      code_manifest.json
+      repo_snapshot.md
+      official_instructions.md
+      command_plan.json
+      human_command_review.md
+      environment_plan.md
+      environment.json
+      benchmark_run_plan.md
+      raw_benchmark_outputs/
+      benchmark_results.json
+      benchmark_results.md
+      claim_comparison.json
+      claim_comparison.md
+      human_result_review.md
+      research_validation_report.md
+      failure_modes.md
+    outputs/
+      install_stdout.txt
+      install_stderr.txt
+      benchmark_stdout.txt
+      benchmark_stderr.txt
+    code/
+      official/
+    integration/
+      pipeline_run_log.jsonl
+    playback/
+      thought_playback.md
+      decision_trace.jsonl
 ```
+
+Later report-to-POC runs should preserve the same file-first approach and add phase-specific artifacts, such as `ingest/`, `extraction/`, `selection/`, `poc/`, `pipeline_validation/`, `safety/`, and `review/`, when those phases are implemented.
 
 ## Testing Model
 
@@ -652,11 +616,12 @@ AI4Research-B/
     safety/
     playback/
     review/
-  docs/
+  meeting docs/
   prompts/
   schemas/
   tests/
-  runs/
+  phase_0/
+    runs/
 ```
 
 ## Current Working Definition

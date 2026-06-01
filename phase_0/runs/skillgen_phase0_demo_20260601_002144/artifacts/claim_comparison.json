@@ -15,8 +15,8 @@
   },
   "observed_table1_reproduction": null,
   "observed_smoke_validation": {
-    "dataset": "phase_0/smoke_data/aime_test_n4_seed42.json",
-    "command": "cd code/official && .venv/bin/python eval_skill.py --skill-repo ../../phase_0/raw_benchmark_outputs/skillgen_aime_smoke/skill_output/2026-06-01_15-32-00 --dataset ../../phase_0/smoke_data/aime_test_n4_seed42.json --n 4 --seed 42 --models openai/gpt-5.4-nano --judge-model openai/gpt-5.4-mini --max-workers 1 --output ../../phase_0/raw_benchmark_outputs/skillgen_aime_smoke/eval_results.json",
+    "dataset": "artifacts/smoke_data/aime_test_n4_seed42.json",
+    "command": "cd code/official && .venv/bin/python eval_skill.py --skill-repo ../../artifacts/raw_benchmark_outputs/skillgen_aime_smoke/skill_output/2026-06-01_15-32-00 --dataset ../../artifacts/smoke_data/aime_test_n4_seed42.json --n 4 --seed 42 --models openai/gpt-5.4-nano --judge-model openai/gpt-5.4-mini --max-workers 1 --output ../../artifacts/raw_benchmark_outputs/skillgen_aime_smoke/eval_results.json",
     "exit_code": 0,
     "model": "openai/gpt-5.4-nano",
     "n_instances": 4,
