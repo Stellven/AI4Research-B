@@ -1,40 +1,96 @@
 {
-  "schema_version": "0.2",
-  "status": "requires_human_approval",
-  "official_code_urls": [
-    "https://github.com/yccm/SkillGen"
-  ],
-  "selected_cheapest_target": {
-    "name": "AIME official-repo smoke validation",
-    "source": "README Quick Start uses data/aime/train.json; AIME has the shortest bundled prompts and deterministic grader.",
-    "paper_claim_alignment": "official-code smoke only; not a Table 1 reproduction target",
-    "train_subset": "artifacts/smoke_data/aime_train_n8_seed42.json",
-    "test_subset": "artifacts/smoke_data/aime_test_n4_seed42.json",
-    "config": "artifacts/skillgen_aime_smoke_config.yaml"
-  },
-  "resource_status": {
-    "OPENROUTER_API_KEY": "missing_in_current_shell",
-    "OPENAI_API_KEY": "missing_in_current_shell",
-    "network": "required",
-    "paid_api_or_token_budget": "required",
-    "external_dataset_download": "not required for selected AIME smoke subset",
-    "gpu": "not required locally; inference is hosted"
-  },
-  "install_commands": [
-    "python3 -m venv phase_0/runs/skillgen_phase0_demo_20260601_002144/code/official/.venv",
-    "env UV_CACHE_DIR=phase_0/runs/skillgen_phase0_demo_20260601_002144/code/official/.uv-cache uv pip install --python phase_0/runs/skillgen_phase0_demo_20260601_002144/code/official/.venv/bin/python -r phase_0/runs/skillgen_phase0_demo_20260601_002144/code/official/requirements.txt"
-  ],
-  "official_quickstart_train_command": "cd phase_0/runs/skillgen_phase0_demo_20260601_002144/code/official && .venv/bin/python main.py data/aime/train.json --config config.yaml",
-  "recommended_cheapest_smoke_train_command": "cd phase_0/runs/skillgen_phase0_demo_20260601_002144/code/official && .venv/bin/python main.py ../../artifacts/smoke_data/aime_train_n8_seed42.json --config ../../artifacts/skillgen_aime_smoke_config.yaml",
-  "recommended_cheapest_smoke_eval_command_template": "cd phase_0/runs/skillgen_phase0_demo_20260601_002144/code/official && .venv/bin/python eval_skill.py --skill-repo ../../artifacts/raw_benchmark_outputs/skillgen_aime_smoke/skill_output/<run> --dataset ../../artifacts/smoke_data/aime_test_n4_seed42.json --n 4 --seed 42 --models openai/gpt-5.4-nano --judge-model openai/gpt-5.4-mini --max-workers 1 --output ../../artifacts/raw_benchmark_outputs/skillgen_aime_smoke/eval_results.json",
+  "schema_version": "0.3",
+  "status": "ready_for_approval",
+  "target_id": "skillgen_aime_smoke",
+  "official_code_url": "https://github.com/yccm/SkillGen",
   "requires_network": true,
   "requires_api_keys": true,
   "requires_paid_api_or_token_budget": true,
-  "requires_human_review_before_execution": true,
+  "required_env_vars": [
+    "OPENROUTER_API_KEY",
+    "OPENAI_API_KEY"
+  ],
+  "commands": {
+    "create_venv": {
+      "kind": "install",
+      "workdir": ".",
+      "argv": [
+        "python3",
+        "-m",
+        "venv",
+        "code/official/.venv"
+      ],
+      "requires_approval": true,
+      "requires_network": false
+    },
+    "install": {
+      "kind": "install",
+      "workdir": ".",
+      "argv": [
+        "uv",
+        "pip",
+        "install",
+        "--python",
+        "code/official/.venv/bin/python",
+        "-r",
+        "code/official/requirements.txt"
+      ],
+      "env": {
+        "UV_CACHE_DIR": "code/official/.uv-cache"
+      },
+      "requires_approval": true,
+      "requires_network": true
+    },
+    "train": {
+      "kind": "benchmark_train",
+      "workdir": "code/official",
+      "argv": [
+        ".venv/bin/python",
+        "main.py",
+        "../../artifacts/smoke_data/aime_train_n8_seed42.json",
+        "--config",
+        "../../artifacts/skillgen_aime_smoke_config.yaml"
+      ],
+      "requires_approval": true,
+      "requires_network": true,
+      "requires_api_keys": true
+    },
+    "eval_template": {
+      "kind": "benchmark_eval",
+      "workdir": "code/official",
+      "argv": [
+        ".venv/bin/python",
+        "eval_skill.py",
+        "--skill-repo",
+        "{skill_output_dir}",
+        "--dataset",
+        "../../artifacts/smoke_data/aime_test_n4_seed42.json",
+        "--n",
+        "4",
+        "--seed",
+        "42",
+        "--models",
+        "openai/gpt-5.4-nano",
+        "--judge-model",
+        "openai/gpt-5.4-mini",
+        "--max-workers",
+        "1",
+        "--output",
+        "../../artifacts/raw_benchmark_outputs/skillgen_aime_smoke/eval_results.json"
+      ],
+      "requires_approval": true,
+      "requires_network": true,
+      "requires_api_keys": true
+    }
+  },
+  "expected_outputs": [
+    "artifacts/raw_benchmark_outputs/skillgen_aime_smoke/eval_results.json",
+    "artifacts/raw_benchmark_outputs/skillgen_aime_smoke/eval_results.token_usage.json"
+  ],
   "deviations_requiring_approval": [
-    "Using AIME smoke subset instead of the full README train/test split.",
-    "Using reduced smoke config instead of official config.yaml.",
-    "Using eval_skill.py --skill-repo / --dataset because README eval flags do not match current CLI.",
-    "Using uv and repo-local .venv/.uv-cache to satisfy project dependency-locality constraints."
+    "AIME smoke subset instead of the full paper Table 1 setup.",
+    "Reduced smoke config instead of official config.yaml.",
+    "Corrected eval CLI uses --skill-repo and --dataset based on eval_skill.py.",
+    "uv cache and virtual environment are kept inside the run directory."
   ]
 }

@@ -2,3 +2,46 @@
 {"run_id": "skillgen_phase0_demo_20260601_002144", "step": "preliminary_demo", "status": "blocked", "ended_at": "2026-06-01T04:21:44.825982+00:00", "artifacts_written": ["input/input_manifest.json", "artifacts/paper_parse.md", "artifacts/claims.json", "artifacts/benchmark_claims.json", "artifacts/command_plan.json", "artifacts/research_validation_report.md"]}
 {"run_id": "skillgen_phase0_demo_20260601_002144", "step": "official_code_intake_and_command_planning", "status": "requires_human_approval", "ended_at": "2026-06-01T19:03:53.873393+00:00", "artifacts_written": ["artifacts/code_manifest.json", "artifacts/repo_snapshot.md", "artifacts/official_instructions.md", "artifacts/command_plan.json", "artifacts/environment_plan.md", "artifacts/benchmark_run_plan.md", "artifacts/human_command_review.md", "artifacts/smoke_data/aime_train_n8_seed42.json", "artifacts/smoke_data/aime_test_n4_seed42.json", "artifacts/skillgen_aime_smoke_config.yaml"]}
 {"run_id": "skillgen_phase0_demo_20260601_002144", "step": "aime_smoke_train_and_eval", "status": "completed_smoke_not_reproduced", "ended_at": "2026-06-01T19:37:39.581437+00:00", "artifacts_written": ["artifacts/benchmark_results.json", "artifacts/benchmark_results.md", "artifacts/claim_comparison.json", "artifacts/claim_comparison.md", "artifacts/research_validation_report.md", "artifacts/environment.json"]}
+{"step": "result_parsing", "status": "completed", "timestamp": "2026-06-02T04:53:21.836824+00:00", "artifact": "artifacts/benchmark_results.json"}
+{"step": "official_code_intake", "status": "intake_complete", "timestamp": "2026-06-02T04:53:21.851386+00:00", "artifact": "artifacts/code_manifest.json"}
+{"step": "official_instruction_extraction", "status": "extracted", "timestamp": "2026-06-02T04:53:21.852332+00:00", "artifact": "artifacts/official_instructions.md"}
+{"step": "verification_contract_generation", "status": "completed", "timestamp": "2026-06-02T04:53:21.854042+00:00", "artifact": "artifacts/verification_contract.json"}
+{"step": "command_plan_generation", "status": "completed", "timestamp": "2026-06-02T04:53:21.854387+00:00", "artifact": "artifacts/command_plan.json"}
+{"step": "report_generation", "status": "completed", "timestamp": "2026-06-02T04:53:21.855014+00:00", "artifact": "artifacts/research_validation_report.md"}
+{"step": "result_parsing", "status": "completed", "timestamp": "2026-06-02T04:53:27.612155+00:00", "artifact": "artifacts/benchmark_results.json"}
+{"step": "claim_comparison", "status": "not_reproduced", "timestamp": "2026-06-02T04:53:27.612743+00:00"}
+{"step": "report_generation", "status": "completed", "timestamp": "2026-06-02T04:53:27.613042+00:00", "artifact": "artifacts/research_validation_report.md"}
+{"step": "result_parsing", "status": "completed", "timestamp": "2026-06-02T05:16:05.203330+00:00", "artifact": "artifacts/benchmark_results.json"}
+{"step": "claim_comparison", "status": "not_reproduced", "timestamp": "2026-06-02T05:16:05.203659+00:00"}
+{"step": "report_generation", "status": "completed", "timestamp": "2026-06-02T05:16:05.204151+00:00", "artifact": "artifacts/research_validation_report.md"}
+{"step": "official_code_intake", "status": "intake_complete", "timestamp": "2026-06-02T05:16:05.230039+00:00", "artifact": "artifacts/code_manifest.json"}
+{"step": "official_instruction_extraction", "status": "extracted", "timestamp": "2026-06-02T05:16:05.231017+00:00", "artifact": "artifacts/official_instructions.md"}
+{"step": "verification_contract_generation", "status": "completed", "timestamp": "2026-06-02T05:16:05.231360+00:00", "artifact": "artifacts/verification_contract.json"}
+{"step": "command_plan_generation", "status": "completed", "timestamp": "2026-06-02T05:16:05.231618+00:00", "artifact": "artifacts/command_plan.json"}
+{"step": "report_generation", "status": "completed", "timestamp": "2026-06-02T05:16:05.232694+00:00", "artifact": "artifacts/research_validation_report.md"}
+{"step": "result_parsing", "status": "completed", "timestamp": "2026-06-02T05:16:13.205763+00:00", "artifact": "artifacts/benchmark_results.json"}
+{"step": "claim_comparison", "status": "not_reproduced", "timestamp": "2026-06-02T05:16:13.206441+00:00"}
+{"step": "report_generation", "status": "completed", "timestamp": "2026-06-02T05:16:13.206806+00:00", "artifact": "artifacts/research_validation_report.md"}
+{"step": "official_code_intake", "status": "intake_complete", "timestamp": "2026-06-02T05:18:37.671544+00:00", "artifact": "artifacts/code_manifest.json"}
+{"step": "official_instruction_extraction", "status": "extracted", "timestamp": "2026-06-02T05:18:37.672487+00:00", "artifact": "artifacts/official_instructions.md"}
+{"step": "verification_contract_generation", "status": "completed", "timestamp": "2026-06-02T05:18:37.672860+00:00", "artifact": "artifacts/verification_contract.json"}
+{"step": "command_plan_generation", "status": "completed", "timestamp": "2026-06-02T05:18:37.673117+00:00", "artifact": "artifacts/command_plan.json"}
+{"step": "report_generation", "status": "completed", "timestamp": "2026-06-02T05:18:37.673860+00:00", "artifact": "artifacts/research_validation_report.md"}
+{"step": "result_parsing", "status": "completed", "timestamp": "2026-06-02T05:18:41.465974+00:00", "artifact": "artifacts/benchmark_results.json"}
+{"step": "claim_comparison", "status": "not_reproduced", "timestamp": "2026-06-02T05:18:41.466323+00:00"}
+{"step": "report_generation", "status": "completed", "timestamp": "2026-06-02T05:18:41.466728+00:00", "artifact": "artifacts/research_validation_report.md"}
+{"step": "official_code_intake", "status": "intake_complete", "timestamp": "2026-06-02T05:26:51.640874+00:00", "artifact": "artifacts/code_manifest.json"}
+{"step": "official_instruction_extraction", "status": "extracted", "timestamp": "2026-06-02T05:26:51.641790+00:00", "artifact": "artifacts/official_instructions.md"}
+{"step": "verification_contract_generation", "status": "completed", "timestamp": "2026-06-02T05:26:51.642137+00:00", "artifact": "artifacts/verification_contract.json"}
+{"step": "command_plan_generation", "status": "completed", "timestamp": "2026-06-02T05:26:51.642378+00:00", "artifact": "artifacts/command_plan.json"}
+{"step": "report_generation", "status": "completed", "timestamp": "2026-06-02T05:26:51.642972+00:00", "artifact": "artifacts/research_validation_report.md"}
+{"step": "official_code_intake", "status": "intake_complete", "timestamp": "2026-06-02T05:40:29.527826+00:00", "artifact": "artifacts/code_manifest.json"}
+{"step": "official_instruction_extraction", "status": "extracted", "timestamp": "2026-06-02T05:40:29.528777+00:00", "artifact": "artifacts/official_instructions.md"}
+{"step": "verification_contract_generation", "status": "completed", "timestamp": "2026-06-02T05:40:29.529170+00:00", "artifact": "artifacts/verification_contract.json"}
+{"step": "command_plan_generation", "status": "completed", "timestamp": "2026-06-02T05:40:29.529421+00:00", "artifact": "artifacts/command_plan.json"}
+{"step": "all_claim_verification_planning", "status": "completed", "timestamp": "2026-06-02T05:40:29.562042+00:00", "artifact": "artifacts/all_claim_verification_matrix.json"}
+{"step": "report_generation", "status": "completed", "timestamp": "2026-06-02T05:40:29.562516+00:00", "artifact": "artifacts/research_validation_report.md"}
+{"step": "result_parsing", "status": "completed", "timestamp": "2026-06-02T05:40:33.651573+00:00", "artifact": "artifacts/benchmark_results.json"}
+{"step": "claim_comparison", "status": "not_reproduced", "timestamp": "2026-06-02T05:40:33.651903+00:00"}
+{"step": "all_claim_verification_planning", "status": "completed", "timestamp": "2026-06-02T05:40:33.684204+00:00", "artifact": "artifacts/all_claim_verification_matrix.json"}
+{"step": "report_generation", "status": "completed", "timestamp": "2026-06-02T05:40:33.684546+00:00", "artifact": "artifacts/research_validation_report.md"}

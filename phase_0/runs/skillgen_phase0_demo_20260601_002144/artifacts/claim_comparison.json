@@ -1,45 +1,22 @@
 {
-  "schema_version": "0.2",
-  "status": "blocked_for_table1_reproduction_smoke_not_reproduced",
-  "claim_id": "claim_skillgen_table1_average_gains",
+  "schema_version": "0.3",
+  "target_id": "skillgen_aime_smoke",
   "benchmark_claim_id": "bench_skillgen_table1_paired_accuracy",
-  "paper_reported": {
-    "table1_average_gains_pp": [
-      3.27,
-      10.08
-    ],
-    "improved_entries": 50,
-    "unchanged_entries": 25,
-    "regressed_entries": 5,
-    "total_entries": 80
-  },
-  "observed_table1_reproduction": null,
-  "observed_smoke_validation": {
-    "dataset": "artifacts/smoke_data/aime_test_n4_seed42.json",
-    "command": "cd code/official && .venv/bin/python eval_skill.py --skill-repo ../../artifacts/raw_benchmark_outputs/skillgen_aime_smoke/skill_output/2026-06-01_15-32-00 --dataset ../../artifacts/smoke_data/aime_test_n4_seed42.json --n 4 --seed 42 --models openai/gpt-5.4-nano --judge-model openai/gpt-5.4-mini --max-workers 1 --output ../../artifacts/raw_benchmark_outputs/skillgen_aime_smoke/eval_results.json",
-    "exit_code": 0,
-    "model": "openai/gpt-5.4-nano",
-    "n_instances": 4,
+  "paper_claim_id": "claim_skillgen_table1_average_gains",
+  "smoke_status": "not_reproduced",
+  "full_paper_claim_status": "blocked",
+  "full_paper_claim_reason": "The AIME smoke target is not the full SkillGen Table 1 benchmark setup.",
+  "observed": {
     "baseline_acc": 0.5,
     "skill_acc": 0.25,
     "delta_acc": -0.25,
     "repair": 0,
     "regression": 1,
-    "net_gain": -1,
-    "blank_filter": {
-      "drop_blank": true,
-      "n_paired_raw": 4,
-      "n_blank_baseline": 0,
-      "n_blank_skill": 0,
-      "n_blank_either": 0,
-      "n_blank_both": 0
-    },
-    "token_usage_total": 14118
+    "net_gain": -1
   },
-  "interpretation": {
-    "table1_claim": "blocked",
-    "table1_reason": "The AIME smoke target is not one of the paper Table 1 benchmark rows and uses a reduced cost-control config.",
-    "smoke_target": "not_reproduced",
-    "smoke_reason": "Held-out AIME smoke eval regressed: delta=-25 percentage points, net_gain=-1."
+  "comparison_rule": {
+    "smoke_reproduced_if": "skill_acc > baseline_acc and net_gain > 0",
+    "smoke_not_reproduced_if": "skill_acc <= baseline_acc or net_gain <= 0",
+    "full_paper_claim_status": "blocked"
   }
 }

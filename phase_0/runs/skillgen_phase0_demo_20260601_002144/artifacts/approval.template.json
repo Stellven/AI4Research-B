@@ -1,0 +1,14 @@
+{
+  "schema_version": "0.1",
+  "command_plan_approved": true,
+  "approved_targets": [
+    "skillgen_aime_smoke"
+  ],
+  "allow_install": true,
+  "allow_benchmark": true,
+  "allow_network": true,
+  "allow_paid_api": true,
+  "max_cost_usd": 5.0,
+  "approved_by": "human",
+  "notes": "Approve only after reviewing command_plan.json."
+}
