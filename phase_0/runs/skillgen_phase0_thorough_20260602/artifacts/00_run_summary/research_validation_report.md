@@ -45,8 +45,8 @@ The current automation targets the SkillGen AIME smoke validation. It does not c
 ## All-Claim Verification
 
 - Claim status counts: `blocked=5, not_reproduced=2, not_testable=2, partially_reproduced=3`
-- Matrix: `artifacts/all_claim_verification_matrix.json`
-- Catalog: `artifacts/all_claims.json`
+- Matrix: `artifacts/02_claims/all_claim_verification_matrix.json`
+- Catalog: `artifacts/02_claims/all_claims.json`
 
 ## Status Explanations
 
@@ -193,26 +193,26 @@ The current automation targets the SkillGen AIME smoke validation. It does not c
 
 ## Evidence Files
 
-- `artifacts/verification_contract.json`
-- `artifacts/command_plan.json`
-- `artifacts/all_claims.json`
-- `artifacts/all_claim_verification_matrix.json`
-- `artifacts/external_source_intake_status.json`
-- `artifacts/canonical_benchmark_source_status.json`
-- `artifacts/model_route_mapping.template.json`
-- `artifacts/benchmark_execution_plan.json`
-- `artifacts/transfer_runner_plan.json`
-- `artifacts/token_log_plan.json`
+- `artifacts/06_plans_and_contracts/verification_contract.json`
+- `artifacts/04_commands_and_environment/command_plan.json`
+- `artifacts/02_claims/all_claims.json`
+- `artifacts/02_claims/all_claim_verification_matrix.json`
+- `artifacts/03_code_and_sources/external_source_intake_status.json`
+- `artifacts/03_code_and_sources/canonical_benchmark_source_status.json`
+- `artifacts/06_plans_and_contracts/model_route_mapping.template.json`
+- `artifacts/06_plans_and_contracts/benchmark_execution_plan.json`
+- `artifacts/06_plans_and_contracts/transfer_runner_plan.json`
+- `artifacts/06_plans_and_contracts/token_log_plan.json`
 - `outputs/install_stdout.txt`
 - `outputs/install_stderr.txt`
 - `outputs/benchmark_stdout.txt`
 - `outputs/benchmark_stderr.txt`
-- `artifacts/benchmark_results.json`
-- `artifacts/claim_comparison.json`
+- `artifacts/08_results/benchmark_results.json`
+- `artifacts/08_results/claim_comparison.json`
 
 ## Limitations
 
 - This is a paper-specific automation POC.
 - The selected target is a low-cost AIME smoke validation, not the paper's full Table 1 benchmark matrix.
-- Live install and benchmark execution require `artifacts/approval.json` plus API keys.
+- Live install and benchmark execution require `artifacts/00_run_summary/approval.json` plus API keys.
 - Additional target executions may include recorded deviations, especially the direct OpenAI fallback used when OpenRouter credits were unavailable.
