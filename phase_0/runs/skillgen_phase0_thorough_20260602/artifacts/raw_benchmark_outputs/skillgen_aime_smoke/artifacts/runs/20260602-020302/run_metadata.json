@@ -1,0 +1,45 @@
+{
+  "dataset_id": "aime_train_smoke_n8_seed42",
+  "task_name": "aime_olympiad_math_train",
+  "dataset_metadata": {
+    "source": "allenai/aime-2022-2025",
+    "domain": "olympiad_math",
+    "n": 80,
+    "year_filter": null,
+    "split_strategy": "single_shuffle_no_overlap",
+    "split": "train",
+    "seed": 42,
+    "grader": "aime_grader.evaluate_aime_output (exact-match integer)"
+  },
+  "task_type": "binary",
+  "n_instances": 8,
+  "models": {
+    "default": "openai/gpt-5.4-mini",
+    "baseline_agent": "openai/gpt-5.4-nano",
+    "baseline_judge": "openai/gpt-5.4-mini",
+    "induction": "openai/gpt-5.4-mini",
+    "induction_contextual": "openai/gpt-5.4-mini",
+    "induction_summary": "openai/gpt-5.4-mini",
+    "induction_pattern": "openai/gpt-5.4-mini",
+    "induction_contrastive": "openai/gpt-5.4-mini",
+    "generation_plan": "openai/gpt-5.4-mini",
+    "generation_execute": "openai/gpt-5.4-mini",
+    "refinement": "openai/gpt-5.4-mini",
+    "verification_agent": "openai/gpt-5.4-nano",
+    "verification_judge": "openai/gpt-5.4-mini",
+    "verification_case_analyst": "openai/gpt-5.4-mini",
+    "verification_revision_synthesiser": "openai/gpt-5.4-mini"
+  },
+  "llm": {
+    "temperature": 0.0,
+    "max_tokens": 1024,
+    "max_tokens_generation": 4096
+  },
+  "pipeline": {
+    "max_refine_rounds": 1,
+    "baseline_runs_per_instance": 1,
+    "max_workers": 1,
+    "artifact_root": "../../artifacts/raw_benchmark_outputs/skillgen_aime_smoke/artifacts/runs"
+  },
+  "skill_output_path": "../../artifacts/raw_benchmark_outputs/skillgen_aime_smoke/skill_output/2026-06-02_02-03-02"
+}

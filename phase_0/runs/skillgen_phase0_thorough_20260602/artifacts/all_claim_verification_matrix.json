@@ -1,0 +1,2475 @@
+{
+  "schema_version": "0.2",
+  "scope": "Claim-by-claim verification status for SkillGen",
+  "status_counts": {
+    "partially_reproduced": 3,
+    "blocked": 5,
+    "not_testable": 2,
+    "not_reproduced": 2
+  },
+  "official_support": {
+    "schema_version": "0.1",
+    "official_code_present": true,
+    "data_support": {
+      "aime": {
+        "available": true,
+        "data_dir": "data/aime",
+        "train_path": "data/aime/train.json",
+        "test_path": "data/aime/test.json",
+        "train_n": 80,
+        "test_n": 40,
+        "train_metadata": {
+          "source": "allenai/aime-2022-2025",
+          "domain": "olympiad_math",
+          "n": 80,
+          "year_filter": null,
+          "split_strategy": "single_shuffle_no_overlap",
+          "split": "train",
+          "seed": 42,
+          "grader": "aime_grader.evaluate_aime_output (exact-match integer)"
+        },
+        "test_metadata": {
+          "source": "allenai/aime-2022-2025",
+          "domain": "olympiad_math",
+          "n": 40,
+          "year_filter": null,
+          "split_strategy": "single_shuffle_no_overlap",
+          "split": "test",
+          "seed": 42,
+          "grader": "aime_grader.evaluate_aime_output (exact-match integer)"
+        }
+      },
+      "mcp_bench_single": {
+        "available": true,
+        "data_dir": "data/mcp_bench",
+        "train_path": "data/mcp_bench/train.json",
+        "test_path": "data/mcp_bench/test.json",
+        "train_n": 40,
+        "test_n": 16,
+        "train_metadata": {
+          "benchmark": "mcp_bench",
+          "split": "single",
+          "split_label": "train",
+          "n": 40,
+          "seed": 42,
+          "pool_total": 56,
+          "source": "Accenture/mcp-bench"
+        },
+        "test_metadata": {
+          "benchmark": "mcp_bench",
+          "split": "single",
+          "split_label": "test",
+          "n": 16,
+          "seed": 42,
+          "pool_total": 56,
+          "source": "Accenture/mcp-bench"
+        }
+      },
+      "mind2web": {
+        "available": true,
+        "data_dir": "data/mind2web",
+        "train_path": "data/mind2web/train.json",
+        "test_path": "data/mind2web/test.json",
+        "train_n": 100,
+        "test_n": 100,
+        "train_metadata": {
+          "source": "osunlp/Mind2Web",
+          "domain": "web_navigation",
+          "n": 100,
+          "split_seed": 42,
+          "granularity": "action",
+          "task_level_split": true
+        },
+        "test_metadata": {
+          "source": "osunlp/Mind2Web",
+          "domain": "web_navigation",
+          "n": 100,
+          "split_seed": 42,
+          "granularity": "action",
+          "task_level_split": true
+        }
+      },
+      "pubmedqa": {
+        "available": true,
+        "data_dir": "data/pubmedqa",
+        "train_path": "data/pubmedqa/train.json",
+        "test_path": "data/pubmedqa/test.json",
+        "train_n": 150,
+        "test_n": 100,
+        "train_metadata": {
+          "benchmark": "pubmedqa",
+          "split_label": "train",
+          "n": 150,
+          "seed": 42,
+          "pool_size": 1000,
+          "source": "qiaojin/PubMedQA (pqa_labeled)"
+        },
+        "test_metadata": {
+          "benchmark": "pubmedqa",
+          "split_label": "test",
+          "n": 100,
+          "seed": 42,
+          "pool_size": 1000,
+          "source": "qiaojin/PubMedQA (pqa_labeled)"
+        }
+      },
+      "scienceworld": {
+        "available": true,
+        "data_dir": "data/scienceworld",
+        "train_path": "data/scienceworld/train.json",
+        "test_path": "data/scienceworld/test.json",
+        "train_n": 150,
+        "test_n": 100,
+        "train_metadata": {
+          "benchmark": "scienceworld",
+          "split_label": "train",
+          "n": 150,
+          "seed": 42,
+          "pool_total": 3442,
+          "source": "allenai/ScienceWorld",
+          "sampling": "stratified_by_task_id"
+        },
+        "test_metadata": {
+          "benchmark": "scienceworld",
+          "split_label": "test",
+          "n": 100,
+          "seed": 42,
+          "pool_total": 1744,
+          "source": "allenai/ScienceWorld",
+          "sampling": "stratified_by_task_id"
+        }
+      },
+      "socialmaze_fts": {
+        "available": true,
+        "data_dir": "data/socialmaze",
+        "train_path": "data/socialmaze/train.json",
+        "test_path": "data/socialmaze/test.json",
+        "train_n": 60,
+        "test_n": 50,
+        "train_metadata": {
+          "benchmark": "socialmaze",
+          "task": "fts",
+          "split_label": "train",
+          "n": 60,
+          "seed": 42,
+          "pool_total": 120,
+          "source": "xzx34/SocialMaze",
+          "num_rounds": 3,
+          "gen_model": "openai/gpt-5.4-nano"
+        },
+        "test_metadata": {
+          "benchmark": "socialmaze",
+          "task": "fts",
+          "split_label": "test",
+          "n": 50,
+          "seed": 42,
+          "pool_total": 120,
+          "source": "xzx34/SocialMaze",
+          "num_rounds": 3,
+          "gen_model": "openai/gpt-5.4-nano"
+        }
+      },
+      "toolbench": {
+        "available": true,
+        "data_dir": "data/toolbench",
+        "train_path": "data/toolbench/train.json",
+        "test_path": "data/toolbench/test.json",
+        "train_n": 120,
+        "test_n": 50,
+        "train_metadata": {
+          "benchmark": "toolbench",
+          "subset": "G1_instruction",
+          "split_label": "train",
+          "n": 120,
+          "seed": 42,
+          "pool_total": 200,
+          "source": "OpenBMB/ToolBench"
+        },
+        "test_metadata": {
+          "benchmark": "toolbench",
+          "subset": "G1_instruction",
+          "split_label": "test",
+          "n": 50,
+          "seed": 42,
+          "pool_total": 200,
+          "source": "OpenBMB/ToolBench"
+        }
+      }
+    },
+    "table1_required_rows": [
+      "alfworld_iod",
+      "alfworld_ood",
+      "livecodebench",
+      "mcp_bench_all",
+      "mcp_bench_single",
+      "mind2web",
+      "pubmedqa",
+      "scienceworld",
+      "socialmaze_fts",
+      "socialmaze_upi"
+    ],
+    "table1_present_rows": [
+      "mcp_bench_single",
+      "mind2web",
+      "pubmedqa",
+      "scienceworld",
+      "socialmaze_fts"
+    ],
+    "table1_missing_rows": [
+      "alfworld_iod",
+      "alfworld_ood",
+      "livecodebench",
+      "mcp_bench_all",
+      "socialmaze_upi"
+    ],
+    "paper_model_names": [
+      "Gemma-4-26B",
+      "Llama-3.1-8B",
+      "Mistral-Nemo",
+      "Qwen-2.5-7B",
+      "Claude-Haiku-4.5",
+      "GPT-5.4-Nano",
+      "GPT-5.4-Mini",
+      "Grok-4-Fast"
+    ],
+    "source_files": {
+      "baseline_generators": false,
+      "ablation_runner": false,
+      "transfer_runner": false,
+      "eval_skill": true,
+      "main": true
+    },
+    "external_source_candidates": {
+      "livecodebench": [
+        {
+          "source_type": "huggingface_dataset",
+          "source": "livecodebench/code_generation_lite",
+          "source_url": "https://huggingface.co/datasets/livecodebench/code_generation_lite",
+          "target_location": "code/official/data/livecodebench",
+          "intake": "Use code/official/scripts/prepare_benchmarks.py with --benchmark livecodebench and the paper-matching version tag.",
+          "identity_basis": "Official prepare_benchmarks.py names hf_id livecodebench/code_generation_lite and imports the LiveCodeBench adapter.",
+          "official_evidence_paths": [
+            "scripts/prepare_benchmarks.py",
+            "benchmarks/livecodebench_adapter.py"
+          ],
+          "source_key": "livecodebench",
+          "official_evidence_present": [
+            "scripts/prepare_benchmarks.py",
+            "benchmarks/livecodebench_adapter.py"
+          ],
+          "official_evidence_missing": [],
+          "identity_status": "identified_by_official_code",
+          "requires_source_intake_approval": true
+        }
+      ],
+      "mcp_bench_all": [
+        {
+          "source_type": "git_repo",
+          "source": "Accenture/mcp-bench",
+          "source_url": "https://github.com/Accenture/mcp-bench.git",
+          "target_location": "code/official/benchmarks/external/mcp-bench",
+          "intake": "Clone under code/official/benchmarks/external/mcp-bench, then run code/official/scripts/prepare_mcp_bench.py --split all with paper-matching train/test sizes.",
+          "identity_basis": "Official README names Accenture/mcp-bench and official prepare_mcp_bench.py supports --split all; the current adapter resolves the executable path under benchmarks/external.",
+          "official_evidence_paths": [
+            "README.md",
+            "scripts/prepare_mcp_bench.py",
+            "benchmarks/mcp_bench_adapter.py"
+          ],
+          "source_key": "mcp_bench_all",
+          "official_evidence_present": [
+            "README.md",
+            "scripts/prepare_mcp_bench.py",
+            "benchmarks/mcp_bench_adapter.py"
+          ],
+          "official_evidence_missing": [],
+          "identity_status": "identified_by_official_code",
+          "requires_source_intake_approval": true
+        }
+      ],
+      "socialmaze_upi": [
+        {
+          "source_type": "git_repo_or_official_generation",
+          "source": "xzx34/SocialMaze",
+          "source_url": "https://github.com/xzx34/SocialMaze",
+          "target_location": "code/official/benchmarks/external/social-maze or code/official/data/socialmaze/upi",
+          "intake": "Use code/official/scripts/prepare_socialmaze.py upi. The script can use shipped SocialMaze material or generate/cache a UPI pool under the requested output directory.",
+          "identity_basis": "Official socialmaze adapter/preparation script records source xzx34/SocialMaze and includes a UPI subcommand; the adapter resolves shipped SocialMaze data under benchmarks/external.",
+          "official_evidence_paths": [
+            "scripts/prepare_socialmaze.py",
+            "benchmarks/socialmaze_adapter.py"
+          ],
+          "source_key": "socialmaze_upi",
+          "official_evidence_present": [
+            "scripts/prepare_socialmaze.py",
+            "benchmarks/socialmaze_adapter.py"
+          ],
+          "official_evidence_missing": [],
+          "identity_status": "identified_by_official_code",
+          "requires_source_intake_approval": true
+        }
+      ],
+      "tau_bench": [
+        {
+          "source_type": "git_repo_or_package",
+          "source": "sierra-research/tau-bench",
+          "source_url": "https://github.com/sierra-research/tau-bench",
+          "target_location": "code/official/benchmarks/external/tau-bench",
+          "intake": "Place tau-bench under code/official/benchmarks/external/tau-bench, then run code/official/scripts/prepare_tau_bench.py for the paper-matching domain and split.",
+          "identity_basis": "Official prepare_tau_bench.py records source sierra-research/tau-bench and the current adapter resolves tau-bench under benchmarks/external.",
+          "official_evidence_paths": [
+            "scripts/prepare_tau_bench.py",
+            "benchmarks/tau_bench_adapter.py"
+          ],
+          "source_key": "tau_bench",
+          "official_evidence_present": [
+            "scripts/prepare_tau_bench.py",
+            "benchmarks/tau_bench_adapter.py"
+          ],
+          "official_evidence_missing": [],
+          "identity_status": "identified_by_official_code",
+          "requires_source_intake_approval": true
+        }
+      ],
+      "chemllmbench": [
+        {
+          "source_type": "git_repo",
+          "source": "ChemFoundationModels/ChemLLMBench",
+          "source_url": "https://github.com/ChemFoundationModels/ChemLLMBench.git",
+          "target_location": "code/official/external/chemllmbench",
+          "intake": "Clone under code/official/external/chemllmbench, then run code/official/scripts/prepare_chemllmbench.py for the paper-matching tasks.",
+          "identity_basis": "Official prepare_chemllmbench.py records source ChemFoundationModels/ChemLLMBench and prints the matching clone command.",
+          "official_evidence_paths": [
+            "scripts/prepare_chemllmbench.py",
+            "benchmarks/chemllmbench_adapter.py"
+          ],
+          "source_key": "chemllmbench",
+          "official_evidence_present": [
+            "scripts/prepare_chemllmbench.py",
+            "benchmarks/chemllmbench_adapter.py"
+          ],
+          "official_evidence_missing": [],
+          "identity_status": "identified_by_official_code",
+          "requires_source_intake_approval": true
+        }
+      ],
+      "toolbench": [
+        {
+          "source_type": "git_repo",
+          "source": "OpenBMB/ToolBench",
+          "source_url": "https://github.com/OpenBMB/ToolBench",
+          "target_location": "code/official/benchmarks/external/ToolBench",
+          "intake": "Clone under code/official/benchmarks/external/ToolBench, then run code/official/scripts/prepare_toolbench.py with the paper-matching subset.",
+          "identity_basis": "Official README and ToolBench adapter name OpenBMB/ToolBench; the current adapter resolves the executable path under benchmarks/external.",
+          "official_evidence_paths": [
+            "README.md",
+            "scripts/prepare_toolbench.py",
+            "benchmarks/toolbench_adapter.py"
+          ],
+          "source_key": "toolbench",
+          "official_evidence_present": [
+            "README.md",
+            "scripts/prepare_toolbench.py",
+            "benchmarks/toolbench_adapter.py"
+          ],
+          "official_evidence_missing": [],
+          "identity_status": "identified_by_official_code",
+          "requires_source_intake_approval": true
+        }
+      ]
+    },
+    "external_source_intake_status": {
+      "schema_version": "0.1",
+      "scope": "Observed external source intake and preparation status for SkillGen blocked targets",
+      "run_dir": "skillgen_phase0_thorough_20260602",
+      "status_counts": {
+        "prepared": 5
+      },
+      "tasks": [
+        {
+          "source_key": "livecodebench",
+          "status": "prepared",
+          "source": "livecodebench/code_generation_lite",
+          "target_path": "code/official/data/livecodebench",
+          "target_exists": true,
+          "commit": null,
+          "expected_outputs": [
+            {
+              "path": "code/official/data/livecodebench/release_v6_all.json",
+              "exists": true,
+              "kind": "file"
+            }
+          ],
+          "partial_outputs": [
+            "code/official/data/livecodebench/release_v6_all.json"
+          ],
+          "requires_api": false,
+          "remaining_blockers": []
+        },
+        {
+          "source_key": "mcp_bench_all",
+          "status": "prepared",
+          "source": "Accenture/mcp-bench",
+          "target_path": "code/official/benchmarks/external/mcp-bench",
+          "target_exists": true,
+          "commit": "7a8eaeae83a842a2949080acc5473f65e1569daf",
+          "expected_outputs": [
+            {
+              "path": "code/official/data/mcp_bench_all/train_all_n40_seed42.json",
+              "exists": true,
+              "kind": "file"
+            },
+            {
+              "path": "code/official/data/mcp_bench_all/test_all_n16_seed42.json",
+              "exists": true,
+              "kind": "file"
+            }
+          ],
+          "partial_outputs": [],
+          "requires_api": false,
+          "remaining_blockers": []
+        },
+        {
+          "source_key": "socialmaze_upi",
+          "status": "prepared",
+          "source": "xzx34/SocialMaze",
+          "target_path": "code/official/benchmarks/external/social-maze",
+          "target_exists": true,
+          "commit": "825ac19999e035a68dfe3ae6be32ac4554d2f841",
+          "expected_outputs": [
+            {
+              "path": "code/official/data/socialmaze_upi/train_n60_seed42.json",
+              "exists": true,
+              "kind": "file"
+            },
+            {
+              "path": "code/official/data/socialmaze_upi/test_n50_seed42.json",
+              "exists": true,
+              "kind": "file"
+            }
+          ],
+          "partial_outputs": [
+            "code/official/data/socialmaze_upi_smoke/train_n1_seed42.json",
+            "code/official/data/socialmaze_upi_smoke/test_n1_seed42.json"
+          ],
+          "requires_api": true,
+          "remaining_blockers": []
+        },
+        {
+          "source_key": "tau_bench",
+          "status": "prepared",
+          "source": "sierra-research/tau-bench",
+          "target_path": "code/official/benchmarks/external/tau-bench",
+          "target_exists": true,
+          "commit": "59a200c6d575d595120f1cb70fea53cef0632f6b",
+          "expected_outputs": [
+            {
+              "path": "code/official/data/tau_bench/train_retail_n30_seed42.json",
+              "exists": true,
+              "kind": "file"
+            },
+            {
+              "path": "code/official/data/tau_bench/test_retail_n30_seed42.json",
+              "exists": true,
+              "kind": "file"
+            }
+          ],
+          "partial_outputs": [],
+          "requires_api": false,
+          "remaining_blockers": []
+        },
+        {
+          "source_key": "chemllmbench",
+          "status": "prepared",
+          "source": "ChemFoundationModels/ChemLLMBench",
+          "target_path": "code/official/external/chemllmbench",
+          "target_exists": true,
+          "commit": "b8cfb59fe1bc8500c6916cdf00c12e457f6c0720",
+          "expected_outputs": [
+            {
+              "path": "code/official/data/chemllmbench",
+              "exists": true,
+              "kind": "directory"
+            }
+          ],
+          "partial_outputs": [],
+          "requires_api": false,
+          "remaining_blockers": []
+        }
+      ]
+    },
+    "benchmark_execution_plan": {
+      "schema_version": "0.1",
+      "scope": "Execution contract for actionable SkillGen blocked benchmark tests",
+      "run_dir": "skillgen_phase0_thorough_20260602",
+      "status": "ready_for_execution_where_structural_contract_exists",
+      "storage_rule": "All generated configs, outputs, cloned sources, caches, and logs must remain inside this run directory.",
+      "model_route_mapping_artifact": "artifacts/model_route_mapping.template.json",
+      "approval_required_before_execution": true,
+      "targets": [
+        {
+          "target_id": "alfworld_iod",
+          "claim_ids": [
+            "claim_table1_average_gains_all_models",
+            "claim_table1_entry_counts"
+          ],
+          "table1_row": "alfworld_iod",
+          "status": "blocked_canonical_code_fetched_missing_skillgen_contract",
+          "dataset": {
+            "train": null,
+            "test": null,
+            "train_exists": false,
+            "test_exists": false,
+            "train_n": null,
+            "test_n": null
+          },
+          "runner_contract": {
+            "requires_config_generation": true,
+            "config_path_template": "artifacts/generated_configs/alfworld_iod/{model_slug}.yaml",
+            "skill_output_template": "artifacts/raw_benchmark_outputs/full_matrix/alfworld_iod/{model_slug}/skill_output",
+            "train_command_template": {
+              "workdir": "code/official",
+              "argv": [
+                ".venv/bin/python",
+                "main.py",
+                "{train_dataset}",
+                "--config",
+                "{config_path}"
+              ]
+            },
+            "eval_command_template": {
+              "workdir": "code/official",
+              "argv": [
+                ".venv/bin/python",
+                "eval_skill.py",
+                "--skill-repo",
+                "{skill_output_dir}",
+                "--dataset",
+                "{test_dataset}",
+                "--n",
+                "{eval_n}",
+                "--seed",
+                "42",
+                "--models",
+                "{model_route}",
+                "--judge-model",
+                "{judge_model_route}",
+                "--max-workers",
+                "{max_workers}",
+                "--output",
+                "../../artifacts/raw_benchmark_outputs/full_matrix/alfworld_iod/{model_slug}/eval_results.json"
+              ]
+            },
+            "expected_outputs": [
+              "artifacts/raw_benchmark_outputs/full_matrix/alfworld_iod/{model_slug}/eval_results.json",
+              "artifacts/raw_benchmark_outputs/full_matrix/alfworld_iod/{model_slug}/eval_results.token_usage.json",
+              "artifacts/raw_benchmark_outputs/full_matrix/alfworld_iod/{model_slug}/skill_output"
+            ]
+          },
+          "requires": {
+            "model_route_mapping": true,
+            "api_keys": true,
+            "network": true,
+            "paid_api_or_token_budget": true,
+            "human_gate_before_execution": true
+          },
+          "execution_prerequisites": [
+            "Use artifacts/model_route_mapping.template.json for paper-model display-name routes.",
+            "Use human-approved API/network/token execution policy.",
+            "Generate a per-target config file so artifacts do not overwrite another target."
+          ],
+          "blockers": [
+            "Canonical ALFWorld code is fetched, but no SkillGen-compatible ALFWorld adapter and paper-matching IOD/OOD train/test split contract exists."
+          ],
+          "notes": [],
+          "paper_table1_entry_count": 0
+        },
+        {
+          "target_id": "alfworld_ood",
+          "claim_ids": [
+            "claim_table1_average_gains_all_models",
+            "claim_table1_entry_counts"
+          ],
+          "table1_row": "alfworld_ood",
+          "status": "blocked_canonical_code_fetched_missing_skillgen_contract",
+          "dataset": {
+            "train": null,
+            "test": null,
+            "train_exists": false,
+            "test_exists": false,
+            "train_n": null,
+            "test_n": null
+          },
+          "runner_contract": {
+            "requires_config_generation": true,
+            "config_path_template": "artifacts/generated_configs/alfworld_ood/{model_slug}.yaml",
+            "skill_output_template": "artifacts/raw_benchmark_outputs/full_matrix/alfworld_ood/{model_slug}/skill_output",
+            "train_command_template": {
+              "workdir": "code/official",
+              "argv": [
+                ".venv/bin/python",
+                "main.py",
+                "{train_dataset}",
+                "--config",
+                "{config_path}"
+              ]
+            },
+            "eval_command_template": {
+              "workdir": "code/official",
+              "argv": [
+                ".venv/bin/python",
+                "eval_skill.py",
+                "--skill-repo",
+                "{skill_output_dir}",
+                "--dataset",
+                "{test_dataset}",
+                "--n",
+                "{eval_n}",
+                "--seed",
+                "42",
+                "--models",
+                "{model_route}",
+                "--judge-model",
+                "{judge_model_route}",
+                "--max-workers",
+                "{max_workers}",
+                "--output",
+                "../../artifacts/raw_benchmark_outputs/full_matrix/alfworld_ood/{model_slug}/eval_results.json"
+              ]
+            },
+            "expected_outputs": [
+              "artifacts/raw_benchmark_outputs/full_matrix/alfworld_ood/{model_slug}/eval_results.json",
+              "artifacts/raw_benchmark_outputs/full_matrix/alfworld_ood/{model_slug}/eval_results.token_usage.json",
+              "artifacts/raw_benchmark_outputs/full_matrix/alfworld_ood/{model_slug}/skill_output"
+            ]
+          },
+          "requires": {
+            "model_route_mapping": true,
+            "api_keys": true,
+            "network": true,
+            "paid_api_or_token_budget": true,
+            "human_gate_before_execution": true
+          },
+          "execution_prerequisites": [
+            "Use artifacts/model_route_mapping.template.json for paper-model display-name routes.",
+            "Use human-approved API/network/token execution policy.",
+            "Generate a per-target config file so artifacts do not overwrite another target."
+          ],
+          "blockers": [
+            "Canonical ALFWorld code is fetched, but no SkillGen-compatible ALFWorld adapter and paper-matching IOD/OOD train/test split contract exists."
+          ],
+          "notes": [],
+          "paper_table1_entry_count": 0
+        },
+        {
+          "target_id": "livecodebench",
+          "claim_ids": [
+            "claim_table1_average_gains_all_models",
+            "claim_table1_entry_counts"
+          ],
+          "table1_row": "livecodebench",
+          "status": "blocked_pending_train_test_split_contract",
+          "dataset": {
+            "train": "data/livecodebench/release_v6_all.json",
+            "test": null,
+            "train_exists": true,
+            "test_exists": false,
+            "train_n": 1055,
+            "test_n": null
+          },
+          "runner_contract": {
+            "requires_config_generation": true,
+            "config_path_template": "artifacts/generated_configs/livecodebench/{model_slug}.yaml",
+            "skill_output_template": "artifacts/raw_benchmark_outputs/full_matrix/livecodebench/{model_slug}/skill_output",
+            "train_command_template": {
+              "workdir": "code/official",
+              "argv": [
+                ".venv/bin/python",
+                "main.py",
+                "data/livecodebench/release_v6_all.json",
+                "--config",
+                "{config_path}"
+              ]
+            },
+            "eval_command_template": {
+              "workdir": "code/official",
+              "argv": [
+                ".venv/bin/python",
+                "eval_skill.py",
+                "--skill-repo",
+                "{skill_output_dir}",
+                "--dataset",
+                "{test_dataset}",
+                "--n",
+                "{eval_n}",
+                "--seed",
+                "42",
+                "--models",
+                "{model_route}",
+                "--judge-model",
+                "{judge_model_route}",
+                "--max-workers",
+                "{max_workers}",
+                "--output",
+                "../../artifacts/raw_benchmark_outputs/full_matrix/livecodebench/{model_slug}/eval_results.json"
+              ]
+            },
+            "expected_outputs": [
+              "artifacts/raw_benchmark_outputs/full_matrix/livecodebench/{model_slug}/eval_results.json",
+              "artifacts/raw_benchmark_outputs/full_matrix/livecodebench/{model_slug}/eval_results.token_usage.json",
+              "artifacts/raw_benchmark_outputs/full_matrix/livecodebench/{model_slug}/skill_output"
+            ]
+          },
+          "requires": {
+            "model_route_mapping": true,
+            "api_keys": true,
+            "network": true,
+            "paid_api_or_token_budget": true,
+            "human_gate_before_execution": true
+          },
+          "execution_prerequisites": [
+            "Use artifacts/model_route_mapping.template.json for paper-model display-name routes.",
+            "Use human-approved API/network/token execution policy.",
+            "Generate a per-target config file so artifacts do not overwrite another target."
+          ],
+          "blockers": [
+            "LiveCodeBench is prepared as one all-instances file; Table 1 needs an approved train/test split contract."
+          ],
+          "notes": [],
+          "paper_table1_entry_count": 0
+        },
+        {
+          "target_id": "mcp_bench_all",
+          "claim_ids": [
+            "claim_table1_average_gains_all_models",
+            "claim_table1_entry_counts"
+          ],
+          "table1_row": "mcp_bench_all",
+          "status": "ready_for_execution",
+          "dataset": {
+            "train": "data/mcp_bench_all/train_all_n40_seed42.json",
+            "test": "data/mcp_bench_all/test_all_n16_seed42.json",
+            "train_exists": true,
+            "test_exists": true,
+            "train_n": 40,
+            "test_n": 16
+          },
+          "runner_contract": {
+            "requires_config_generation": true,
+            "config_path_template": "artifacts/generated_configs/mcp_bench_all/{model_slug}.yaml",
+            "skill_output_template": "artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_all/{model_slug}/skill_output",
+            "train_command_template": {
+              "workdir": "code/official",
+              "argv": [
+                ".venv/bin/python",
+                "main.py",
+                "data/mcp_bench_all/train_all_n40_seed42.json",
+                "--config",
+                "{config_path}"
+              ]
+            },
+            "eval_command_template": {
+              "workdir": "code/official",
+              "argv": [
+                ".venv/bin/python",
+                "eval_skill.py",
+                "--skill-repo",
+                "{skill_output_dir}",
+                "--dataset",
+                "data/mcp_bench_all/test_all_n16_seed42.json",
+                "--n",
+                "16",
+                "--seed",
+                "42",
+                "--models",
+                "{model_route}",
+                "--judge-model",
+                "{judge_model_route}",
+                "--max-workers",
+                "{max_workers}",
+                "--output",
+                "../../artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_all/{model_slug}/eval_results.json"
+              ]
+            },
+            "expected_outputs": [
+              "artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_all/{model_slug}/eval_results.json",
+              "artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_all/{model_slug}/eval_results.token_usage.json",
+              "artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_all/{model_slug}/skill_output"
+            ]
+          },
+          "requires": {
+            "model_route_mapping": true,
+            "api_keys": true,
+            "network": true,
+            "paid_api_or_token_budget": true,
+            "human_gate_before_execution": true
+          },
+          "execution_prerequisites": [
+            "Use artifacts/model_route_mapping.template.json for paper-model display-name routes.",
+            "Use human-approved API/network/token execution policy.",
+            "Generate a per-target config file so artifacts do not overwrite another target."
+          ],
+          "blockers": [],
+          "notes": [],
+          "paper_table1_entry_count": 8
+        },
+        {
+          "target_id": "mcp_bench_single",
+          "claim_ids": [
+            "claim_table1_average_gains_all_models",
+            "claim_table1_entry_counts"
+          ],
+          "table1_row": "mcp_bench_single",
+          "status": "ready_for_execution",
+          "dataset": {
+            "train": "data/mcp_bench/train.json",
+            "test": "data/mcp_bench/test.json",
+            "train_exists": true,
+            "test_exists": true,
+            "train_n": 40,
+            "test_n": 16
+          },
+          "runner_contract": {
+            "requires_config_generation": true,
+            "config_path_template": "artifacts/generated_configs/mcp_bench_single/{model_slug}.yaml",
+            "skill_output_template": "artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_single/{model_slug}/skill_output",
+            "train_command_template": {
+              "workdir": "code/official",
+              "argv": [
+                ".venv/bin/python",
+                "main.py",
+                "data/mcp_bench/train.json",
+                "--config",
+                "{config_path}"
+              ]
+            },
+            "eval_command_template": {
+              "workdir": "code/official",
+              "argv": [
+                ".venv/bin/python",
+                "eval_skill.py",
+                "--skill-repo",
+                "{skill_output_dir}",
+                "--dataset",
+                "data/mcp_bench/test.json",
+                "--n",
+                "16",
+                "--seed",
+                "42",
+                "--models",
+                "{model_route}",
+                "--judge-model",
+                "{judge_model_route}",
+                "--max-workers",
+                "{max_workers}",
+                "--output",
+                "../../artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_single/{model_slug}/eval_results.json"
+              ]
+            },
+            "expected_outputs": [
+              "artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_single/{model_slug}/eval_results.json",
+              "artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_single/{model_slug}/eval_results.token_usage.json",
+              "artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_single/{model_slug}/skill_output"
+            ]
+          },
+          "requires": {
+            "model_route_mapping": true,
+            "api_keys": true,
+            "network": true,
+            "paid_api_or_token_budget": true,
+            "human_gate_before_execution": true
+          },
+          "execution_prerequisites": [
+            "Use artifacts/model_route_mapping.template.json for paper-model display-name routes.",
+            "Use human-approved API/network/token execution policy.",
+            "Generate a per-target config file so artifacts do not overwrite another target."
+          ],
+          "blockers": [],
+          "notes": [],
+          "paper_table1_entry_count": 8
+        },
+        {
+          "target_id": "mind2web",
+          "claim_ids": [
+            "claim_table1_average_gains_all_models",
+            "claim_table1_entry_counts"
+          ],
+          "table1_row": "mind2web",
+          "status": "ready_for_execution",
+          "dataset": {
+            "train": "data/mind2web/train.json",
+            "test": "data/mind2web/test.json",
+            "train_exists": true,
+            "test_exists": true,
+            "train_n": 100,
+            "test_n": 100
+          },
+          "runner_contract": {
+            "requires_config_generation": true,
+            "config_path_template": "artifacts/generated_configs/mind2web/{model_slug}.yaml",
+            "skill_output_template": "artifacts/raw_benchmark_outputs/full_matrix/mind2web/{model_slug}/skill_output",
+            "train_command_template": {
+              "workdir": "code/official",
+              "argv": [
+                ".venv/bin/python",
+                "main.py",
+                "data/mind2web/train.json",
+                "--config",
+                "{config_path}"
+              ]
+            },
+            "eval_command_template": {
+              "workdir": "code/official",
+              "argv": [
+                ".venv/bin/python",
+                "eval_skill.py",
+                "--skill-repo",
+                "{skill_output_dir}",
+                "--dataset",
+                "data/mind2web/test.json",
+                "--n",
+                "100",
+                "--seed",
+                "42",
+                "--models",
+                "{model_route}",
+                "--judge-model",
+                "{judge_model_route}",
+                "--max-workers",
+                "{max_workers}",
+                "--output",
+                "../../artifacts/raw_benchmark_outputs/full_matrix/mind2web/{model_slug}/eval_results.json"
+              ]
+            },
+            "expected_outputs": [
+              "artifacts/raw_benchmark_outputs/full_matrix/mind2web/{model_slug}/eval_results.json",
+              "artifacts/raw_benchmark_outputs/full_matrix/mind2web/{model_slug}/eval_results.token_usage.json",
+              "artifacts/raw_benchmark_outputs/full_matrix/mind2web/{model_slug}/skill_output"
+            ]
+          },
+          "requires": {
+            "model_route_mapping": true,
+            "api_keys": true,
+            "network": true,
+            "paid_api_or_token_budget": true,
+            "human_gate_before_execution": true
+          },
+          "execution_prerequisites": [
+            "Use artifacts/model_route_mapping.template.json for paper-model display-name routes.",
+            "Use human-approved API/network/token execution policy.",
+            "Generate a per-target config file so artifacts do not overwrite another target."
+          ],
+          "blockers": [],
+          "notes": [],
+          "paper_table1_entry_count": 8
+        },
+        {
+          "target_id": "pubmedqa",
+          "claim_ids": [
+            "claim_table1_average_gains_all_models",
+            "claim_table1_entry_counts"
+          ],
+          "table1_row": "pubmedqa",
+          "status": "ready_for_execution",
+          "dataset": {
+            "train": "data/pubmedqa/train.json",
+            "test": "data/pubmedqa/test.json",
+            "train_exists": true,
+            "test_exists": true,
+            "train_n": 150,
+            "test_n": 100
+          },
+          "runner_contract": {
+            "requires_config_generation": true,
+            "config_path_template": "artifacts/generated_configs/pubmedqa/{model_slug}.yaml",
+            "skill_output_template": "artifacts/raw_benchmark_outputs/full_matrix/pubmedqa/{model_slug}/skill_output",
+            "train_command_template": {
+              "workdir": "code/official",
+              "argv": [
+                ".venv/bin/python",
+                "main.py",
+                "data/pubmedqa/train.json",
+                "--config",
+                "{config_path}"
+              ]
+            },
+            "eval_command_template": {
+              "workdir": "code/official",
+              "argv": [
+                ".venv/bin/python",
+                "eval_skill.py",
+                "--skill-repo",
+                "{skill_output_dir}",
+                "--dataset",
+                "data/pubmedqa/test.json",
+                "--n",
+                "100",
+                "--seed",
+                "42",
+                "--models",
+                "{model_route}",
+                "--judge-model",
+                "{judge_model_route}",
+                "--max-workers",
+                "{max_workers}",
+                "--output",
+                "../../artifacts/raw_benchmark_outputs/full_matrix/pubmedqa/{model_slug}/eval_results.json"
+              ]
+            },
+            "expected_outputs": [
+              "artifacts/raw_benchmark_outputs/full_matrix/pubmedqa/{model_slug}/eval_results.json",
+              "artifacts/raw_benchmark_outputs/full_matrix/pubmedqa/{model_slug}/eval_results.token_usage.json",
+              "artifacts/raw_benchmark_outputs/full_matrix/pubmedqa/{model_slug}/skill_output"
+            ]
+          },
+          "requires": {
+            "model_route_mapping": true,
+            "api_keys": true,
+            "network": true,
+            "paid_api_or_token_budget": true,
+            "human_gate_before_execution": true
+          },
+          "execution_prerequisites": [
+            "Use artifacts/model_route_mapping.template.json for paper-model display-name routes.",
+            "Use human-approved API/network/token execution policy.",
+            "Generate a per-target config file so artifacts do not overwrite another target."
+          ],
+          "blockers": [],
+          "notes": [],
+          "paper_table1_entry_count": 8
+        },
+        {
+          "target_id": "scienceworld",
+          "claim_ids": [
+            "claim_table1_average_gains_all_models",
+            "claim_table1_entry_counts"
+          ],
+          "table1_row": "scienceworld",
+          "status": "ready_for_execution",
+          "dataset": {
+            "train": "data/scienceworld/train.json",
+            "test": "data/scienceworld/test.json",
+            "train_exists": true,
+            "test_exists": true,
+            "train_n": 150,
+            "test_n": 100
+          },
+          "runner_contract": {
+            "requires_config_generation": true,
+            "config_path_template": "artifacts/generated_configs/scienceworld/{model_slug}.yaml",
+            "skill_output_template": "artifacts/raw_benchmark_outputs/full_matrix/scienceworld/{model_slug}/skill_output",
+            "train_command_template": {
+              "workdir": "code/official",
+              "argv": [
+                ".venv/bin/python",
+                "main.py",
+                "data/scienceworld/train.json",
+                "--config",
+                "{config_path}"
+              ]
+            },
+            "eval_command_template": {
+              "workdir": "code/official",
+              "argv": [
+                ".venv/bin/python",
+                "eval_skill.py",
+                "--skill-repo",
+                "{skill_output_dir}",
+                "--dataset",
+                "data/scienceworld/test.json",
+                "--n",
+                "100",
+                "--seed",
+                "42",
+                "--models",
+                "{model_route}",
+                "--judge-model",
+                "{judge_model_route}",
+                "--max-workers",
+                "{max_workers}",
+                "--output",
+                "../../artifacts/raw_benchmark_outputs/full_matrix/scienceworld/{model_slug}/eval_results.json"
+              ]
+            },
+            "expected_outputs": [
+              "artifacts/raw_benchmark_outputs/full_matrix/scienceworld/{model_slug}/eval_results.json",
+              "artifacts/raw_benchmark_outputs/full_matrix/scienceworld/{model_slug}/eval_results.token_usage.json",
+              "artifacts/raw_benchmark_outputs/full_matrix/scienceworld/{model_slug}/skill_output"
+            ]
+          },
+          "requires": {
+            "model_route_mapping": true,
+            "api_keys": true,
+            "network": true,
+            "paid_api_or_token_budget": true,
+            "human_gate_before_execution": true
+          },
+          "execution_prerequisites": [
+            "Use artifacts/model_route_mapping.template.json for paper-model display-name routes.",
+            "Use human-approved API/network/token execution policy.",
+            "Generate a per-target config file so artifacts do not overwrite another target."
+          ],
+          "blockers": [],
+          "notes": [],
+          "paper_table1_entry_count": 8
+        },
+        {
+          "target_id": "socialmaze_fts",
+          "claim_ids": [
+            "claim_table1_average_gains_all_models",
+            "claim_table1_entry_counts"
+          ],
+          "table1_row": "socialmaze_fts",
+          "status": "ready_for_execution",
+          "dataset": {
+            "train": "data/socialmaze/train.json",
+            "test": "data/socialmaze/test.json",
+            "train_exists": true,
+            "test_exists": true,
+            "train_n": 60,
+            "test_n": 50
+          },
+          "runner_contract": {
+            "requires_config_generation": true,
+            "config_path_template": "artifacts/generated_configs/socialmaze_fts/{model_slug}.yaml",
+            "skill_output_template": "artifacts/raw_benchmark_outputs/full_matrix/socialmaze_fts/{model_slug}/skill_output",
+            "train_command_template": {
+              "workdir": "code/official",
+              "argv": [
+                ".venv/bin/python",
+                "main.py",
+                "data/socialmaze/train.json",
+                "--config",
+                "{config_path}"
+              ]
+            },
+            "eval_command_template": {
+              "workdir": "code/official",
+              "argv": [
+                ".venv/bin/python",
+                "eval_skill.py",
+                "--skill-repo",
+                "{skill_output_dir}",
+                "--dataset",
+                "data/socialmaze/test.json",
+                "--n",
+                "50",
+                "--seed",
+                "42",
+                "--models",
+                "{model_route}",
+                "--judge-model",
+                "{judge_model_route}",
+                "--max-workers",
+                "{max_workers}",
+                "--output",
+                "../../artifacts/raw_benchmark_outputs/full_matrix/socialmaze_fts/{model_slug}/eval_results.json"
+              ]
+            },
+            "expected_outputs": [
+              "artifacts/raw_benchmark_outputs/full_matrix/socialmaze_fts/{model_slug}/eval_results.json",
+              "artifacts/raw_benchmark_outputs/full_matrix/socialmaze_fts/{model_slug}/eval_results.token_usage.json",
+              "artifacts/raw_benchmark_outputs/full_matrix/socialmaze_fts/{model_slug}/skill_output"
+            ]
+          },
+          "requires": {
+            "model_route_mapping": true,
+            "api_keys": true,
+            "network": true,
+            "paid_api_or_token_budget": true,
+            "human_gate_before_execution": true
+          },
+          "execution_prerequisites": [
+            "Use artifacts/model_route_mapping.template.json for paper-model display-name routes.",
+            "Use human-approved API/network/token execution policy.",
+            "Generate a per-target config file so artifacts do not overwrite another target."
+          ],
+          "blockers": [],
+          "notes": [],
+          "paper_table1_entry_count": 8
+        },
+        {
+          "target_id": "socialmaze_upi",
+          "claim_ids": [
+            "claim_table1_average_gains_all_models",
+            "claim_table1_entry_counts"
+          ],
+          "table1_row": "socialmaze_upi",
+          "status": "ready_for_execution",
+          "dataset": {
+            "train": "data/socialmaze_upi/train_n60_seed42.json",
+            "test": "data/socialmaze_upi/test_n50_seed42.json",
+            "train_exists": true,
+            "test_exists": true,
+            "train_n": 60,
+            "test_n": 50
+          },
+          "runner_contract": {
+            "requires_config_generation": true,
+            "config_path_template": "artifacts/generated_configs/socialmaze_upi/{model_slug}.yaml",
+            "skill_output_template": "artifacts/raw_benchmark_outputs/full_matrix/socialmaze_upi/{model_slug}/skill_output",
+            "train_command_template": {
+              "workdir": "code/official",
+              "argv": [
+                ".venv/bin/python",
+                "main.py",
+                "data/socialmaze_upi/train_n60_seed42.json",
+                "--config",
+                "{config_path}"
+              ]
+            },
+            "eval_command_template": {
+              "workdir": "code/official",
+              "argv": [
+                ".venv/bin/python",
+                "eval_skill.py",
+                "--skill-repo",
+                "{skill_output_dir}",
+                "--dataset",
+                "data/socialmaze_upi/test_n50_seed42.json",
+                "--n",
+                "50",
+                "--seed",
+                "42",
+                "--models",
+                "{model_route}",
+                "--judge-model",
+                "{judge_model_route}",
+                "--max-workers",
+                "{max_workers}",
+                "--output",
+                "../../artifacts/raw_benchmark_outputs/full_matrix/socialmaze_upi/{model_slug}/eval_results.json"
+              ]
+            },
+            "expected_outputs": [
+              "artifacts/raw_benchmark_outputs/full_matrix/socialmaze_upi/{model_slug}/eval_results.json",
+              "artifacts/raw_benchmark_outputs/full_matrix/socialmaze_upi/{model_slug}/eval_results.token_usage.json",
+              "artifacts/raw_benchmark_outputs/full_matrix/socialmaze_upi/{model_slug}/skill_output"
+            ]
+          },
+          "requires": {
+            "model_route_mapping": true,
+            "api_keys": true,
+            "network": true,
+            "paid_api_or_token_budget": true,
+            "human_gate_before_execution": true
+          },
+          "execution_prerequisites": [
+            "Use artifacts/model_route_mapping.template.json for paper-model display-name routes.",
+            "Use human-approved API/network/token execution policy.",
+            "Generate a per-target config file so artifacts do not overwrite another target."
+          ],
+          "blockers": [],
+          "notes": [],
+          "paper_table1_entry_count": 8,
+          "alternate_smoke_target": {
+            "target_id": "socialmaze_upi_smoke",
+            "claim_ids": [
+              "claim_table1_average_gains_all_models"
+            ],
+            "table1_row": null,
+            "status": "ready_for_execution",
+            "dataset": {
+              "train": "data/socialmaze_upi_smoke/train_n1_seed42.json",
+              "test": "data/socialmaze_upi_smoke/test_n1_seed42.json",
+              "train_exists": true,
+              "test_exists": true,
+              "train_n": 1,
+              "test_n": 1
+            },
+            "runner_contract": {
+              "requires_config_generation": true,
+              "config_path_template": "artifacts/generated_configs/socialmaze_upi_smoke/{model_slug}.yaml",
+              "skill_output_template": "artifacts/raw_benchmark_outputs/full_matrix/socialmaze_upi_smoke/{model_slug}/skill_output",
+              "train_command_template": {
+                "workdir": "code/official",
+                "argv": [
+                  ".venv/bin/python",
+                  "main.py",
+                  "data/socialmaze_upi_smoke/train_n1_seed42.json",
+                  "--config",
+                  "{config_path}"
+                ]
+              },
+              "eval_command_template": {
+                "workdir": "code/official",
+                "argv": [
+                  ".venv/bin/python",
+                  "eval_skill.py",
+                  "--skill-repo",
+                  "{skill_output_dir}",
+                  "--dataset",
+                  "data/socialmaze_upi_smoke/test_n1_seed42.json",
+                  "--n",
+                  "1",
+                  "--seed",
+                  "42",
+                  "--models",
+                  "{model_route}",
+                  "--judge-model",
+                  "{judge_model_route}",
+                  "--max-workers",
+                  "{max_workers}",
+                  "--output",
+                  "../../artifacts/raw_benchmark_outputs/full_matrix/socialmaze_upi_smoke/{model_slug}/eval_results.json"
+                ]
+              },
+              "expected_outputs": [
+                "artifacts/raw_benchmark_outputs/full_matrix/socialmaze_upi_smoke/{model_slug}/eval_results.json",
+                "artifacts/raw_benchmark_outputs/full_matrix/socialmaze_upi_smoke/{model_slug}/eval_results.token_usage.json",
+                "artifacts/raw_benchmark_outputs/full_matrix/socialmaze_upi_smoke/{model_slug}/skill_output"
+              ]
+            },
+            "requires": {
+              "model_route_mapping": true,
+              "api_keys": true,
+              "network": true,
+              "paid_api_or_token_budget": true,
+              "human_gate_before_execution": true
+            },
+            "execution_prerequisites": [
+              "Use artifacts/model_route_mapping.template.json for paper-model display-name routes.",
+              "Use human-approved API/network/token execution policy.",
+              "Generate a per-target config file so artifacts do not overwrite another target."
+            ],
+            "blockers": [],
+            "notes": [
+              "Smoke data can exercise the adapter but cannot reproduce the full Table 1 UPI row."
+            ]
+          }
+        },
+        {
+          "target_id": "tau_bench_retail",
+          "claim_ids": [
+            "claim_tau_bench_gate_activated"
+          ],
+          "table1_row": null,
+          "status": "ready_for_execution",
+          "dataset": {
+            "train": "data/tau_bench/train_retail_n30_seed42.json",
+            "test": "data/tau_bench/test_retail_n30_seed42.json",
+            "train_exists": true,
+            "test_exists": true,
+            "train_n": 30,
+            "test_n": 30
+          },
+          "runner_contract": {
+            "requires_config_generation": true,
+            "config_path_template": "artifacts/generated_configs/tau_bench_retail/{model_slug}.yaml",
+            "skill_output_template": "artifacts/raw_benchmark_outputs/full_matrix/tau_bench_retail/{model_slug}/skill_output",
+            "train_command_template": {
+              "workdir": "code/official",
+              "argv": [
+                ".venv/bin/python",
+                "main.py",
+                "data/tau_bench/train_retail_n30_seed42.json",
+                "--config",
+                "{config_path}"
+              ]
+            },
+            "eval_command_template": {
+              "workdir": "code/official",
+              "argv": [
+                ".venv/bin/python",
+                "eval_skill.py",
+                "--skill-repo",
+                "{skill_output_dir}",
+                "--dataset",
+                "data/tau_bench/test_retail_n30_seed42.json",
+                "--n",
+                "30",
+                "--seed",
+                "42",
+                "--models",
+                "{model_route}",
+                "--judge-model",
+                "{judge_model_route}",
+                "--max-workers",
+                "{max_workers}",
+                "--output",
+                "../../artifacts/raw_benchmark_outputs/full_matrix/tau_bench_retail/{model_slug}/eval_results.json"
+              ]
+            },
+            "expected_outputs": [
+              "artifacts/raw_benchmark_outputs/full_matrix/tau_bench_retail/{model_slug}/eval_results.json",
+              "artifacts/raw_benchmark_outputs/full_matrix/tau_bench_retail/{model_slug}/eval_results.token_usage.json",
+              "artifacts/raw_benchmark_outputs/full_matrix/tau_bench_retail/{model_slug}/skill_output"
+            ]
+          },
+          "requires": {
+            "model_route_mapping": true,
+            "api_keys": true,
+            "network": true,
+            "paid_api_or_token_budget": true,
+            "human_gate_before_execution": true
+          },
+          "execution_prerequisites": [
+            "Use artifacts/model_route_mapping.template.json for paper-model display-name routes.",
+            "Use human-approved API/network/token execution policy.",
+            "Generate a per-target config file so artifacts do not overwrite another target."
+          ],
+          "blockers": [],
+          "notes": []
+        },
+        {
+          "target_id": "chemllmbench_property_prediction",
+          "claim_ids": [
+            "claim_chemllmbench_useful_gains"
+          ],
+          "table1_row": null,
+          "status": "ready_for_execution",
+          "dataset": {
+            "train": "data/chemllmbench/property_prediction_train.json",
+            "test": "data/chemllmbench/property_prediction_test.json",
+            "train_exists": true,
+            "test_exists": true,
+            "train_n": 30,
+            "test_n": 10
+          },
+          "runner_contract": {
+            "requires_config_generation": true,
+            "config_path_template": "artifacts/generated_configs/chemllmbench_property_prediction/{model_slug}.yaml",
+            "skill_output_template": "artifacts/raw_benchmark_outputs/full_matrix/chemllmbench_property_prediction/{model_slug}/skill_output",
+            "train_command_template": {
+              "workdir": "code/official",
+              "argv": [
+                ".venv/bin/python",
+                "main.py",
+                "data/chemllmbench/property_prediction_train.json",
+                "--config",
+                "{config_path}"
+              ]
+            },
+            "eval_command_template": {
+              "workdir": "code/official",
+              "argv": [
+                ".venv/bin/python",
+                "eval_skill.py",
+                "--skill-repo",
+                "{skill_output_dir}",
+                "--dataset",
+                "data/chemllmbench/property_prediction_test.json",
+                "--n",
+                "10",
+                "--seed",
+                "42",
+                "--models",
+                "{model_route}",
+                "--judge-model",
+                "{judge_model_route}",
+                "--max-workers",
+                "{max_workers}",
+                "--output",
+                "../../artifacts/raw_benchmark_outputs/full_matrix/chemllmbench_property_prediction/{model_slug}/eval_results.json"
+              ]
+            },
+            "expected_outputs": [
+              "artifacts/raw_benchmark_outputs/full_matrix/chemllmbench_property_prediction/{model_slug}/eval_results.json",
+              "artifacts/raw_benchmark_outputs/full_matrix/chemllmbench_property_prediction/{model_slug}/eval_results.token_usage.json",
+              "artifacts/raw_benchmark_outputs/full_matrix/chemllmbench_property_prediction/{model_slug}/skill_output"
+            ]
+          },
+          "requires": {
+            "model_route_mapping": true,
+            "api_keys": true,
+            "network": true,
+            "paid_api_or_token_budget": true,
+            "human_gate_before_execution": true
+          },
+          "execution_prerequisites": [
+            "Use artifacts/model_route_mapping.template.json for paper-model display-name routes.",
+            "Use human-approved API/network/token execution policy.",
+            "Generate a per-target config file so artifacts do not overwrite another target."
+          ],
+          "blockers": [],
+          "notes": []
+        },
+        {
+          "target_id": "chemllmbench_yield_prediction",
+          "claim_ids": [
+            "claim_chemllmbench_useful_gains"
+          ],
+          "table1_row": null,
+          "status": "ready_for_execution",
+          "dataset": {
+            "train": "data/chemllmbench/yield_prediction_train.json",
+            "test": "data/chemllmbench/yield_prediction_test.json",
+            "train_exists": true,
+            "test_exists": true,
+            "train_n": 30,
+            "test_n": 10
+          },
+          "runner_contract": {
+            "requires_config_generation": true,
+            "config_path_template": "artifacts/generated_configs/chemllmbench_yield_prediction/{model_slug}.yaml",
+            "skill_output_template": "artifacts/raw_benchmark_outputs/full_matrix/chemllmbench_yield_prediction/{model_slug}/skill_output",
+            "train_command_template": {
+              "workdir": "code/official",
+              "argv": [
+                ".venv/bin/python",
+                "main.py",
+                "data/chemllmbench/yield_prediction_train.json",
+                "--config",
+                "{config_path}"
+              ]
+            },
+            "eval_command_template": {
+              "workdir": "code/official",
+              "argv": [
+                ".venv/bin/python",
+                "eval_skill.py",
+                "--skill-repo",
+                "{skill_output_dir}",
+                "--dataset",
+                "data/chemllmbench/yield_prediction_test.json",
+                "--n",
+                "10",
+                "--seed",
+                "42",
+                "--models",
+                "{model_route}",
+                "--judge-model",
+                "{judge_model_route}",
+                "--max-workers",
+                "{max_workers}",
+                "--output",
+                "../../artifacts/raw_benchmark_outputs/full_matrix/chemllmbench_yield_prediction/{model_slug}/eval_results.json"
+              ]
+            },
+            "expected_outputs": [
+              "artifacts/raw_benchmark_outputs/full_matrix/chemllmbench_yield_prediction/{model_slug}/eval_results.json",
+              "artifacts/raw_benchmark_outputs/full_matrix/chemllmbench_yield_prediction/{model_slug}/eval_results.token_usage.json",
+              "artifacts/raw_benchmark_outputs/full_matrix/chemllmbench_yield_prediction/{model_slug}/skill_output"
+            ]
+          },
+          "requires": {
+            "model_route_mapping": true,
+            "api_keys": true,
+            "network": true,
+            "paid_api_or_token_budget": true,
+            "human_gate_before_execution": true
+          },
+          "execution_prerequisites": [
+            "Use artifacts/model_route_mapping.template.json for paper-model display-name routes.",
+            "Use human-approved API/network/token execution policy.",
+            "Generate a per-target config file so artifacts do not overwrite another target."
+          ],
+          "blockers": [],
+          "notes": []
+        }
+      ],
+      "status_counts": {
+        "blocked_canonical_code_fetched_missing_skillgen_contract": 2,
+        "blocked_pending_train_test_split_contract": 1,
+        "ready_for_execution": 10
+      },
+      "table1_matrix": {
+        "required_rows": [
+          "alfworld_iod",
+          "alfworld_ood",
+          "livecodebench",
+          "mcp_bench_all",
+          "mcp_bench_single",
+          "mind2web",
+          "pubmedqa",
+          "scienceworld",
+          "socialmaze_fts",
+          "socialmaze_upi"
+        ],
+        "ready_rows": [
+          "mcp_bench_all",
+          "mcp_bench_single",
+          "mind2web",
+          "pubmedqa",
+          "scienceworld",
+          "socialmaze_fts",
+          "socialmaze_upi"
+        ],
+        "paper_model_count": 8,
+        "ready_entry_count": 56,
+        "paper_entry_count": 80
+      }
+    },
+    "model_route_mapping": {
+      "schema_version": "0.1",
+      "scope": "Resolved SkillGen paper model display names to executable provider route IDs",
+      "run_dir": "skillgen_phase0_thorough_20260602",
+      "status": "route_resolved_with_equivalent_deviations",
+      "provider_policy": "OpenRouter can be used for chat routes, but it is not required by the paper. OpenAI is currently required by the official code for embeddings unless that dependency is patched and approved.",
+      "paper_table1_models": [
+        {
+          "paper_display_name": "Gemma-4-26B",
+          "provider_route_id": "google/gemma-4-26b-a4b-it",
+          "status": "route_resolved_equivalent",
+          "resolution_rule": "OpenRouter current catalog exposes Google Gemma 4 26B A4B; treated as the current executable equivalent of the paper display name."
+        },
+        {
+          "paper_display_name": "Llama-3.1-8B",
+          "provider_route_id": "meta-llama/llama-3.1-8b-instruct",
+          "status": "route_resolved_exact",
+          "resolution_rule": "OpenRouter current catalog exact family/size instruction route."
+        },
+        {
+          "paper_display_name": "Mistral-Nemo",
+          "provider_route_id": "mistralai/mistral-nemo",
+          "status": "route_resolved_exact",
+          "resolution_rule": "OpenRouter current catalog exact named route."
+        },
+        {
+          "paper_display_name": "Qwen-2.5-7B",
+          "provider_route_id": "qwen/qwen-2.5-7b-instruct",
+          "status": "route_resolved_exact",
+          "resolution_rule": "OpenRouter current catalog exact family/size instruction route."
+        },
+        {
+          "paper_display_name": "Claude-Haiku-4.5",
+          "provider_route_id": "anthropic/claude-haiku-4.5",
+          "status": "route_resolved_exact",
+          "resolution_rule": "OpenRouter current catalog exact named route."
+        },
+        {
+          "paper_display_name": "GPT-5.4-Nano",
+          "provider_route_id": "openai/gpt-5.4-nano",
+          "status": "route_resolved_exact",
+          "resolution_rule": "OpenRouter current catalog exact named route; also used by the existing smoke config."
+        },
+        {
+          "paper_display_name": "GPT-5.4-Mini",
+          "provider_route_id": "openai/gpt-5.4-mini",
+          "status": "route_resolved_exact",
+          "resolution_rule": "OpenRouter current catalog exact named route; also used by the existing smoke config."
+        },
+        {
+          "paper_display_name": "Grok-4-Fast",
+          "provider_route_id": "x-ai/grok-4.3",
+          "status": "route_resolved_equivalent",
+          "resolution_rule": "OpenRouter current catalog did not expose Grok-4-Fast; x-ai/grok-4.3 is recorded as the closest current Grok 4 series executable route."
+        }
+      ],
+      "paper_transfer_models": [
+        {
+          "paper_display_name": "Qwen-2.5-7B",
+          "provider_route_id": "qwen/qwen-2.5-7b-instruct",
+          "status": "route_resolved_exact",
+          "resolution_rule": "OpenRouter current catalog exact family/size instruction route."
+        },
+        {
+          "paper_display_name": "Llama-3.1-8B",
+          "provider_route_id": "meta-llama/llama-3.1-8b-instruct",
+          "status": "route_resolved_exact",
+          "resolution_rule": "OpenRouter current catalog exact family/size instruction route."
+        },
+        {
+          "paper_display_name": "GPT-OSS-20B",
+          "provider_route_id": "openai/gpt-oss-20b",
+          "status": "route_resolved_exact",
+          "resolution_rule": "OpenRouter current catalog exact named route."
+        },
+        {
+          "paper_display_name": "GPT-5.4-Nano",
+          "provider_route_id": "openai/gpt-5.4-nano",
+          "status": "route_resolved_exact",
+          "resolution_rule": "OpenRouter current catalog exact named route; also used by the existing smoke config."
+        },
+        {
+          "paper_display_name": "GPT-5.4-Mini",
+          "provider_route_id": "openai/gpt-5.4-mini",
+          "status": "route_resolved_exact",
+          "resolution_rule": "OpenRouter current catalog exact named route; also used by the existing smoke config."
+        },
+        {
+          "paper_display_name": "Grok-4-Fast",
+          "provider_route_id": "x-ai/grok-4.3",
+          "status": "route_resolved_equivalent",
+          "resolution_rule": "OpenRouter current catalog did not expose Grok-4-Fast; x-ai/grok-4.3 is recorded as the closest current Grok 4 series executable route."
+        }
+      ],
+      "unresolved_models": [],
+      "equivalent_deviation_models": [
+        "Gemma-4-26B",
+        "Grok-4-Fast"
+      ],
+      "route_resolution_gate": {
+        "required_before": [
+          "full_table1_matrix",
+          "transfer_matrix",
+          "tau_bench_matrix",
+          "chemllmbench_matrix"
+        ],
+        "acceptance_criteria": [
+          "Every paper display name maps to a current executable provider route.",
+          "Any unavailable paper model is marked with an explicit replacement/deviation before execution.",
+          "The chosen judge model route is recorded."
+        ]
+      }
+    },
+    "transfer_runner_plan": {
+      "schema_version": "0.1",
+      "scope": "Cross-model transfer runner plan for SkillGen Figure 4",
+      "run_dir": "skillgen_phase0_thorough_20260602",
+      "paper_claim": "120 off-diagonal comparisons; 70% non-negative and 42% exceed +5 percentage points.",
+      "benchmarks": [
+        {
+          "benchmark_row": "alfworld_ood",
+          "dataset_status": "blocked_canonical_code_fetched_missing_skillgen_contract",
+          "train": null,
+          "test": null,
+          "blockers": [
+            "Canonical ALFWorld code is fetched, but no SkillGen-compatible ALFWorld adapter and paper-matching IOD/OOD train/test split contract exists."
+          ]
+        },
+        {
+          "benchmark_row": "scienceworld",
+          "dataset_status": "ready_for_execution",
+          "train": "data/scienceworld/train.json",
+          "test": "data/scienceworld/test.json",
+          "blockers": []
+        },
+        {
+          "benchmark_row": "mind2web",
+          "dataset_status": "ready_for_execution",
+          "train": "data/mind2web/train.json",
+          "test": "data/mind2web/test.json",
+          "blockers": []
+        },
+        {
+          "benchmark_row": "socialmaze_fts",
+          "dataset_status": "ready_for_execution",
+          "train": "data/socialmaze/train.json",
+          "test": "data/socialmaze/test.json",
+          "blockers": []
+        }
+      ],
+      "paper_transfer_models": [
+        "Qwen-2.5-7B",
+        "Llama-3.1-8B",
+        "GPT-OSS-20B",
+        "GPT-5.4-Nano",
+        "GPT-5.4-Mini",
+        "Grok-4-Fast"
+      ],
+      "off_diagonal_pairs_per_benchmark": 30,
+      "planned_off_diagonal_comparisons": 120,
+      "source_target_pair_template": [
+        {
+          "source_model": "Qwen-2.5-7B",
+          "evaluator_model": "Llama-3.1-8B",
+          "status": "ready_for_execution"
+        },
+        {
+          "source_model": "Qwen-2.5-7B",
+          "evaluator_model": "GPT-OSS-20B",
+          "status": "ready_for_execution"
+        },
+        {
+          "source_model": "Qwen-2.5-7B",
+          "evaluator_model": "GPT-5.4-Nano",
+          "status": "ready_for_execution"
+        },
+        {
+          "source_model": "Qwen-2.5-7B",
+          "evaluator_model": "GPT-5.4-Mini",
+          "status": "ready_for_execution"
+        },
+        {
+          "source_model": "Qwen-2.5-7B",
+          "evaluator_model": "Grok-4-Fast",
+          "status": "ready_for_execution"
+        },
+        {
+          "source_model": "Llama-3.1-8B",
+          "evaluator_model": "Qwen-2.5-7B",
+          "status": "ready_for_execution"
+        },
+        {
+          "source_model": "Llama-3.1-8B",
+          "evaluator_model": "GPT-OSS-20B",
+          "status": "ready_for_execution"
+        },
+        {
+          "source_model": "Llama-3.1-8B",
+          "evaluator_model": "GPT-5.4-Nano",
+          "status": "ready_for_execution"
+        },
+        {
+          "source_model": "Llama-3.1-8B",
+          "evaluator_model": "GPT-5.4-Mini",
+          "status": "ready_for_execution"
+        },
+        {
+          "source_model": "Llama-3.1-8B",
+          "evaluator_model": "Grok-4-Fast",
+          "status": "ready_for_execution"
+        },
+        {
+          "source_model": "GPT-OSS-20B",
+          "evaluator_model": "Qwen-2.5-7B",
+          "status": "ready_for_execution"
+        },
+        {
+          "source_model": "GPT-OSS-20B",
+          "evaluator_model": "Llama-3.1-8B",
+          "status": "ready_for_execution"
+        },
+        {
+          "source_model": "GPT-OSS-20B",
+          "evaluator_model": "GPT-5.4-Nano",
+          "status": "ready_for_execution"
+        },
+        {
+          "source_model": "GPT-OSS-20B",
+          "evaluator_model": "GPT-5.4-Mini",
+          "status": "ready_for_execution"
+        },
+        {
+          "source_model": "GPT-OSS-20B",
+          "evaluator_model": "Grok-4-Fast",
+          "status": "ready_for_execution"
+        },
+        {
+          "source_model": "GPT-5.4-Nano",
+          "evaluator_model": "Qwen-2.5-7B",
+          "status": "ready_for_execution"
+        },
+        {
+          "source_model": "GPT-5.4-Nano",
+          "evaluator_model": "Llama-3.1-8B",
+          "status": "ready_for_execution"
+        },
+        {
+          "source_model": "GPT-5.4-Nano",
+          "evaluator_model": "GPT-OSS-20B",
+          "status": "ready_for_execution"
+        },
+        {
+          "source_model": "GPT-5.4-Nano",
+          "evaluator_model": "GPT-5.4-Mini",
+          "status": "ready_for_execution"
+        },
+        {
+          "source_model": "GPT-5.4-Nano",
+          "evaluator_model": "Grok-4-Fast",
+          "status": "ready_for_execution"
+        },
+        {
+          "source_model": "GPT-5.4-Mini",
+          "evaluator_model": "Qwen-2.5-7B",
+          "status": "ready_for_execution"
+        },
+        {
+          "source_model": "GPT-5.4-Mini",
+          "evaluator_model": "Llama-3.1-8B",
+          "status": "ready_for_execution"
+        },
+        {
+          "source_model": "GPT-5.4-Mini",
+          "evaluator_model": "GPT-OSS-20B",
+          "status": "ready_for_execution"
+        },
+        {
+          "source_model": "GPT-5.4-Mini",
+          "evaluator_model": "GPT-5.4-Nano",
+          "status": "ready_for_execution"
+        },
+        {
+          "source_model": "GPT-5.4-Mini",
+          "evaluator_model": "Grok-4-Fast",
+          "status": "ready_for_execution"
+        },
+        {
+          "source_model": "Grok-4-Fast",
+          "evaluator_model": "Qwen-2.5-7B",
+          "status": "ready_for_execution"
+        },
+        {
+          "source_model": "Grok-4-Fast",
+          "evaluator_model": "Llama-3.1-8B",
+          "status": "ready_for_execution"
+        },
+        {
+          "source_model": "Grok-4-Fast",
+          "evaluator_model": "GPT-OSS-20B",
+          "status": "ready_for_execution"
+        },
+        {
+          "source_model": "Grok-4-Fast",
+          "evaluator_model": "GPT-5.4-Nano",
+          "status": "ready_for_execution"
+        },
+        {
+          "source_model": "Grok-4-Fast",
+          "evaluator_model": "GPT-5.4-Mini",
+          "status": "ready_for_execution"
+        }
+      ],
+      "execution_contract": [
+        "Generate or reuse a source-model skill for each transfer benchmark and source model.",
+        "Evaluate that skill on the same benchmark test split with each non-identical evaluator model.",
+        "Compare each transferred skill against the evaluator model's own no-skill baseline.",
+        "Treat source skills deprecated by the verification gate as no-op skills, matching the paper description."
+      ],
+      "remaining_blockers": [
+        "ALFWorld OOD data is not available in the current official checkout.",
+        "ALFWorld OOD canonical code is fetched but still lacks a SkillGen-compatible adapter/split contract."
+      ]
+    },
+    "token_log_plan": {
+      "schema_version": "0.1",
+      "scope": "Token-log collection and aggregation plan for SkillGen Table 4",
+      "run_dir": "skillgen_phase0_thorough_20260602",
+      "paper_claim": "Train token cost ranges from 2.2M to 10.2M tokens; mean is 5.6M tokens and mean cost is about $8.2 per generated skill.",
+      "benchmark_groups": [
+        {
+          "paper_name": "ScienceWorld",
+          "target_id": "scienceworld",
+          "paper_train_mtok": 2.2,
+          "paper_base_tokens_per_call": 1630,
+          "paper_skill_tokens_per_call": 1977,
+          "dataset_status": "ready_for_execution",
+          "planned_train_log_glob": "artifacts/raw_benchmark_outputs/full_matrix/scienceworld/*/artifacts/runs/**/token_usage.json",
+          "planned_eval_log_glob": "artifacts/raw_benchmark_outputs/full_matrix/scienceworld/*/eval_results.token_usage.json"
+        },
+        {
+          "paper_name": "PubMedQA",
+          "target_id": "pubmedqa",
+          "paper_train_mtok": 2.7,
+          "paper_base_tokens_per_call": 1173,
+          "paper_skill_tokens_per_call": 2429,
+          "dataset_status": "ready_for_execution",
+          "planned_train_log_glob": "artifacts/raw_benchmark_outputs/full_matrix/pubmedqa/*/artifacts/runs/**/token_usage.json",
+          "planned_eval_log_glob": "artifacts/raw_benchmark_outputs/full_matrix/pubmedqa/*/eval_results.token_usage.json"
+        },
+        {
+          "paper_name": "Mind2Web",
+          "target_id": "mind2web",
+          "paper_train_mtok": 5.2,
+          "paper_base_tokens_per_call": 4482,
+          "paper_skill_tokens_per_call": 5919,
+          "dataset_status": "ready_for_execution",
+          "planned_train_log_glob": "artifacts/raw_benchmark_outputs/full_matrix/mind2web/*/artifacts/runs/**/token_usage.json",
+          "planned_eval_log_glob": "artifacts/raw_benchmark_outputs/full_matrix/mind2web/*/eval_results.token_usage.json"
+        },
+        {
+          "paper_name": "MCPBench",
+          "target_id": "mcp_bench",
+          "paper_train_mtok": 7.5,
+          "paper_base_tokens_per_call": 4847,
+          "paper_skill_tokens_per_call": 6000,
+          "dataset_status": "ready_for_execution",
+          "planned_train_log_glob": "artifacts/raw_benchmark_outputs/full_matrix/mcp_bench/*/artifacts/runs/**/token_usage.json",
+          "planned_eval_log_glob": "artifacts/raw_benchmark_outputs/full_matrix/mcp_bench/*/eval_results.token_usage.json"
+        },
+        {
+          "paper_name": "tau-Bench",
+          "target_id": "tau_bench_retail",
+          "paper_train_mtok": 10.2,
+          "paper_base_tokens_per_call": 5813,
+          "paper_skill_tokens_per_call": 6358,
+          "dataset_status": "ready_for_execution",
+          "planned_train_log_glob": "artifacts/raw_benchmark_outputs/full_matrix/tau_bench_retail/*/artifacts/runs/**/token_usage.json",
+          "planned_eval_log_glob": "artifacts/raw_benchmark_outputs/full_matrix/tau_bench_retail/*/eval_results.token_usage.json"
+        }
+      ],
+      "current_observed_logs": [
+        {
+          "path": "artifacts/raw_benchmark_outputs/skillgen_aime_smoke/artifacts/runs/20260602-020302/token_usage.json",
+          "total_tokens": 59226,
+          "scope": "smoke_or_existing_run"
+        },
+        {
+          "path": "artifacts/raw_benchmark_outputs/skillgen_aime_smoke/eval_results.token_usage.json",
+          "total_tokens": 14396,
+          "scope": "smoke_or_existing_run"
+        }
+      ],
+      "aggregation_contract": [
+        "Collect one-time construction token logs from each generated skill run.",
+        "Collect no-skill and with-skill eval token logs from eval_results.token_usage.json.",
+        "Group logs by paper benchmark name before comparing to Table 4.",
+        "Do not mix AIME smoke token logs into the Table 4 claim comparison."
+      ],
+      "remaining_blockers": [
+        "Full benchmark runs have not produced Table 4 grouped token logs yet."
+      ]
+    },
+    "canonical_benchmark_source_status": {
+      "schema_version": "0.1",
+      "scope": "Canonical benchmark source fetch status for paper-named sources not fully covered by SkillGen official checkout",
+      "run_dir": "skillgen_phase0_thorough_20260602",
+      "status_counts": {
+        "canonical_source_fetched_not_skillgen_ready": 1,
+        "canonical_source_fetched_skillgen_data_ready": 1
+      },
+      "sources": [
+        {
+          "source_key": "alfworld",
+          "status": "canonical_source_fetched_not_skillgen_ready",
+          "paper_benchmark": "ALFWorld",
+          "source": "alfworld/alfworld",
+          "source_url": "https://github.com/alfworld/alfworld.git",
+          "target_path": "code/official/benchmarks/external/alfworld",
+          "target_exists": true,
+          "commit": "aaba6870f86c5be6a08a491f32a50b906227bc3e",
+          "identity_basis": "Paper Table 1 and Figure 4 name ALFWorld; this is the canonical public ALFWorld benchmark repository.",
+          "skillgen_compatibility_status": "missing_skillgen_adapter_and_iod_ood_split_contract",
+          "remaining_blockers": [
+            "Canonical ALFWorld code is fetched, but SkillGen has no ALFWorld adapter in the current checkout.",
+            "No paper-matching IOD/OOD train/test JSON split has been produced in SkillGen TaskInstance format.",
+            "ALFWorld environment/data installation may require additional resources and a separate human-approved environment plan."
+          ]
+        },
+        {
+          "source_key": "scienceworld",
+          "status": "canonical_source_fetched_skillgen_data_ready",
+          "paper_benchmark": "ScienceWorld",
+          "source": "allenai/ScienceWorld",
+          "source_url": "https://github.com/allenai/ScienceWorld.git",
+          "target_path": "code/official/external/scienceworld",
+          "target_exists": true,
+          "commit": "f6d8f5ec41eadfdcad23cc3ab097f0903dc1378b",
+          "identity_basis": "SkillGen official prepare_scienceworld.py records source allenai/ScienceWorld.",
+          "skillgen_compatibility_status": "bundled_data_already_ready_for_skillgen_execution_plan",
+          "remaining_blockers": []
+        }
+      ]
+    }
+  },
+  "executable_targets": [
+    {
+      "target_id": "skillgen_aime",
+      "data_dir": "data/aime",
+      "train_path": "data/aime/train.json",
+      "test_path": "data/aime/test.json",
+      "train_n": 80,
+      "test_n": 40,
+      "status": "ready_for_execution",
+      "limitations": [
+        "Use recorded route mapping and approved API execution policy."
+      ]
+    },
+    {
+      "target_id": "skillgen_mcp_bench_single",
+      "data_dir": "data/mcp_bench",
+      "train_path": "data/mcp_bench/train.json",
+      "test_path": "data/mcp_bench/test.json",
+      "train_n": 40,
+      "test_n": 16,
+      "status": "ready_for_execution",
+      "limitations": [
+        "Use recorded route mapping and approved API execution policy."
+      ]
+    },
+    {
+      "target_id": "skillgen_mind2web",
+      "data_dir": "data/mind2web",
+      "train_path": "data/mind2web/train.json",
+      "test_path": "data/mind2web/test.json",
+      "train_n": 100,
+      "test_n": 100,
+      "status": "ready_for_execution",
+      "limitations": [
+        "Use recorded route mapping and approved API execution policy."
+      ]
+    },
+    {
+      "target_id": "skillgen_pubmedqa",
+      "data_dir": "data/pubmedqa",
+      "train_path": "data/pubmedqa/train.json",
+      "test_path": "data/pubmedqa/test.json",
+      "train_n": 150,
+      "test_n": 100,
+      "status": "ready_for_execution",
+      "limitations": [
+        "Use recorded route mapping and approved API execution policy."
+      ]
+    },
+    {
+      "target_id": "skillgen_scienceworld",
+      "data_dir": "data/scienceworld",
+      "train_path": "data/scienceworld/train.json",
+      "test_path": "data/scienceworld/test.json",
+      "train_n": 150,
+      "test_n": 100,
+      "status": "ready_for_execution",
+      "limitations": [
+        "Use recorded route mapping and approved API execution policy."
+      ]
+    },
+    {
+      "target_id": "skillgen_socialmaze_fts",
+      "data_dir": "data/socialmaze",
+      "train_path": "data/socialmaze/train.json",
+      "test_path": "data/socialmaze/test.json",
+      "train_n": 60,
+      "test_n": 50,
+      "status": "ready_for_execution",
+      "limitations": [
+        "Use recorded route mapping and approved API execution policy."
+      ]
+    },
+    {
+      "target_id": "skillgen_toolbench",
+      "data_dir": "data/toolbench",
+      "train_path": "data/toolbench/train.json",
+      "test_path": "data/toolbench/test.json",
+      "train_n": 120,
+      "test_n": 50,
+      "status": "ready_for_execution",
+      "limitations": [
+        "Use recorded route mapping and approved API execution policy."
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "claim_method_paired_intervention",
+      "claim_type": "method_contract",
+      "verification_mode": "official_code_structure_and_smoke_output",
+      "status": "partially_reproduced",
+      "blockers": [],
+      "evidence": [
+        "Existing AIME smoke eval output contains baseline_acc, skill_acc, repair, regression, and net_gain fields."
+      ],
+      "external_source_candidates": [],
+      "next_step": "Promote from smoke evidence to full-paper evidence only if the matching full contract is executed."
+    },
+    {
+      "claim_id": "claim_table1_average_gains_all_models",
+      "claim_type": "main_result",
+      "verification_mode": "full_table1_matrix",
+      "status": "blocked",
+      "blockers": [
+        "Full Table 1 requires 80 benchmark-split-model entries, not only the AIME smoke target.",
+        "Rows not yet Table 1 execution-ready: alfworld_iod (blocked_canonical_code_fetched_missing_skillgen_contract), alfworld_ood (blocked_canonical_code_fetched_missing_skillgen_contract), livecodebench (blocked_pending_train_test_split_contract)."
+      ],
+      "evidence": [
+        "External-source data has been prepared for rows: livecodebench, mcp_bench_all, socialmaze_upi.",
+        "Benchmark execution plan has Table 1-ready rows with resolved model routes: mcp_bench_all, mcp_bench_single, mind2web, pubmedqa, scienceworld, socialmaze_fts, socialmaze_upi.",
+        "Canonical ALFWorld code has been fetched, but these rows still need a SkillGen-compatible adapter and IOD/OOD split contract: alfworld_iod, alfworld_ood.",
+        "Official release currently has bundled data for these Table 1 rows: mcp_bench_single, mind2web, pubmedqa, scienceworld, socialmaze_fts."
+      ],
+      "external_source_candidates": [
+        {
+          "source_type": "huggingface_dataset",
+          "source": "livecodebench/code_generation_lite",
+          "source_url": "https://huggingface.co/datasets/livecodebench/code_generation_lite",
+          "target_location": "code/official/data/livecodebench",
+          "intake": "Use code/official/scripts/prepare_benchmarks.py with --benchmark livecodebench and the paper-matching version tag.",
+          "identity_basis": "Official prepare_benchmarks.py names hf_id livecodebench/code_generation_lite and imports the LiveCodeBench adapter.",
+          "official_evidence_paths": [
+            "scripts/prepare_benchmarks.py",
+            "benchmarks/livecodebench_adapter.py"
+          ],
+          "source_key": "livecodebench",
+          "official_evidence_present": [
+            "scripts/prepare_benchmarks.py",
+            "benchmarks/livecodebench_adapter.py"
+          ],
+          "official_evidence_missing": [],
+          "identity_status": "identified_by_official_code",
+          "requires_source_intake_approval": true
+        },
+        {
+          "source_type": "git_repo",
+          "source": "Accenture/mcp-bench",
+          "source_url": "https://github.com/Accenture/mcp-bench.git",
+          "target_location": "code/official/benchmarks/external/mcp-bench",
+          "intake": "Clone under code/official/benchmarks/external/mcp-bench, then run code/official/scripts/prepare_mcp_bench.py --split all with paper-matching train/test sizes.",
+          "identity_basis": "Official README names Accenture/mcp-bench and official prepare_mcp_bench.py supports --split all; the current adapter resolves the executable path under benchmarks/external.",
+          "official_evidence_paths": [
+            "README.md",
+            "scripts/prepare_mcp_bench.py",
+            "benchmarks/mcp_bench_adapter.py"
+          ],
+          "source_key": "mcp_bench_all",
+          "official_evidence_present": [
+            "README.md",
+            "scripts/prepare_mcp_bench.py",
+            "benchmarks/mcp_bench_adapter.py"
+          ],
+          "official_evidence_missing": [],
+          "identity_status": "identified_by_official_code",
+          "requires_source_intake_approval": true
+        },
+        {
+          "source_type": "git_repo_or_official_generation",
+          "source": "xzx34/SocialMaze",
+          "source_url": "https://github.com/xzx34/SocialMaze",
+          "target_location": "code/official/benchmarks/external/social-maze or code/official/data/socialmaze/upi",
+          "intake": "Use code/official/scripts/prepare_socialmaze.py upi. The script can use shipped SocialMaze material or generate/cache a UPI pool under the requested output directory.",
+          "identity_basis": "Official socialmaze adapter/preparation script records source xzx34/SocialMaze and includes a UPI subcommand; the adapter resolves shipped SocialMaze data under benchmarks/external.",
+          "official_evidence_paths": [
+            "scripts/prepare_socialmaze.py",
+            "benchmarks/socialmaze_adapter.py"
+          ],
+          "source_key": "socialmaze_upi",
+          "official_evidence_present": [
+            "scripts/prepare_socialmaze.py",
+            "benchmarks/socialmaze_adapter.py"
+          ],
+          "official_evidence_missing": [],
+          "identity_status": "identified_by_official_code",
+          "requires_source_intake_approval": true
+        }
+      ],
+      "next_step": "Resolve structurally non-ready Table 1 rows (alfworld_iod, alfworld_ood, livecodebench), then aggregate the full Table 1 matrix."
+    },
+    {
+      "claim_id": "claim_table1_entry_counts",
+      "claim_type": "main_result",
+      "verification_mode": "full_table1_matrix",
+      "status": "blocked",
+      "blockers": [
+        "Full Table 1 requires 80 benchmark-split-model entries, not only the AIME smoke target.",
+        "Rows not yet Table 1 execution-ready: alfworld_iod (blocked_canonical_code_fetched_missing_skillgen_contract), alfworld_ood (blocked_canonical_code_fetched_missing_skillgen_contract), livecodebench (blocked_pending_train_test_split_contract)."
+      ],
+      "evidence": [
+        "External-source data has been prepared for rows: livecodebench, mcp_bench_all, socialmaze_upi.",
+        "Benchmark execution plan has Table 1-ready rows with resolved model routes: mcp_bench_all, mcp_bench_single, mind2web, pubmedqa, scienceworld, socialmaze_fts, socialmaze_upi.",
+        "Canonical ALFWorld code has been fetched, but these rows still need a SkillGen-compatible adapter and IOD/OOD split contract: alfworld_iod, alfworld_ood.",
+        "Official release currently has bundled data for these Table 1 rows: mcp_bench_single, mind2web, pubmedqa, scienceworld, socialmaze_fts."
+      ],
+      "external_source_candidates": [
+        {
+          "source_type": "huggingface_dataset",
+          "source": "livecodebench/code_generation_lite",
+          "source_url": "https://huggingface.co/datasets/livecodebench/code_generation_lite",
+          "target_location": "code/official/data/livecodebench",
+          "intake": "Use code/official/scripts/prepare_benchmarks.py with --benchmark livecodebench and the paper-matching version tag.",
+          "identity_basis": "Official prepare_benchmarks.py names hf_id livecodebench/code_generation_lite and imports the LiveCodeBench adapter.",
+          "official_evidence_paths": [
+            "scripts/prepare_benchmarks.py",
+            "benchmarks/livecodebench_adapter.py"
+          ],
+          "source_key": "livecodebench",
+          "official_evidence_present": [
+            "scripts/prepare_benchmarks.py",
+            "benchmarks/livecodebench_adapter.py"
+          ],
+          "official_evidence_missing": [],
+          "identity_status": "identified_by_official_code",
+          "requires_source_intake_approval": true
+        },
+        {
+          "source_type": "git_repo",
+          "source": "Accenture/mcp-bench",
+          "source_url": "https://github.com/Accenture/mcp-bench.git",
+          "target_location": "code/official/benchmarks/external/mcp-bench",
+          "intake": "Clone under code/official/benchmarks/external/mcp-bench, then run code/official/scripts/prepare_mcp_bench.py --split all with paper-matching train/test sizes.",
+          "identity_basis": "Official README names Accenture/mcp-bench and official prepare_mcp_bench.py supports --split all; the current adapter resolves the executable path under benchmarks/external.",
+          "official_evidence_paths": [
+            "README.md",
+            "scripts/prepare_mcp_bench.py",
+            "benchmarks/mcp_bench_adapter.py"
+          ],
+          "source_key": "mcp_bench_all",
+          "official_evidence_present": [
+            "README.md",
+            "scripts/prepare_mcp_bench.py",
+            "benchmarks/mcp_bench_adapter.py"
+          ],
+          "official_evidence_missing": [],
+          "identity_status": "identified_by_official_code",
+          "requires_source_intake_approval": true
+        },
+        {
+          "source_type": "git_repo_or_official_generation",
+          "source": "xzx34/SocialMaze",
+          "source_url": "https://github.com/xzx34/SocialMaze",
+          "target_location": "code/official/benchmarks/external/social-maze or code/official/data/socialmaze/upi",
+          "intake": "Use code/official/scripts/prepare_socialmaze.py upi. The script can use shipped SocialMaze material or generate/cache a UPI pool under the requested output directory.",
+          "identity_basis": "Official socialmaze adapter/preparation script records source xzx34/SocialMaze and includes a UPI subcommand; the adapter resolves shipped SocialMaze data under benchmarks/external.",
+          "official_evidence_paths": [
+            "scripts/prepare_socialmaze.py",
+            "benchmarks/socialmaze_adapter.py"
+          ],
+          "source_key": "socialmaze_upi",
+          "official_evidence_present": [
+            "scripts/prepare_socialmaze.py",
+            "benchmarks/socialmaze_adapter.py"
+          ],
+          "official_evidence_missing": [],
+          "identity_status": "identified_by_official_code",
+          "requires_source_intake_approval": true
+        }
+      ],
+      "next_step": "Resolve structurally non-ready Table 1 rows (alfworld_iod, alfworld_ood, livecodebench), then aggregate the full Table 1 matrix."
+    },
+    {
+      "claim_id": "claim_table1_alfworld_scienceworld_patterns",
+      "claim_type": "main_result_breakdown",
+      "verification_mode": "full_table1_subset",
+      "status": "blocked",
+      "blockers": [
+        "ALFWorld IOD/OOD data is not bundled and no SkillGen-compatible ALFWorld adapter/split contract exists yet."
+      ],
+      "evidence": [
+        "Canonical ALFWorld benchmark code is fetched at code/official/benchmarks/external/alfworld (commit aaba6870f86c5be6a08a491f32a50b906227bc3e).",
+        "ScienceWorld train/test JSON is bundled and can be planned for execution."
+      ],
+      "external_source_candidates": [],
+      "next_step": "Resolve the remaining structural missing contract or artifact, then execute the relevant benchmark plan."
+    },
+    {
+      "claim_id": "claim_baseline_generator_comparison",
+      "claim_type": "baseline_comparison",
+      "verification_mode": "baseline_generator_matrix",
+      "status": "not_testable",
+      "blockers": [
+        "Official checkout does not include Trace2Skill, SkillX, EvoSkill, or CoEvoSkills runner implementations.",
+        "README describes baseline adaptation details in the paper, but no executable baseline-comparison command is present.",
+        "A public baseline project would still need identity review and a SkillGen-compatible runner before it can count as an identical reproduction source."
+      ],
+      "evidence": [],
+      "external_source_candidates": [],
+      "next_step": "Obtain missing official code, data, or scripts; otherwise keep this claim not_testable."
+    },
+    {
+      "claim_id": "claim_ablation_full_wins",
+      "claim_type": "ablation",
+      "verification_mode": "ablation_matrix",
+      "status": "not_testable",
+      "blockers": [
+        "Official checkout does not include an ablation runner or named ablated configs.",
+        "Cannot reproduce Figure 3 without reconstructing unprovided ablation variants."
+      ],
+      "evidence": [],
+      "external_source_candidates": [],
+      "next_step": "Obtain missing official code, data, or scripts; otherwise keep this claim not_testable."
+    },
+    {
+      "claim_id": "claim_cross_model_transfer",
+      "claim_type": "transfer",
+      "verification_mode": "transfer_matrix",
+      "status": "blocked",
+      "blockers": [
+        "Full 120-comparison transfer claim still requires the ALFWorld OOD SkillGen adapter/split contract."
+      ],
+      "evidence": [
+        "Transfer runner plan has ready datasets for: scienceworld, mind2web, socialmaze_fts.",
+        "Transfer runner plan encodes 120 off-diagonal comparisons before execution."
+      ],
+      "external_source_candidates": [],
+      "next_step": "Fill the ALFWorld OOD SkillGen contract gap, then execute transfer_runner_plan.json."
+    },
+    {
+      "claim_id": "claim_tau_bench_gate_activated",
+      "claim_type": "additional_benchmark",
+      "verification_mode": "tau_bench_matrix",
+      "status": "not_reproduced",
+      "blockers": [
+        "Executed tau-Bench smoke did not support the paper claim: the generated skill failed the internal verification gate or produced no positive held-out skill delta."
+      ],
+      "evidence": [
+        "tau-Bench official smoke execution completed with skill_status=deprecated, verification_passed=False, train_net_gain=-1.",
+        "Held-out tau-Bench eval observed baseline=23.3%, skill=23.3%, delta=0.0%, net_gain=0."
+      ],
+      "external_source_candidates": [
+        {
+          "source_type": "git_repo_or_package",
+          "source": "sierra-research/tau-bench",
+          "source_url": "https://github.com/sierra-research/tau-bench",
+          "target_location": "code/official/benchmarks/external/tau-bench",
+          "intake": "Place tau-bench under code/official/benchmarks/external/tau-bench, then run code/official/scripts/prepare_tau_bench.py for the paper-matching domain and split.",
+          "identity_basis": "Official prepare_tau_bench.py records source sierra-research/tau-bench and the current adapter resolves tau-bench under benchmarks/external.",
+          "official_evidence_paths": [
+            "scripts/prepare_tau_bench.py",
+            "benchmarks/tau_bench_adapter.py"
+          ],
+          "source_key": "tau_bench",
+          "official_evidence_present": [
+            "scripts/prepare_tau_bench.py",
+            "benchmarks/tau_bench_adapter.py"
+          ],
+          "official_evidence_missing": [],
+          "identity_status": "identified_by_official_code",
+          "requires_source_intake_approval": true
+        }
+      ],
+      "next_step": "Inspect the raw execution logs and rerun at full paper scale only if the smoke scope is considered insufficient; the current executed smoke evidence does not support the claim."
+    },
+    {
+      "claim_id": "claim_chemllmbench_useful_gains",
+      "claim_type": "additional_benchmark",
+      "verification_mode": "chemllmbench_matrix",
+      "status": "not_reproduced",
+      "blockers": [
+        "Executed ChemLLMBench smoke targets did not show positive skill gains for all prepared subtasks."
+      ],
+      "evidence": [
+        "chemllmbench_property_prediction execution status=official_code_eval_completed, verification_passed=False, train_net_gain=0, heldout_delta=0.0%.",
+        "chemllmbench_yield_prediction execution status=official_code_eval_completed, verification_passed=False, train_net_gain=0, heldout_delta=0.0%."
+      ],
+      "external_source_candidates": [
+        {
+          "source_type": "git_repo",
+          "source": "ChemFoundationModels/ChemLLMBench",
+          "source_url": "https://github.com/ChemFoundationModels/ChemLLMBench.git",
+          "target_location": "code/official/external/chemllmbench",
+          "intake": "Clone under code/official/external/chemllmbench, then run code/official/scripts/prepare_chemllmbench.py for the paper-matching tasks.",
+          "identity_basis": "Official prepare_chemllmbench.py records source ChemFoundationModels/ChemLLMBench and prints the matching clone command.",
+          "official_evidence_paths": [
+            "scripts/prepare_chemllmbench.py",
+            "benchmarks/chemllmbench_adapter.py"
+          ],
+          "source_key": "chemllmbench",
+          "official_evidence_present": [
+            "scripts/prepare_chemllmbench.py",
+            "benchmarks/chemllmbench_adapter.py"
+          ],
+          "official_evidence_missing": [],
+          "identity_status": "identified_by_official_code",
+          "requires_source_intake_approval": true
+        }
+      ],
+      "next_step": "Inspect the raw execution logs and rerun at full paper scale only if the smoke scope is considered insufficient; the current executed smoke evidence does not support the claim."
+    },
+    {
+      "claim_id": "claim_refinement_best_of_k",
+      "claim_type": "refinement_analysis",
+      "verification_mode": "refinement_trace_analysis",
+      "status": "blocked",
+      "blockers": [
+        "Official pipeline records refinement outputs for executed runs, but the paper's aggregate Figure 7 traces are not bundled.",
+        "Needs full per-round run logs across representative benchmark-model entries."
+      ],
+      "evidence": [],
+      "external_source_candidates": [],
+      "next_step": "Resolve the remaining structural missing contract or artifact, then execute the relevant benchmark plan."
+    },
+    {
+      "claim_id": "claim_token_cost",
+      "claim_type": "cost_analysis",
+      "verification_mode": "token_usage_aggregation",
+      "status": "partially_reproduced",
+      "blockers": [
+        "The run uses reduced POC-scale configs, so token-log mechanics are reproduced but the paper's full-scale token totals are not."
+      ],
+      "evidence": [
+        "Existing smoke token evidence: train=59226, eval=14396.",
+        "chemllmbench_property_prediction token evidence: train=46661, eval=1514.",
+        "chemllmbench_yield_prediction token evidence: train=60179, eval=2931.",
+        "mcp_bench_token token evidence: train=448252, eval=120830.",
+        "mind2web_token token evidence: train=674323, eval=265899.",
+        "pubmedqa_token token evidence: train=280169, eval=167834.",
+        "scienceworld_token token evidence: train=588035, eval=476046.",
+        "tau_bench_retail token evidence: train=1629346, eval=1569988.",
+        "Token-log aggregation plan covers Table 4 groups: ScienceWorld, PubMedQA, Mind2Web, MCPBench, tau-Bench.",
+        "All Table 4 ready token groups were executed at reduced POC scale: mcp_bench_token, mind2web_token, pubmedqa_token, scienceworld_token, tau_bench_retail."
+      ],
+      "external_source_candidates": [],
+      "next_step": "Promote the reduced POC token-log executions to full paper-scale Table 4 runs only if exact numeric token-cost reproduction is required."
+    },
+    {
+      "claim_id": "claim_auditable_skill_artifact",
+      "claim_type": "artifact_property",
+      "verification_mode": "official_code_output_inspection",
+      "status": "partially_reproduced",
+      "blockers": [],
+      "evidence": [
+        "Existing smoke run produced a skill output directory: artifacts/raw_benchmark_outputs/skillgen_aime_smoke/skill_output/2026-06-02_02-03-02."
+      ],
+      "external_source_candidates": [],
+      "next_step": "Promote from smoke evidence to full-paper evidence only if the matching full contract is executed."
+    }
+  ]
+}

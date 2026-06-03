@@ -1,0 +1,20 @@
+[
+  {
+    "model": "openai/gpt-5.4-mini",
+    "stage": "eval_baseline::openai_gpt-5.4-nano",
+    "call_type": "chat_json",
+    "calls": 16,
+    "prompt_tokens": 75389,
+    "completion_tokens": 5154,
+    "total_tokens": 80543
+  },
+  {
+    "model": "openai/gpt-5.4-nano",
+    "stage": "eval_baseline::openai_gpt-5.4-nano",
+    "call_type": "chat_multi_turn",
+    "calls": 16,
+    "prompt_tokens": 14873,
+    "completion_tokens": 25414,
+    "total_tokens": 40287
+  }
+]

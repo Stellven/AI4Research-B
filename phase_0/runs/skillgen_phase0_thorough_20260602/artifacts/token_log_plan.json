@@ -1,0 +1,79 @@
+{
+  "schema_version": "0.1",
+  "scope": "Token-log collection and aggregation plan for SkillGen Table 4",
+  "run_dir": "skillgen_phase0_thorough_20260602",
+  "paper_claim": "Train token cost ranges from 2.2M to 10.2M tokens; mean is 5.6M tokens and mean cost is about $8.2 per generated skill.",
+  "benchmark_groups": [
+    {
+      "paper_name": "ScienceWorld",
+      "target_id": "scienceworld",
+      "paper_train_mtok": 2.2,
+      "paper_base_tokens_per_call": 1630,
+      "paper_skill_tokens_per_call": 1977,
+      "dataset_status": "ready_for_execution",
+      "planned_train_log_glob": "artifacts/raw_benchmark_outputs/full_matrix/scienceworld/*/artifacts/runs/**/token_usage.json",
+      "planned_eval_log_glob": "artifacts/raw_benchmark_outputs/full_matrix/scienceworld/*/eval_results.token_usage.json"
+    },
+    {
+      "paper_name": "PubMedQA",
+      "target_id": "pubmedqa",
+      "paper_train_mtok": 2.7,
+      "paper_base_tokens_per_call": 1173,
+      "paper_skill_tokens_per_call": 2429,
+      "dataset_status": "ready_for_execution",
+      "planned_train_log_glob": "artifacts/raw_benchmark_outputs/full_matrix/pubmedqa/*/artifacts/runs/**/token_usage.json",
+      "planned_eval_log_glob": "artifacts/raw_benchmark_outputs/full_matrix/pubmedqa/*/eval_results.token_usage.json"
+    },
+    {
+      "paper_name": "Mind2Web",
+      "target_id": "mind2web",
+      "paper_train_mtok": 5.2,
+      "paper_base_tokens_per_call": 4482,
+      "paper_skill_tokens_per_call": 5919,
+      "dataset_status": "ready_for_execution",
+      "planned_train_log_glob": "artifacts/raw_benchmark_outputs/full_matrix/mind2web/*/artifacts/runs/**/token_usage.json",
+      "planned_eval_log_glob": "artifacts/raw_benchmark_outputs/full_matrix/mind2web/*/eval_results.token_usage.json"
+    },
+    {
+      "paper_name": "MCPBench",
+      "target_id": "mcp_bench",
+      "paper_train_mtok": 7.5,
+      "paper_base_tokens_per_call": 4847,
+      "paper_skill_tokens_per_call": 6000,
+      "dataset_status": "ready_for_execution",
+      "planned_train_log_glob": "artifacts/raw_benchmark_outputs/full_matrix/mcp_bench/*/artifacts/runs/**/token_usage.json",
+      "planned_eval_log_glob": "artifacts/raw_benchmark_outputs/full_matrix/mcp_bench/*/eval_results.token_usage.json"
+    },
+    {
+      "paper_name": "tau-Bench",
+      "target_id": "tau_bench_retail",
+      "paper_train_mtok": 10.2,
+      "paper_base_tokens_per_call": 5813,
+      "paper_skill_tokens_per_call": 6358,
+      "dataset_status": "ready_for_execution",
+      "planned_train_log_glob": "artifacts/raw_benchmark_outputs/full_matrix/tau_bench_retail/*/artifacts/runs/**/token_usage.json",
+      "planned_eval_log_glob": "artifacts/raw_benchmark_outputs/full_matrix/tau_bench_retail/*/eval_results.token_usage.json"
+    }
+  ],
+  "current_observed_logs": [
+    {
+      "path": "artifacts/raw_benchmark_outputs/skillgen_aime_smoke/artifacts/runs/20260602-020302/token_usage.json",
+      "total_tokens": 59226,
+      "scope": "smoke_or_existing_run"
+    },
+    {
+      "path": "artifacts/raw_benchmark_outputs/skillgen_aime_smoke/eval_results.token_usage.json",
+      "total_tokens": 14396,
+      "scope": "smoke_or_existing_run"
+    }
+  ],
+  "aggregation_contract": [
+    "Collect one-time construction token logs from each generated skill run.",
+    "Collect no-skill and with-skill eval token logs from eval_results.token_usage.json.",
+    "Group logs by paper benchmark name before comparing to Table 4.",
+    "Do not mix AIME smoke token logs into the Table 4 claim comparison."
+  ],
+  "remaining_blockers": [
+    "Full benchmark runs have not produced Table 4 grouped token logs yet."
+  ]
+}

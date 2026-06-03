@@ -1,0 +1,30 @@
+{
+  "skill_id": "c9924dba-ba8a-4735-960c-bc07c129b57c",
+  "body": "## Contextual abstract\nThese are short olympiad-style math problems whose answer is a single exact integer, often a remainder, count, or small value that must be derived from the stated constraints. The main challenge is not lengthy computation but disciplined symbolic reasoning: extract the structure, translate every condition into a usable constraint, and carry the argument through to a fully checked final number. The response may be only a three-digit integer, but the internal solution must be complete and exact.\n\n## Successful experiences\n1. **Isolate the structure first.** Rewrite the problem into independent pieces: prime-power conditions, modular relations, coordinate equations, geometric intersections, or a unique combinatorial pattern. Identify what varies independently and what is forced.\n2. **Translate every given condition before computing.** Turn wording into constraints you can use: parity or divisibility checks in number theory, exponent matching for perfect powers, exact equations from angles/distances/intersections in geometry, or occupancy/adjacency restrictions in counting problems.\n3. **Count or compute within the admissible structure.** Split into the necessary cases, evaluate each valid branch, and combine by multiplication or summation only after confirming that the branches are truly independent.\n4. **Finish with a verification pass.** Check that every derived case satisfies the original statement, that edge cases are included or excluded correctly, and that the requested quantity is extracted from the final closed form or count without arithmetic slips.\n\n## Failure lessons\n- **Do not stop at a plausible partial reduction.** Signal: the solution reaches a nice-looking formula or simplified setup but skips the last constraint check, boundary case, or arithmetic confirmation. Counter-action: carry the derivation through to the exact final condition and verify the result against the original problem statement.\n\n- **Do not import an unsupported geometry picture.** Signal: the solution assumes symmetry, a special triangle, a perpendicular, or another convenient configuration that the prompt never justified. Counter-action: restate the exact angle/line/intersection data, derive the mandatory relations from those facts, and only then choose a geometric method.\n\n- **Do not strengthen a local restriction into a global one.** Signal: a wording like \u201cno adjacent pair,\u201d \u201cat most one,\u201d or \u201cunique occurrence\u201d gets converted into a harsher rule that excludes valid cases. Counter-action: keep the exact constraint as written, test it on each counted or constructed case, and confirm that no admissible configuration was silently removed.\n\n- **Do not trust an unfinished arithmetic or modular shortcut.** Signal: the derivation is structurally right, but the last residue, exponent, or count is asserted without checking consistency. Counter-action: recompute the final numeric step carefully, then confirm parity, divisibility, or modular agreement with the earlier constraints.",
+  "contextual_abstract": "Short olympiad-style math tasks with one exact integer answer, requiring structured reductions and careful verification. The agent should translate all conditions into constraints, solve by cases or decomposition, and return a fully checked final number.",
+  "scripts": [],
+  "requirements": [],
+  "references": [],
+  "reference_docs": [],
+  "status": "active",
+  "version": 1,
+  "analysis_id": "deebfe32-7e6a-44f5-b7de-68331c31d7f7",
+  "dataset_id": "aime_train_smoke_n8_seed42",
+  "task_name": "aime_olympiad_math_train",
+  "verification_history": [
+    {
+      "round_idx": 0,
+      "passed": true,
+      "net_gain": 1,
+      "repair_count": 2,
+      "regression_count": 1,
+      "baseline_acc": 0.5,
+      "skill_acc": 0.75,
+      "diagnostic": "mode=net_gain_gated, paired_n=4, n_target=2, n_success_guard=2, baseline_acc=50.0%, skill_acc=75.0%, repair=2/2 (100.0%), regression=1/2 (50.0%), net_gain=1, required=1 (abs=1, rel=0.00*n), passed=True",
+      "rejected_no_passing_round": false
+    }
+  ],
+  "token_count": 428,
+  "behavioral_aim": "",
+  "semantic_aim": ""
+}

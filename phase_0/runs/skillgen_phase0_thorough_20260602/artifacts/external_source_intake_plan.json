@@ -1,0 +1,229 @@
+{
+  "schema_version": "0.1",
+  "scope": "External source intake plan for currently actionable SkillGen blocked targets",
+  "run_dir": "skillgen_phase0_thorough_20260602",
+  "storage_rule": "All cloned repositories, generated datasets, and caches must remain inside the project/run directory.",
+  "tasks": [
+    {
+      "source_key": "livecodebench",
+      "status": "pending_source_intake",
+      "source": "livecodebench/code_generation_lite",
+      "source_type": "huggingface_dataset",
+      "source_url": "https://huggingface.co/datasets/livecodebench/code_generation_lite",
+      "target_location": "code/official/data/livecodebench",
+      "target_path": "code/official/data/livecodebench",
+      "identity_basis": "Official prepare_benchmarks.py names hf_id livecodebench/code_generation_lite and imports the LiveCodeBench adapter.",
+      "requires_network": true,
+      "requires_project_local_storage": true,
+      "requires_api": false,
+      "notes": [
+        "Official script currently creates one dataset file; train/test splitting still needs a contract."
+      ],
+      "intake_method": "huggingface_dataset",
+      "cache_env": {
+        "HF_HOME": ".hf-cache",
+        "HF_DATASETS_CACHE": ".hf-cache/datasets"
+      },
+      "prepare_commands": [
+        {
+          "workdir": "code/official",
+          "argv": [
+            ".venv/bin/python",
+            "scripts/prepare_benchmarks.py",
+            "--benchmark",
+            "livecodebench",
+            "--livecodebench-version",
+            "release_v6",
+            "--n",
+            "0",
+            "-o",
+            "data/livecodebench/release_v6_all.json"
+          ],
+          "env": {
+            "HF_HOME": ".hf-cache",
+            "HF_DATASETS_CACHE": ".hf-cache/datasets"
+          }
+        }
+      ]
+    },
+    {
+      "source_key": "mcp_bench_all",
+      "status": "pending_source_intake",
+      "source": "Accenture/mcp-bench",
+      "source_type": "git_repo",
+      "source_url": "https://github.com/Accenture/mcp-bench.git",
+      "target_location": "code/official/benchmarks/external/mcp-bench",
+      "target_path": "code/official/benchmarks/external/mcp-bench",
+      "identity_basis": "Official README names Accenture/mcp-bench and official prepare_mcp_bench.py supports --split all; the current adapter resolves the executable path under benchmarks/external.",
+      "requires_network": true,
+      "requires_project_local_storage": true,
+      "requires_api": false,
+      "notes": [
+        "Uses existing single-split train/test sizes as a first all-split preparation contract."
+      ],
+      "intake_method": "git_clone",
+      "clone_command": {
+        "workdir": ".",
+        "argv": [
+          "git",
+          "clone",
+          "--depth",
+          "1",
+          "https://github.com/Accenture/mcp-bench.git",
+          "code/official/benchmarks/external/mcp-bench"
+        ]
+      },
+      "prepare_commands": [
+        {
+          "workdir": "code/official",
+          "argv": [
+            ".venv/bin/python",
+            "scripts/prepare_mcp_bench.py",
+            "--split",
+            "all",
+            "--train-n",
+            "40",
+            "--test-n",
+            "16",
+            "--out-dir",
+            "data/mcp_bench_all"
+          ]
+        }
+      ]
+    },
+    {
+      "source_key": "socialmaze_upi",
+      "status": "pending_source_intake",
+      "source": "xzx34/SocialMaze",
+      "source_type": "git_repo_or_official_generation",
+      "source_url": "https://github.com/xzx34/SocialMaze",
+      "target_location": "code/official/benchmarks/external/social-maze or code/official/data/socialmaze/upi",
+      "target_path": "code/official/benchmarks/external/social-maze",
+      "identity_basis": "Official socialmaze adapter/preparation script records source xzx34/SocialMaze and includes a UPI subcommand; the adapter resolves shipped SocialMaze data under benchmarks/external.",
+      "requires_network": true,
+      "requires_project_local_storage": true,
+      "requires_api": true,
+      "notes": [
+        "If shipped UPI data is insufficient, the official script will generate more examples through an LLM."
+      ],
+      "intake_method": "git_clone_or_generation",
+      "clone_command": {
+        "workdir": ".",
+        "argv": [
+          "git",
+          "clone",
+          "--depth",
+          "1",
+          "https://github.com/xzx34/SocialMaze",
+          "code/official/benchmarks/external/social-maze"
+        ]
+      },
+      "prepare_commands": [
+        {
+          "workdir": "code/official",
+          "argv": [
+            ".venv/bin/python",
+            "scripts/prepare_socialmaze.py",
+            "upi",
+            "--pool-size",
+            "120",
+            "--train-n",
+            "60",
+            "--test-n",
+            "50",
+            "--variant",
+            "persona",
+            "--out-dir",
+            "data/socialmaze_upi"
+          ]
+        }
+      ]
+    },
+    {
+      "source_key": "tau_bench",
+      "status": "pending_source_intake",
+      "source": "sierra-research/tau-bench",
+      "source_type": "git_repo_or_package",
+      "source_url": "https://github.com/sierra-research/tau-bench",
+      "target_location": "code/official/benchmarks/external/tau-bench",
+      "target_path": "code/official/benchmarks/external/tau-bench",
+      "identity_basis": "Official prepare_tau_bench.py records source sierra-research/tau-bench and the current adapter resolves tau-bench under benchmarks/external.",
+      "requires_network": true,
+      "requires_project_local_storage": true,
+      "requires_api": false,
+      "notes": [],
+      "intake_method": "git_clone",
+      "clone_command": {
+        "workdir": ".",
+        "argv": [
+          "git",
+          "clone",
+          "--depth",
+          "1",
+          "https://github.com/sierra-research/tau-bench",
+          "code/official/benchmarks/external/tau-bench"
+        ]
+      },
+      "prepare_commands": [
+        {
+          "workdir": "code/official",
+          "argv": [
+            ".venv/bin/python",
+            "scripts/prepare_tau_bench.py",
+            "--domain",
+            "retail",
+            "--train-n",
+            "30",
+            "--test-n",
+            "30",
+            "--out-dir",
+            "data/tau_bench"
+          ]
+        }
+      ]
+    },
+    {
+      "source_key": "chemllmbench",
+      "status": "pending_source_intake",
+      "source": "ChemFoundationModels/ChemLLMBench",
+      "source_type": "git_repo",
+      "source_url": "https://github.com/ChemFoundationModels/ChemLLMBench.git",
+      "target_location": "code/official/external/chemllmbench",
+      "target_path": "code/official/external/chemllmbench",
+      "identity_basis": "Official prepare_chemllmbench.py records source ChemFoundationModels/ChemLLMBench and prints the matching clone command.",
+      "requires_network": true,
+      "requires_project_local_storage": true,
+      "requires_api": false,
+      "notes": [],
+      "intake_method": "git_clone",
+      "clone_command": {
+        "workdir": ".",
+        "argv": [
+          "git",
+          "clone",
+          "--depth",
+          "1",
+          "https://github.com/ChemFoundationModels/ChemLLMBench.git",
+          "code/official/external/chemllmbench"
+        ]
+      },
+      "prepare_commands": [
+        {
+          "workdir": "code/official",
+          "argv": [
+            ".venv/bin/python",
+            "scripts/prepare_chemllmbench.py",
+            "--task",
+            "all",
+            "--train-n",
+            "30",
+            "--test-n",
+            "10",
+            "--out-dir",
+            "data/chemllmbench"
+          ]
+        }
+      ]
+    }
+  ]
+}

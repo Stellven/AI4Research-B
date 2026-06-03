@@ -1,0 +1,47 @@
+Loading skill from: ../../artifacts/raw_benchmark_outputs/mcp_bench_token/skill_output/2026-06-02_23-32-06
+  -> b0dfb61d-84a8-42c9-8c98-50369635966c: 
+  [!] Skill REJECTED: status=DEPRECATED (no verification round passed).
+  [!] Skipping skill-condition eval; reporting skill==baseline (net_gain=0).
+
+Loading dataset: data/mcp_bench_all/test_all_n16_seed42.json
+  -> 16 instances, task_type=open_ended
+  -> Using all 16 instances
+
+Models to test     : ['openai/gpt-5.4-nano']
+Judge model        : openai/gpt-5.4-mini
+Skill web_search   : disabled
+Skill script exec  : disabled (mock)
+Blank-pair policy  : DROP (paired_n shrinks, cleanest)
+
+-- Model: openai/gpt-5.4-nano --
+  -> Skill rejected; reusing baseline for skill condition.
+
+========================================================================
+  SKILL A/B EVALUATION REPORT
+========================================================================
+  Skill ID   : b0dfb61d-84a8-42c9-8c98-50369635966c
+  Abstract   : Plan-first tool use: decompose a natural-language request into source-backed subtasks, choose the right MCP tools, and sequence parallel versus dependent lookups before synthesizing a grounded answer. Success depends on dependency tracking, parameter grounding, and cross-source validation rather than live execution.
+  Status     : deprecated
+========================================================================
+
+  Model: openai/gpt-5.4-nano
+      Condition                       N  Pass     Acc   Latency
+      ----------------------------------------------------
+      Without skill                  16    15  93.8%     10.5s
+      With skill                     16    15  93.8%     10.5s
+
+      Accuracy delta : - 0.0%  (baseline=93.8%, skill=93.8%)
+      Repair     : 0/1   (0.0% of baseline failures fixed)
+      Regression : 0/15   (0.0% of baseline successes broken)
+      Net gain   : +0 instances
+
+      Paired outcome matrix (N=16 after filter):
+                               Skill pass   Skill fail
+      Baseline pass                    15            0
+      Baseline fail                     0            1
+
+========================================================================
+
+Results saved to: ../../artifacts/raw_benchmark_outputs/mcp_bench_token/eval_results.json
+Trajectories   : ../../artifacts/raw_benchmark_outputs/mcp_bench_token/eval_results_trajectories/
+Token usage    : prompt=90,262 | completion=30,568 | total=120,830 -> ../../artifacts/raw_benchmark_outputs/mcp_bench_token/eval_results.token_usage.json

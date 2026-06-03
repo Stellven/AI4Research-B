@@ -1,0 +1,20 @@
+{
+  "schema_version": "0.1",
+  "status": "ready_for_approval",
+  "code_intake": "intake_complete",
+  "smoke_assets": "already_prepared",
+  "contract": "skillgen_aime_smoke",
+  "command_plan": "ready_for_approval",
+  "all_claim_status_counts": {
+    "partially_reproduced": 2,
+    "blocked": 8,
+    "not_testable": 2
+  },
+  "external_source_intake_task_count": 5,
+  "benchmark_execution_target_counts": {
+    "blocked_missing_official_artifact": 2,
+    "blocked_pending_train_test_split_contract": 1,
+    "ready_for_model_route_mapping": 9,
+    "blocked_pending_full_size_generation": 1
+  }
+}

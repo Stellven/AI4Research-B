@@ -1,0 +1,1092 @@
+{
+  "schema_version": "0.1",
+  "scope": "Execution contract for actionable SkillGen blocked benchmark tests",
+  "run_dir": "skillgen_phase0_thorough_20260602",
+  "status": "ready_for_execution_where_structural_contract_exists",
+  "storage_rule": "All generated configs, outputs, cloned sources, caches, and logs must remain inside this run directory.",
+  "model_route_mapping_artifact": "artifacts/model_route_mapping.template.json",
+  "approval_required_before_execution": true,
+  "targets": [
+    {
+      "target_id": "alfworld_iod",
+      "claim_ids": [
+        "claim_table1_average_gains_all_models",
+        "claim_table1_entry_counts"
+      ],
+      "table1_row": "alfworld_iod",
+      "status": "blocked_canonical_code_fetched_missing_skillgen_contract",
+      "dataset": {
+        "train": null,
+        "test": null,
+        "train_exists": false,
+        "test_exists": false,
+        "train_n": null,
+        "test_n": null
+      },
+      "runner_contract": {
+        "requires_config_generation": true,
+        "config_path_template": "artifacts/generated_configs/alfworld_iod/{model_slug}.yaml",
+        "skill_output_template": "artifacts/raw_benchmark_outputs/full_matrix/alfworld_iod/{model_slug}/skill_output",
+        "train_command_template": {
+          "workdir": "code/official",
+          "argv": [
+            ".venv/bin/python",
+            "main.py",
+            "{train_dataset}",
+            "--config",
+            "{config_path}"
+          ]
+        },
+        "eval_command_template": {
+          "workdir": "code/official",
+          "argv": [
+            ".venv/bin/python",
+            "eval_skill.py",
+            "--skill-repo",
+            "{skill_output_dir}",
+            "--dataset",
+            "{test_dataset}",
+            "--n",
+            "{eval_n}",
+            "--seed",
+            "42",
+            "--models",
+            "{model_route}",
+            "--judge-model",
+            "{judge_model_route}",
+            "--max-workers",
+            "{max_workers}",
+            "--output",
+            "../../artifacts/raw_benchmark_outputs/full_matrix/alfworld_iod/{model_slug}/eval_results.json"
+          ]
+        },
+        "expected_outputs": [
+          "artifacts/raw_benchmark_outputs/full_matrix/alfworld_iod/{model_slug}/eval_results.json",
+          "artifacts/raw_benchmark_outputs/full_matrix/alfworld_iod/{model_slug}/eval_results.token_usage.json",
+          "artifacts/raw_benchmark_outputs/full_matrix/alfworld_iod/{model_slug}/skill_output"
+        ]
+      },
+      "requires": {
+        "model_route_mapping": true,
+        "api_keys": true,
+        "network": true,
+        "paid_api_or_token_budget": true,
+        "human_gate_before_execution": true
+      },
+      "execution_prerequisites": [
+        "Use artifacts/model_route_mapping.template.json for paper-model display-name routes.",
+        "Use human-approved API/network/token execution policy.",
+        "Generate a per-target config file so artifacts do not overwrite another target."
+      ],
+      "blockers": [
+        "Canonical ALFWorld code is fetched, but no SkillGen-compatible ALFWorld adapter and paper-matching IOD/OOD train/test split contract exists."
+      ],
+      "notes": [],
+      "paper_table1_entry_count": 0
+    },
+    {
+      "target_id": "alfworld_ood",
+      "claim_ids": [
+        "claim_table1_average_gains_all_models",
+        "claim_table1_entry_counts"
+      ],
+      "table1_row": "alfworld_ood",
+      "status": "blocked_canonical_code_fetched_missing_skillgen_contract",
+      "dataset": {
+        "train": null,
+        "test": null,
+        "train_exists": false,
+        "test_exists": false,
+        "train_n": null,
+        "test_n": null
+      },
+      "runner_contract": {
+        "requires_config_generation": true,
+        "config_path_template": "artifacts/generated_configs/alfworld_ood/{model_slug}.yaml",
+        "skill_output_template": "artifacts/raw_benchmark_outputs/full_matrix/alfworld_ood/{model_slug}/skill_output",
+        "train_command_template": {
+          "workdir": "code/official",
+          "argv": [
+            ".venv/bin/python",
+            "main.py",
+            "{train_dataset}",
+            "--config",
+            "{config_path}"
+          ]
+        },
+        "eval_command_template": {
+          "workdir": "code/official",
+          "argv": [
+            ".venv/bin/python",
+            "eval_skill.py",
+            "--skill-repo",
+            "{skill_output_dir}",
+            "--dataset",
+            "{test_dataset}",
+            "--n",
+            "{eval_n}",
+            "--seed",
+            "42",
+            "--models",
+            "{model_route}",
+            "--judge-model",
+            "{judge_model_route}",
+            "--max-workers",
+            "{max_workers}",
+            "--output",
+            "../../artifacts/raw_benchmark_outputs/full_matrix/alfworld_ood/{model_slug}/eval_results.json"
+          ]
+        },
+        "expected_outputs": [
+          "artifacts/raw_benchmark_outputs/full_matrix/alfworld_ood/{model_slug}/eval_results.json",
+          "artifacts/raw_benchmark_outputs/full_matrix/alfworld_ood/{model_slug}/eval_results.token_usage.json",
+          "artifacts/raw_benchmark_outputs/full_matrix/alfworld_ood/{model_slug}/skill_output"
+        ]
+      },
+      "requires": {
+        "model_route_mapping": true,
+        "api_keys": true,
+        "network": true,
+        "paid_api_or_token_budget": true,
+        "human_gate_before_execution": true
+      },
+      "execution_prerequisites": [
+        "Use artifacts/model_route_mapping.template.json for paper-model display-name routes.",
+        "Use human-approved API/network/token execution policy.",
+        "Generate a per-target config file so artifacts do not overwrite another target."
+      ],
+      "blockers": [
+        "Canonical ALFWorld code is fetched, but no SkillGen-compatible ALFWorld adapter and paper-matching IOD/OOD train/test split contract exists."
+      ],
+      "notes": [],
+      "paper_table1_entry_count": 0
+    },
+    {
+      "target_id": "livecodebench",
+      "claim_ids": [
+        "claim_table1_average_gains_all_models",
+        "claim_table1_entry_counts"
+      ],
+      "table1_row": "livecodebench",
+      "status": "blocked_pending_train_test_split_contract",
+      "dataset": {
+        "train": "data/livecodebench/release_v6_all.json",
+        "test": null,
+        "train_exists": true,
+        "test_exists": false,
+        "train_n": 1055,
+        "test_n": null
+      },
+      "runner_contract": {
+        "requires_config_generation": true,
+        "config_path_template": "artifacts/generated_configs/livecodebench/{model_slug}.yaml",
+        "skill_output_template": "artifacts/raw_benchmark_outputs/full_matrix/livecodebench/{model_slug}/skill_output",
+        "train_command_template": {
+          "workdir": "code/official",
+          "argv": [
+            ".venv/bin/python",
+            "main.py",
+            "data/livecodebench/release_v6_all.json",
+            "--config",
+            "{config_path}"
+          ]
+        },
+        "eval_command_template": {
+          "workdir": "code/official",
+          "argv": [
+            ".venv/bin/python",
+            "eval_skill.py",
+            "--skill-repo",
+            "{skill_output_dir}",
+            "--dataset",
+            "{test_dataset}",
+            "--n",
+            "{eval_n}",
+            "--seed",
+            "42",
+            "--models",
+            "{model_route}",
+            "--judge-model",
+            "{judge_model_route}",
+            "--max-workers",
+            "{max_workers}",
+            "--output",
+            "../../artifacts/raw_benchmark_outputs/full_matrix/livecodebench/{model_slug}/eval_results.json"
+          ]
+        },
+        "expected_outputs": [
+          "artifacts/raw_benchmark_outputs/full_matrix/livecodebench/{model_slug}/eval_results.json",
+          "artifacts/raw_benchmark_outputs/full_matrix/livecodebench/{model_slug}/eval_results.token_usage.json",
+          "artifacts/raw_benchmark_outputs/full_matrix/livecodebench/{model_slug}/skill_output"
+        ]
+      },
+      "requires": {
+        "model_route_mapping": true,
+        "api_keys": true,
+        "network": true,
+        "paid_api_or_token_budget": true,
+        "human_gate_before_execution": true
+      },
+      "execution_prerequisites": [
+        "Use artifacts/model_route_mapping.template.json for paper-model display-name routes.",
+        "Use human-approved API/network/token execution policy.",
+        "Generate a per-target config file so artifacts do not overwrite another target."
+      ],
+      "blockers": [
+        "LiveCodeBench is prepared as one all-instances file; Table 1 needs an approved train/test split contract."
+      ],
+      "notes": [],
+      "paper_table1_entry_count": 0
+    },
+    {
+      "target_id": "mcp_bench_all",
+      "claim_ids": [
+        "claim_table1_average_gains_all_models",
+        "claim_table1_entry_counts"
+      ],
+      "table1_row": "mcp_bench_all",
+      "status": "ready_for_execution",
+      "dataset": {
+        "train": "data/mcp_bench_all/train_all_n40_seed42.json",
+        "test": "data/mcp_bench_all/test_all_n16_seed42.json",
+        "train_exists": true,
+        "test_exists": true,
+        "train_n": 40,
+        "test_n": 16
+      },
+      "runner_contract": {
+        "requires_config_generation": true,
+        "config_path_template": "artifacts/generated_configs/mcp_bench_all/{model_slug}.yaml",
+        "skill_output_template": "artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_all/{model_slug}/skill_output",
+        "train_command_template": {
+          "workdir": "code/official",
+          "argv": [
+            ".venv/bin/python",
+            "main.py",
+            "data/mcp_bench_all/train_all_n40_seed42.json",
+            "--config",
+            "{config_path}"
+          ]
+        },
+        "eval_command_template": {
+          "workdir": "code/official",
+          "argv": [
+            ".venv/bin/python",
+            "eval_skill.py",
+            "--skill-repo",
+            "{skill_output_dir}",
+            "--dataset",
+            "data/mcp_bench_all/test_all_n16_seed42.json",
+            "--n",
+            "16",
+            "--seed",
+            "42",
+            "--models",
+            "{model_route}",
+            "--judge-model",
+            "{judge_model_route}",
+            "--max-workers",
+            "{max_workers}",
+            "--output",
+            "../../artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_all/{model_slug}/eval_results.json"
+          ]
+        },
+        "expected_outputs": [
+          "artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_all/{model_slug}/eval_results.json",
+          "artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_all/{model_slug}/eval_results.token_usage.json",
+          "artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_all/{model_slug}/skill_output"
+        ]
+      },
+      "requires": {
+        "model_route_mapping": true,
+        "api_keys": true,
+        "network": true,
+        "paid_api_or_token_budget": true,
+        "human_gate_before_execution": true
+      },
+      "execution_prerequisites": [
+        "Use artifacts/model_route_mapping.template.json for paper-model display-name routes.",
+        "Use human-approved API/network/token execution policy.",
+        "Generate a per-target config file so artifacts do not overwrite another target."
+      ],
+      "blockers": [],
+      "notes": [],
+      "paper_table1_entry_count": 8
+    },
+    {
+      "target_id": "mcp_bench_single",
+      "claim_ids": [
+        "claim_table1_average_gains_all_models",
+        "claim_table1_entry_counts"
+      ],
+      "table1_row": "mcp_bench_single",
+      "status": "ready_for_execution",
+      "dataset": {
+        "train": "data/mcp_bench/train.json",
+        "test": "data/mcp_bench/test.json",
+        "train_exists": true,
+        "test_exists": true,
+        "train_n": 40,
+        "test_n": 16
+      },
+      "runner_contract": {
+        "requires_config_generation": true,
+        "config_path_template": "artifacts/generated_configs/mcp_bench_single/{model_slug}.yaml",
+        "skill_output_template": "artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_single/{model_slug}/skill_output",
+        "train_command_template": {
+          "workdir": "code/official",
+          "argv": [
+            ".venv/bin/python",
+            "main.py",
+            "data/mcp_bench/train.json",
+            "--config",
+            "{config_path}"
+          ]
+        },
+        "eval_command_template": {
+          "workdir": "code/official",
+          "argv": [
+            ".venv/bin/python",
+            "eval_skill.py",
+            "--skill-repo",
+            "{skill_output_dir}",
+            "--dataset",
+            "data/mcp_bench/test.json",
+            "--n",
+            "16",
+            "--seed",
+            "42",
+            "--models",
+            "{model_route}",
+            "--judge-model",
+            "{judge_model_route}",
+            "--max-workers",
+            "{max_workers}",
+            "--output",
+            "../../artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_single/{model_slug}/eval_results.json"
+          ]
+        },
+        "expected_outputs": [
+          "artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_single/{model_slug}/eval_results.json",
+          "artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_single/{model_slug}/eval_results.token_usage.json",
+          "artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_single/{model_slug}/skill_output"
+        ]
+      },
+      "requires": {
+        "model_route_mapping": true,
+        "api_keys": true,
+        "network": true,
+        "paid_api_or_token_budget": true,
+        "human_gate_before_execution": true
+      },
+      "execution_prerequisites": [
+        "Use artifacts/model_route_mapping.template.json for paper-model display-name routes.",
+        "Use human-approved API/network/token execution policy.",
+        "Generate a per-target config file so artifacts do not overwrite another target."
+      ],
+      "blockers": [],
+      "notes": [],
+      "paper_table1_entry_count": 8
+    },
+    {
+      "target_id": "mind2web",
+      "claim_ids": [
+        "claim_table1_average_gains_all_models",
+        "claim_table1_entry_counts"
+      ],
+      "table1_row": "mind2web",
+      "status": "ready_for_execution",
+      "dataset": {
+        "train": "data/mind2web/train.json",
+        "test": "data/mind2web/test.json",
+        "train_exists": true,
+        "test_exists": true,
+        "train_n": 100,
+        "test_n": 100
+      },
+      "runner_contract": {
+        "requires_config_generation": true,
+        "config_path_template": "artifacts/generated_configs/mind2web/{model_slug}.yaml",
+        "skill_output_template": "artifacts/raw_benchmark_outputs/full_matrix/mind2web/{model_slug}/skill_output",
+        "train_command_template": {
+          "workdir": "code/official",
+          "argv": [
+            ".venv/bin/python",
+            "main.py",
+            "data/mind2web/train.json",
+            "--config",
+            "{config_path}"
+          ]
+        },
+        "eval_command_template": {
+          "workdir": "code/official",
+          "argv": [
+            ".venv/bin/python",
+            "eval_skill.py",
+            "--skill-repo",
+            "{skill_output_dir}",
+            "--dataset",
+            "data/mind2web/test.json",
+            "--n",
+            "100",
+            "--seed",
+            "42",
+            "--models",
+            "{model_route}",
+            "--judge-model",
+            "{judge_model_route}",
+            "--max-workers",
+            "{max_workers}",
+            "--output",
+            "../../artifacts/raw_benchmark_outputs/full_matrix/mind2web/{model_slug}/eval_results.json"
+          ]
+        },
+        "expected_outputs": [
+          "artifacts/raw_benchmark_outputs/full_matrix/mind2web/{model_slug}/eval_results.json",
+          "artifacts/raw_benchmark_outputs/full_matrix/mind2web/{model_slug}/eval_results.token_usage.json",
+          "artifacts/raw_benchmark_outputs/full_matrix/mind2web/{model_slug}/skill_output"
+        ]
+      },
+      "requires": {
+        "model_route_mapping": true,
+        "api_keys": true,
+        "network": true,
+        "paid_api_or_token_budget": true,
+        "human_gate_before_execution": true
+      },
+      "execution_prerequisites": [
+        "Use artifacts/model_route_mapping.template.json for paper-model display-name routes.",
+        "Use human-approved API/network/token execution policy.",
+        "Generate a per-target config file so artifacts do not overwrite another target."
+      ],
+      "blockers": [],
+      "notes": [],
+      "paper_table1_entry_count": 8
+    },
+    {
+      "target_id": "pubmedqa",
+      "claim_ids": [
+        "claim_table1_average_gains_all_models",
+        "claim_table1_entry_counts"
+      ],
+      "table1_row": "pubmedqa",
+      "status": "ready_for_execution",
+      "dataset": {
+        "train": "data/pubmedqa/train.json",
+        "test": "data/pubmedqa/test.json",
+        "train_exists": true,
+        "test_exists": true,
+        "train_n": 150,
+        "test_n": 100
+      },
+      "runner_contract": {
+        "requires_config_generation": true,
+        "config_path_template": "artifacts/generated_configs/pubmedqa/{model_slug}.yaml",
+        "skill_output_template": "artifacts/raw_benchmark_outputs/full_matrix/pubmedqa/{model_slug}/skill_output",
+        "train_command_template": {
+          "workdir": "code/official",
+          "argv": [
+            ".venv/bin/python",
+            "main.py",
+            "data/pubmedqa/train.json",
+            "--config",
+            "{config_path}"
+          ]
+        },
+        "eval_command_template": {
+          "workdir": "code/official",
+          "argv": [
+            ".venv/bin/python",
+            "eval_skill.py",
+            "--skill-repo",
+            "{skill_output_dir}",
+            "--dataset",
+            "data/pubmedqa/test.json",
+            "--n",
+            "100",
+            "--seed",
+            "42",
+            "--models",
+            "{model_route}",
+            "--judge-model",
+            "{judge_model_route}",
+            "--max-workers",
+            "{max_workers}",
+            "--output",
+            "../../artifacts/raw_benchmark_outputs/full_matrix/pubmedqa/{model_slug}/eval_results.json"
+          ]
+        },
+        "expected_outputs": [
+          "artifacts/raw_benchmark_outputs/full_matrix/pubmedqa/{model_slug}/eval_results.json",
+          "artifacts/raw_benchmark_outputs/full_matrix/pubmedqa/{model_slug}/eval_results.token_usage.json",
+          "artifacts/raw_benchmark_outputs/full_matrix/pubmedqa/{model_slug}/skill_output"
+        ]
+      },
+      "requires": {
+        "model_route_mapping": true,
+        "api_keys": true,
+        "network": true,
+        "paid_api_or_token_budget": true,
+        "human_gate_before_execution": true
+      },
+      "execution_prerequisites": [
+        "Use artifacts/model_route_mapping.template.json for paper-model display-name routes.",
+        "Use human-approved API/network/token execution policy.",
+        "Generate a per-target config file so artifacts do not overwrite another target."
+      ],
+      "blockers": [],
+      "notes": [],
+      "paper_table1_entry_count": 8
+    },
+    {
+      "target_id": "scienceworld",
+      "claim_ids": [
+        "claim_table1_average_gains_all_models",
+        "claim_table1_entry_counts"
+      ],
+      "table1_row": "scienceworld",
+      "status": "ready_for_execution",
+      "dataset": {
+        "train": "data/scienceworld/train.json",
+        "test": "data/scienceworld/test.json",
+        "train_exists": true,
+        "test_exists": true,
+        "train_n": 150,
+        "test_n": 100
+      },
+      "runner_contract": {
+        "requires_config_generation": true,
+        "config_path_template": "artifacts/generated_configs/scienceworld/{model_slug}.yaml",
+        "skill_output_template": "artifacts/raw_benchmark_outputs/full_matrix/scienceworld/{model_slug}/skill_output",
+        "train_command_template": {
+          "workdir": "code/official",
+          "argv": [
+            ".venv/bin/python",
+            "main.py",
+            "data/scienceworld/train.json",
+            "--config",
+            "{config_path}"
+          ]
+        },
+        "eval_command_template": {
+          "workdir": "code/official",
+          "argv": [
+            ".venv/bin/python",
+            "eval_skill.py",
+            "--skill-repo",
+            "{skill_output_dir}",
+            "--dataset",
+            "data/scienceworld/test.json",
+            "--n",
+            "100",
+            "--seed",
+            "42",
+            "--models",
+            "{model_route}",
+            "--judge-model",
+            "{judge_model_route}",
+            "--max-workers",
+            "{max_workers}",
+            "--output",
+            "../../artifacts/raw_benchmark_outputs/full_matrix/scienceworld/{model_slug}/eval_results.json"
+          ]
+        },
+        "expected_outputs": [
+          "artifacts/raw_benchmark_outputs/full_matrix/scienceworld/{model_slug}/eval_results.json",
+          "artifacts/raw_benchmark_outputs/full_matrix/scienceworld/{model_slug}/eval_results.token_usage.json",
+          "artifacts/raw_benchmark_outputs/full_matrix/scienceworld/{model_slug}/skill_output"
+        ]
+      },
+      "requires": {
+        "model_route_mapping": true,
+        "api_keys": true,
+        "network": true,
+        "paid_api_or_token_budget": true,
+        "human_gate_before_execution": true
+      },
+      "execution_prerequisites": [
+        "Use artifacts/model_route_mapping.template.json for paper-model display-name routes.",
+        "Use human-approved API/network/token execution policy.",
+        "Generate a per-target config file so artifacts do not overwrite another target."
+      ],
+      "blockers": [],
+      "notes": [],
+      "paper_table1_entry_count": 8
+    },
+    {
+      "target_id": "socialmaze_fts",
+      "claim_ids": [
+        "claim_table1_average_gains_all_models",
+        "claim_table1_entry_counts"
+      ],
+      "table1_row": "socialmaze_fts",
+      "status": "ready_for_execution",
+      "dataset": {
+        "train": "data/socialmaze/train.json",
+        "test": "data/socialmaze/test.json",
+        "train_exists": true,
+        "test_exists": true,
+        "train_n": 60,
+        "test_n": 50
+      },
+      "runner_contract": {
+        "requires_config_generation": true,
+        "config_path_template": "artifacts/generated_configs/socialmaze_fts/{model_slug}.yaml",
+        "skill_output_template": "artifacts/raw_benchmark_outputs/full_matrix/socialmaze_fts/{model_slug}/skill_output",
+        "train_command_template": {
+          "workdir": "code/official",
+          "argv": [
+            ".venv/bin/python",
+            "main.py",
+            "data/socialmaze/train.json",
+            "--config",
+            "{config_path}"
+          ]
+        },
+        "eval_command_template": {
+          "workdir": "code/official",
+          "argv": [
+            ".venv/bin/python",
+            "eval_skill.py",
+            "--skill-repo",
+            "{skill_output_dir}",
+            "--dataset",
+            "data/socialmaze/test.json",
+            "--n",
+            "50",
+            "--seed",
+            "42",
+            "--models",
+            "{model_route}",
+            "--judge-model",
+            "{judge_model_route}",
+            "--max-workers",
+            "{max_workers}",
+            "--output",
+            "../../artifacts/raw_benchmark_outputs/full_matrix/socialmaze_fts/{model_slug}/eval_results.json"
+          ]
+        },
+        "expected_outputs": [
+          "artifacts/raw_benchmark_outputs/full_matrix/socialmaze_fts/{model_slug}/eval_results.json",
+          "artifacts/raw_benchmark_outputs/full_matrix/socialmaze_fts/{model_slug}/eval_results.token_usage.json",
+          "artifacts/raw_benchmark_outputs/full_matrix/socialmaze_fts/{model_slug}/skill_output"
+        ]
+      },
+      "requires": {
+        "model_route_mapping": true,
+        "api_keys": true,
+        "network": true,
+        "paid_api_or_token_budget": true,
+        "human_gate_before_execution": true
+      },
+      "execution_prerequisites": [
+        "Use artifacts/model_route_mapping.template.json for paper-model display-name routes.",
+        "Use human-approved API/network/token execution policy.",
+        "Generate a per-target config file so artifacts do not overwrite another target."
+      ],
+      "blockers": [],
+      "notes": [],
+      "paper_table1_entry_count": 8
+    },
+    {
+      "target_id": "socialmaze_upi",
+      "claim_ids": [
+        "claim_table1_average_gains_all_models",
+        "claim_table1_entry_counts"
+      ],
+      "table1_row": "socialmaze_upi",
+      "status": "ready_for_execution",
+      "dataset": {
+        "train": "data/socialmaze_upi/train_n60_seed42.json",
+        "test": "data/socialmaze_upi/test_n50_seed42.json",
+        "train_exists": true,
+        "test_exists": true,
+        "train_n": 60,
+        "test_n": 50
+      },
+      "runner_contract": {
+        "requires_config_generation": true,
+        "config_path_template": "artifacts/generated_configs/socialmaze_upi/{model_slug}.yaml",
+        "skill_output_template": "artifacts/raw_benchmark_outputs/full_matrix/socialmaze_upi/{model_slug}/skill_output",
+        "train_command_template": {
+          "workdir": "code/official",
+          "argv": [
+            ".venv/bin/python",
+            "main.py",
+            "data/socialmaze_upi/train_n60_seed42.json",
+            "--config",
+            "{config_path}"
+          ]
+        },
+        "eval_command_template": {
+          "workdir": "code/official",
+          "argv": [
+            ".venv/bin/python",
+            "eval_skill.py",
+            "--skill-repo",
+            "{skill_output_dir}",
+            "--dataset",
+            "data/socialmaze_upi/test_n50_seed42.json",
+            "--n",
+            "50",
+            "--seed",
+            "42",
+            "--models",
+            "{model_route}",
+            "--judge-model",
+            "{judge_model_route}",
+            "--max-workers",
+            "{max_workers}",
+            "--output",
+            "../../artifacts/raw_benchmark_outputs/full_matrix/socialmaze_upi/{model_slug}/eval_results.json"
+          ]
+        },
+        "expected_outputs": [
+          "artifacts/raw_benchmark_outputs/full_matrix/socialmaze_upi/{model_slug}/eval_results.json",
+          "artifacts/raw_benchmark_outputs/full_matrix/socialmaze_upi/{model_slug}/eval_results.token_usage.json",
+          "artifacts/raw_benchmark_outputs/full_matrix/socialmaze_upi/{model_slug}/skill_output"
+        ]
+      },
+      "requires": {
+        "model_route_mapping": true,
+        "api_keys": true,
+        "network": true,
+        "paid_api_or_token_budget": true,
+        "human_gate_before_execution": true
+      },
+      "execution_prerequisites": [
+        "Use artifacts/model_route_mapping.template.json for paper-model display-name routes.",
+        "Use human-approved API/network/token execution policy.",
+        "Generate a per-target config file so artifacts do not overwrite another target."
+      ],
+      "blockers": [],
+      "notes": [],
+      "paper_table1_entry_count": 8,
+      "alternate_smoke_target": {
+        "target_id": "socialmaze_upi_smoke",
+        "claim_ids": [
+          "claim_table1_average_gains_all_models"
+        ],
+        "table1_row": null,
+        "status": "ready_for_execution",
+        "dataset": {
+          "train": "data/socialmaze_upi_smoke/train_n1_seed42.json",
+          "test": "data/socialmaze_upi_smoke/test_n1_seed42.json",
+          "train_exists": true,
+          "test_exists": true,
+          "train_n": 1,
+          "test_n": 1
+        },
+        "runner_contract": {
+          "requires_config_generation": true,
+          "config_path_template": "artifacts/generated_configs/socialmaze_upi_smoke/{model_slug}.yaml",
+          "skill_output_template": "artifacts/raw_benchmark_outputs/full_matrix/socialmaze_upi_smoke/{model_slug}/skill_output",
+          "train_command_template": {
+            "workdir": "code/official",
+            "argv": [
+              ".venv/bin/python",
+              "main.py",
+              "data/socialmaze_upi_smoke/train_n1_seed42.json",
+              "--config",
+              "{config_path}"
+            ]
+          },
+          "eval_command_template": {
+            "workdir": "code/official",
+            "argv": [
+              ".venv/bin/python",
+              "eval_skill.py",
+              "--skill-repo",
+              "{skill_output_dir}",
+              "--dataset",
+              "data/socialmaze_upi_smoke/test_n1_seed42.json",
+              "--n",
+              "1",
+              "--seed",
+              "42",
+              "--models",
+              "{model_route}",
+              "--judge-model",
+              "{judge_model_route}",
+              "--max-workers",
+              "{max_workers}",
+              "--output",
+              "../../artifacts/raw_benchmark_outputs/full_matrix/socialmaze_upi_smoke/{model_slug}/eval_results.json"
+            ]
+          },
+          "expected_outputs": [
+            "artifacts/raw_benchmark_outputs/full_matrix/socialmaze_upi_smoke/{model_slug}/eval_results.json",
+            "artifacts/raw_benchmark_outputs/full_matrix/socialmaze_upi_smoke/{model_slug}/eval_results.token_usage.json",
+            "artifacts/raw_benchmark_outputs/full_matrix/socialmaze_upi_smoke/{model_slug}/skill_output"
+          ]
+        },
+        "requires": {
+          "model_route_mapping": true,
+          "api_keys": true,
+          "network": true,
+          "paid_api_or_token_budget": true,
+          "human_gate_before_execution": true
+        },
+        "execution_prerequisites": [
+          "Use artifacts/model_route_mapping.template.json for paper-model display-name routes.",
+          "Use human-approved API/network/token execution policy.",
+          "Generate a per-target config file so artifacts do not overwrite another target."
+        ],
+        "blockers": [],
+        "notes": [
+          "Smoke data can exercise the adapter but cannot reproduce the full Table 1 UPI row."
+        ]
+      }
+    },
+    {
+      "target_id": "tau_bench_retail",
+      "claim_ids": [
+        "claim_tau_bench_gate_activated"
+      ],
+      "table1_row": null,
+      "status": "ready_for_execution",
+      "dataset": {
+        "train": "data/tau_bench/train_retail_n30_seed42.json",
+        "test": "data/tau_bench/test_retail_n30_seed42.json",
+        "train_exists": true,
+        "test_exists": true,
+        "train_n": 30,
+        "test_n": 30
+      },
+      "runner_contract": {
+        "requires_config_generation": true,
+        "config_path_template": "artifacts/generated_configs/tau_bench_retail/{model_slug}.yaml",
+        "skill_output_template": "artifacts/raw_benchmark_outputs/full_matrix/tau_bench_retail/{model_slug}/skill_output",
+        "train_command_template": {
+          "workdir": "code/official",
+          "argv": [
+            ".venv/bin/python",
+            "main.py",
+            "data/tau_bench/train_retail_n30_seed42.json",
+            "--config",
+            "{config_path}"
+          ]
+        },
+        "eval_command_template": {
+          "workdir": "code/official",
+          "argv": [
+            ".venv/bin/python",
+            "eval_skill.py",
+            "--skill-repo",
+            "{skill_output_dir}",
+            "--dataset",
+            "data/tau_bench/test_retail_n30_seed42.json",
+            "--n",
+            "30",
+            "--seed",
+            "42",
+            "--models",
+            "{model_route}",
+            "--judge-model",
+            "{judge_model_route}",
+            "--max-workers",
+            "{max_workers}",
+            "--output",
+            "../../artifacts/raw_benchmark_outputs/full_matrix/tau_bench_retail/{model_slug}/eval_results.json"
+          ]
+        },
+        "expected_outputs": [
+          "artifacts/raw_benchmark_outputs/full_matrix/tau_bench_retail/{model_slug}/eval_results.json",
+          "artifacts/raw_benchmark_outputs/full_matrix/tau_bench_retail/{model_slug}/eval_results.token_usage.json",
+          "artifacts/raw_benchmark_outputs/full_matrix/tau_bench_retail/{model_slug}/skill_output"
+        ]
+      },
+      "requires": {
+        "model_route_mapping": true,
+        "api_keys": true,
+        "network": true,
+        "paid_api_or_token_budget": true,
+        "human_gate_before_execution": true
+      },
+      "execution_prerequisites": [
+        "Use artifacts/model_route_mapping.template.json for paper-model display-name routes.",
+        "Use human-approved API/network/token execution policy.",
+        "Generate a per-target config file so artifacts do not overwrite another target."
+      ],
+      "blockers": [],
+      "notes": []
+    },
+    {
+      "target_id": "chemllmbench_property_prediction",
+      "claim_ids": [
+        "claim_chemllmbench_useful_gains"
+      ],
+      "table1_row": null,
+      "status": "ready_for_execution",
+      "dataset": {
+        "train": "data/chemllmbench/property_prediction_train.json",
+        "test": "data/chemllmbench/property_prediction_test.json",
+        "train_exists": true,
+        "test_exists": true,
+        "train_n": 30,
+        "test_n": 10
+      },
+      "runner_contract": {
+        "requires_config_generation": true,
+        "config_path_template": "artifacts/generated_configs/chemllmbench_property_prediction/{model_slug}.yaml",
+        "skill_output_template": "artifacts/raw_benchmark_outputs/full_matrix/chemllmbench_property_prediction/{model_slug}/skill_output",
+        "train_command_template": {
+          "workdir": "code/official",
+          "argv": [
+            ".venv/bin/python",
+            "main.py",
+            "data/chemllmbench/property_prediction_train.json",
+            "--config",
+            "{config_path}"
+          ]
+        },
+        "eval_command_template": {
+          "workdir": "code/official",
+          "argv": [
+            ".venv/bin/python",
+            "eval_skill.py",
+            "--skill-repo",
+            "{skill_output_dir}",
+            "--dataset",
+            "data/chemllmbench/property_prediction_test.json",
+            "--n",
+            "10",
+            "--seed",
+            "42",
+            "--models",
+            "{model_route}",
+            "--judge-model",
+            "{judge_model_route}",
+            "--max-workers",
+            "{max_workers}",
+            "--output",
+            "../../artifacts/raw_benchmark_outputs/full_matrix/chemllmbench_property_prediction/{model_slug}/eval_results.json"
+          ]
+        },
+        "expected_outputs": [
+          "artifacts/raw_benchmark_outputs/full_matrix/chemllmbench_property_prediction/{model_slug}/eval_results.json",
+          "artifacts/raw_benchmark_outputs/full_matrix/chemllmbench_property_prediction/{model_slug}/eval_results.token_usage.json",
+          "artifacts/raw_benchmark_outputs/full_matrix/chemllmbench_property_prediction/{model_slug}/skill_output"
+        ]
+      },
+      "requires": {
+        "model_route_mapping": true,
+        "api_keys": true,
+        "network": true,
+        "paid_api_or_token_budget": true,
+        "human_gate_before_execution": true
+      },
+      "execution_prerequisites": [
+        "Use artifacts/model_route_mapping.template.json for paper-model display-name routes.",
+        "Use human-approved API/network/token execution policy.",
+        "Generate a per-target config file so artifacts do not overwrite another target."
+      ],
+      "blockers": [],
+      "notes": []
+    },
+    {
+      "target_id": "chemllmbench_yield_prediction",
+      "claim_ids": [
+        "claim_chemllmbench_useful_gains"
+      ],
+      "table1_row": null,
+      "status": "ready_for_execution",
+      "dataset": {
+        "train": "data/chemllmbench/yield_prediction_train.json",
+        "test": "data/chemllmbench/yield_prediction_test.json",
+        "train_exists": true,
+        "test_exists": true,
+        "train_n": 30,
+        "test_n": 10
+      },
+      "runner_contract": {
+        "requires_config_generation": true,
+        "config_path_template": "artifacts/generated_configs/chemllmbench_yield_prediction/{model_slug}.yaml",
+        "skill_output_template": "artifacts/raw_benchmark_outputs/full_matrix/chemllmbench_yield_prediction/{model_slug}/skill_output",
+        "train_command_template": {
+          "workdir": "code/official",
+          "argv": [
+            ".venv/bin/python",
+            "main.py",
+            "data/chemllmbench/yield_prediction_train.json",
+            "--config",
+            "{config_path}"
+          ]
+        },
+        "eval_command_template": {
+          "workdir": "code/official",
+          "argv": [
+            ".venv/bin/python",
+            "eval_skill.py",
+            "--skill-repo",
+            "{skill_output_dir}",
+            "--dataset",
+            "data/chemllmbench/yield_prediction_test.json",
+            "--n",
+            "10",
+            "--seed",
+            "42",
+            "--models",
+            "{model_route}",
+            "--judge-model",
+            "{judge_model_route}",
+            "--max-workers",
+            "{max_workers}",
+            "--output",
+            "../../artifacts/raw_benchmark_outputs/full_matrix/chemllmbench_yield_prediction/{model_slug}/eval_results.json"
+          ]
+        },
+        "expected_outputs": [
+          "artifacts/raw_benchmark_outputs/full_matrix/chemllmbench_yield_prediction/{model_slug}/eval_results.json",
+          "artifacts/raw_benchmark_outputs/full_matrix/chemllmbench_yield_prediction/{model_slug}/eval_results.token_usage.json",
+          "artifacts/raw_benchmark_outputs/full_matrix/chemllmbench_yield_prediction/{model_slug}/skill_output"
+        ]
+      },
+      "requires": {
+        "model_route_mapping": true,
+        "api_keys": true,
+        "network": true,
+        "paid_api_or_token_budget": true,
+        "human_gate_before_execution": true
+      },
+      "execution_prerequisites": [
+        "Use artifacts/model_route_mapping.template.json for paper-model display-name routes.",
+        "Use human-approved API/network/token execution policy.",
+        "Generate a per-target config file so artifacts do not overwrite another target."
+      ],
+      "blockers": [],
+      "notes": []
+    }
+  ],
+  "status_counts": {
+    "blocked_canonical_code_fetched_missing_skillgen_contract": 2,
+    "blocked_pending_train_test_split_contract": 1,
+    "ready_for_execution": 10
+  },
+  "table1_matrix": {
+    "required_rows": [
+      "alfworld_iod",
+      "alfworld_ood",
+      "livecodebench",
+      "mcp_bench_all",
+      "mcp_bench_single",
+      "mind2web",
+      "pubmedqa",
+      "scienceworld",
+      "socialmaze_fts",
+      "socialmaze_upi"
+    ],
+    "ready_rows": [
+      "mcp_bench_all",
+      "mcp_bench_single",
+      "mind2web",
+      "pubmedqa",
+      "scienceworld",
+      "socialmaze_fts",
+      "socialmaze_upi"
+    ],
+    "paper_model_count": 8,
+    "ready_entry_count": 56,
+    "paper_entry_count": 80
+  }
+}

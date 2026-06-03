@@ -1,0 +1,37 @@
+{
+  "skill_id": "5d98c0bd-bada-4992-a666-6a75f89deb38",
+  "semantic_aim": "",
+  "skill_status": "active",
+  "skill_rejected": false,
+  "dataset": "data/pubmedqa/test.json",
+  "n_sampled": 100,
+  "seed": 42,
+  "drop_blank": true,
+  "results": [
+    {
+      "model": "openai/gpt-5.4-nano",
+      "skill_id": "5d98c0bd-bada-4992-a666-6a75f89deb38",
+      "n_instances": 100,
+      "baseline_acc": 0.74,
+      "skill_acc": 0.7,
+      "delta_acc": -0.040000000000000036,
+      "repair": 6,
+      "regression": 10,
+      "repair_rate": 0.23076923076923078,
+      "regression_rate": 0.13513513513513514,
+      "net_gain": -4,
+      "blank_filter": {
+        "drop_blank": true,
+        "n_paired_raw": 100,
+        "n_blank_baseline": 0,
+        "n_blank_skill": 0,
+        "n_blank_either": 0,
+        "n_blank_both": 0
+      },
+      "tools": {
+        "enable_web_search": false,
+        "execute_scripts": false
+      }
+    }
+  ]
+}

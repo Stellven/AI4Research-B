@@ -1,0 +1,30 @@
+{
+  "skill_id": "28b0778e-7dd4-4f88-a89e-c4f39df3c9a1",
+  "body": "## Contextual abstract\nThis skill covers interactive retail support dialogues where the agent must authenticate a customer, inspect the live order, and carry out a supported action such as cancellation, return, modification, or exchange. The task is stateful and tool-driven: the agent must reconcile identity, order status, item variants, and payment/refund details before acting. Success depends on turning the conversation into the correct sequence of tool calls, not on producing a persuasive explanation.\n\n## Successful experiences\n- **Authenticate, then fetch the order.** Use an allowed identifier, retrieve the relevant order, and confirm the order status before choosing a workflow.\n- **Choose the right path.** If the order is still editable, use the direct cancellation/modification flow; if it is delivered or otherwise locked, switch to the exchange/return path.\n- **Map request to exact catalog data.** Translate the customer\u2019s requested size, color, model, or configuration into a precise variant or item ID, and verify that the replacement is available.\n- **Check all required parameters.** Confirm payment method, refund method, or any other required account detail before submitting the action.\n- **Execute once, then verify.** Submit the tool action with the full intended parameters, then confirm the resulting order state matches the request.\n- **Handle multi-part requests one by one.** For multiple items or multiple orders, process each action separately and preserve the intended final state across all changes.\n\n## Failure lessons\n- **Signal:** The agent stops after identity lookup or order retrieval, or keeps asking for more confirmation even though the request is already eligible.\n  **Counter-action:** Move immediately from verification to the supported tool action. Do not leave the workflow half-finished when the needed data is already present.\n\n- **Signal:** The agent selects a near-match variant, the first plausible product, or an item that matches only some requested attributes.\n  **Counter-action:** Ground the exact item/variant before acting. Reconcile every requested attribute against the live order and catalog data so the final state is exact, not approximate.\n\n- **Signal:** The final order state changes only partially, or one requested sub-action is completed while another is omitted.\n  **Counter-action:** Preserve the full target state across the whole request. If the customer asked for multiple changes, complete them in sequence and verify each one.\n\n- **Signal:** The agent escalates or pauses despite having enough information and a supported workflow.\n  **Counter-action:** Stay in the tool path unless a genuine policy or data blocker exists. Unsupported hesitation is a failure when the action can already be executed.",
+  "contextual_abstract": "Interactive retail support where the agent authenticates a customer, inspects the live order, and executes supported actions like cancellation, return, modification, or exchange. The core challenge is stateful tool use: match identity, order status, exact item variants, and payment/refund details before acting.",
+  "scripts": [],
+  "requirements": [],
+  "references": [],
+  "reference_docs": [],
+  "status": "deprecated",
+  "version": 1,
+  "analysis_id": "1819b44b-9617-4f32-ba29-23e5c14b0263",
+  "dataset_id": "tau_bench_retail_train_n30_seed42",
+  "task_name": "tau-bench-retail-train",
+  "verification_history": [
+    {
+      "round_idx": 0,
+      "passed": false,
+      "net_gain": -1,
+      "repair_count": 1,
+      "regression_count": 2,
+      "baseline_acc": 0.75,
+      "skill_acc": 0.5,
+      "diagnostic": "mode=net_gain_gated, paired_n=4, n_target=1, n_success_guard=3, baseline_acc=75.0%, skill_acc=50.0%, repair=1/1 (100.0%), regression=2/3 (66.7%), net_gain=-1, required=1 (abs=1, rel=0.00*n), passed=False",
+      "rejected_no_passing_round": true
+    }
+  ],
+  "token_count": 408,
+  "behavioral_aim": "",
+  "semantic_aim": ""
+}

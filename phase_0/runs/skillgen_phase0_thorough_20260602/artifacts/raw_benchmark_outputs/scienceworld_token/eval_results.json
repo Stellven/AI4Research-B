@@ -1,0 +1,37 @@
+{
+  "skill_id": "20d74b11-1654-4f2f-a0b5-d7502948b56d",
+  "semantic_aim": "",
+  "skill_status": "active",
+  "skill_rejected": false,
+  "dataset": "data/scienceworld/test.json",
+  "n_sampled": 100,
+  "seed": 42,
+  "drop_blank": true,
+  "results": [
+    {
+      "model": "openai/gpt-5.4-nano",
+      "skill_id": "20d74b11-1654-4f2f-a0b5-d7502948b56d",
+      "n_instances": 100,
+      "baseline_acc": 0.31,
+      "skill_acc": 0.35,
+      "delta_acc": 0.03999999999999998,
+      "repair": 17,
+      "regression": 13,
+      "repair_rate": 0.2463768115942029,
+      "regression_rate": 0.41935483870967744,
+      "net_gain": 4,
+      "blank_filter": {
+        "drop_blank": true,
+        "n_paired_raw": 100,
+        "n_blank_baseline": 0,
+        "n_blank_skill": 0,
+        "n_blank_either": 0,
+        "n_blank_both": 0
+      },
+      "tools": {
+        "enable_web_search": false,
+        "execute_scripts": false
+      }
+    }
+  ]
+}

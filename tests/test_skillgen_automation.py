@@ -60,6 +60,21 @@ def make_fake_official_source(root: Path) -> Path:
         "p.add_argument('--output')\n",
         encoding="utf-8",
     )
+    for relative_path in [
+        "scripts/prepare_benchmarks.py",
+        "benchmarks/livecodebench_adapter.py",
+        "scripts/prepare_mcp_bench.py",
+        "benchmarks/mcp_bench_adapter.py",
+        "scripts/prepare_socialmaze.py",
+        "benchmarks/socialmaze_adapter.py",
+        "scripts/prepare_tau_bench.py",
+        "benchmarks/tau_bench_adapter.py",
+        "scripts/prepare_chemllmbench.py",
+        "benchmarks/chemllmbench_adapter.py",
+    ]:
+        path = source / relative_path
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text("# fixture for source-intake detection\n", encoding="utf-8")
     write_json(
         source / "data" / "aime" / "train.json",
         {
@@ -101,7 +116,17 @@ class SkillGenAutomationTest(unittest.TestCase):
             hardcodings = json.loads((run_dir / "artifacts" / "hardcoding_disclosures.json").read_text(encoding="utf-8"))
             all_claims = json.loads((run_dir / "artifacts" / "all_claims.json").read_text(encoding="utf-8"))
             all_claim_matrix = json.loads((run_dir / "artifacts" / "all_claim_verification_matrix.json").read_text(encoding="utf-8"))
+            intake_plan = json.loads((run_dir / "artifacts" / "external_source_intake_plan.json").read_text(encoding="utf-8"))
+            intake_status = json.loads((run_dir / "artifacts" / "external_source_intake_status.json").read_text(encoding="utf-8"))
+            preparation_plan = json.loads((run_dir / "artifacts" / "benchmark_preparation_plan.json").read_text(encoding="utf-8"))
+            benchmark_execution_plan = json.loads((run_dir / "artifacts" / "benchmark_execution_plan.json").read_text(encoding="utf-8"))
+            model_route_mapping = json.loads((run_dir / "artifacts" / "model_route_mapping.template.json").read_text(encoding="utf-8"))
+            transfer_runner_plan = json.loads((run_dir / "artifacts" / "transfer_runner_plan.json").read_text(encoding="utf-8"))
+            token_log_plan = json.loads((run_dir / "artifacts" / "token_log_plan.json").read_text(encoding="utf-8"))
             claim_rows = {row["claim_id"]: row for row in all_claim_matrix["claims"]}
+            intake_rows = {row["source_key"]: row for row in intake_plan["tasks"]}
+            status_rows = {row["source_key"]: row for row in intake_status["tasks"]}
+            execution_targets = {row["target_id"]: row for row in benchmark_execution_plan["targets"]}
 
             self.assertEqual(contract["target_id"], "skillgen_aime_smoke")
             self.assertEqual(command_plan["commands"]["eval_template"]["argv"][3], "{skill_output_dir}")
@@ -110,7 +135,24 @@ class SkillGenAutomationTest(unittest.TestCase):
             self.assertIn("skillgen_aime_smoke_target", {item["id"] for item in hardcodings["hardcodings"]})
             self.assertGreaterEqual(all_claims["claim_count"], 10)
             self.assertEqual(claim_rows["claim_baseline_generator_comparison"]["status"], "not_testable")
+            self.assertEqual(claim_rows["claim_tau_bench_gate_activated"]["status"], "blocked")
+            self.assertIn("external_source_candidates", claim_rows["claim_chemllmbench_useful_gains"])
+            self.assertIn("livecodebench", all_claim_matrix["official_support"]["external_source_candidates"])
+            self.assertTrue(
+                all_claim_matrix["official_support"]["external_source_candidates"]["livecodebench"][0][
+                    "official_evidence_present"
+                ]
+            )
+            self.assertIn("mcp_bench_all", intake_rows)
+            self.assertEqual(intake_rows["mcp_bench_all"]["target_path"], "code/official/benchmarks/external/mcp-bench")
+            self.assertIn("mcp_bench_all", status_rows)
+            self.assertIn("livecodebench", {row["source_key"] for row in preparation_plan["tasks"]})
             self.assertIn("skillgen_aime", {target["target_id"] for target in all_claim_matrix["executable_targets"]})
+            self.assertIn("scienceworld", execution_targets)
+            self.assertEqual(execution_targets["alfworld_ood"]["status"], "blocked_missing_official_artifact")
+            self.assertEqual(transfer_runner_plan["planned_off_diagonal_comparisons"], 120)
+            self.assertEqual(model_route_mapping["status"], "route_resolved_with_equivalent_deviations")
+            self.assertIn("ScienceWorld", {row["paper_name"] for row in token_log_plan["benchmark_groups"]})
             self.assertTrue((run_dir / "artifacts" / "approval.template.json").exists())
 
     def test_prepare_does_not_overwrite_existing_smoke_assets(self) -> None:
@@ -177,7 +219,12 @@ class SkillGenAutomationTest(unittest.TestCase):
 
             self.assertTrue(allowed, reasons)
             self.assertEqual(approval["approval_source"], "unit_test")
+            self.assertTrue(approval["allow_project_local_install"])
+            self.assertTrue(approval["skip_install_if_environment_present"])
+            self.assertTrue(approval["auto_retry_approved"])
+            self.assertEqual(approval["max_retry_attempts"], 1)
             self.assertIn("Status: `approved`", review)
+            self.assertIn("Auto retry approved steps: `True`", review)
 
     def test_parse_compare_report_from_structured_skillgen_outputs(self) -> None:
         with TemporaryDirectory() as temp_dir:
@@ -239,6 +286,10 @@ class SkillGenAutomationTest(unittest.TestCase):
             self.assertEqual(benchmark["eval"]["token_usage_total"], 30)
             self.assertEqual(comparison["smoke_status"], "not_reproduced")
             self.assertIn("SkillGen Phase 0 Automated Validation Report", report)
+            self.assertIn("## Status Explanations", report)
+            self.assertIn("Compared / required evidence", report)
+            self.assertIn("Reason for status", report)
+            self.assertIn("held-out smoke result did not satisfy", report)
 
 
 if __name__ == "__main__":

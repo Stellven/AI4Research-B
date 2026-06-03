@@ -1,0 +1,30 @@
+{
+  "skill_id": "b0dfb61d-84a8-42c9-8c98-50369635966c",
+  "body": "## Contextual abstract\nThis task is a planning-first tool-use problem: given a natural-language request, decide which MCP servers or tools are needed, in what order to use them, and how to turn the retrieved evidence into a grounded execution plan plus final answer. The main challenge is not live execution; it is accurate decomposition, source selection, parameter grounding, and dependency-aware sequencing across domains such as papers, finance, scientific retrieval, or API/spec comparison.\n\n## Successful experiences\n- **Split before searching.** Break the request into a small set of independent subtasks, then map each subtask to the most relevant source or server.\n- **Parallelize independent lookups.** Run separate evidence-gathering tracks at the same time when they do not depend on each other, and reserve sequential steps for true dependencies.\n- **Anchor reference values early.** Fetch key counts, thresholds, metadata, time windows, or schema details first so later steps have concrete inputs.\n- **Carry intermediates forward.** Reuse shortlist results, rankings, overlap sets, or computed metrics in downstream lookups instead of restarting from scratch.\n- **State conditional branches explicitly.** If a later query depends on an earlier result, write the dependency into the plan and defer the follow-up until the prerequisite is validated.\n- **Cross-check before synthesis.** Compare overlapping sources when available, verify constraints against the user\u2019s requirements, and only then draft the final plan or answer.\n- **Compare sources when the task spans services.** For cross-service checks, inspect each source separately first, then synthesize a comparison step that grounds the recommendation in both.\n\n## Failure lessons\n- **Signal:** The plan jumps from a vague prompt to a single broad lookup, even though the task needs multiple sources or a comparison chain. **Counter-action:** Enumerate every required source and subquestion first, then assign each to a concrete tool with precise parameters.\n- **Signal:** The task asks for a shortlist, overlap set, ranking, or fallback logic, but the plan skips directly to the final enrichment step. **Counter-action:** Compute the intermediate set or ranking before any downstream retrieval, and validate membership or mismatch status with evidence.\n- **Signal:** The response stops early, omits a prerequisite lookup, or fails to satisfy formatting/completeness constraints. **Counter-action:** Check the output requirements against the planned steps before drafting the final answer, and add any missing validation or formatting step.\n- **Signal:** A later lookup is attempted without the earlier value it depends on, producing under-grounded or speculative output. **Counter-action:** Make the dependency explicit in the plan, wait for the prerequisite result, and only then schedule the follow-up query.",
+  "contextual_abstract": "Plan-first tool use: decompose a natural-language request into source-backed subtasks, choose the right MCP tools, and sequence parallel versus dependent lookups before synthesizing a grounded answer. Success depends on dependency tracking, parameter grounding, and cross-source validation rather than live execution.",
+  "scripts": [],
+  "requirements": [],
+  "references": [],
+  "reference_docs": [],
+  "status": "deprecated",
+  "version": 1,
+  "analysis_id": "746c9627-a26c-4f15-8d26-42bee284f46c",
+  "dataset_id": "mcp_bench_all_train_n40_seed42",
+  "task_name": "mcp_bench_all_train",
+  "verification_history": [
+    {
+      "round_idx": 0,
+      "passed": false,
+      "net_gain": 0,
+      "repair_count": 0,
+      "regression_count": 0,
+      "baseline_acc": 0.5,
+      "skill_acc": 0.5,
+      "diagnostic": "mode=net_gain_gated, paired_n=4, n_target=2, n_success_guard=2, baseline_acc=50.0%, skill_acc=50.0%, repair=0/2 (0.0%), regression=0/2 (0.0%), net_gain=0, required=1 (abs=1, rel=0.00*n), passed=False",
+      "rejected_no_passing_round": true
+    }
+  ],
+  "token_count": 416,
+  "behavioral_aim": "",
+  "semantic_aim": ""
+}

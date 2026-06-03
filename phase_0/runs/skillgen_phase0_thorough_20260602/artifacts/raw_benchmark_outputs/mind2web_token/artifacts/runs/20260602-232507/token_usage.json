@@ -1,0 +1,74 @@
+[
+  {
+    "model": "openai/gpt-5.4-mini",
+    "stage": "generation",
+    "call_type": "chat_json",
+    "calls": 2,
+    "prompt_tokens": 6164,
+    "completion_tokens": 1069,
+    "total_tokens": 7233
+  },
+  {
+    "model": "openai/gpt-5.4-mini",
+    "stage": "induction",
+    "call_type": "chat",
+    "calls": 100,
+    "prompt_tokens": 294701,
+    "completion_tokens": 5955,
+    "total_tokens": 300656
+  },
+  {
+    "model": "openai/gpt-5.4-mini",
+    "stage": "induction",
+    "call_type": "chat_json",
+    "calls": 9,
+    "prompt_tokens": 10142,
+    "completion_tokens": 1878,
+    "total_tokens": 12020
+  },
+  {
+    "model": "openai/gpt-5.4-mini",
+    "stage": "unknown",
+    "call_type": "chat_json",
+    "calls": 2,
+    "prompt_tokens": 6994,
+    "completion_tokens": 624,
+    "total_tokens": 7618
+  },
+  {
+    "model": "openai/gpt-5.4-mini",
+    "stage": "verification_r1",
+    "call_type": "chat_json",
+    "calls": 1,
+    "prompt_tokens": 1846,
+    "completion_tokens": 1110,
+    "total_tokens": 2956
+  },
+  {
+    "model": "openai/gpt-5.4-nano",
+    "stage": "baseline",
+    "call_type": "chat_multi_turn",
+    "calls": 100,
+    "prompt_tokens": 266694,
+    "completion_tokens": 2384,
+    "total_tokens": 269078
+  },
+  {
+    "model": "openai/gpt-5.4-nano",
+    "stage": "verification_r1",
+    "call_type": "chat_multi_turn",
+    "calls": 4,
+    "prompt_tokens": 12536,
+    "completion_tokens": 92,
+    "total_tokens": 12628
+  },
+  {
+    "model": "text-embedding-3-small",
+    "stage": "induction",
+    "call_type": "embed",
+    "calls": 2,
+    "prompt_tokens": 62134,
+    "completion_tokens": 0,
+    "total_tokens": 62134
+  }
+]

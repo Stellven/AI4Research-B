@@ -1,0 +1,12 @@
+{
+  "analysis_id": "773f2480-b26c-4e28-8e80-2951acccb2ca",
+  "dataset_id": "mind2web_train_n100_seed42",
+  "task_name": "mind2web_web_navigation_train",
+  "n_failures": 47,
+  "n_successes": 53,
+  "n_failure_clusters": 2,
+  "n_success_clusters": 2,
+  "n_contrastive_pairs": 4,
+  "same_type_pairs": 4,
+  "contextual_abstract": "This task is a web-navigation action prediction problem: given the current webpage state and the history of prior clicks, typing, and selections, the agent must output the single next UI action to continue toward a user\u2019s goal. The required reasoning is grounded in interface understanding, such as recognizing forms, menus, filters, calendars, dropdowns, and links, and choosing the most plausible next interaction from the visible candidates. Inputs vary across websites and domains, but the overall structure is consistent: a natural-language task request, a sequence of executed actions, and a set of currently available page elements. The problem is essentially sequential decision-making for browser automation, where success depends on tracking task progress and selecting the correct next step rather than producing a final textual answer."
+}

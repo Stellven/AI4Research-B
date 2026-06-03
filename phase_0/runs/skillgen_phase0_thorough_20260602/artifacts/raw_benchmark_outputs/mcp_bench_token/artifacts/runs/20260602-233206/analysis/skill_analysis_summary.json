@@ -1,0 +1,12 @@
+{
+  "analysis_id": "746c9627-a26c-4f15-8d26-42bee284f46c",
+  "dataset_id": "mcp_bench_all_train_n40_seed42",
+  "task_name": "mcp_bench_all_train",
+  "n_failures": 6,
+  "n_successes": 34,
+  "n_failure_clusters": 2,
+  "n_success_clusters": 2,
+  "n_contrastive_pairs": 4,
+  "same_type_pairs": 1,
+  "contextual_abstract": "This task asks the agent to act as a planning-oriented tool user: given a natural-language request, it must decide which external MCP servers/tools would be needed, in what order, and then produce a structured execution plan along with the final user-facing answer. The core skills are task decomposition, tool selection, parameter grounding, dependency reasoning, and efficiency-aware planning, often across domains like paper search, finance/crypto data, or scientific information retrieval. Inputs vary widely in topic and requested outcome, but they usually require identifying relevant sources, choosing precise query parameters, and anticipating which steps can be done in parallel versus sequentially. Overall, the problem is a static tool-use planning benchmark where success depends on matching a reference-quality plan rather than actually calling live tools."
+}

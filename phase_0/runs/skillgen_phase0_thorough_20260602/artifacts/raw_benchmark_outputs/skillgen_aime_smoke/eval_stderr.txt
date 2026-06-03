@@ -1,0 +1,15 @@
+$ .venv/bin/python eval_skill.py --skill-repo ../../artifacts/raw_benchmark_outputs/skillgen_aime_smoke/skill_output/2026-06-02_02-03-02 --dataset ../../artifacts/smoke_data/aime_test_n4_seed42.json --n 4 --seed 42 --models openai/gpt-5.4-nano --judge-model openai/gpt-5.4-mini --max-workers 1 --output ../../artifacts/raw_benchmark_outputs/skillgen_aime_smoke/eval_results.json
+
+no skill | gpt-5.4-nano:   0%|          | 0/4 [00:00<?, ?it/s]
+no skill | gpt-5.4-nano:  25%|██▌       | 1/4 [00:11<00:33, 11.23s/it]
+no skill | gpt-5.4-nano:  50%|█████     | 2/4 [00:32<00:34, 17.14s/it]
+no skill | gpt-5.4-nano:  75%|███████▌  | 3/4 [00:43<00:14, 14.31s/it]
+no skill | gpt-5.4-nano: 100%|██████████| 4/4 [00:48<00:00, 10.62s/it]
+                                                                      
+
+with skill | gpt-5.4-nano:   0%|          | 0/4 [00:00<?, ?it/s]
+with skill | gpt-5.4-nano:  25%|██▌       | 1/4 [00:10<00:32, 10.98s/it]
+with skill | gpt-5.4-nano:  50%|█████     | 2/4 [00:48<00:53, 26.73s/it]
+with skill | gpt-5.4-nano:  75%|███████▌  | 3/4 [01:02<00:20, 20.65s/it]
+with skill | gpt-5.4-nano: 100%|██████████| 4/4 [01:08<00:00, 15.08s/it]
+                                                                        

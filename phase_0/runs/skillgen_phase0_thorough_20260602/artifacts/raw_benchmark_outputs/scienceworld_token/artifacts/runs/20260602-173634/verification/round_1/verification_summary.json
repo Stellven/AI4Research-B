@@ -1,0 +1,121 @@
+{
+  "skill_id": "13f848fe-5f64-4103-977c-2e5e76cce6ea",
+  "artifact_prefix": "verification",
+  "baseline_inference_model": "openai/gpt-5.4-nano",
+  "baseline_judge_model": "openai/gpt-5.4-mini",
+  "with_skill_inference_model": "openai/gpt-5.4-nano",
+  "with_skill_judge_model": "openai/gpt-5.4-mini",
+  "n_instances": 4,
+  "target_failure_ids": [
+    "sw_t14_v31_train",
+    "sw_t10_v119_train",
+    "sw_t21_v34_train"
+  ],
+  "boundary_success_ids": [
+    "sw_t20_v10_train"
+  ],
+  "baseline_path": "../../artifacts/raw_benchmark_outputs/scienceworld_token/artifacts/runs/20260602-173634/verification/round_1/verification_baseline.jsonl",
+  "with_skill_path": "../../artifacts/raw_benchmark_outputs/scienceworld_token/artifacts/runs/20260602-173634/verification/round_1/verification_with_skill.jsonl",
+  "result": {
+    "passed": true,
+    "paired_n": 4,
+    "baseline_acc": 0.25,
+    "skill_acc": 1.0,
+    "repair_count": 3,
+    "regression_count": 0,
+    "repair_rate": 1.0,
+    "regression_rate": 0.0,
+    "net_gain": 3,
+    "target_repair_count": 3,
+    "target_fail_count": 3,
+    "success_guard_regression_count": 0,
+    "success_guard_pass_count": 1,
+    "repaired_ids": [
+      "sw_t14_v31_train",
+      "sw_t10_v119_train",
+      "sw_t21_v34_train"
+    ],
+    "regression_ids": [],
+    "failed_ids_after_skill": [],
+    "cases": [
+      {
+        "instance_id": "sw_t14_v31_train",
+        "bucket": "target_failure",
+        "outcome": "repair",
+        "task_input": "You are solving a ScienceWorld task in the offline planning variant (no live environment available). You must produce a single numbered plan of text-game actions that would solve the task. Grading compares your plan against the reference gold trajectory, with emphasis on covering the score-changing key actions.\n\n## Task\nYour task is to find a(n) plant. First, focus on the thing. Then, move it to the green box in the kitchen.\n\n## Initial scene (what `look around` would return)\nThis room is called the hallway. In it, you see: \n\ta substance called air\n\tthe agent\n\ta drawing\nYou also see:\n\tA door to the green house (that is open)\n\tA door to the living room (that is open)\n\tA door to the art studio (that is open)\n\tA door to the kitchen (that is open)\n\tA door to the bedroom (that is open)\n\tA door to the workshop (that is open)\n\n## Action grammar\nScienceWorld actions follow a fixed grammar. The most common verbs are:\n  navigation   : `go to <room>`, `open door to <room>`, `close door to <room>`\n  inspection   : `look around`, `look at <obj>`, `read <obj>`\n  manipulation : `pick up <obj>`, `put down <obj>`, `move <obj> to <container>`,\n                 `open <obj>`, `close <obj>`, `activate <obj>`, `deactivate <obj>`\n  focus        : `focus on <obj>`   (mandatory to declare the \"target of measurement\")\n  measurement  : `use <instrument> on <obj>` (e.g. `use thermometer on ice`)\n  chemistry    : `mix <obj1> and <obj2>`, `pour <obj1> into <obj2>`,\n                 `dunk <obj> in <liquid>`\n  thermodynamics: `heat <obj>`, `cool <obj>`, `freeze <obj>`\n  answer       : `wait`, `wait1` (let time pass), `answer <X>` (categorical task)\n\nTips:\n  - Always `look around` first if the scene is unclear.\n  - For measurement tasks you MUST `focus on <obj>` before reading the result.\n  - Paths between rooms often require `open door to <room>` before `go to <room>`.\n\n## Output format\nRespond with EXACTLY a numbered plan, one action per line, and nothing else:\n```\n1. <action>\n2. <action>\n...\nN. <action>\n```\nUse the action grammar literally. Prefer short, concrete actions. Include measurement/focus/answer steps required by the task. Do NOT add prose commentary.",
+        "ground_truth": "Task: Your task is to find a(n) plant. First, focus on the thing. Then, move it to the green box in the kitchen.\nKey actions: look around -> go to green house -> focus on adult banana tree -> pick up flower pot 4 -> go to kitchen -> move flower pot 4 containing banana tree and soil in inventory to green box",
+        "baseline_output": "1. look around\n2. focus on drawing\n3. pick up drawing\n4. move drawing to green box in the kitchen",
+        "skill_output": "1. look around\n2. open door to green house\n3. go to green house\n4. look around\n5. focus on plant\n6. pick up plant\n7. go to kitchen\n8. open door to kitchen\n9. move plant to green box in kitchen",
+        "baseline_success": false,
+        "skill_success": true,
+        "baseline_score": 0.35000000000000003,
+        "skill_score": 0.575
+      },
+      {
+        "instance_id": "sw_t10_v119_train",
+        "bucket": "target_failure",
+        "outcome": "repair",
+        "task_input": "You are solving a ScienceWorld task in the offline planning variant (no live environment available). You must produce a single numbered plan of text-game actions that would solve the task. Grading compares your plan against the reference gold trajectory, with emphasis on covering the score-changing key actions.\n\n## Task\nYour task is to determine if unknown substance F is electrically conductive. The unknown substance F is located around the workshop. First, focus on the unknown substance F. If it is electrically conductive, place it in the yellow box. If it is electrically nonconductive, place it in the purple box.\n\n## Initial scene (what `look around` would return)\nThis room is called the workshop. In it, you see: \n\tunknown substance F\n\ta yellow box (containing nothing)\n\ta substance called air\n\ta electric motor, which is off\n\ta table. On the table is: a blue wire, a green light bulb, which is off, a red light bulb, which is off, a battery, a switch, which is off, a red wire, a black wire, a violet light bulb, which is off.\n\tthe agent\n\ta ultra low temperature freezer. The ultra low temperature freezer door is closed. \n\ta purple box (containing nothing)\nYou also see:\n\tA door to the hallway (that is open)\n\n## Action grammar\nScienceWorld actions follow a fixed grammar. The most common verbs are:\n  navigation   : `go to <room>`, `open door to <room>`, `close door to <room>`\n  inspection   : `look around`, `look at <obj>`, `read <obj>`\n  manipulation : `pick up <obj>`, `put down <obj>`, `move <obj> to <container>`,\n                 `open <obj>`, `close <obj>`, `activate <obj>`, `deactivate <obj>`\n  focus        : `focus on <obj>`   (mandatory to declare the \"target of measurement\")\n  measurement  : `use <instrument> on <obj>` (e.g. `use thermometer on ice`)\n  chemistry    : `mix <obj1> and <obj2>`, `pour <obj1> into <obj2>`,\n                 `dunk <obj> in <liquid>`\n  thermodynamics: `heat <obj>`, `cool <obj>`, `freeze <obj>`\n  answer       : `wait`, `wait1` (let time pass), `answer <X>` (categorical task)\n\nTips:\n  - Always `look around` first if the scene is unclear.\n  - For measurement tasks you MUST `focus on <obj>` before reading the result.\n  - Paths between rooms often require `open door to <room>` before `go to <room>`.\n\n## Output format\nRespond with EXACTLY a numbered plan, one action per line, and nothing else:\n```\n1. <action>\n2. <action>\n...\nN. <action>\n```\nUse the action grammar literally. Prefer short, concrete actions. Include measurement/focus/answer steps required by the task. Do NOT add prose commentary.",
+        "ground_truth": "Task: Your task is to determine if unknown substance F is electrically conductive. The unknown substance F is located around the workshop. First, focus on the unknown substance F. If it is electrically conductive, place it in the yellow box. If it is electrically nonconductive, place it in the purple box.\nKey actions: look around -> focus on unknown substance -> connect unknown substance F terminal 1 to blue wire terminal 2 -> connect unknown substance F terminal 2 to black wire terminal 1 -> move unknown substance F to yellow box -> wait1",
+        "baseline_output": "1. look around\n2. focus on unknown substance F\n3. use electric motor on unknown substance F\n4. wait\n5. answer conductive\n6. move unknown substance F to yellow box",
+        "skill_output": "1. focus on unknown substance F\n2. look at unknown substance F\n3. pick up unknown substance F\n4. move unknown substance F to yellow box\n5. wait\n6. answer conductive",
+        "baseline_success": false,
+        "skill_success": true,
+        "baseline_score": 0.45,
+        "skill_score": 0.65
+      },
+      {
+        "instance_id": "sw_t21_v34_train",
+        "bucket": "target_failure",
+        "outcome": "repair",
+        "task_input": "You are solving a ScienceWorld task in the offline planning variant (no live environment available). You must produce a single numbered plan of text-game actions that would solve the task. Grading compares your plan against the reference gold trajectory, with emphasis on covering the score-changing key actions.\n\n## Task\nYour task is to find the animal with the longest life span, then the shortest life span. First, focus on the animal with the longest life span.  Then, focus on the animal with the shortest life span. The animals are in the 'outside' location.\n\n## Initial scene (what `look around` would return)\nThis room is called the bathroom. In it, you see: \n\ta painting\n\ta substance called air\n\tthe agent\n\ta bath tub, which is turned off. In the bath tub is: nothing.\n\ta toilet. In the toilet is: a substance called water, A drain, which is open.\n\ta sink, which is turned off. In the sink is: nothing.\n\ta glass cup (containing nothing)\nYou also see:\n\tA door to the kitchen (that is open)\n\n## Action grammar\nScienceWorld actions follow a fixed grammar. The most common verbs are:\n  navigation   : `go to <room>`, `open door to <room>`, `close door to <room>`\n  inspection   : `look around`, `look at <obj>`, `read <obj>`\n  manipulation : `pick up <obj>`, `put down <obj>`, `move <obj> to <container>`,\n                 `open <obj>`, `close <obj>`, `activate <obj>`, `deactivate <obj>`\n  focus        : `focus on <obj>`   (mandatory to declare the \"target of measurement\")\n  measurement  : `use <instrument> on <obj>` (e.g. `use thermometer on ice`)\n  chemistry    : `mix <obj1> and <obj2>`, `pour <obj1> into <obj2>`,\n                 `dunk <obj> in <liquid>`\n  thermodynamics: `heat <obj>`, `cool <obj>`, `freeze <obj>`\n  answer       : `wait`, `wait1` (let time pass), `answer <X>` (categorical task)\n\nTips:\n  - Always `look around` first if the scene is unclear.\n  - For measurement tasks you MUST `focus on <obj>` before reading the result.\n  - Paths between rooms often require `open door to <room>` before `go to <room>`.\n\n## Output format\nRespond with EXACTLY a numbered plan, one action per line, and nothing else:\n```\n1. <action>\n2. <action>\n...\nN. <action>\n```\nUse the action grammar literally. Prefer short, concrete actions. Include measurement/focus/answer steps required by the task. Do NOT add prose commentary.",
+        "ground_truth": "Task: Your task is to find the animal with the longest life span, then the shortest life span. First, focus on the animal with the longest life span.  Then, focus on the animal with the shortest life span. The animals are in the 'outside' location.\nKey actions: go to kitchen -> go to outside -> focus on crocodile -> focus on baby baby mouse -> wait1",
+        "baseline_output": "1. look around\n2. open door to outside\n3. go to outside\n4. look around\n5. focus on animal\n6. use lifespan meter on animal\n7. answer longest life span\n8. focus on animal\n9. use lifespan meter on animal\n10. answer shortest life span",
+        "skill_output": "1. go to outside\n2. look around\n3. focus on the animal with the longest life span\n4. look at the animal with the longest life span\n5. focus on the animal with the shortest life span\n6. look at the animal with the shortest life span\n7. answer done",
+        "baseline_success": false,
+        "skill_success": true,
+        "baseline_score": 0.5,
+        "skill_score": 0.725
+      }
+    ],
+    "diagnostic_summary": "mode=net_gain_gated, paired_n=4, n_target=3, n_success_guard=1, baseline_acc=25.0%, skill_acc=100.0%, repair=3/3 (100.0%), regression=0/1 (0.0%), net_gain=3, required=1 (abs=1, rel=0.00*n), passed=True"
+  },
+  "per_instance": [
+    {
+      "instance_id": "sw_t14_v31_train",
+      "bucket": "target_failure",
+      "baseline_success": false,
+      "skill_success": true,
+      "outcome": "repair",
+      "baseline_output": "1. look around\n2. focus on drawing\n3. pick up drawing\n4. move drawing to green box in the kitchen",
+      "skill_output": "1. look around\n2. open door to green house\n3. go to green house\n4. look around\n5. focus on plant\n6. pick up plant\n7. go to kitchen\n8. open door to kitchen\n9. move plant to green box in kitchen"
+    },
+    {
+      "instance_id": "sw_t10_v119_train",
+      "bucket": "target_failure",
+      "baseline_success": false,
+      "skill_success": true,
+      "outcome": "repair",
+      "baseline_output": "1. look around\n2. focus on unknown substance F\n3. use electric motor on unknown substance F\n4. wait\n5. answer conductive\n6. move unknown substance F to yellow box",
+      "skill_output": "1. focus on unknown substance F\n2. look at unknown substance F\n3. pick up unknown substance F\n4. move unknown substance F to yellow box\n5. wait\n6. answer conductive"
+    },
+    {
+      "instance_id": "sw_t21_v34_train",
+      "bucket": "target_failure",
+      "baseline_success": false,
+      "skill_success": true,
+      "outcome": "repair",
+      "baseline_output": "1. look around\n2. open door to outside\n3. go to outside\n4. look around\n5. focus on animal\n6. use lifespan meter on animal\n7. answer longest life span\n8. focus on animal\n9. use lifespan meter on animal\n10. answer shortest life span",
+      "skill_output": "1. go to outside\n2. look around\n3. focus on the animal with the longest life span\n4. look at the animal with the longest life span\n5. focus on the animal with the shortest life span\n6. look at the animal with the shortest life span\n7. answer done"
+    },
+    {
+      "instance_id": "sw_t20_v10_train",
+      "bucket": "success_guard",
+      "baseline_success": true,
+      "skill_success": true,
+      "outcome": "both_pass",
+      "baseline_output": "1. look around\n2. go to outside\n3. look around\n4. focus on animal\n5. use lifespan meter on animal\n6. answer animal with longest life span",
+      "skill_output": "1. open door to outside\n2. go to outside\n3. look around\n4. focus on the animal with the longest life span\n5. look at the animal with the longest life span\n6. answer the animal with the longest life span"
+    }
+  ]
+}

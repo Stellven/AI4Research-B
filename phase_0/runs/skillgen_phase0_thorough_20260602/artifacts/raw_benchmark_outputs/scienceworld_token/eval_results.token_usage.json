@@ -1,0 +1,38 @@
+[
+  {
+    "model": "openai/gpt-5.4-mini",
+    "stage": "eval_baseline::openai_gpt-5.4-nano",
+    "call_type": "chat_json",
+    "calls": 100,
+    "prompt_tokens": 111133,
+    "completion_tokens": 21143,
+    "total_tokens": 132276
+  },
+  {
+    "model": "openai/gpt-5.4-mini",
+    "stage": "eval_skill::openai_gpt-5.4-nano",
+    "call_type": "chat_json",
+    "calls": 100,
+    "prompt_tokens": 107473,
+    "completion_tokens": 21119,
+    "total_tokens": 128592
+  },
+  {
+    "model": "openai/gpt-5.4-nano",
+    "stage": "eval_baseline::openai_gpt-5.4-nano",
+    "call_type": "chat_multi_turn",
+    "calls": 100,
+    "prompt_tokens": 64526,
+    "completion_tokens": 19845,
+    "total_tokens": 84371
+  },
+  {
+    "model": "openai/gpt-5.4-nano",
+    "stage": "eval_skill::openai_gpt-5.4-nano",
+    "call_type": "chat_multi_turn",
+    "calls": 100,
+    "prompt_tokens": 122126,
+    "completion_tokens": 8681,
+    "total_tokens": 130807
+  }
+]

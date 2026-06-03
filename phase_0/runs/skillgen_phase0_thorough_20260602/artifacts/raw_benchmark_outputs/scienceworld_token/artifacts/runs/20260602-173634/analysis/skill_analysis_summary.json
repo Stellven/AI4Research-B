@@ -1,0 +1,12 @@
+{
+  "analysis_id": "edaaccbd-6829-4fa0-bc09-ceb72c49bddb",
+  "dataset_id": "scienceworld_train_n150_seed42",
+  "task_name": "scienceworld_train",
+  "n_failures": 98,
+  "n_successes": 52,
+  "n_failure_clusters": 2,
+  "n_success_clusters": 2,
+  "n_contrastive_pairs": 4,
+  "same_type_pairs": 4,
+  "contextual_abstract": "This dataset consists of offline planning tasks from a text-based science simulation, where the agent must output a single numbered sequence of actions that would solve the goal in the game world. The required reasoning is procedural and experimental: the agent may need to manipulate objects, build simple circuits, apply heating/cooling or other physical processes, compare properties through experiments, and then identify or focus on the correct target. Inputs vary by scenario in the goal, available room layout, objects present, and the scientific property being investigated, but the expected output is always a concise action plan rather than a direct factual answer. Overall, the problems are multi-step tool-use and scientific reasoning tasks in an interactive fiction setting, with success depending on choosing the right sequence of environment actions that would change the score."
+}

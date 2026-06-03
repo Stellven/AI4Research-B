@@ -1,0 +1,30 @@
+{
+  "skill_id": "50227d88-7b7f-471d-81ae-d8456f4fc531",
+  "body": "## Contextual abstract\nThis task asks for the single next browser action in a multi-step web flow. Given the user goal, prior actions, and the currently visible UI elements, choose the most plausible click, type, or select action that advances the page state. Success depends on reading what the interface is waiting for now, not on producing a final textual answer.\n\n## Successful experiences\n1. **Inspect the current state first.** Identify what is already completed, what widget is active, and which prerequisite step remains.\n2. **Advance the workflow one step at a time.** If the page is partway through a form, calendar, filter panel, or autocomplete flow, choose the single control that moves it forward: submit button, dropdown option, date cell, suggestion item, checkbox, radio button, or primary CTA.\n3. **Ground the action in the visible affordance.** Match the task intent to the exact label, value, and interaction type shown on screen. Use the option the UI actually offers, not a guessed equivalent.\n4. **Continue the open sub-step before moving on.** If a picker, menu, or suggestion list is open, finish that interaction first. Confirm the visible choice, then proceed to later fields or results.\n5. **Prefer the next prerequisite over redoing earlier inputs.** When fields are already filled or filters already set, do not restart the flow; select the control that completes the current stage.\n\n## Failure lessons\n- **Signal:** The page already shows a filled field, selected filter, or open picker, but the agent acts as if the step were still blank. **Counter-action:** Re-check what the UI is waiting for and continue from the current state. If the form is already populated, submit or refine it instead of re-entering data.\n\n- **Signal:** The agent chooses a plausible-looking control that does not exactly match the requested value or current widget state, such as a generic menu item instead of the specific option shown. **Counter-action:** Match labels and values precisely to the task and the visible affordance before clicking or typing.\n\n- **Signal:** The agent jumps to a later step while an earlier sub-step is still open, such as moving past a calendar, autocomplete list, or filter menu before confirming the current selection. **Counter-action:** Finish the active picker or suggestion flow first, then advance to the next field or action.\n\n- **Signal:** The agent clicks an unrelated page element because it looks prominent, even though only a small set of controls is valid for the current step. **Counter-action:** Ground every action in the current UI\u2019s valid controls; ignore visually prominent but irrelevant elements.",
+  "contextual_abstract": "Predict the next browser action in a multi-step UI flow by reading the current page state and choosing the single control that advances it. The core skill is state-aware grounding: follow the visible workflow order across forms, filters, calendars, and autocomplete widgets.",
+  "scripts": [],
+  "requirements": [],
+  "references": [],
+  "reference_docs": [],
+  "status": "deprecated",
+  "version": 1,
+  "analysis_id": "773f2480-b26c-4e28-8e80-2951acccb2ca",
+  "dataset_id": "mind2web_train_n100_seed42",
+  "task_name": "mind2web_web_navigation_train",
+  "verification_history": [
+    {
+      "round_idx": 0,
+      "passed": false,
+      "net_gain": -1,
+      "repair_count": 0,
+      "regression_count": 1,
+      "baseline_acc": 0.75,
+      "skill_acc": 0.5,
+      "diagnostic": "mode=net_gain_gated, paired_n=4, n_target=1, n_success_guard=3, baseline_acc=75.0%, skill_acc=50.0%, repair=0/1 (0.0%), regression=1/3 (33.3%), net_gain=-1, required=1 (abs=1, rel=0.00*n), passed=False",
+      "rejected_no_passing_round": true
+    }
+  ],
+  "token_count": 423,
+  "behavioral_aim": "",
+  "semantic_aim": ""
+}

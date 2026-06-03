@@ -1,0 +1,11 @@
+[
+  {
+    "model": "openai/gpt-5.4-nano",
+    "stage": "eval_baseline::openai_gpt-5.4-nano",
+    "call_type": "chat_multi_turn",
+    "calls": 100,
+    "prompt_tokens": 263533,
+    "completion_tokens": 2366,
+    "total_tokens": 265899
+  }
+]

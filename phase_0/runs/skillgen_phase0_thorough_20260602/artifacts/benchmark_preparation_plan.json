@@ -1,0 +1,121 @@
+{
+  "schema_version": "0.1",
+  "scope": "Preparation commands for externally sourced SkillGen benchmark data",
+  "run_dir": "skillgen_phase0_thorough_20260602",
+  "tasks": [
+    {
+      "source_key": "livecodebench",
+      "status": "pending_source_intake",
+      "workdir": "code/official",
+      "argv": [
+        ".venv/bin/python",
+        "scripts/prepare_benchmarks.py",
+        "--benchmark",
+        "livecodebench",
+        "--livecodebench-version",
+        "release_v6",
+        "--n",
+        "0",
+        "-o",
+        "data/livecodebench/release_v6_all.json"
+      ],
+      "env": {
+        "HF_HOME": ".hf-cache",
+        "HF_DATASETS_CACHE": ".hf-cache/datasets"
+      },
+      "expected_outputs": [
+        "code/official/data/livecodebench/release_v6_all.json"
+      ]
+    },
+    {
+      "source_key": "mcp_bench_all",
+      "status": "pending_source_intake",
+      "workdir": "code/official",
+      "argv": [
+        ".venv/bin/python",
+        "scripts/prepare_mcp_bench.py",
+        "--split",
+        "all",
+        "--train-n",
+        "40",
+        "--test-n",
+        "16",
+        "--out-dir",
+        "data/mcp_bench_all"
+      ],
+      "env": {},
+      "expected_outputs": [
+        "code/official/data/mcp_bench_all/train_all_n40_seed42.json",
+        "code/official/data/mcp_bench_all/test_all_n16_seed42.json"
+      ]
+    },
+    {
+      "source_key": "socialmaze_upi",
+      "status": "pending_source_intake",
+      "workdir": "code/official",
+      "argv": [
+        ".venv/bin/python",
+        "scripts/prepare_socialmaze.py",
+        "upi",
+        "--pool-size",
+        "120",
+        "--train-n",
+        "60",
+        "--test-n",
+        "50",
+        "--variant",
+        "persona",
+        "--out-dir",
+        "data/socialmaze_upi"
+      ],
+      "env": {},
+      "expected_outputs": [
+        "code/official/data/socialmaze_upi/train_n60_seed42.json",
+        "code/official/data/socialmaze_upi/test_n50_seed42.json"
+      ]
+    },
+    {
+      "source_key": "tau_bench",
+      "status": "pending_source_intake",
+      "workdir": "code/official",
+      "argv": [
+        ".venv/bin/python",
+        "scripts/prepare_tau_bench.py",
+        "--domain",
+        "retail",
+        "--train-n",
+        "30",
+        "--test-n",
+        "30",
+        "--out-dir",
+        "data/tau_bench"
+      ],
+      "env": {},
+      "expected_outputs": [
+        "code/official/data/tau_bench/train_retail_n30_seed42.json",
+        "code/official/data/tau_bench/test_retail_n30_seed42.json"
+      ]
+    },
+    {
+      "source_key": "chemllmbench",
+      "status": "pending_source_intake",
+      "workdir": "code/official",
+      "argv": [
+        ".venv/bin/python",
+        "scripts/prepare_chemllmbench.py",
+        "--task",
+        "all",
+        "--train-n",
+        "30",
+        "--test-n",
+        "10",
+        "--out-dir",
+        "data/chemllmbench"
+      ],
+      "env": {},
+      "expected_outputs": [
+        "code/official/data/chemllmbench"
+      ]
+    }
+  ]
+}
