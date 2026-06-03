@@ -7,3 +7,4 @@
 .venv/
 __pycache__/
 *.pyc
+phase_0/runs/skillgen_phase0_thorough_20260602/code/official/
