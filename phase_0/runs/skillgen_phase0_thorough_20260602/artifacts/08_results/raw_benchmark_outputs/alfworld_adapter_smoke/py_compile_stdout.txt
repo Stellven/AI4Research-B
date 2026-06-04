@@ -1,0 +1,10 @@
+Command:
+
+.venv/bin/python -m py_compile benchmarks/alfworld_adapter.py benchmarks/alfworld_grader.py scripts/prepare_alfworld.py trajectory.py
+
+Observed stdout:
+
+(no stdout)
+
+Exit code: 0
+

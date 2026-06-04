@@ -1,0 +1,43 @@
+Command:
+
+.venv/bin/python - <<'PY'
+from pathlib import Path
+from main import load_dataset as main_load_dataset
+from eval_skill import load_dataset as eval_load_dataset
+paths = [
+    'data/alfworld_iod/train.json',
+    'data/alfworld_iod/test.json',
+    'data/alfworld_ood/train.json',
+    'data/alfworld_ood/test.json',
+]
+print('main.py load_dataset smoke')
+for rel in paths:
+    dataset = main_load_dataset(rel)
+    first = dataset.instances[0]
+    print(f'{rel}: dataset_id={dataset.dataset_id} task_type={dataset.task_type.value} n={len(dataset.instances)} first={first.instance_id} benchmark={first.metadata.get("benchmark")} adapter={first.metadata.get("adapter_mode")}')
+print('OK main.py loader')
+print('eval_skill.py load_dataset smoke')
+for rel in paths:
+    instances, task_type = eval_load_dataset(rel)
+    first = instances[0]
+    print(f'{rel}: task_type={task_type.value} n={len(instances)} first={first.instance_id} benchmark={first.metadata.get("benchmark")} adapter={first.metadata.get("adapter_mode")}')
+print('OK eval_skill.py loader')
+PY
+
+Observed stdout:
+
+main.py load_dataset smoke
+data/alfworld_iod/train.json: dataset_id=alfworld_iod_train_n500_seed42 task_type=open_ended n=500 first=alfworld::alfworld_iod::train::pick_cool_then_place_in_recep::trial_T20190909_153504_497265 benchmark=alfworld adapter=reconstructed_offline_plan
+data/alfworld_iod/test.json: dataset_id=alfworld_iod_test_n150_seed42 task_type=open_ended n=150 first=alfworld::alfworld_iod::test::pick_and_place_with_movable_recep::trial_T20190908_103955_680867 benchmark=alfworld adapter=reconstructed_offline_plan
+data/alfworld_ood/train.json: dataset_id=alfworld_ood_train_n500_seed42 task_type=open_ended n=500 first=alfworld::alfworld_ood::train::pick_cool_then_place_in_recep::trial_T20190909_153504_497265 benchmark=alfworld adapter=reconstructed_offline_plan
+data/alfworld_ood/test.json: dataset_id=alfworld_ood_test_n255_seed42 task_type=open_ended n=255 first=alfworld::alfworld_ood::test::look_at_obj_in_light::trial_T20190908_222917_366542 benchmark=alfworld adapter=reconstructed_offline_plan
+OK main.py loader
+eval_skill.py load_dataset smoke
+data/alfworld_iod/train.json: task_type=open_ended n=500 first=alfworld::alfworld_iod::train::pick_cool_then_place_in_recep::trial_T20190909_153504_497265 benchmark=alfworld adapter=reconstructed_offline_plan
+data/alfworld_iod/test.json: task_type=open_ended n=150 first=alfworld::alfworld_iod::test::pick_and_place_with_movable_recep::trial_T20190908_103955_680867 benchmark=alfworld adapter=reconstructed_offline_plan
+data/alfworld_ood/train.json: task_type=open_ended n=500 first=alfworld::alfworld_ood::train::pick_cool_then_place_in_recep::trial_T20190909_153504_497265 benchmark=alfworld adapter=reconstructed_offline_plan
+data/alfworld_ood/test.json: task_type=open_ended n=255 first=alfworld::alfworld_ood::test::look_at_obj_in_light::trial_T20190908_222917_366542 benchmark=alfworld adapter=reconstructed_offline_plan
+OK eval_skill.py loader
+
+Exit code: 0
+

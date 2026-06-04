@@ -12,6 +12,7 @@
   "skip_install_if_environment_present": true,
   "auto_retry_approved": true,
   "max_retry_attempts": 1,
+  "long_inference_approved": false,
   "dependency_scope_required": "inside_project_directory",
   "max_cost_usd": 5.0,
   "approved_by": "codex_tool_approval",

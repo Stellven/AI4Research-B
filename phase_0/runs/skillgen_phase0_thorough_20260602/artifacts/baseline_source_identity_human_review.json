@@ -1,0 +1,84 @@
+{
+  "schema_version": "0.1",
+  "review_type": "baseline_source_identity_review",
+  "baseline_source_identity_review_approved": true,
+  "approval_status": "approved",
+  "approved_by": "human_user",
+  "approval_source": "chat_2026-06-04_user_approved_all_required_group_d_progress",
+  "review_scope": "Approve the cloned public baseline repositories as acceptable reconstructed identities for the SkillGen Appendix C.6 / Figure 2 baseline comparison.",
+  "source_identity_review_artifact": "artifacts/06_plans_and_contracts/baseline_source_identity_review.json",
+  "adapter_contract_artifact": "artifacts/06_plans_and_contracts/baseline_single_skill_adapter_contract.json",
+  "license_exception_approved": true,
+  "adapter_deviation_approved": true,
+  "approval_limits": [
+    "This approval does not mean the baseline comparison claim is reproduced.",
+    "This approval accepts public-code reconstructed execution because the SkillGen official checkout does not include the authors' executable Figure 2 baseline runners.",
+    "This approval accepts the single-Markdown-skill adapter deviation before execution.",
+    "This approval accepts Trace2Skill nested local license evidence as sufficient for proceeding with reconstructed verification, while preserving the license caveat in artifacts."
+  ],
+  "baselines": [
+    {
+      "method_name": "Trace2Skill",
+      "repository": "Qwen-Applications/Trace2Skill",
+      "source_url": "https://github.com/Qwen-Applications/Trace2Skill.git",
+      "target_path": "code/official/baselines/Trace2Skill",
+      "commit": "3d0b52a140f002a512930252b613c49048f7d5ac",
+      "expected_license_spdx": "Apache-2.0",
+      "local_license_files": [
+        "code/official/baselines/Trace2Skill/released_skills/trace2skill-xlsx-122B-combined/LICENSE.txt",
+        "code/official/baselines/Trace2Skill/released_skills/trace2skill-xlsx-35B-combined/LICENSE.txt",
+        "code/official/baselines/Trace2Skill/spreadsheet_agent/skills/xlsx/LICENSE.txt"
+      ],
+      "license_evidence_scope": "nested_only",
+      "license_evidence_approved": true,
+      "review_decision": "approved",
+      "review_notes": "Approved to proceed as a reconstructed Trace2Skill baseline identity despite missing top-level license evidence; preserve this as a license caveat."
+    },
+    {
+      "method_name": "SkillX",
+      "repository": "zjunlp/SkillX",
+      "source_url": "https://github.com/zjunlp/SkillX.git",
+      "target_path": "code/official/baselines/SkillX",
+      "commit": "0137cb8c2f9e69d5cc499e562dea789b2c5a8e35",
+      "expected_license_spdx": "MIT",
+      "local_license_files": [
+        "code/official/baselines/SkillX/LICENSE"
+      ],
+      "license_evidence_scope": "top_level",
+      "license_evidence_approved": true,
+      "review_decision": "approved",
+      "review_notes": "Approved to proceed as a reconstructed SkillX baseline identity."
+    },
+    {
+      "method_name": "EvoSkill",
+      "repository": "sentient-agi/EvoSkill",
+      "source_url": "https://github.com/sentient-agi/EvoSkill.git",
+      "target_path": "code/official/baselines/EvoSkill",
+      "commit": "925229680ac4ceebedb44bc548dfb82631c66525",
+      "expected_license_spdx": "Apache-2.0",
+      "local_license_files": [
+        "code/official/baselines/EvoSkill/LICENSE"
+      ],
+      "license_evidence_scope": "top_level",
+      "license_evidence_approved": true,
+      "review_decision": "approved",
+      "review_notes": "Approved to proceed as a reconstructed EvoSkill baseline identity."
+    },
+    {
+      "method_name": "CoEvoSkills",
+      "repository": "Zhang-Henry/CoEvoSkills",
+      "source_url": "https://github.com/Zhang-Henry/CoEvoSkills.git",
+      "target_path": "code/official/baselines/CoEvoSkills",
+      "commit": "3171de28cc8d3c3bbbec0ef5445e59faca46815b",
+      "expected_license_spdx": "MIT",
+      "local_license_files": [
+        "code/official/baselines/CoEvoSkills/LICENSE"
+      ],
+      "license_evidence_scope": "top_level",
+      "license_evidence_approved": true,
+      "review_decision": "approved",
+      "review_notes": "Approved to proceed as a reconstructed CoEvoSkills baseline identity."
+    }
+  ],
+  "next_required_gate": "Human command review before executing reconstructed baseline adapters or paid/API benchmark evaluation."
+}

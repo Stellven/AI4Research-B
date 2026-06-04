@@ -1,0 +1,75 @@
+{
+  "schema_version": "0.1",
+  "group": "C_execution_trace",
+  "scope": "Cross-model transfer execution and aggregation contract for SkillGen Figure 4",
+  "run_dir": "skillgen_phase0_thorough_20260602",
+  "status": "blocked",
+  "source_artifacts": [
+    "artifacts/transfer_runner_plan.json",
+    "artifacts/model_route_mapping.template.json"
+  ],
+  "matrix_dimensions": {
+    "benchmarks": [
+      "alfworld_ood",
+      "scienceworld",
+      "mind2web",
+      "socialmaze_fts"
+    ],
+    "source_models": [
+      "Qwen-2.5-7B",
+      "Llama-3.1-8B",
+      "GPT-OSS-20B",
+      "GPT-5.4-Nano",
+      "GPT-5.4-Mini",
+      "Grok-4-Fast"
+    ],
+    "evaluator_models": [
+      "Qwen-2.5-7B",
+      "Llama-3.1-8B",
+      "GPT-OSS-20B",
+      "GPT-5.4-Nano",
+      "GPT-5.4-Mini",
+      "Grok-4-Fast"
+    ],
+    "off_diagonal_pairs_per_benchmark": 30,
+    "paper_required_comparisons": 120,
+    "planned_comparisons": 120
+  },
+  "ready_benchmarks": [
+    "scienceworld",
+    "mind2web",
+    "socialmaze_fts"
+  ],
+  "blocked_benchmarks": [
+    {
+      "benchmark_row": "alfworld_ood",
+      "dataset_status": "ready_for_reconstructed_execution",
+      "train": "data/alfworld_ood/train.json",
+      "test": "data/alfworld_ood/test.json",
+      "blockers": [
+        "Reconstructed ALFWorld offline-plan adapter data is present and load-smoked; full execution still requires human approval of the deviation label, model route, cost, and trace-retention policy."
+      ]
+    }
+  ],
+  "execution_manifest_template": {
+    "source_skill_dir": "artifacts/raw_benchmark_outputs/transfer/{benchmark_row}/{source_model_slug}/skill_output",
+    "evaluator_baseline": "artifacts/raw_benchmark_outputs/transfer/{benchmark_row}/baselines/{evaluator_model_slug}/eval_results.json",
+    "transferred_eval": "artifacts/raw_benchmark_outputs/transfer/{benchmark_row}/{source_model_slug}/{evaluator_model_slug}/eval_results.json",
+    "transferred_trajectories": "artifacts/raw_benchmark_outputs/transfer/{benchmark_row}/{source_model_slug}/{evaluator_model_slug}/eval_results_trajectories"
+  },
+  "comparison_contract": [
+    "Only source_model != evaluator_model pairs count toward the 120 off-diagonal comparisons.",
+    "Compare transferred_eval skill_acc against the same evaluator model's no-skill baseline_acc on the same held-out instances.",
+    "Use the same benchmark split for source skill construction, evaluator baseline, and transferred-skill evaluation.",
+    "Record gate-deprecated source skills explicitly; do not silently drop those source/evaluator pairs."
+  ],
+  "aggregation_rules": [
+    "non_negative_rate = count(delta_acc >= 0) / 120 after all off-diagonal comparisons are parsed.",
+    "exceed_5pp_rate = count(delta_acc > 0.05) / 120 after all off-diagonal comparisons are parsed.",
+    "A partial transfer matrix can be reported only as incomplete evidence and must not be compared as the paper Figure 4 result."
+  ],
+  "remaining_blockers": [
+    "ALFWorld OOD has a Group A reconstructed-execution contract package.",
+    "Transfer execution still needs approved canonical data download, adapter implementation, generated OOD train/test TaskInstance files, and per-round trace retention."
+  ]
+}

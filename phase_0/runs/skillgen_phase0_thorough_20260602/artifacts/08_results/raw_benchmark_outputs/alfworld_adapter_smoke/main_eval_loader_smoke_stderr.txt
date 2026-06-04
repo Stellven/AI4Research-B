@@ -1,0 +1,10 @@
+Command:
+
+.venv/bin/python main/eval loader smoke via imported load_dataset functions.
+
+Observed stderr:
+
+(no stderr)
+
+Exit code: 0
+

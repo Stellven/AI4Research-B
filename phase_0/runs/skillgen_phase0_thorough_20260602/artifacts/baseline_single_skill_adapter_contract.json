@@ -1,0 +1,83 @@
+{
+  "schema_version": "0.1",
+  "scope": "Single-Markdown-skill adapter contract for reconstructed baseline generator comparison",
+  "run_dir": "skillgen_phase0_thorough_20260602",
+  "status": "ready_for_reconstructed_baseline_comparison",
+  "input_contract": [
+    "Use the same SkillGen construction split, base model, seed, and saved baseline trajectories as the SkillGen run being compared.",
+    "Provide each baseline with only construction-split information available to SkillGen before held-out evaluation.",
+    "Record all baseline construction stdout, stderr, prompts/configs, and generated intermediate artifacts inside the run directory."
+  ],
+  "output_contract": [
+    "Each baseline adapter must output exactly one Markdown skill used as the with-skill intervention.",
+    "The Markdown skill must have a stable artifact path and adapter_metadata.json describing source commit, input split, model, seed, and dropped capabilities.",
+    "Held-out evaluation must use the same SkillGen paired rollout harness and compare BASE vs with-baseline-skill on the same instances."
+  ],
+  "forbidden_capabilities": [
+    "No executable helper scripts in the final skill.",
+    "No reference bundles or retrieval documents.",
+    "No multi-skill library routing.",
+    "No test-time skill selection.",
+    "No benchmark-specific held-out labels during construction."
+  ],
+  "paired_rollout_harness": [
+    "Use the same test split, evaluator model route, judge route, max workers, and random seed as the corresponding SkillGen evaluation.",
+    "Parse outputs into baseline_acc, baseline_skill_acc, delta_acc, repair, regression, and net_gain fields.",
+    "Aggregate deltas with the same rule as Figure 2: average improvement per compared benchmark-model setting."
+  ],
+  "adapters": [
+    {
+      "source_key": "trace2skill",
+      "method_name": "Trace2Skill",
+      "native_output": "A skill directory evolved from trajectory analyses, with spreadsheet-agent skills and released skill artifacts.",
+      "single_skill_adapter_strategy": "Run Trace2Skill on the SkillGen training trajectories, then flatten the selected evolved skill directory and its changelog into one Markdown skill body for the shared SkillGen eval harness.",
+      "adapter_status": "adapter_contract_defined",
+      "expected_outputs": [
+        "artifacts/baseline_comparison/trace2skill/skill.md",
+        "artifacts/baseline_comparison/trace2skill/adapter_metadata.json",
+        "artifacts/baseline_comparison/trace2skill/construction_stdout.txt",
+        "artifacts/baseline_comparison/trace2skill/construction_stderr.txt"
+      ]
+    },
+    {
+      "source_key": "skillx",
+      "method_name": "SkillX",
+      "native_output": "A reusable skill knowledge base with planning, functional, and atomic skill hierarchy.",
+      "single_skill_adapter_strategy": "Build the SkillX skill knowledge base from the SkillGen training trajectories, then render the chosen hierarchy into one static Markdown skill without retrieval or test-time skill selection.",
+      "adapter_status": "adapter_contract_defined",
+      "expected_outputs": [
+        "artifacts/baseline_comparison/skillx/skill.md",
+        "artifacts/baseline_comparison/skillx/adapter_metadata.json",
+        "artifacts/baseline_comparison/skillx/construction_stdout.txt",
+        "artifacts/baseline_comparison/skillx/construction_stderr.txt"
+      ]
+    },
+    {
+      "source_key": "evoskill",
+      "method_name": "EvoSkill",
+      "native_output": "An evolved agent program containing prompt and skill mutations selected by validation performance.",
+      "single_skill_adapter_strategy": "Run the EvoSkill loop against the SkillGen construction split, select the best validation program, and export only the skill/prompt delta that can be represented as one Markdown skill.",
+      "adapter_status": "adapter_contract_defined",
+      "expected_outputs": [
+        "artifacts/baseline_comparison/evoskill/skill.md",
+        "artifacts/baseline_comparison/evoskill/adapter_metadata.json",
+        "artifacts/baseline_comparison/evoskill/construction_stdout.txt",
+        "artifacts/baseline_comparison/evoskill/construction_stderr.txt"
+      ]
+    },
+    {
+      "source_key": "coevoskills",
+      "method_name": "CoEvoSkills",
+      "native_output": "A structured multi-file skill package generated with co-evolutionary verification.",
+      "single_skill_adapter_strategy": "Use the generator/verifier loop on the SkillGen construction split, then render the selected skill package into one Markdown instruction artifact and drop scripts, assets, and references.",
+      "adapter_status": "adapter_contract_defined",
+      "expected_outputs": [
+        "artifacts/baseline_comparison/coevoskills/skill.md",
+        "artifacts/baseline_comparison/coevoskills/adapter_metadata.json",
+        "artifacts/baseline_comparison/coevoskills/construction_stdout.txt",
+        "artifacts/baseline_comparison/coevoskills/construction_stderr.txt"
+      ]
+    }
+  ],
+  "remaining_blockers": []
+}

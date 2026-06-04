@@ -1,0 +1,40 @@
+{
+  "schema_version": "0.3",
+  "status": "extracted",
+  "source_files": {
+    "readme": "code/official/README.md",
+    "requirements": "code/official/requirements.txt",
+    "main": "code/official/main.py",
+    "eval": "code/official/eval_skill.py"
+  },
+  "main_cli_flags": [
+    "--config",
+    "--generate-scripts",
+    "--resume",
+    "--verbose-http"
+  ],
+  "eval_cli_flags": [
+    "--baseline-trajectories",
+    "--dataset",
+    "--drop-blank",
+    "--enable-execute-scripts",
+    "--enable-web-search",
+    "--judge-model",
+    "--keep-blank",
+    "--max-workers",
+    "--models",
+    "--n",
+    "--no-execute-scripts",
+    "--no-save-trajectories",
+    "--no-web-search",
+    "--output",
+    "--save-trajectories",
+    "--seed",
+    "--skill-id",
+    "--skill-repo"
+  ],
+  "readme_eval_cli_mismatch": true,
+  "install_source": "requirements.txt",
+  "train_entrypoint": "main.py",
+  "eval_entrypoint": "eval_skill.py"
+}

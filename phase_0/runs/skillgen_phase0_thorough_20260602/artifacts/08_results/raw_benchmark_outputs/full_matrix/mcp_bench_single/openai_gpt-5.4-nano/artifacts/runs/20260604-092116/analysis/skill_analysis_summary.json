@@ -1,0 +1,12 @@
+{
+  "analysis_id": "acb843e1-7b75-4267-a449-ee163ea6c5a0",
+  "dataset_id": "mcp_bench_single_train_n40_seed42",
+  "task_name": "mcp_bench_single_train",
+  "n_failures": 5,
+  "n_successes": 35,
+  "n_failure_clusters": 2,
+  "n_success_clusters": 2,
+  "n_contrastive_pairs": 4,
+  "same_type_pairs": 2,
+  "contextual_abstract": "This task asks the agent to act as a planning-oriented tool user: given a user request, it must infer which external MCP tools would be needed, decide how they should be sequenced or parallelized, and return a structured plan along with the final user-facing answer. The core skill is not direct problem solving in one domain, but accurate tool selection, parameter grounding, dependency management, and efficient multi-step reasoning under a static benchmark setting where no live tool execution is available. Inputs vary widely across domains such as calculations, web/content lookup, social media analysis, games, or specialized utilities, but each instance requires mapping the request to the right tools and anticipating the information flow between them. The overall shape is a tool-planning and answer-synthesis problem, where success depends on producing a precise, minimal, and well-justified action plan rather than executing the tools themselves."
+}

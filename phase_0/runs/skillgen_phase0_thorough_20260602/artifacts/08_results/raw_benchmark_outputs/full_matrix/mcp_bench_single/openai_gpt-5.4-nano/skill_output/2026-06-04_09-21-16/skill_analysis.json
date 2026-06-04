@@ -1,0 +1,232 @@
+{
+  "analysis_id": "acb843e1-7b75-4267-a449-ee163ea6c5a0",
+  "dataset_id": "mcp_bench_single_train_n40_seed42",
+  "task_name": "mcp_bench_single_train",
+  "task_type": "open_ended",
+  "contextual_abstract": "This task asks the agent to act as a planning-oriented tool user: given a user request, it must infer which external MCP tools would be needed, decide how they should be sequenced or parallelized, and return a structured plan along with the final user-facing answer. The core skill is not direct problem solving in one domain, but accurate tool selection, parameter grounding, dependency management, and efficient multi-step reasoning under a static benchmark setting where no live tool execution is available. Inputs vary widely across domains such as calculations, web/content lookup, social media analysis, games, or specialized utilities, but each instance requires mapping the request to the right tools and anticipating the information flow between them. The overall shape is a tool-planning and answer-synthesis problem, where success depends on producing a precise, minimal, and well-justified action plan rather than executing the tools themselves.",
+  "n_total": 40,
+  "n_failures": 5,
+  "n_successes": 35,
+  "failure_clusters": [
+    {
+      "cluster_id": "8fa349cc-eb7e-47f9-b679-955c76c46146",
+      "kind": "failure",
+      "member_trajectory_ids": [
+        "a988993e-df99-4cdc-b916-cccf3f21a3c4"
+      ],
+      "member_instance_ids": [
+        "movie_recommender_001"
+      ],
+      "member_summaries": [
+        "The agent failed because it jumped straight to a broad recommendation query without first separating the user\u2019s two-part constraint: find up to five titles that satisfy the space-heavy sci-fi overlap, then only fill any remaining slots with upcoming releases in the next seven days. It also over-specified likely unsupported filters and parameters instead of grounding the plan in the actual movie metadata tool\u2019s likely capabilities, which hurt parameter accuracy and dependency handling."
+      ],
+      "pattern": "Name: Constraint decomposition failure\nRoot cause: The agent lacks reliable multi-constraint planning: it does not first decompose a request into ordered subgoals and dependency rules before querying tools. As a result, it treats a compound task like a single broad search and loses track of which conditions are mandatory, fallback, or conditional.\nTypical mistake sequence: It jumps directly to a generic recommendation or search query, then mixes all constraints together instead of separating the primary filter from the secondary fill-in rule. It also guesses at tool parameters or unsupported filters rather than checking what the data source can actually express, which leads to inaccurate queries and missed dependencies.\nObservable signals: The request contains multiple clauses with priority or fallback logic, such as 'first satisfy X, then fill remaining slots with Y.'; The agent immediately issues a broad query or over-parameterized tool call without restating the constraint hierarchy or verifying tool capabilities\nCorrect behavior: The agent should first restate the task as ordered subgoals, identify which constraints are mandatory versus conditional, and plan the query sequence accordingly. It should use only tool parameters supported by the available metadata, then apply any remaining logic in a second step if the tool cannot express the full constraint set.",
+      "size": 1
+    },
+    {
+      "cluster_id": "7ab90309-aa62-4135-84c5-e6963753812e",
+      "kind": "failure",
+      "member_trajectory_ids": [
+        "c980e79f-df1d-466b-9c9b-989152e12119",
+        "63e9ba03-c7ff-4ab3-bcd1-ce5321aa2b2d",
+        "3a35fae8-b9ca-4b4d-a203-f2a7151e3b3d",
+        "567f97d8-967c-4251-ac40-96f8b3801ac5"
+      ],
+      "member_instance_ids": [
+        "dex_paprika_001",
+        "okx_exchange_000",
+        "math_mcp_001",
+        "openapi_explorer_000"
+      ],
+      "member_summaries": [
+        "The agent failed because it did not fully map the user\u2019s multi-part request into the available DEX analytics tools. It started with a reasonable network-discovery step, but then drifted into an incomplete and likely incorrect query strategy instead of planning the necessary searches and transaction lookups to identify top pools, extract daily activity, and cross-reference tokens across both chains.",
+        "The agent failed because it started with only current-price lookups and did not complete the full dependency chain needed to answer the user\u2019s breakout question: it omitted the historical candlestick queries required to compute the ~1-day average, 15-minute trend, and 5-minute volume comparison. It also showed weak parameter planning for the market data tools, suggesting it had not fully mapped the user\u2019s requested metrics to the correct tool inputs and sequence.",
+        "The agent failed because it stopped after only beginning the plan and never produced a complete, well-formed JSON object with all required steps and the final answer. It also appears to have missed the need to fully reason through the dependent calculations and package them into the exact structured output the task required.",
+        "The agent failed because it treated the task like a generic search problem instead of a specification-extraction task, so it planned to query the OpenAPI explorer with vague natural-language hints rather than first identifying the exact APIs and operations to inspect. It also missed the key dependency that pagination details must be grounded in the actual OpenAPI operation schemas and responses, which led to an imprecise, under-specified tool plan."
+      ],
+      "pattern": "Name: Incomplete dependency mapping\nRoot cause: The core capability gap is weak task decomposition and dependency planning: the agent does not fully translate a multi-part request into the exact data, tool, and calculation steps required. It understands the surface goal but fails to identify all prerequisite queries, schemas, or intermediate computations needed to answer correctly.\nTypical mistake sequence: The agent starts with a plausible first step, then prematurely narrows into a partial or generic query strategy instead of building the full execution plan. As a result, it skips required intermediate lookups, misses parameter constraints or schema details, and either stops early or produces an under-specified final output.\nObservable signals: The task requires multiple dependent sub-queries or calculations, but the agent only performs the first one or two and never closes the loop.; The agent uses vague, generic, or incorrect tool inputs instead of mapping each requested metric or field to the exact operation, schema, or parameter sequence.\nCorrect behavior: The agent should first decompose the request into all required sub-steps, identify the exact tools/operations and inputs needed for each dependency, and verify the sequence before executing. It should then carry the plan through to a complete, well-formed final result that includes every requested component and any required structured output.",
+      "size": 4
+    }
+  ],
+  "success_clusters": [
+    {
+      "cluster_id": "057fa2aa-5386-4c14-acc6-608fc0fc96be",
+      "kind": "success",
+      "member_trajectory_ids": [
+        "960dad63-f1ba-4688-adb6-afe4a666324d",
+        "14feeb85-60e1-4af4-a17a-d47697b77d51",
+        "7f9cba72-d9b2-44a8-b60b-256e9297e672",
+        "116a0c56-8b28-4307-bccc-bf7575630c1b",
+        "0b34a978-acaa-4237-a48f-c8170514e52c",
+        "1336f981-91ab-41e2-9cdf-bc295032026e",
+        "a22e3d0c-b0f5-4b89-b41c-14ec951be005"
+      ],
+      "member_instance_ids": [
+        "biomcp_001",
+        "fruityvice_000",
+        "medical_calculator_000",
+        "medical_calculator_001",
+        "fruityvice_001",
+        "math_mcp_000",
+        "biomcp_000"
+      ],
+      "member_summaries": [
+        "The agent decomposed the request into parallel evidence-gathering tracks: one for the biology of BRAF V600E in melanoma, one for recent literature, one for active clinical trials, and one for regulatory/safety information on vemurafenib and dabrafenib. It then planned to use the BioMCP biomedical tools most directly suited to each track, so the final briefing could be grounded in trial IDs, label data, adverse-event signals, and publication-backed findings rather than a generic summary.",
+        "The agent decomposed the request into a small set of nutrition lookups for the candidate fruits, using the fruit nutrition server to ground every decision in real per-100 g data. It then used those values to compare the branching options, choose the fruit combination that satisfied the calorie and sugar constraints while maximizing fiber, and computed the exact gram weights and final totals from the retrieved facts.",
+        "The agent decomposed the request into a set of independent clinical calculations and mapped each one to the narrowest relevant Medical Calculator tool, rather than trying to solve everything manually. It then organized the work so shared inputs could be reused across metrics (e.g., weight/height for body-size formulas, age/sex for risk scores), while reserving dependent calculations like eGFR selection and liver scoring for after the core renal/hemodynamic values were available.",
+        "The agent decomposed the request into a small set of independent clinical calculations, then used the Medical Calculator tools to obtain body-size metrics, renal function estimates, and stroke/cardiac risk scores. It first computed weight-based measures to choose the appropriate creatinine-clearance weight, then separately calculated the eGFR comparison, electrolyte corrections, blood pressure metrics, and validated risk scores so the final response could report each intermediate value with the relevant formula-based interpretation.",
+        "The agent decomposed the smoothie problem into two phases: first, it gathered exact per-fruit nutrition data from the fruit nutrition server for each candidate fruit, then it used those values to test all three-fruit combinations against the sugar and fiber constraints. After identifying the valid blends, it organized them into a 7-day rotation and computed each day\u2019s exact gram split plus total sugar and fiber from the underlying nutrition numbers.",
+        "The agent decomposed the request into a small set of independent arithmetic computations and planned to use only the Math MCP server, selecting the most direct operations for each statistic (mean, median, mode, min/max, spread, multiplication, subtraction, rounding, ceiling/floor). It then chained the dependent calculations for revenue, costs, profit, margin, and the fertilizer allowance from the earlier summary statistics so the final response could be fully grounded in computed values.",
+        "The agent decomposed the request into several independent evidence-gathering threads: recent literature, mutation prevalence/clinical significance, ongoing late-stage vemurafenib trials and sponsors, biomarker criteria, drug safety profile, and safety/device alerts. It then planned targeted BioMCP calls for each thread, using trial, article, variant, biomarker, drug, and adverse-event/approval sources so the final synthesis could be grounded in concrete counts and verifiable records."
+      ],
+      "pattern": "Technique: Parallel evidence-and-calculation decomposition\nProcedure: The agent first split the task into a small set of independent subproblems, then assigned each subproblem to the narrowest tool or data source that could answer it directly. It gathered the needed facts or computed the needed metrics in parallel, reused shared inputs where possible, and only then combined the results into the final comparison, ranking, or synthesis.\nObservable signals: The request contains multiple distinct outputs or criteria that can be handled separately, such as nutrition values, clinical scores, trial data, or literature evidence.; The answer depends on exact source-backed facts or formula-based calculations rather than a single lookup or a purely qualitative judgment.\nRobustness checks: The agent verified intermediate values before combining them, such as checking formula inputs, selecting the correct weight/base for a calculation, or confirming that candidate options satisfied constraints. It also cross-checked dependent steps after the core values were available, ensuring the final synthesis was grounded in consistent, verifiable numbers or records.",
+      "size": 7
+    },
+    {
+      "cluster_id": "10d68eb0-36fb-4536-91aa-96f05d69b651",
+      "kind": "success",
+      "member_trajectory_ids": [
+        "63e112ea-ec29-4ea8-9ca7-3fb763184e74",
+        "11f48e63-2df5-46f9-b114-d0f339a39db4",
+        "c4808a2e-0363-4c78-9ed8-a12bff3f9763",
+        "f899be37-dc13-4a4a-a763-3728948eee3a",
+        "2765ff6f-afd3-4054-8271-78119fe35dcc",
+        "a684cf61-3d32-4899-bebf-27da71bb7a9f",
+        "dfc0dfa9-b58b-481b-9cdc-f92ae81b2d81",
+        "34431ce0-9375-49cf-891a-a31ccdcdb652",
+        "557363f4-2c62-4cb9-8f55-dbd9f39937e0",
+        "f5b3f4f4-2ce7-4940-8d7e-a5986048ea36",
+        "245fbef6-8bfe-49cf-8e41-0916b8739ab9",
+        "f901744c-9143-450b-ba02-487067fe67b6",
+        "7563edd7-0ec4-4555-b319-985a0d384c28",
+        "1440a728-e91f-41ef-bad6-8ea9e49e6274",
+        "7c3b1682-c242-42d1-812f-c1d17408a2d3",
+        "3c99e282-6898-480f-87a2-d13906866231",
+        "1ecd8247-c6c7-4f5b-a29f-bd78c294717b",
+        "7c7cca52-3223-45ed-b4f0-0bf38f3d4f2d",
+        "72380ce1-712d-4a7c-adac-2c4677d94675",
+        "ac8f7d01-e358-42ea-b5a7-e0ab38dd2c9c",
+        "ed13229a-1044-4c33-8d63-052c63062f1f",
+        "e60f6692-8add-475d-8cc9-24b05c0c0b57",
+        "e2415f0f-3602-4ade-a7d9-c7bb32ef7a54",
+        "421eaa35-3e68-45e9-b856-5e728a2652b4",
+        "1300ed86-fb4a-4cbf-9019-3d6773814789",
+        "3c70624a-65ec-46a2-83cb-3628f6a92142",
+        "002f0fe8-d8ab-4528-a970-d9acb4a71625",
+        "8b59d748-8ac6-4092-875b-447ebf2b8f02"
+      ],
+      "member_instance_ids": [
+        "nixos_000",
+        "game_trends_001",
+        "weather_data_000",
+        "context7_000",
+        "weather_data_001",
+        "reddit_001",
+        "bibliomantic_001",
+        "osint_intelligence_001",
+        "unit_converter_001",
+        "paper_search_002",
+        "wikipedia_000",
+        "nasa_data_000",
+        "game_trends_000",
+        "metropolitan_museum_000",
+        "huge_icons_000",
+        "huge_icons_001",
+        "scientific_computing_000",
+        "dex_paprika_000",
+        "nixos_001",
+        "national_parks_000",
+        "hugging_face_000",
+        "call_for_papers_000",
+        "metropolitan_museum_001",
+        "osint_intelligence_000",
+        "scientific_computing_001",
+        "call_for_papers_001",
+        "okx_exchange_001",
+        "time_mcp_001"
+      ],
+      "member_summaries": [
+        "The agent decomposed the request into two independent information-gathering tracks: NixOS package/channel data for Neovim versions and reproducibility, and ecosystem metadata for flakes plus Home Manager/nix-darwin option support. It then chose the NixOS server tools that directly expose those datasets, using targeted searches and stats queries to verify concrete package/version/option evidence rather than relying on assumptions.",
+        "The agent decomposed the request into independent data pulls from the single relevant server: Steam trending/sales/player metrics and Epic free/trending metrics. It then planned to fetch the top lists first, use those results to select the ten target games, and combine the Steam and Epic fields to classify each title into the requested categories in a JSON-ready report.",
+        "The agent first resolved the ambiguous place name by searching for all Springfield locations, then queried weather forecasts for each candidate over the next week to compare both the official and \u201cfast\u201d temperature readings. It filtered out any locations where the temperature mismatch exceeded 2 \u00b0C, then selected the remaining Springfield-day pair with the best warm-and-dry profile, or otherwise the lowest rain chance, and summarized the chosen city, date, temperatures, rain probability, humidity, and any excluded mismatched locations with supporting data.",
+        "The agent decomposed the request into two independent documentation lookups\u2014one for Next.js and one for Gatsby\u2014using Context7 to resolve each framework\u2019s official docs and then retrieve the routing guide content. It then counted the concrete code snippets in the routing pages, and if the totals were close, it repeated the same count specifically for dynamic routing to produce a side-by-side, evidence-backed comparison.",
+        "The agent decomposed the request into location disambiguation plus weather analysis, using the Weather Data server only. It first searched for Springfield locations with population over 100k to choose the largest candidate, then planned current-weather, live-temperature, and forecast calls in a dependency-aware sequence so it could verify the present conditions, compare the live temperature against the reported temperature, and extend from a 3-day to a 7-day forecast only if the rain threshold was exceeded.",
+        "The agent first fetched the current top 5 hot r/MachineLearning threads, then selected the main thread by comparing comment counts and the runner-up by score from the remaining four. It then planned targeted content fetches for each chosen post to inspect the required comment depths, with an adaptive deeper re-fetch only if the main thread\u2019s sampled top-level comments showed enough replies, and finally assembled the verified post metadata and snippets into the requested JSON structure.",
+        "The agent solved the task by mapping the user\u2019s divination request onto the only relevant MCP server, Bibliomantic, and planning a single structured I Ching consultation that would adapt its depth based on the oracle\u2019s current load. It then organized the expected outputs into the required sequence: initial cast, hexagram and moving lines, commentary, secondary hexagram if lines move, and a final recommendation that reconciles the readings into a shareable verdict.",
+        "The agent decomposed the request into DNS enumeration, domain-variation discovery, and ownership correlation, then planned the OSINT calls needed to support each branch with concrete evidence. It started with DNS reconnaissance for the target domain and then would use lookups for nameservers, mail servers, subdomains, IP/port exposure, and WHOIS data to tie the findings back to registrant ownership and filter out look-alike red herrings.",
+        "The agent first identified that all requested work could be handled by the Unit Converter server, then used a unit-listing step to ensure the exact supported unit names before batching the many independent conversions in parallel. It also separated the dependent fuel-mass calculation into a conversion of volume and density followed by a conditional branch on the resulting mass, so the final JSON could include both the converted quantities and the computed average power and starting fuel mass.",
+        "The agent solved the task by using the paper-search server to gather recent genomics/proteomics deep-learning papers, then extracting from each paper the model type, dataset, headline metric, and takeaway. It structured the work as a targeted literature sweep over the last three months, then synthesized the results into a compact comparison and flagged model families that appeared only once as potential one-offs.",
+        "The agent solved the task by decomposing it into a small set of Wikipedia lookups: first it searched for the major climate negotiation frameworks, then it retrieved the Paris Agreement page and related Kyoto Protocol topics. It used those results to assemble a single JSON response that included concise summaries, link/reference counts, and a consistency check that compared the listed Paris facts against the generated summary before finalizing.",
+        "The agent decomposed the request into independent NASA-data lookups: recent space weather/alerts, near-Earth asteroids, imagery, exoplanets, and Mars rover data. It then planned the calls to run in parallel where possible, using date-window parameters for the past week and targeted filters for the asteroid, exoplanet, and rover-photo queries so the final report could be assembled from concrete, source-backed results.",
+        "The agent decomposed the request into two independent data pulls: Steam trending and Epic trending/free-status, using the Game Trends server only. It then filtered for games meeting the concurrent-player and rank constraints, cross-checked overlap between Steam and Epic to compute average ranks when needed, and separately verified Epic free/upcoming-free status for Steam-only or Epic-only candidates before assembling the shortlist with concrete ranks, player counts, and source-backed notes.",
+        "The agent first identified the relevant Met departments, then split the request into two parallel searches: one for swords in Arms and Armor and one for swords in Medieval Art. It used the collection search tool to find candidate objects with images, then fetched object records to extract each sword\u2019s name, date/era, cultural origin, and image link, combining enough results from both sections to reach five total.",
+        "The agent decomposed the request into icon-name resolution plus framework-specific usage lookup, using the Huge Icons server for both. It would search each requested icon and likely fallback aliases, then fetch platform usage snippets for the supported frameworks and synthesize a final matrix noting any missing or partially supported cases.",
+        "```json\n{\n  \"plan\": [\n    {\n      \"step\": 1,\n      \"server\": \"Huge Icons: Icon search, management, and design resources\",\n      \"tool\": \"search_icons\",\n      \"parameters\": {\n        \"query\": \"\",\n        \"limit\": 1,\n        \"include_total_count\": true\n      },\n      \"depends_on\": [],\n      \"purpose\": \"Fetch the total number of icons in the Hugeicons collection and verify it meets the user's minimum threshold.\"\n    },\n    {\n      \"step\": 2,\n      \"server\": \"Huge Icons: Icon search, management, and design resources\",\n      \"tool\": \"search_icons\",\n      \"parameters\": {\n        \"query\": \"home search notifications settings user logout\",\n        \"limit\": 10,\n        \"prefer_first_match\": true,\n        \"fallback_to_outline\": true\n      },\n      \"depends_on\": [],\n      \"purpose\": \"Find the first matching icon for each requested UI concept, falling back to outline variants when needed.\"\n    },\n    {\n      \"step\": 3,\n      \"server\": \"Huge Icons: Icon search, management, and design resources\",\n      \"tool\": \"get_platform_usage\",\n      \"parameters\": {\n        \"icons\": [\n          \"home\",\n          \"search\",\n          \"notifications\",\n          \"settings\",\n          \"user\",\n          \"logout\"\n        ],\n        \"platforms\": [\n          \"react\",\n          \"vue\",\n          \"angular\",\n          \"svelte\",\n          \"react-native\",\n          \"flutter\"\n        ]\n      },\n      \"depends_on\": [\n        2\n      ],\n      \"purpose\": \"Retrieve copy-and-paste usage instructions for the selected icons across all requested frameworks.\"\n    }\n  ],\n  \"final_answer\": \"{\\\"total_icon_count\\\": \\\"<from tool result>\\\", \\\"meets_minimum_ten\\\": true, \\\"icon_mapping\\\": [{\\\"category\\\": \\\"home\\\", \\\"icon_name\\\": \\\"<first matching icon or outline fallback>\\\", \\\"fallback_used\\\": false}, {\\\"category\\\": \\\"search\\\", \\\"icon_name\\\": \\\"<first matching icon or outline fallback>\\\", \\\"fallback_used\\\": false}, {\\\"category\\\": \\\"notifications\\\", \\\"icon_name\\\": \\\"<first matching icon or outline fallback>\\\", \\\"fallback_used\\\": false}, {\\\"category\\\": \\\"settings\\\", \\\"icon_name\\\": \\\"<first matching icon or outline fallback>\\\", \\\"fallback_used\\\": false}, {\\\"category\\\": \\\"user\\\", \\\"icon_name\\\": \\\"<first matching icon or outline fallback>\\\", \\\"fallback_used\\\": false}, {\\\"category\\\": \\\"logout\\\", \\\"icon_name\\\": \\\"<first matching icon or outline fallback>\\\", \\\"fallback_used\\\": false}], \\\"platform_usage\\\": {\\\"react\\\": \\\"<usage instructions>\\\", \\\"vue\\\": \\\"<usage instructions>\\\", \\\"angular\\\": \\\"<usage instructions>\\\", \\\"svelte\\\": \\\"<usage instructions>\\\", \\\"react-native\\\": \\\"<usage instructions>\\\", \\\"flutter\\\": \\\"<usage instructions>\\\"}, \\\"react_home_example\\\": \\\"<ready-to-go React snippet for the home icon>\\\"}\"\n}\n```",
+        "The agent decomposed the request into independent linear-algebra, vector-calculus, and plotting subproblems, then planned to use the Scientific Computing server for each numerical operation. It created the matrices/vectors as tensors first, then chained dependent matrix operations (sum/difference/product/scale, determinant, inverse-or-SVD, eigendecomposition, QR, basis change, rank) while handling the vector and symbolic calculus queries in parallel where possible, and finally included cleanup of intermediate tensors.",
+        "The agent first identified the only relevant data source, DEX Paprika, and used it to enumerate supported networks so it could query Ethereum and Solana with the correct chain labels. It then decomposed the request into parallel subqueries: top-volume pools and USDC pairs on each chain, plus follow-up transaction/history lookups for any pools with >5% 24h moves, so the final response could be grounded in concrete volume, price, and swap data.",
+        "The agent decomposed the request into a small set of targeted NixOS lookups: first identifying the unstable Python 3.10 package and its metadata, then tracing version history to recover the 3.10.8 commit hash, and finally searching for a community flake that already bundles Python 3.10.8+ with relevant metadata. It then planned the home-manager and nix-darwin configuration pieces in parallel, using the discovered option paths to assemble a complete flake.nix that pins the exact commit and wires both modules consistently.",
+        "The agent decomposed the request into a park-discovery step followed by parallel data collection for each candidate park: alerts, campgrounds, visitor centers, and evening events. It then filtered the parks against the user\u2019s constraints (no closure alerts or serious hazards, showers available, visitor centers open daily roughly 9\u20135, and evening programming) and synthesized the surviving options into a day-by-day itinerary with source-backed details.",
+        "{\"plan\":[{\"step\":1,\"server\":\"Hugging Face\",\"tool\":\"search-models\",\"parameters\":{\"query\":\"spam text classification English model Apache-2.0 DistilBERT BERT\",\"limit\":\"20\"},\"depends_on\":[],\"purpose\":\"Find candidate pre-trained English spam classifiers and identify those under the size and license constraints.\"},{\"step\":2,\"server\":\"Hugging Face\",\"tool\":\"search-datasets\",\"parameters\":{\"query\":\"spam classification dataset train examples 20000 English\",\"limit\":\"20\"},\"depends_on\":[],\"purpose\":\"Locate datasets with at least about 20k training examples suitable for spam filtering fine-tuning.\"},{\"step\":3,\"server\":\"Hugging Face\",\"tool\":\"search-spaces\",\"parameters\":{\"query\":\"spam classification Gradio demo\",\"limit\":\"10\"},\"depends_on\":[],\"purpose\":\"Find live demo spaces for spam classification and inspect their reported metrics.\"},{\"step\":4,\"server\":\"Hugging Face\",\"tool\":\"get-daily-papers\",\"parameters\":{\"limit\":\"10\"},\"depends_on\":[],\"purpose\":\"Retrieve today's fresh papers so spam-filtering-related work can be identified.\"},{\"step\":5,\"server\":\"Hugging Face\",\"tool\":\"search-collections\",\"parameters\":{\"query\":\"spam classification\",\"limit\":\"10\"},\"depends_on\":[],\"purpose\":\"Find community collections or curated sets focused on spam classification.\"},{\"step\":6,\"server\":\"Hugging Face\",\"tool\":\"get-model-info\",\"parameters\":{\"model_id\":\"<best candidate from step 1>\"},\"depends_on\":[1],\"purpose\":\"Confirm the best-fitting model's parameter count and license.\"},{\"step\":7,\"server\":\"Hugging Face\",\"tool\":\"get-dataset-info\",\"parameters\":{\"dataset_id\":\"<best candidate from step 2>\"},\"depends_on\":[2],\"purpose\":\"Confirm the chosen dataset's ID and training-set size.\"},{\"step\":8,\"server\":\"Hugging Face\",\"tool\":\"get-space-info\",\"parameters\":{\"space_id\":\"<best candidate from step 3>\"},\"depends_on\":[3],\"purpose\":\"Extract the demo's actual performance metrics and implementation details.\"},{\"step\":9,\"server\":\"Hugging Face\",\"tool\":\"get-paper-info\",\"parameters\":{\"paper_id\":\"<spam-related paper from step 4>\"},\"depends_on\":[4],\"purpose\":\"Inspect spam-related papers for datasets and benchmark scores.\"},{\"step\":10,\"server\":\"Hugging Face\",\"tool\":\"get-collection-info\",\"parameters\":{\"collection_id\":\"<spam-related collection from step 5>\"},\"depends_on\":[5],\"purpose\":\"Inspect curated spam-classification collections for relevant resources.\"}],\"final_answer\":\"I\u2019d first search Hugging Face for English spam-classification models that satisfy the size and Apache-2.0-style license constraints, then verify the top candidate\u2019s exact parameter count and license with model metadata. In parallel, I\u2019d identify a dataset with at least ~20k training examples, inspect a few Gradio demo spaces for reported metrics, pull today\u2019s papers and filter for spam-related ones, and check any spam-focused collections; finally I\u2019d synthesize those sources into a concrete model+dataset recommendation backed by the retrieved figures.\"}",
+        "The agent solved the task by splitting it into two targeted searches on the only relevant MCP server: one for Europe-based AI conferences and one for Europe-based data privacy conferences, both constrained to deadlines within the next seven days. It then would merge the results, compute urgency from the deadline dates, and present only entries with verifiable locations, exact deadlines, and a clear AI/privacy label.",
+        "The agent first identified the relevant Met department and then searched the collection for European paintings tagged as landscape, using the department filter plus a landscape keyword/tag to narrow to candidate objects. It then retrieved each candidate object\u2019s full record to verify the earliest documented dates and extract grounded fields like title, artist, medium, and image URL before selecting the five oldest works.",
+        "The agent decomposed the request into two parallel OSINT workflows: first, enumerate typo-squatted/look-alike domains for `example-inc.com`, and second, resolve the real domain\u2019s DNS/IP/network ownership so it could compare any candidates against the legitimate infrastructure. It then planned follow-up lookups for each suspicious domain to collect subdomains, DNS records, open ports, and WHOIS/registrar data, with a final comparison step to flag any shared IP ranges as potential sibling hosting.",
+        "The agent decomposed the request into a small set of matrix/vector operations and a separate calculus/visualization branch, then planned the computations in dependency order so later steps could reuse earlier results. It used the Scientific Computing server exclusively, first constructing the matrix and vector, then deriving determinant/inverse/eigendecomposition/QR/basis-change outputs, and finally computing the gradient-based directional derivative and the two requested plots from the same symbolic function.",
+        "The agent solved the task by querying the conference-call database for upcoming events in the next six months using broad sustainable-energy keywords, then narrowing the results to a shortlist of about five conferences with concrete dates and locations. It grouped the retrieved events by recurring subtopics such as wind, solar, and hydro, and used the event metadata to identify the most common theme before composing a source-backed summary for the supervisor.",
+        "The agent decomposed the request into a small dependency graph: first it would fetch 1-minute candles for BTC and ETH in parallel to compute each coin\u2019s 30-minute momentum and identify which one qualified and moved more. It then would branch only on the stronger mover to fetch 5-minute candles for the past hour, compute close-to-close volatility, and conditionally trigger a deeper 60-bar 1-minute inspection if that volatility exceeded the threshold, keeping the final response grounded in concrete market data.",
+        "The agent anchored the search by first querying the current time in Los Angeles, then iteratively converted candidate one-hour slots from LA into New York, London, and Tokyo to test whether all four offices stayed within 09:00\u201317:00 local time. It advanced the LA slot by one hour at a time, rolling to the next day at 09:00 after 17:00, and stopped once it found the first slot within the next seven days that satisfied every office\u2019s workday constraint, using the conversion results as concrete evidence for the final meeting times."
+      ],
+      "pattern": "Technique: Dependency-aware evidence gathering\nProcedure: The agent first split each request into independent subproblems, then mapped each subproblem to the most relevant data source or server and queried the easiest high-signal facts first. It used those initial results to choose the next branch of work, refine targets, and combine the verified pieces into the final answer rather than guessing upfront.\nObservable signals: The task requires combining information from multiple sources, categories, or datasets; Some parts depend on earlier results, such as disambiguation, ranking, or selecting which items to inspect further; The answer needs concrete evidence, comparisons, or structured output instead of a single lookup\nRobustness checks: The agent repeatedly validated assumptions with direct queries, such as checking versions, counts, thresholds, or metadata before proceeding. It also used fallback or adaptive checks when needed, like expanding the search, comparing candidates, or re-fetching deeper details only if the first pass justified it.",
+      "size": 28
+    }
+  ],
+  "contrastive_pairs": [
+    {
+      "failure_instance_id": "dex_paprika_001",
+      "failure_trajectory_id": "c980e79f-df1d-466b-9c9b-989152e12119",
+      "success_instance_id": "dex_paprika_000",
+      "success_trajectory_id": "7c7cca52-3223-45ed-b4f0-0bf38f3d4f2d",
+      "similarity": 0.887324497639891,
+      "same_type": true,
+      "same_type_reason": "Both tasks require the same DEX analytics planning pattern: identify the correct chain labels, query top pools/volume on each chain, and use follow-up lookups for deeper pool-level activity.",
+      "analysis": "The successful trajectory correctly treated the request as a multi-chain DEX analytics problem and first resolved the network identifiers before issuing targeted parallel searches for each chain. It then decomposed the work into the right subqueries\u2014top-volume pools and relevant pair lookups\u2014rather than stopping after discovery or making a single broad search. The failure went off track after the initial network-discovery step by not fully translating the user\u2019s comparative DeFi request into concrete pool/activity queries. The transferable rule is: after confirming supported networks, immediately split the request into chain-specific analytics queries and any necessary follow-up transaction/history lookups to ground the comparison in actual on-chain data."
+    },
+    {
+      "failure_instance_id": "okx_exchange_000",
+      "failure_trajectory_id": "63e9ba03-c7ff-4ab3-bcd1-ce5321aa2b2d",
+      "success_instance_id": "okx_exchange_001",
+      "success_trajectory_id": "002f0fe8-d8ab-4528-a970-d9acb4a71625",
+      "similarity": 0.8610958123741288,
+      "same_type": false,
+      "same_type_reason": "They ask for different market-analysis patterns: the failure is a multi-asset breakout radar needing current price plus 1-day/15m/5m historical context, while the success is a two-stage momentum/volatility screening over 1m and 5m candles with conditional follow-up.",
+      "analysis": ""
+    },
+    {
+      "failure_instance_id": "math_mcp_001",
+      "failure_trajectory_id": "3a35fae8-b9ca-4b4d-a203-f2a7151e3b3d",
+      "success_instance_id": "math_mcp_000",
+      "success_trajectory_id": "1336f981-91ab-41e2-9cdf-bc295032026e",
+      "similarity": 0.8261886039379206,
+      "same_type": true,
+      "same_type_reason": "Both tasks are static planning problems that require turning a numeric word problem into a structured MCP tool plan with dependent arithmetic/statistical computations and a final answer.",
+      "analysis": "The successful trajectory recognized the full set of required computations and planned them as a complete JSON object using the Math MCP server, with independent statistics first and dependent calculations chained afterward. The failure started correctly but stopped mid-plan, so it never finished the structured output or accounted for all needed steps and dependencies. The transferable rule is to fully enumerate every required computation, preserve dependency order where needed, and always emit a complete well-formed JSON plan plus final answer."
+    },
+    {
+      "failure_instance_id": "openapi_explorer_000",
+      "failure_trajectory_id": "567f97d8-967c-4251-ac40-96f8b3801ac5",
+      "success_instance_id": "scientific_computing_000",
+      "success_trajectory_id": "1ecd8247-c6c7-4f5b-a29f-bd78c294717b",
+      "similarity": 0.720795389107298,
+      "same_type": false,
+      "same_type_reason": "The failure is about extracting and grounding API/search specifications from OpenAPI docs, while the success is about solving a numerical linear-algebra/vector-calculus computation task.",
+      "analysis": ""
+    }
+  ],
+  "metadata": {
+    "contextual_model": "openai/gpt-5.4-mini",
+    "summary_model": "openai/gpt-5.4-mini",
+    "pattern_model": "openai/gpt-5.4-mini",
+    "contrastive_model": "openai/gpt-5.4-mini",
+    "embedding_model": "text-embedding-3-small",
+    "clustering_method": "kmeans"
+  }
+}

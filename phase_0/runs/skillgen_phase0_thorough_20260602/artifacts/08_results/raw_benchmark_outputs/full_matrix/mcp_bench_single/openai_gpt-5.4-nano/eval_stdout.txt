@@ -1,0 +1,47 @@
+Loading skill from: ../../artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_single/openai_gpt-5.4-nano/skill_output/2026-06-04_09-21-16
+  -> 0d5b37cd-c4eb-42fd-8d96-1e32cc569adf: 
+  [!] Skill REJECTED: status=DEPRECATED (no verification round passed).
+  [!] Skipping skill-condition eval; reporting skill==baseline (net_gain=0).
+
+Loading dataset: data/mcp_bench/test.json
+  -> 16 instances, task_type=open_ended
+  -> Using all 16 instances
+
+Models to test     : ['openai/gpt-5.4-nano']
+Judge model        : openai/gpt-5.4-mini
+Skill web_search   : disabled
+Skill script exec  : disabled (mock)
+Blank-pair policy  : DROP (paired_n shrinks, cleanest)
+
+-- Model: openai/gpt-5.4-nano --
+  -> Skill rejected; reusing baseline for skill condition.
+
+========================================================================
+  SKILL A/B EVALUATION REPORT
+========================================================================
+  Skill ID   : 0d5b37cd-c4eb-42fd-8d96-1e32cc569adf
+  Abstract   : Plan-first MCP tool use: decompose requests, choose the narrowest tools, and manage dependencies before synthesizing a final answer. The skill emphasizes grounded parameters, parallel evidence gathering where possible, and complete structured outputs.
+  Status     : deprecated
+========================================================================
+
+  Model: openai/gpt-5.4-nano
+      Condition                       N  Pass     Acc   Latency
+      ----------------------------------------------------
+      Without skill                  16    13  81.2%     10.5s
+      With skill                     16    13  81.2%     10.5s
+
+      Accuracy delta : - 0.0%  (baseline=81.2%, skill=81.2%)
+      Repair     : 0/3   (0.0% of baseline failures fixed)
+      Regression : 0/13   (0.0% of baseline successes broken)
+      Net gain   : +0 instances
+
+      Paired outcome matrix (N=16 after filter):
+                               Skill pass   Skill fail
+      Baseline pass                    13            0
+      Baseline fail                     0            3
+
+========================================================================
+
+Results saved to: ../../artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_single/openai_gpt-5.4-nano/eval_results.json
+Trajectories   : ../../artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_single/openai_gpt-5.4-nano/eval_results_trajectories/
+Token usage    : prompt=84,041 | completion=26,941 | total=110,982 -> ../../artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_single/openai_gpt-5.4-nano/eval_results.token_usage.json

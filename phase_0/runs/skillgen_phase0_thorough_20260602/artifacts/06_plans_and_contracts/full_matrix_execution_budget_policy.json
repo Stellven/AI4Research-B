@@ -1,0 +1,245 @@
+{
+  "schema_version": "0.1",
+  "purpose": "Govern paid/time-consuming SkillGen Table 1 full-matrix execution without changing claim verdicts or running benchmarks.",
+  "source_artifacts": [
+    "logs/phase_0_overnight_20260604/\u9047\u5230\u7684\u95ee\u9898.md",
+    "logs/phase_0_overnight_20260604/operation_log.md",
+    "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/09_safety_and_deviations/reconstructed_validation_path_index.md",
+    "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/full_matrix/observed_entries.json",
+    "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/06_plans_and_contracts/full_matrix_execution_contract.json",
+    "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/06_plans_and_contracts/benchmark_execution_plan.json",
+    "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/06_plans_and_contracts/model_route_mapping.template.json"
+  ],
+  "known_observed_entry_cost": {
+    "entry_id": "mcp_bench_single::openai/gpt-5.4-nano",
+    "reproduction_class": "reconstructed_low_cost",
+    "route_execution_mode": "direct_openai_for_openai_models",
+    "train_n": 40,
+    "test_n": 16,
+    "training_tokens": 446895,
+    "held_out_eval_tokens": 110982,
+    "combined_tokens": 557877,
+    "wall_time_observation": "train plus eval took on the order of tens of minutes per overnight operation log",
+    "entry_verdict": "not_reproduced",
+    "evidence_artifact": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/full_matrix/observed_entries.json"
+  },
+  "cost_units": {
+    "token_usage": "total input plus output tokens as reported by SkillGen token_usage artifacts",
+    "time": "wall_time_seconds per entry and per run tier",
+    "money": "estimated USD when provider pricing is available; pricing source and timestamp required",
+    "entry": "one table1_row::paper_model execution including training and held-out eval"
+  },
+  "required_per_entry_metadata": [
+    "entry_id",
+    "table1_row",
+    "paper_model_display_name",
+    "provider_route_id",
+    "provider_path",
+    "route_execution_mode",
+    "route_resolution_status",
+    "config_path",
+    "config_deviation",
+    "train_dataset",
+    "test_dataset",
+    "train_n",
+    "test_n",
+    "judge_model_route",
+    "max_workers",
+    "start_time",
+    "end_time",
+    "wall_time_seconds",
+    "train_token_usage_total",
+    "eval_token_usage_total",
+    "combined_token_usage_total",
+    "estimated_dollar_cost",
+    "pricing_basis",
+    "stdout_path",
+    "stderr_path",
+    "run_artifacts_path",
+    "skill_output_path",
+    "eval_results_path",
+    "eval_token_usage_path",
+    "train_trajectory_paths",
+    "eval_trajectory_paths",
+    "verification_round_paths",
+    "skill_id",
+    "skill_status",
+    "skill_rejected",
+    "construction_verification_summary",
+    "held_out_eval_summary",
+    "entry_verdict",
+    "paper_claim_impact",
+    "deviation_label",
+    "human_approval_artifact",
+    "stop_reason",
+    "retry_of_entry_id"
+  ],
+  "run_tiers": {
+    "preflight_loader_only": {
+      "purpose": "Load configs, datasets, route mappings, and output directories without API benchmark execution.",
+      "allowed_actions": [
+        "validate dataset files",
+        "validate config generation",
+        "validate output path uniqueness",
+        "validate route mapping presence"
+      ],
+      "disallowed_actions": [
+        "paid model calls",
+        "claim status promotion"
+      ],
+      "approval_required": "engineering_review"
+    },
+    "one_entry_smoke": {
+      "purpose": "Run exactly one table1_row::paper_model entry to validate evidence flow, cost metadata, and stop policy.",
+      "max_entries": 1,
+      "requires_before_start": [
+        "human cost approval",
+        "per-entry output directory",
+        "token usage capture",
+        "trajectory retention capture",
+        "cost report template path"
+      ],
+      "claim_impact": "entry-level evidence only; aggregate Table 1 claims remain blocked unless explicitly scoped",
+      "approval_required": "human_cost_and_execution_gate"
+    },
+    "openai_routes_only": {
+      "purpose": "Run only entries whose provider_route_id starts with openai/ and whose direct OpenAI fallback is approved.",
+      "route_scope": "openai/* only",
+      "requires_disclosure": "provider_fallback",
+      "claim_impact": "partial_matrix unless all paper routes are intentionally scoped out and reported as provider-limited",
+      "approval_required": "human_provider_fallback_and_budget_gate"
+    },
+    "one_benchmark_all_models": {
+      "purpose": "Run one Table 1 benchmark row across all eight paper model routes.",
+      "max_benchmark_rows": 1,
+      "max_entries": 8,
+      "requires_before_start": [
+        "provider availability check for all eight routes",
+        "row-specific budget envelope",
+        "row-specific expected train/test size",
+        "stop threshold for deprecated skills and provider errors"
+      ],
+      "claim_impact": "can support row-level evidence; cannot support full Table 1 aggregate claims alone",
+      "approval_required": "human_row_budget_gate"
+    },
+    "full_80_entry_matrix": {
+      "purpose": "Run the complete 10-row by 8-model Table 1 matrix.",
+      "max_entries": 80,
+      "requires_before_start": [
+        "all rows execution-ready or explicitly labeled reconstructed",
+        "provider availability confirmed for all routes",
+        "full-run token budget approved",
+        "full-run wall-time window approved",
+        "per-entry metadata schema implemented",
+        "stop conditions implemented",
+        "report labels assigned before execution"
+      ],
+      "claim_impact": "only this tier can support full Table 1 aggregate verdict changes after parsed results and comparison exist",
+      "approval_required": "explicit_full_matrix_human_approval"
+    }
+  },
+  "stop_conditions": {
+    "provider_error": {
+      "trigger": "authentication, billing, unavailable model, OpenRouter HTTP 402, or repeated provider rate limits",
+      "required_action": "stop affected tier, preserve logs, record provider and route, request human decision before retry or fallback",
+      "claim_impact": "provider-limited incompleteness, not claim failure"
+    },
+    "token_budget_exceeded": {
+      "trigger": "entry, tier, or full-run token budget is reached or projected to be exceeded",
+      "required_action": "stop before launching additional entries; write partial matrix cost report",
+      "claim_impact": "partial_matrix or budget_stopped, not claim failure"
+    },
+    "repeated_deprecated_skills": {
+      "trigger": "configured threshold of consecutive deprecated or failed-gate skills within a row/tier",
+      "required_action": "pause and inspect configs, verification gate, prompt, and dataset before spending more",
+      "claim_impact": "executed entries may be negative evidence; unrun entries remain incomplete"
+    },
+    "missing_trajectory_artifacts": {
+      "trigger": "required verification or held-out trajectory files are absent",
+      "required_action": "stop parsing as valid full-matrix evidence until trajectory retention is repaired or deviation is approved",
+      "claim_impact": "execution evidence incomplete"
+    },
+    "missing_token_usage": {
+      "trigger": "train or eval token usage artifacts are missing",
+      "required_action": "stop cost aggregation and label entry cost metadata incomplete",
+      "claim_impact": "cost governance incomplete; claim verdict cannot be cost-qualified"
+    },
+    "unexpected_cost_spike": {
+      "trigger": "combined token usage exceeds approved threshold or configured multiplier over baseline",
+      "required_action": "stop additional entries in that row/model family and request budget review",
+      "claim_impact": "budget stopped; not claim failure"
+    }
+  },
+  "report_labels": {
+    "exact_author_original": "Author-original runner, split, config, route, and comparison rule were used.",
+    "reconstructed_low_cost": "Reduced or reconstructed path used for cost-controlled evidence flow; cannot support exact paper-level reproduction.",
+    "reconstructed_full_scale": "Reconstructed path run at full intended scale; can support partial evidence if positive, not exact reproduction unless equivalence is proven.",
+    "provider_fallback": "Provider path differs from the originally planned route, such as direct OpenAI fallback after OpenRouter failure.",
+    "partial_matrix": "Only a subset of the 80 Table 1 entries ran; aggregate full-matrix claims remain incomplete."
+  },
+  "approval_gates": [
+    {
+      "gate_id": "preflight_loader_only_gate",
+      "required_before_tier": "preflight_loader_only",
+      "approval_artifacts": [
+        "benchmark_execution_plan.json",
+        "model_route_mapping.template.json"
+      ],
+      "human_review_required": false
+    },
+    {
+      "gate_id": "one_entry_cost_gate",
+      "required_before_tier": "one_entry_smoke",
+      "approval_artifacts": [
+        "full_matrix_execution_budget_policy.json",
+        "full_matrix_cost_report_template.md"
+      ],
+      "human_review_required": true
+    },
+    {
+      "gate_id": "provider_fallback_gate",
+      "required_before_tier": "openai_routes_only",
+      "approval_artifacts": [
+        "model_route_mapping.template.json",
+        "reconstructed_validation_path_index.md"
+      ],
+      "human_review_required": true
+    },
+    {
+      "gate_id": "row_budget_gate",
+      "required_before_tier": "one_benchmark_all_models",
+      "approval_artifacts": [
+        "benchmark_execution_plan.json",
+        "full_matrix_execution_budget_policy.json"
+      ],
+      "human_review_required": true
+    },
+    {
+      "gate_id": "full_80_entry_gate",
+      "required_before_tier": "full_80_entry_matrix",
+      "approval_artifacts": [
+        "full_matrix_execution_contract.json",
+        "benchmark_execution_plan.json",
+        "model_route_mapping.template.json",
+        "full_matrix_execution_budget_policy.json"
+      ],
+      "human_review_required": true
+    }
+  ],
+  "missing_metadata_needed_from_c_group": [
+    "per-provider pricing source and timestamp",
+    "per-entry wall_time_seconds",
+    "per-entry estimated_dollar_cost",
+    "per-entry start_time and end_time",
+    "per-entry stop_reason",
+    "per-entry trajectory retention check result",
+    "per-tier approved token and dollar budget",
+    "retry linkage between failed and successful attempts"
+  ],
+  "non_goals": [
+    "Do not run benchmarks from this policy.",
+    "Do not implement the full-matrix runner here.",
+    "Do not change claim verdicts based on budget governance alone.",
+    "Do not label partial or reconstructed execution as exact reproduction."
+  ]
+}
