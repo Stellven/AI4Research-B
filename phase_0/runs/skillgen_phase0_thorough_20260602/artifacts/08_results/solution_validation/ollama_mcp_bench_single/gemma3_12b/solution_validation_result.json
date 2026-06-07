@@ -1,0 +1,48 @@
+{
+  "title": "Ollama MCP Bench Single Solution Validation",
+  "status": "inconclusive",
+  "reason": "The local Ollama run completed training and produced parseable evidence, but gemma3:12b achieved 40/40 baseline successes, so SkillGen produced no skill and held-out skill evaluation could not be run.",
+  "benchmark": "mcp_bench_single",
+  "model": "gemma3:12b",
+  "train": {
+    "dataset": "data/mcp_bench/train.json",
+    "n": 40,
+    "exit_code": 0,
+    "runtime_seconds": 5105,
+    "baseline_successes": 40,
+    "baseline_failures": 0,
+    "baseline_acc": 1.0,
+    "skill_generated": false,
+    "early_stop_reason": "No failures found. Pipeline stops early - nothing to learn."
+  },
+  "eval": {
+    "dataset": "data/mcp_bench/test.json",
+    "requested_n": 16,
+    "executed": false,
+    "reason": "No generated skill repository was available for eval_skill.py."
+  },
+  "external_api_usage": {
+    "openai_key_unset_for_commands": true,
+    "openrouter_key_unset_for_commands": true,
+    "local_base_url": "http://127.0.0.1:11434/v1",
+    "embedding_mode": "hash"
+  },
+  "deviations": [
+    "Not a paper reproduction.",
+    "Chat routed to local Ollama OpenAI-compatible endpoint.",
+    "OpenAI/OpenRouter chat disabled for this run.",
+    "OpenAI embeddings replaced by deterministic hash fallback.",
+    "Successful rerun used OPENROUTER_HTTP_TIMEOUT=600 after repeated 180-second local timeout cancellations."
+  ],
+  "evidence_files": {
+    "environment_manifest": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_12b/environment_manifest.md",
+    "deviation_note": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_12b/deviation_note.md",
+    "train_stdout": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_12b/train_stdout.txt",
+    "train_stderr": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_12b/train_stderr.txt",
+    "train_status": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_12b/train_command_status.json",
+    "eval_results": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_12b/eval_results.json",
+    "parsed_metrics": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_12b/parsed_metrics.json",
+    "trace_inventory": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_12b/trace_inventory.md"
+  },
+  "next_recommended_action": "Run a weaker local model or harder sample that produces baseline failures so induction, skill generation, verification, and held-out skill evaluation are exercised."
+}

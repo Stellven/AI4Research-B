@@ -1,0 +1,232 @@
+{
+  "analysis_id": "fd7320a8-5d77-455a-abf5-20384ea02fef",
+  "dataset_id": "mcp_bench_single_train_n40_seed42",
+  "task_name": "mcp_bench_single_train",
+  "task_type": "open_ended",
+  "contextual_abstract": "This task presents an open-ended planning challenge where an agent must generate a structured plan and final answer to user requests, utilizing external tools for complex problem-solving. The core requirement is to perform multi-step reasoning across diverse domains \u2013 including medical calculations, data retrieval from online sources (like Reddit), and mathematical operations \u2013 demanding strong grounding in relevant concepts and the ability to effectively leverage specialized tools. Input instances vary significantly in their complexity and domain, ranging from simple arithmetic problems to intricate customer support scenarios requiring tool chaining. Essentially, this task simulates a scenario where an agent needs to orchestrate a series of actions using external resources to achieve a specific goal, judged against a predefined reference plan based on accuracy and efficiency.",
+  "n_total": 40,
+  "n_failures": 5,
+  "n_successes": 35,
+  "failure_clusters": [
+    {
+      "cluster_id": "2c986649-106f-42a6-9ac1-c7c2a6cb307a",
+      "kind": "failure",
+      "member_trajectory_ids": [
+        "e135e560-28e6-4363-b8d2-404a6a1be7a2",
+        "adcbd32a-e438-4b50-8893-51be8f85c448",
+        "cad604e4-a05c-49aa-bd7a-420371569a97",
+        "c910a12a-3830-429c-9e5e-ff6bdf5dd216"
+      ],
+      "member_instance_ids": [
+        "context7_000",
+        "movie_recommender_001",
+        "fruityvice_001",
+        "metropolitan_museum_001"
+      ],
+      "member_summaries": [
+        "The agent failed because it did not adequately decompose the complex task into smaller, manageable steps. Specifically, it only identified one server call (`get-library-docs`) without considering the need to also retrieve and analyze Gatsby's routing documentation. The plan lacked a second step to address the user\u2019s request for comparing both frameworks, leading to an incomplete solution.",
+        "The agent failed to produce a valid JSON plan because it did not complete the initial step of calling the Movie Recommender server with appropriate parameters. The trace abruptly ends before specifying the tool and parameters needed to initiate the movie search, leading to an incomplete JSON structure. This indicates a failure in translating the user's request into a structured planning sequence.",
+        "The agent failed because it did not adequately define the scope of its data gathering. Specifically, it jumped directly to calling `get_fruit_nutrition` without first establishing a list of all fruits to be queried, as requested by the user. This resulted in an incomplete dataset and prevented the agent from fulfilling the core requirement of analyzing fruit nutritional information for each ingredient.",
+        "The agent failed because it didn\u2019t sufficiently narrow down the initial search results. While using `search-museum-objects` was appropriate, it returned a large number of irrelevant objects. The agent needs to incorporate filtering criteria (specifically date) into the search query to identify the *oldest* landscape paintings, as requested by the user."
+      ],
+      "pattern": "Name: Insufficient Task Decomposition\nRoot cause: The agent demonstrates a critical capability gap in fully understanding and breaking down complex user requests into the necessary sequential steps required for successful execution. This often manifests as an inability to translate high-level goals into granular, actionable subtasks with appropriate dependencies.\nTypical mistake sequence: The agent initially tackles only part of the problem, failing to decompose the overall task into smaller, manageable components. Subsequently, it proceeds without establishing necessary preconditions or intermediate steps, leading to an incomplete and ultimately unsuccessful solution.\nObservable signals: A single, isolated tool call is used without considering subsequent dependencies; The plan lacks a clear progression of steps towards fulfilling the user\u2019s overall request\nCorrect behavior: The agent must first meticulously decompose the complex task into a series of logical subtasks with defined inputs and outputs. It should then construct a sequential plan that addresses each component, ensuring proper dependency management and building toward the final solution.",
+      "size": 4
+    },
+    {
+      "cluster_id": "328f7b78-b77b-4493-b1cc-71d93381b20e",
+      "kind": "failure",
+      "member_trajectory_ids": [
+        "f1c07e46-9f9b-453a-b9ac-e4c15cd59661"
+      ],
+      "member_instance_ids": [
+        "call_for_papers_001"
+      ],
+      "member_summaries": [
+        "The agent failed because it prematurely terminated its search for relevant conferences after only entering part of the query string (\"renewable ener\"). It missed a crucial step of completing the search query with appropriate keywords like \"wind,\" \"solar,\" or \"hydro\" to accurately filter for the user's specified interests and timeframe. This resulted in an incomplete and ultimately inaccurate response, failing to fulfill the core requirement of identifying relevant conferences based on the user\u2019s detailed instructions."
+      ],
+      "pattern": "Name: Insufficient Query Refinement\nRoot cause: The agent exhibits a capability gap in effectively refining search queries based on user intent and contextual understanding. This stems from a failure to fully leverage the provided information to generate a comprehensive and targeted search strategy, leading to inaccurate results.\nTypical mistake sequence: Initially, the agent begins with an incomplete query string, often truncating or simplifying the user\u2019s request. Subsequently, it fails to iteratively expand this initial query by incorporating relevant keywords and filters, neglecting the need for dynamic adaptation based on the search context and desired outcome.\nObservable signals: A significantly reduced number of search results compared to expected relevance; The initial search query lacks key terms or modifiers related to the user\u2019s specified domain\nCorrect behavior: Upon receiving a user request, the agent should first fully parse and understand the intent. It then needs to dynamically expand the initial query with appropriate keywords, filters, and constraints, continuously refining its approach until it achieves a sufficiently relevant set of results that accurately reflects the user\u2019s requirements.",
+      "size": 1
+    }
+  ],
+  "success_clusters": [
+    {
+      "cluster_id": "3fa22c76-f295-47d9-8782-2fae0af2200e",
+      "kind": "success",
+      "member_trajectory_ids": [
+        "14484420-9e46-472f-b3fc-4c6fab91982c",
+        "ec542cd5-3b61-4f53-a9fe-a7794af1b48e",
+        "4c2d209d-694a-4aaf-9580-9e4c1b8a2e5b"
+      ],
+      "member_instance_ids": [
+        "medical_calculator_000",
+        "medical_calculator_001",
+        "unit_converter_001"
+      ],
+      "member_summaries": [
+        "The agent systematically addressed Mr. A's complex case by first identifying the necessary calculations \u2013 BMI, BSA, creatinine clearance, CHA2DS2-VASc score, MME, and prednisone conversion \u2013 and then using the `ibw_abw_calculator` tool within the Medical Calculator server to obtain the required initial values for these calculations. This structured approach ensured all requested data points were systematically generated based on the provided patient information.\n",
+        "The agent systematically addressed the user's request by breaking it down into individual calculations, utilizing the `Medical Calculator` server with appropriate tools for each step. It first calculated the patient\u2019s ideal body weight (IBW) and then proceeded to perform eGFR calculations using the Cockcroft-Gault formula, considering both creatinine and cystatin C values. This structured approach ensured all requested intermediate figures were obtained and incorporated into a final risk assessment.",
+        "The agent systematically converted all input values to SI units using the `Unit Converter`'s `convert_batch` tool, performing temperature conversions (from Fahrenheit to Kelvin), angle conversion (from degrees to gons), speed conversion (from knots to m/s), length conversion (from feet and inches to meters), area conversion (from in\u00b2 to m\u00b2), pressure conversion (from psi to Pascals), force conversion (from lbf to Newtons), storage conversion (from GB to bytes), energy conversion (from kWh to Joules), power calculation, volume conversion (from gallons to m\u00b3), density conversion (from g/L to kg/m\u00b3) and time conversion (from hours and minutes to seconds). Finally, it calculated the total starting fuel mass in kilograms and reported it in tonnes if over 100kg, otherwise in pounds.\n"
+      ],
+      "pattern": "Technique: Modular Calculation Decomposition\nProcedure: This technique involves breaking down a complex request into smaller, manageable calculations. The agent first identifies the necessary individual steps or formulas required to achieve the desired outcome. It then systematically utilizes specialized tools (like calculators or converters) within a server environment to perform each step sequentially, feeding the results of one calculation into the next until the final answer is obtained. This approach ensures accuracy and traceability by isolating potential errors.\nObservable signals: Request involves multiple interdependent calculations; The user explicitly asks for intermediate values or derived metrics\nRobustness checks: Each step\u2019s output is verified against expected ranges or known formulas to catch significant errors early. The agent utilizes batch conversion tools where appropriate, ensuring consistent unit handling across all calculations.",
+      "size": 3
+    },
+    {
+      "cluster_id": "8bf4c09f-84a1-45b3-9848-bd455a31c335",
+      "kind": "success",
+      "member_trajectory_ids": [
+        "0fef92ad-f583-4db8-80cb-60529e853931",
+        "9a0aee4f-127e-4b8a-a01b-5858682c9cb2",
+        "434df6e9-fc76-4b4b-9205-415653db0e99",
+        "c18b3580-ca69-4b21-b1e9-efcddce3b212",
+        "a3c1ce3f-1b6c-45cc-b6cb-d62aea5b46be",
+        "65bae638-0b00-47e7-b14e-c3dde60c2344",
+        "fd61ea83-8245-4ac3-82a8-5ed0d99d63c4",
+        "67b480e2-59c9-4f5b-b48e-9f1efa62e0d7",
+        "7b2bf9c0-6e53-4ad7-ab0c-9dc5bb694731",
+        "4a3ac7b2-c033-4a8e-9a56-08fbfece6e89",
+        "e8ad3c1f-569c-4367-9d98-c98c91353bbb",
+        "66a1c536-3cb3-4d09-96db-73aaefc4bb59",
+        "8642162b-14f9-4719-a749-95431ce228e1",
+        "40cc8ad1-ce58-4584-8cf4-e98e4b4fb38f",
+        "d77808ef-8bf1-4ef7-957e-75871cca9e16",
+        "aa7500f4-7894-4e0c-904a-a284b28bfab8",
+        "101a3a9f-ecb1-4112-a861-f7ce32dabfc2",
+        "c471e752-5d03-4764-bb9a-6fab2aafb060",
+        "85bacd20-9e2c-4501-93c5-ce997c7395fb",
+        "fba45145-da08-4612-8c5f-01692744267e",
+        "8753edbf-ac93-4cf0-b42f-3ca92e5d2f0e",
+        "0a0702fb-202f-4d65-ac4b-2ed5130a0035",
+        "ff41bc21-0689-454c-8198-e41848aae15a",
+        "cab5ae20-d346-4bb0-b302-9d011b9b53d3",
+        "5f46d634-c643-4cdd-88cc-73297b0cf8af",
+        "44de9b6d-bf6a-48ed-a117-515c05081c7d",
+        "5a263bf3-43d3-42b4-b494-2d1518833042",
+        "d8f3beae-46d3-45ab-bc94-5f20b89053b3",
+        "3fc064ef-2901-49bd-9fed-0bd00821a5cb",
+        "313dba41-bce8-4fbb-8aa0-a2a07f06cb52",
+        "131ac325-9352-4a8c-8752-9bf536091a91",
+        "e5fbf3d5-063d-416e-b30c-3e216be3897a"
+      ],
+      "member_instance_ids": [
+        "nixos_000",
+        "game_trends_001",
+        "weather_data_000",
+        "biomcp_001",
+        "fruityvice_000",
+        "weather_data_001",
+        "reddit_001",
+        "dex_paprika_001",
+        "bibliomantic_001",
+        "osint_intelligence_001",
+        "okx_exchange_000",
+        "math_mcp_001",
+        "paper_search_002",
+        "wikipedia_000",
+        "math_mcp_000",
+        "biomcp_000",
+        "nasa_data_000",
+        "game_trends_000",
+        "metropolitan_museum_000",
+        "huge_icons_000",
+        "openapi_explorer_000",
+        "huge_icons_001",
+        "scientific_computing_000",
+        "dex_paprika_000",
+        "nixos_001",
+        "national_parks_000",
+        "hugging_face_000",
+        "call_for_papers_000",
+        "osint_intelligence_000",
+        "scientific_computing_001",
+        "okx_exchange_001",
+        "time_mcp_001"
+      ],
+      "member_summaries": [
+        "The agent systematically addressed the user's request by first identifying relevant tools for investigation. It constructed a plan to gather information about Neovim\u2019s availability across NixOS channels, flake support, and Home Manager integration. Specifically, it initiated an initial search using `nixos_search` to establish a baseline understanding of Neovim\u2019s presence within the NixOS ecosystem.\n",
+        "The agent systematically addressed the user\u2019s request by first decomposing it into distinct data gathering steps. It identified two key areas to investigate: Steam top sellers and trending games, utilizing the `get_steam_top_sellers` and `get_steam_trending` tools from the Game Trends server. This structured approach ensured all required information was extracted for each of the ten largest hitters on Steam, ultimately forming the basis of the final answer.",
+        "The agent systematically addressed the user's request by first employing the `search_locations_tool` to identify all locations named \u201cSpringfield\u201d. Subsequently, it planned to retrieve weather forecasts for each identified location using the `get_weather_forecast_tool`, with a focus on comparing temperature readings and assessing rainfall probabilities. This approach ensured that the agent would gather sufficient data to fulfill the user's specific requirements regarding accurate weather information and anomaly detection.\n",
+        "The agent systematically broke down the user's request into distinct information needs, mapping each need to a specific BioMCP tool. It began by gathering foundational details about melanoma using `disease_getter`, then focused on the BRAF V600E variant with `variant_searcher`. This structured approach ensured all required data points were addressed and ultimately synthesized into a comprehensive final answer.",
+        "The agent systematically approached the fruit salad optimization task by first identifying the necessary data source \u2013 FruityVice \u2013 and utilizing its `get_fruit_nutrition` tool to obtain detailed nutritional information for each fruit. It then structured a plan to gather this data, ensuring that each fruit was individually assessed before combining the results to meet the user's calorie, fiber, and sugar constraints.\n",
+        "The agent systematically addressed the user's request by first identifying the specific Springfield location (Springfield, IL) to focus on. It then employed a step-by-step approach, beginning with obtaining current weather data and subsequently generating forecasts for multiple days while adhering to the user\u2019s temperature and rainfall criteria. This structured plan ensured all requirements were met with precise tool selection and parameterization.\n",
+        "The agent systematically decomposed the user's request into a series of discrete steps, leveraging the available Reddit tools. It first retrieved the top 5 hot threads using `fetch_reddit_hot_threads`, then identified the main thread based on comment count via `fetch_reddit_post_content`. Finally, it constructed a JSON object containing the relevant data points for both the main and runner-up threads, adhering strictly to the specified output format.",
+        "The agent systematically addressed the user's request by decomposing it into distinct steps. It first used the `search` tool on DEX Paprika to identify the top five Uniswap V3 pools and the top five QuickSwap pools, focusing on volume data. Subsequently, it planned to use the `getPoolTransactions` tool to retrieve transaction data for these pools, enabling further analysis of price swings, volatility, and trade counts.",
+        "The agent first identified the core need: a detailed I Ching reading to advise on a business decision. It then constructed a plan involving a single, full `i_ching_divination` call to Bibliomantic, capturing all requested elements \u2013 hexagram numbers, commentaries, and secondary hexagrams \u2013 within the final answer for the user.\n",
+        "The agent systematically investigated the suspicious domain by first utilizing the `dnsrecon_lookup` tool on the OSINT Intelligence server to gather initial DNS records, including name servers and potential subdomains. This provided a foundational understanding of the domain's infrastructure. The agent then synthesized this information into a final answer detailing the identified DNS records and their associated IP addresses, offering concrete evidence for further investigation.",
+        "The agent systematically addressed the user\u2019s request for a breakout radar analysis by first recognizing the need to gather real-time data from the OKX Exchange server. It then constructed a plan involving three distinct steps, each utilizing a specific tool from that server \u2013 `get_candlesticks`, `get_price`, and `volume_change_5m` \u2013 to calculate key metrics like price deviation, upswing/downswing indicators, and volume changes over specified timeframes (15 minutes and 5 minutes). This structured approach ensured the agent collected all necessary data points before synthesizing a final answer for the user.",
+        "The agent systematically addressed the user's request by decomposing it into a series of calculations. It first calculated the total sales using repeated multiplication within the Math MCP server, then computed the average sales also via the Math MCP server. Finally, it synthesized these results into a JSON summary containing all requested metrics and ratios.",
+        "The agent systematically broke down the user's request into a series of targeted searches across multiple academic databases using the Paper Search tools. It constructed a plan with sequential steps, beginning with a broad search to identify relevant papers and then extracting specific details from those papers according to the user\u2019s requirements. This approach ensured that all necessary information was gathered and synthesized into a concise final answer.",
+        "The agent systematically broke down the user's request into distinct components, prioritizing information retrieval from Wikipedia to establish a foundational understanding of climate negotiation frameworks and related topics. It then employed a step-by-step approach, first gathering general information about the frameworks and their references, followed by a focused search for the Paris Agreement summary and key facts, culminating in a cross-check against the original summary to ensure accuracy. This structured decomposition allowed the agent to efficiently utilize the available Wikipedia server and its tools, aligning with the benchmark's emphasis on precision and minimal redundant calls.\n",
+        "The agent systematically calculated the total harvest output by multiplying each farm's yield by its corresponding numerical identifier, effectively creating a series of multiplication operations to sum the individual yields. It then utilized the Math MCP server\u2019s `multiply` tool to perform these calculations in sequence, culminating in the determination of the overall harvest volume. This approach directly addressed the user's request for total output and demonstrated an understanding of the required mathematical operations.\n",
+        "The agent systematically addressed the user\u2019s request by first identifying the core disease using the `disease_getter` tool on BioMCP, establishing a foundational understanding of BRAF V600E in melanoma. Subsequently, it planned to leverage multiple tools within BioMCP to gather specific data points related to clinical trials, biomarker information, and adverse event reports, ensuring all findings were supported by verifiable sources. This structured approach prioritized precise tool selection and minimized redundant calls, aligning with the benchmark\u2019s scoring criteria.\n",
+        "The agent systematically analyzed the user's request, identifying distinct information needs across multiple domains \u2013 asteroids, solar activity, Earth imagery, exoplanets, and Mars. It then constructed a detailed plan utilizing only the available NASA Data server and its tools to retrieve the required data, culminating in a structured JSON report that synthesizes these findings for the user.\n",
+        "The agent first identified the core need: to find breakout games with specific player counts and flag potential promotional issues. It then constructed a plan involving a single step, utilizing the `get_steam_most_played` and `get_epic_trending_games` tools from the Game Trends server to retrieve relevant game data. This approach directly addressed the user's request for concrete data and verifiable sources, prioritizing efficiency by focusing on a targeted data retrieval strategy.\n",
+        "The agent began by formulating a plan to fulfill the user's request for five medieval swords from specific Met collections. It then determined that the initial step involved identifying relevant departments within the Metropolitan Museum using the `list-departments` tool. This strategic approach ensured the subsequent searches would target the correct collections and maximize the chances of finding suitable objects.\n",
+        "The agent systematically addressed the user\u2019s request by first identifying the core need: retrieving icon availability information across various frameworks with fallback name suggestions and code snippets. It then constructed a plan to utilize the `Huge Icons` server and its `search_icons` tool, iterating through each requested icon name and framework combination to obtain the necessary data. This approach ensured that all specified criteria were met, ultimately delivering the required response format.",
+        "The agent systematically addressed the user's request by first outlining a plan to investigate each of the three search services. It then constructed a step-by-step plan utilizing the OpenAPI Explorer tool to examine the API specifications for pagination details, including parameter names, types, and response fields. This approach ensured a thorough investigation of each service\u2019s search endpoints as requested by the user.\n",
+        "The agent first identified the core information needs of the user \u2013 icon count, platform-specific usage instructions, and a React snippet. It then constructed a plan to address these needs by utilizing the `search_icons` tool on the `Huge Icons` server to retrieve the total icon count and individual usage details for each requested platform. This approach directly addresses the user's request for concrete data and code examples.\n",
+        "The agent systematically decomposed the user's request into a series of manageable linear algebra operations. It first outlined a plan to perform matrix addition, multiplication, scaling, and determinant calculation. The agent then structured its response as a JSON object containing a `plan` with sequential steps utilizing the appropriate server and tool for each operation, culminating in a synthesized `final_answer`.\n",
+        "The agent systematically addressed the user's request by first identifying relevant data sources and then constructing a plan to retrieve it. It chose the `getPoolTransactions` tool from DEX Paprika to obtain the top three Ethereum pools by volume, followed by filtering for significant price movements. Finally, it planned to use this data to generate the final answer, incorporating historical charts and swap information as requested.",
+        "The agent systematically addressed the user's request by first using `nixos_search` to identify relevant NixOS packages related to Python 3.10 on the unstable channel. Subsequently, it employed `nixos_stats` with the search results as input to retrieve detailed package metadata, including version history and commit hashes. This two-step approach allowed the agent to gather all necessary information for fulfilling the user's specific requirements regarding Python 3.10 pinning and home-manager configuration.",
+        "The agent systematically approached the planning task by first identifying potential parks using the `findParks` tool, focusing on California and Oregon. Subsequently, it utilized the `getAlerts` tool to filter out parks with closures or hazards, ensuring alignment with the user's safety requirements. This two-step process allowed for a targeted search based on both initial park availability and critical alerts.\n",
+        "The agent systematically addressed the user's request by first leveraging the Hugging Face `search-models` tool to identify potential pre-trained models based on the specified criteria (DistilBERT-like, under 700M parameters, Apache-2.0 license) and spam classification. Subsequently, it utilized the `search-datasets` tool to locate datasets meeting the minimum size requirement (20k training examples). Finally, the agent synthesized these findings into a recommendation for the strongest model+dataset pairing, providing concrete details and sources to support its decision.",
+        "The agent systematically addressed the user's request by first formulating a targeted search query for relevant conferences. It then utilized the `Call for Papers` server with the `search` tool to retrieve potential conference listings based on the specified criteria \u2013 European location, AI or data privacy focus, and deadlines within the next seven days. This approach ensured that the agent focused its efforts on the most pertinent information sources available within the benchmark's constraints.\n",
+        "The agent systematically approached the task by first identifying a suitable tool for initial domain discovery \u2013 `dnstwist_lookup` from the `OSINT Intelligence` server. This tool was selected to generate a list of potential typo variations, addressing the user's core request to uncover look-alike domains. The agent then structured its plan around this initial discovery phase, laying the groundwork for subsequent investigation steps.\n",
+        "The agent systematically analyzed the user's request, identifying the necessary mathematical operations and visualizations required for the task. It constructed a detailed plan utilizing the Scientific Computing server and its associated tools to perform determinant calculation, inverse matrix computation, eigenvalue/eigenvector decomposition, SVD/QR analysis, orthonormal basis creation, projection calculations, and directional derivative computations. The agent then synthesized these results into a structured JSON report with accompanying 3D quiver plots as requested by the user.\n",
+        "The agent systematically addressed the user's request by first identifying the relevant data source (OKX Exchange) and then breaking down the task into distinct steps. It planned to use `get_candlesticks` to retrieve historical price data for BTC and ETH, filtering for a 30-minute window with a 1% threshold as specified in the user's prompt. This approach directly aligns with the user\u2019s need for concrete numbers and verifiable sources.\n",
+        "The agent systematically approached the scheduling challenge by first leveraging the Time MCP server to establish a baseline \u2013 determining the current time in Los Angeles. This initial step served as the anchor point for converting the LA slot into local times for each of the four offices, iteratively adjusting forward in LA time until a suitable meeting time was identified across all locations within the specified timeframe.\n"
+      ],
+      "pattern": "Technique: Structured Decomposition & Tool Application\nProcedure: This technique involves breaking down a complex user request into smaller, manageable steps. The agent first identifies the specific data or information needed and then systematically selects and applies appropriate tools to gather that data. This process continues iteratively until all required components are assembled, often culminating in a structured output format as requested by the user. Each step is carefully planned and executed using pre-defined tools.\nObservable signals: Explicit Decomposition of Request; Tool Selection Based on Specific Data Needs\nRobustness checks: A key element is verifying that each tool\u2019s output aligns with the next stage's requirements, ensuring data consistency. Furthermore, the agent frequently checks for adherence to a defined output format or specified criteria throughout the process.",
+      "size": 32
+    }
+  ],
+  "contrastive_pairs": [
+    {
+      "failure_instance_id": "fruityvice_001",
+      "failure_trajectory_id": "cad604e4-a05c-49aa-bd7a-420371569a97",
+      "success_instance_id": "fruityvice_000",
+      "success_trajectory_id": "a3c1ce3f-1b6c-45cc-b6cb-d62aea5b46be",
+      "similarity": 0.8799201178230601,
+      "same_type": true,
+      "same_type_reason": "Both tasks require the agent to use FruityVice and its `get_fruit_nutrition` tool to gather data for a specific nutritional calculation.",
+      "analysis": "Both trajectories begin with the crucial step of identifying the appropriate tool \u2013 `get_fruit_nutrition` \u2013 to retrieve the necessary nutritional information. The successful instance explicitly lists the fruits to query, demonstrating an understanding that multiple calls to this tool are required. The failing instance missed this initial scoping and jumped directly to calling the tool without establishing a list of ingredients, leading to incomplete data. Applying this same approach of systematically identifying and listing all relevant inputs would have prevented the failure."
+    },
+    {
+      "failure_instance_id": "metropolitan_museum_001",
+      "failure_trajectory_id": "c910a12a-3830-429c-9e5e-ff6bdf5dd216",
+      "success_instance_id": "metropolitan_museum_000",
+      "success_trajectory_id": "85bacd20-9e2c-4501-93c5-ce997c7395fb",
+      "similarity": 0.8754042965559317,
+      "same_type": true,
+      "same_type_reason": "Both tasks require the agent to use a structured plan with specific tools to retrieve information from the Metropolitan Museum database based on user requests.",
+      "analysis": "Both trajectories begin by formulating a step-by-step plan to fulfill the user's request. Crucially, both utilize the `search-museum-objects` tool as an initial search mechanism. The successful instance correctly recognizes that this requires subsequent filtering \u2013 in this case, by date \u2013 to narrow down the results and meet the specific criteria of the task. The failing instance missed this crucial step of incorporating filtering into its initial search query, leading to a large number of irrelevant objects being returned."
+    },
+    {
+      "failure_instance_id": "movie_recommender_001",
+      "failure_trajectory_id": "adcbd32a-e438-4b50-8893-51be8f85c448",
+      "success_instance_id": "call_for_papers_000",
+      "success_trajectory_id": "d8f3beae-46d3-45ab-bc94-5f20b89053b3",
+      "similarity": 0.8577262684951529,
+      "same_type": true,
+      "same_type_reason": "Both tasks require the agent to use a 'Call for Papers' server with a 'search' tool to retrieve information based on specific criteria.",
+      "analysis": "Both instances begin by identifying the need to utilize a search tool against a relevant database (Call for Papers). The successful instance correctly specifies the `server` and `tool` parameters, along with a targeted query. The failing instance prematurely ends without initiating this crucial step, highlighting a failure in translating the user's request into an actionable plan that leverages the available tools effectively. A key difference is the success explicitly defines the search criteria, whereas the failure simply states the intention to use the tool."
+    },
+    {
+      "failure_instance_id": "context7_000",
+      "failure_trajectory_id": "e135e560-28e6-4363-b8d2-404a6a1be7a2",
+      "success_instance_id": "game_trends_000",
+      "success_trajectory_id": "c471e752-5d03-4764-bb9a-6fab2aafb060",
+      "similarity": 0.8571902368946749,
+      "same_type": true,
+      "same_type_reason": "Both tasks require retrieving and analyzing data from external sources (library docs or game trends) to answer a comparative question.",
+      "analysis": "Both trajectories begin with the crucial step of identifying relevant data sources \u2013 one using `get-library-docs` and the other utilizing `get_steam_most_played` and `get_epic_trending_games`. The successful instance correctly decomposes the complex request into a focused retrieval task, while the failing instance only identified a single server call without considering the need for comparative analysis. Both approaches prioritize efficiency by directly targeting the necessary data sources to answer the user's question; the failure missed this key element of strategic decomposition."
+    }
+  ],
+  "metadata": {
+    "contextual_model": "gemma3:4b",
+    "summary_model": "gemma3:4b",
+    "pattern_model": "gemma3:4b",
+    "contrastive_model": "gemma3:4b",
+    "embedding_model": "local-hash-embedding",
+    "clustering_method": "kmeans"
+  }
+}

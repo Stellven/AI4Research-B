@@ -1,0 +1,44 @@
+{
+  "dataset_id": "mcp_bench_single_train_n40_seed42",
+  "task_name": "mcp_bench_single_train",
+  "dataset_metadata": {
+    "benchmark": "mcp_bench",
+    "split": "single",
+    "split_label": "train",
+    "n": 40,
+    "seed": 42,
+    "pool_total": 56,
+    "source": "Accenture/mcp-bench"
+  },
+  "task_type": "open_ended",
+  "n_instances": 40,
+  "models": {
+    "default": "gemma3:4b",
+    "baseline_agent": "gemma3:4b",
+    "baseline_judge": "gemma3:4b",
+    "induction": "gemma3:4b",
+    "induction_contextual": "gemma3:4b",
+    "induction_summary": "gemma3:4b",
+    "induction_pattern": "gemma3:4b",
+    "induction_contrastive": "gemma3:4b",
+    "generation_plan": "gemma3:4b",
+    "generation_execute": "gemma3:4b",
+    "refinement": "gemma3:4b",
+    "verification_agent": "gemma3:4b",
+    "verification_judge": "gemma3:4b",
+    "verification_case_analyst": "gemma3:4b",
+    "verification_revision_synthesiser": "gemma3:4b"
+  },
+  "llm": {
+    "temperature": 0.0,
+    "max_tokens": 1024,
+    "max_tokens_generation": 4096
+  },
+  "pipeline": {
+    "max_refine_rounds": 1,
+    "baseline_runs_per_instance": 1,
+    "max_workers": 1,
+    "artifact_root": "../../artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_4b_stratified/artifacts/runs"
+  },
+  "skill_output_path": "../../artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_4b_stratified/skill_output/2026-06-06_03-50-07"
+}

@@ -1,0 +1,7 @@
+[2m03:50:07[0m [36mINFO    [0m [34mmain[0m Loaded dataset 'mcp_bench_single_train' with 40 instances (open_ended)
+[2m03:50:07[0m [36mINFO    [0m [34mpipeline[0m Skill output dir for this run: ../../artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_4b_stratified/skill_output/2026-06-06_03-50-07
+[2m03:50:07[0m [36mINFO    [0m [34mpipeline[0m Run artifacts will be saved under ../../artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_4b_stratified/artifacts/runs/20260606-035007
+[2m03:50:07[0m [36mINFO    [0m [34mpipeline[0m Models | baseline=gemma3:4b | baseline_judge=gemma3:4b | generation=gemma3:4b | verification=gemma3:4b
+[2m03:50:07[0m [36mINFO    [0m [34mpipeline[0m Stage 1/3 | Collecting baseline trajectories on 40 instances | inference_model=gemma3:4b | judge_model=gemma3:4b
+[2m04:36:48[0m [36mINFO    [0m [34mpipeline[0m Baseline | 40 trajectories | 40 failures | 0 successes
+[2m04:36:48[0m [36mINFO    [0m [34mpipeline[0m Stage 2/3 | Running multi-aspect induction...

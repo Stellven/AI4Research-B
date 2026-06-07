@@ -1,0 +1,38 @@
+[
+  {
+    "model": "gemma3:4b",
+    "stage": "eval_baseline::gemma3:4b",
+    "call_type": "chat_json",
+    "calls": 16,
+    "prompt_tokens": 61111,
+    "completion_tokens": 5002,
+    "total_tokens": 66113
+  },
+  {
+    "model": "gemma3:4b",
+    "stage": "eval_baseline::gemma3:4b",
+    "call_type": "chat_multi_turn",
+    "calls": 16,
+    "prompt_tokens": 15396,
+    "completion_tokens": 22068,
+    "total_tokens": 37464
+  },
+  {
+    "model": "gemma3:4b",
+    "stage": "eval_skill::gemma3:4b",
+    "call_type": "chat_json",
+    "calls": 16,
+    "prompt_tokens": 56136,
+    "completion_tokens": 4735,
+    "total_tokens": 60871
+  },
+  {
+    "model": "gemma3:4b",
+    "stage": "eval_skill::gemma3:4b",
+    "call_type": "chat_multi_turn",
+    "calls": 16,
+    "prompt_tokens": 17144,
+    "completion_tokens": 18444,
+    "total_tokens": 35588
+  }
+]

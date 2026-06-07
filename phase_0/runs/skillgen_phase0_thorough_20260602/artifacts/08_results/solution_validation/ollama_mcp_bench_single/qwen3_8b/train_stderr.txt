@@ -1,0 +1,2 @@
+Baseline trajectories:   0%|          | 0/40 [00:00<?, ?it/s]Baseline trajectories:   2%|▎         | 1/40 [01:46<1:09:00, 106.18s/it]/Users/jamesyuan/.local/share/mise/installs/python/3.14.2/lib/python3.14/multiprocessing/resource_tracker.py:396: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/loky-69227-i_q68m49'}
+  warnings.warn(

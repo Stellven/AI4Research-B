@@ -1,0 +1,5 @@
+[2m15:37:08[0m [36mINFO    [0m [34mmain[0m Loaded dataset 'mcp_bench_single_train' with 40 instances (open_ended)
+[2m15:37:08[0m [36mINFO    [0m [34mpipeline[0m Skill output dir for this run: ../../artifacts/08_results/solution_validation/ollama_mcp_bench_single/llama3.1_latest/skill_output/2026-06-04_15-37-08
+[2m15:37:08[0m [36mINFO    [0m [34mpipeline[0m Run artifacts will be saved under ../../artifacts/08_results/solution_validation/ollama_mcp_bench_single/llama3.1_latest/artifacts/runs/20260604-153708
+[2m15:37:08[0m [36mINFO    [0m [34mpipeline[0m Models | baseline=llama3.1:latest | baseline_judge=llama3.1:latest | generation=llama3.1:latest | verification=llama3.1:latest
+[2m15:37:08[0m [36mINFO    [0m [34mpipeline[0m Stage 1/3 | Collecting baseline trajectories on 40 instances | inference_model=llama3.1:latest | judge_model=llama3.1:latest

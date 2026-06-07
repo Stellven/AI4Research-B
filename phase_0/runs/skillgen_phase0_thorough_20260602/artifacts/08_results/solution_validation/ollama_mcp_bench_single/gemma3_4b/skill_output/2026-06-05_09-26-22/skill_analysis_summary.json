@@ -1,0 +1,12 @@
+{
+  "analysis_id": "1bddc1fd-9a86-4c7a-80d8-2d0bdfad0a34",
+  "dataset_id": "mcp_bench_single_train_n40_seed42",
+  "task_name": "mcp_bench_single_train",
+  "n_failures": 5,
+  "n_successes": 35,
+  "n_failure_clusters": 2,
+  "n_success_clusters": 2,
+  "n_contrastive_pairs": 4,
+  "same_type_pairs": 4,
+  "contextual_abstract": "This task presents an open-ended planning challenge where an agent must generate a structured plan and final answer to user requests, utilizing external tools for complex problem-solving. The core requirement is to perform multi-step reasoning across diverse domains \u2013 including medical calculations, data retrieval from online sources (like Reddit), and mathematical operations \u2013 demanding strong grounding in relevant concepts and the ability to effectively leverage specialized tools. Input instances vary significantly in their complexity and domain, ranging from simple arithmetic problems to intricate customer support scenarios requiring tool chaining. Essentially, this task simulates a scenario where an agent needs to orchestrate a series of actions using external resources to achieve a specific goal, judged against a predefined reference plan based on accuracy and efficiency."
+}

@@ -1,0 +1,79 @@
+{
+  "run_label": "gemma3_4b_stratified",
+  "status": "partially_solution_validated",
+  "status_basis": [
+    "The local Ollama path completed the primary SkillGen training workflow after an escalated rerun was required for local HTTP access.",
+    "The post-fix verification sampler selected two baseline failures and two success guards, exercising the intended repair path.",
+    "Construction verification passed with baseline_acc=0.5, skill_acc=0.75, repair_count=2, regression_count=1, and net_gain=1.",
+    "Held-out evaluation completed on 16 test instances but did not improve over baseline: baseline_acc=1.0, skill_acc=0.9375, net_gain=-1."
+  ],
+  "not_paper_reproduction": true,
+  "primary_question_answer": "The local infrastructure fixes and stratified sampler fix work end to end and produce durable evidence. The generated skill itself is not validated as improving held-out MCP-Bench performance in this run.",
+  "model": "gemma3:4b",
+  "external_api_routing": {
+    "openai_api_key_unset_for_commands": true,
+    "openrouter_api_key_unset_for_commands": true,
+    "local_ollama_endpoint_used": true,
+    "hash_embeddings_used": true
+  },
+  "train": {
+    "exit_code": 0,
+    "runtime_seconds": 2682,
+    "baseline_failures": 5,
+    "baseline_successes": 35,
+    "skill_id": "bd029056-5133-4626-b151-3a21e8e67ea2",
+    "skill_status": "active"
+  },
+  "construction_verification": {
+    "passed": true,
+    "sample": {
+      "target_failure_ids": [
+        "call_for_papers_001",
+        "movie_recommender_001"
+      ],
+      "success_guard_ids": [
+        "medical_calculator_001",
+        "nasa_data_000"
+      ]
+    },
+    "baseline_acc": 0.5,
+    "skill_acc": 0.75,
+    "repair_count": 2,
+    "regression_count": 1,
+    "net_gain": 1
+  },
+  "held_out_eval": {
+    "ran": true,
+    "exit_code": 0,
+    "runtime_seconds": 1961,
+    "n_instances": 16,
+    "baseline_acc": 1.0,
+    "skill_acc": 0.9375,
+    "delta_acc": -0.0625,
+    "repair": 0,
+    "regression": 1,
+    "net_gain": -1,
+    "regression_ids": [
+      "car_price_evaluator_000"
+    ]
+  },
+  "limitations": [
+    "This is a solution-validation run against a reconstructed local Ollama/hash-embedding path, not reproduction of the original paper's reported numerical claims.",
+    "The held-out sample had no baseline failures, so repair ability was not tested out of sample.",
+    "The active skill reduced held-out binary accuracy by one instance and reduced mean judge score on the sampled test set.",
+    "The first training attempt failed under sandboxed local HTTP restrictions; the successful run required escalation for local Ollama access."
+  ],
+  "evidence_files": {
+    "parsed_metrics": "parsed_metrics.json",
+    "result_markdown": "solution_validation_result.md",
+    "trace_inventory": "trace_inventory.md",
+    "train_stdout": "train_stdout.txt",
+    "train_stderr": "train_stderr.txt",
+    "train_status": "train_command_status.json",
+    "eval_stdout": "eval_stdout.txt",
+    "eval_stderr": "eval_stderr.txt",
+    "eval_status": "eval_command_status.json",
+    "eval_results": "eval_results.json",
+    "verification_summary": "artifacts/runs/20260606-105511/verification/round_1/verification_summary.json"
+  }
+}

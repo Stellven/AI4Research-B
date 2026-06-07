@@ -1,0 +1,70 @@
+{
+  "title": "Ollama MCP Bench Single Solution Validation",
+  "status": "not_solution_validated",
+  "reason": "The local run completed train and held-out eval, but the generated skill was deprecated after construction verification produced net_gain 0, and held-out eval reported no improvement.",
+  "benchmark": "mcp_bench_single",
+  "model": "gemma3:4b",
+  "train": {
+    "dataset": "data/mcp_bench/train.json",
+    "n": 40,
+    "exit_code": 0,
+    "runtime_seconds": 2060,
+    "baseline_successes": 35,
+    "baseline_failures": 5,
+    "baseline_acc": 0.875,
+    "skill_generated": true,
+    "skill_id": "795eee49-f44e-4d43-bd1b-af1406f7a3bc",
+    "skill_status": "deprecated"
+  },
+  "construction_verification": {
+    "paired_n": 4,
+    "target_fail_count": 0,
+    "success_guard_pass_count": 4,
+    "baseline_acc": 1.0,
+    "skill_acc": 1.0,
+    "delta_acc": 0.0,
+    "repair_count": 0,
+    "regression_count": 0,
+    "net_gain": 0,
+    "passed": false
+  },
+  "eval": {
+    "dataset": "data/mcp_bench/test.json",
+    "n": 16,
+    "exit_code": 0,
+    "runtime_seconds": 694,
+    "baseline_acc": 1.0,
+    "skill_acc": 1.0,
+    "delta_acc": 0.0,
+    "repair_count": 0,
+    "regression_count": 0,
+    "net_gain": 0,
+    "skill_condition_policy": "skill rejected/deprecated; eval reused baseline for skill condition"
+  },
+  "external_api_usage": {
+    "openai_key_unset_for_commands": true,
+    "openrouter_key_unset_for_commands": true,
+    "local_base_url": "http://127.0.0.1:11434/v1",
+    "embedding_mode": "hash"
+  },
+  "deviations": [
+    "Not a paper reproduction.",
+    "Chat routed to local Ollama OpenAI-compatible endpoint.",
+    "OpenAI/OpenRouter chat disabled for this run.",
+    "OpenAI embeddings replaced by deterministic hash fallback.",
+    "OPENROUTER_HTTP_TIMEOUT=600 used for local long generations."
+  ],
+  "evidence_files": {
+    "environment_manifest": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_4b/environment_manifest.md",
+    "deviation_note": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_4b/deviation_note.md",
+    "train_stdout": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_4b/train_stdout.txt",
+    "train_stderr": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_4b/train_stderr.txt",
+    "train_status": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_4b/train_command_status.json",
+    "eval_stdout": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_4b/eval_stdout.txt",
+    "eval_stderr": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_4b/eval_stderr.txt",
+    "eval_results": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_4b/eval_results.json",
+    "parsed_metrics": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_4b/parsed_metrics.json",
+    "trace_inventory": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_4b/trace_inventory.md"
+  },
+  "next_recommended_action": "Inspect and fix construction verification sampling so observed baseline failures are included, then rerun a small local validation."
+}

@@ -1,0 +1,5 @@
+{
+  "command": "OPENROUTER_HTTP_TIMEOUT=600 .venv/bin/python main.py data/mcp_bench/train.json --config ../../artifacts/07_configs_and_inputs/generated_configs/local_ollama/mcp_bench_single/gemma3_12b.yaml",
+  "exit_code": 0,
+  "runtime_seconds": 5105
+}

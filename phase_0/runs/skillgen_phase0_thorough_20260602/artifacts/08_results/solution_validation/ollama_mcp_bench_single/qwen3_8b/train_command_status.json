@@ -1,0 +1,5 @@
+{
+  "command": ".venv/bin/python main.py data/mcp_bench/train.json --config ../../artifacts/07_configs_and_inputs/generated_configs/local_ollama/mcp_bench_single/qwen3_8b.yaml",
+  "exit_code": 143,
+  "runtime_seconds": 1629
+}

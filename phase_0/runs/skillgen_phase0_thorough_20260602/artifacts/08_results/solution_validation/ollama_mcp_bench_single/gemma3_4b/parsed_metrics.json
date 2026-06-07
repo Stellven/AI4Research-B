@@ -1,0 +1,56 @@
+{
+  "benchmark": "mcp_bench_single",
+  "model": "gemma3:4b",
+  "train_n": 40,
+  "test_n": 16,
+  "status": "not_solution_validated",
+  "training_baseline": {
+    "baseline_correct": 35,
+    "baseline_failures": 5,
+    "baseline_acc": 0.875
+  },
+  "construction": {
+    "baseline_correct": 4,
+    "skill_correct": 4,
+    "baseline_acc": 1.0,
+    "skill_acc": 1.0,
+    "delta_acc": 0.0,
+    "repair_count": 0,
+    "regression_count": 0,
+    "net_gain": 0,
+    "skill_status": "deprecated",
+    "paired_n": 4,
+    "target_fail_count": 0,
+    "success_guard_pass_count": 4
+  },
+  "held_out": {
+    "baseline_correct": 16,
+    "skill_correct": 16,
+    "baseline_acc": 1.0,
+    "skill_acc": 1.0,
+    "delta_acc": 0.0,
+    "repair_count": 0,
+    "regression_count": 0,
+    "net_gain": 0,
+    "paired_n": 16,
+    "skill_condition_policy": "skill rejected/deprecated; eval reused baseline for skill condition"
+  },
+  "runtime": {
+    "train_seconds": 2060,
+    "eval_seconds": 694
+  },
+  "evidence": {
+    "config_path": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/07_configs_and_inputs/generated_configs/local_ollama/mcp_bench_single/gemma3_4b.yaml",
+    "run_artifact_path": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_4b/artifacts/runs/20260605-092622",
+    "skill_repo_path": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_4b/skill_output/2026-06-05_09-26-22",
+    "skill_artifact_path": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_4b/skill_output/2026-06-05_09-26-22/795eee49-f44e-4d43-bd1b-af1406f7a3bc.json",
+    "verification_summary_path": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_4b/artifacts/runs/20260605-092622/verification/round_1/verification_summary.json",
+    "eval_results_path": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_4b/eval_results.json",
+    "trace_inventory_path": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_4b/trace_inventory.md"
+  },
+  "notes": [
+    "Construction verification sampled 0 baseline failures and 4 success guards, despite the training baseline containing 5 failures.",
+    "The generated skill was marked deprecated because no verification round passed.",
+    "Held-out eval skipped true skill-condition execution and reused baseline outputs for the skill condition, as reported by eval_skill.py."
+  ]
+}

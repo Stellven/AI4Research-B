@@ -1,0 +1,5 @@
+No eval stderr is available because eval_skill.py was not executed.
+
+The eval command requires a generated skill repository. The successful training
+run produced no skill repository because baseline collection had 40/40
+successes and 0/40 failures.
