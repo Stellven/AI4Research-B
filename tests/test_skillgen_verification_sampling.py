@@ -166,6 +166,60 @@ class SkillGenVerificationSamplingTest(unittest.TestCase):
         self.assertTrue(target_ids <= set(fail_ids))
         self.assertTrue(guard_ids <= set(success_ids))
 
+    def test_verification_sample_handles_fewer_failures_than_reserved_slots(self) -> None:
+        if not (OFFICIAL_SOURCE / "pipeline.py").exists():
+            self.skipTest("local SkillGen official source copy is not present")
+
+        pipeline = load_skillgen_pipeline()
+        fail_ids = ["f0"]
+        success_ids = [f"s{index}" for index in range(10)]
+        inst_map = {
+            instance_id: SimpleNamespace(
+                instance_id=instance_id,
+                input=f"task {instance_id}",
+                ground_truth=True,
+            )
+            for instance_id in fail_ids + success_ids
+        }
+        failures = [
+            SimpleNamespace(
+                trajectory_id=f"traj-{instance_id}",
+                instance_id=instance_id,
+                agent_config={},
+                messages=[],
+                final_output="",
+                success=False,
+            )
+            for instance_id in fail_ids
+        ]
+        successes = [
+            SimpleNamespace(
+                trajectory_id=f"traj-{instance_id}",
+                instance_id=instance_id,
+                agent_config={},
+                messages=[],
+                final_output="",
+                success=True,
+            )
+            for instance_id in success_ids
+        ]
+
+        target_failures, success_guard = pipeline._build_verification_sample(
+            failures,
+            successes,
+            inst_map,
+            sample_size=4,
+            min_sample=2,
+            seed=42,
+        )
+
+        target_ids = {instance.instance_id for instance in target_failures}
+        guard_ids = {instance.instance_id for instance in success_guard}
+
+        self.assertEqual(target_ids, {"f0"})
+        self.assertEqual(len(guard_ids), 3)
+        self.assertTrue(guard_ids <= set(success_ids))
+
 
 if __name__ == "__main__":
     unittest.main()
