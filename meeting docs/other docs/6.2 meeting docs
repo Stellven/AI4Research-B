@@ -9,3 +9,18 @@ go through the blocked tests
 create a backlog files, everytime we have a meeting then we put it in the backlog
 
 agile development (backlog, epic)
+
+next step:
+- jump to sihao's project and build on that
+- read the article
+
+First month:
+- still learning, show some skills of leveraging ai coding tools and learn things
+- we need to understand the designs, and practice such concepts
+- skills to instruct ai coding tools are limited
+
+- next week: demo show, show the demo and present how we instruct the ai coding tools
+show that we understand the pipeline and design thoroughly, show that we are the good boss
+- 1. how you instruct ai coding tools to do what. describe targets very clearly.
+- 2. jump into your code and figure out how things are done in the code
+    - DAGs, schemas, agents, operators, how they are loaded, how to manage the workflow, etc.
