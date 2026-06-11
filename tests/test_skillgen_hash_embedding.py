@@ -11,7 +11,7 @@ OFFICIAL_SOURCE = (
     Path(__file__).resolve().parents[1]
     / "phase_0"
     / "runs"
-    / "skillgen_phase0_thorough_20260602"
+    / "20260602"
     / "code"
     / "official"
 )
