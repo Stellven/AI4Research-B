@@ -1,0 +1,210 @@
+{
+  "schema_version": "0.1",
+  "scope": "Cross-model transfer runner plan for SkillGen Figure 4",
+  "run_dir": "skillgen_phase0_thorough_20260602",
+  "paper_claim": "120 off-diagonal comparisons; 70% non-negative and 42% exceed +5 percentage points.",
+  "benchmarks": [
+    {
+      "benchmark_row": "alfworld_ood",
+      "dataset_status": "ready_for_reconstructed_execution",
+      "train": "data/alfworld_ood/train.json",
+      "test": "data/alfworld_ood/test.json",
+      "blockers": [
+        "Reconstructed ALFWorld offline-plan adapter data is present and load-smoked; full execution still requires human approval of the deviation label, model route, cost, and trace-retention policy."
+      ]
+    },
+    {
+      "benchmark_row": "scienceworld",
+      "dataset_status": "ready_for_execution",
+      "train": "data/scienceworld/train.json",
+      "test": "data/scienceworld/test.json",
+      "blockers": []
+    },
+    {
+      "benchmark_row": "mind2web",
+      "dataset_status": "ready_for_execution",
+      "train": "data/mind2web/train.json",
+      "test": "data/mind2web/test.json",
+      "blockers": []
+    },
+    {
+      "benchmark_row": "socialmaze_fts",
+      "dataset_status": "ready_for_execution",
+      "train": "data/socialmaze/train.json",
+      "test": "data/socialmaze/test.json",
+      "blockers": []
+    }
+  ],
+  "paper_transfer_models": [
+    "Qwen-2.5-7B",
+    "Llama-3.1-8B",
+    "GPT-OSS-20B",
+    "GPT-5.4-Nano",
+    "GPT-5.4-Mini",
+    "Grok-4-Fast"
+  ],
+  "off_diagonal_pairs_per_benchmark": 30,
+  "planned_off_diagonal_comparisons": 120,
+  "source_target_pair_template": [
+    {
+      "source_model": "Qwen-2.5-7B",
+      "evaluator_model": "Llama-3.1-8B",
+      "status": "ready_for_execution"
+    },
+    {
+      "source_model": "Qwen-2.5-7B",
+      "evaluator_model": "GPT-OSS-20B",
+      "status": "ready_for_execution"
+    },
+    {
+      "source_model": "Qwen-2.5-7B",
+      "evaluator_model": "GPT-5.4-Nano",
+      "status": "ready_for_execution"
+    },
+    {
+      "source_model": "Qwen-2.5-7B",
+      "evaluator_model": "GPT-5.4-Mini",
+      "status": "ready_for_execution"
+    },
+    {
+      "source_model": "Qwen-2.5-7B",
+      "evaluator_model": "Grok-4-Fast",
+      "status": "ready_for_execution"
+    },
+    {
+      "source_model": "Llama-3.1-8B",
+      "evaluator_model": "Qwen-2.5-7B",
+      "status": "ready_for_execution"
+    },
+    {
+      "source_model": "Llama-3.1-8B",
+      "evaluator_model": "GPT-OSS-20B",
+      "status": "ready_for_execution"
+    },
+    {
+      "source_model": "Llama-3.1-8B",
+      "evaluator_model": "GPT-5.4-Nano",
+      "status": "ready_for_execution"
+    },
+    {
+      "source_model": "Llama-3.1-8B",
+      "evaluator_model": "GPT-5.4-Mini",
+      "status": "ready_for_execution"
+    },
+    {
+      "source_model": "Llama-3.1-8B",
+      "evaluator_model": "Grok-4-Fast",
+      "status": "ready_for_execution"
+    },
+    {
+      "source_model": "GPT-OSS-20B",
+      "evaluator_model": "Qwen-2.5-7B",
+      "status": "ready_for_execution"
+    },
+    {
+      "source_model": "GPT-OSS-20B",
+      "evaluator_model": "Llama-3.1-8B",
+      "status": "ready_for_execution"
+    },
+    {
+      "source_model": "GPT-OSS-20B",
+      "evaluator_model": "GPT-5.4-Nano",
+      "status": "ready_for_execution"
+    },
+    {
+      "source_model": "GPT-OSS-20B",
+      "evaluator_model": "GPT-5.4-Mini",
+      "status": "ready_for_execution"
+    },
+    {
+      "source_model": "GPT-OSS-20B",
+      "evaluator_model": "Grok-4-Fast",
+      "status": "ready_for_execution"
+    },
+    {
+      "source_model": "GPT-5.4-Nano",
+      "evaluator_model": "Qwen-2.5-7B",
+      "status": "ready_for_execution"
+    },
+    {
+      "source_model": "GPT-5.4-Nano",
+      "evaluator_model": "Llama-3.1-8B",
+      "status": "ready_for_execution"
+    },
+    {
+      "source_model": "GPT-5.4-Nano",
+      "evaluator_model": "GPT-OSS-20B",
+      "status": "ready_for_execution"
+    },
+    {
+      "source_model": "GPT-5.4-Nano",
+      "evaluator_model": "GPT-5.4-Mini",
+      "status": "ready_for_execution"
+    },
+    {
+      "source_model": "GPT-5.4-Nano",
+      "evaluator_model": "Grok-4-Fast",
+      "status": "ready_for_execution"
+    },
+    {
+      "source_model": "GPT-5.4-Mini",
+      "evaluator_model": "Qwen-2.5-7B",
+      "status": "ready_for_execution"
+    },
+    {
+      "source_model": "GPT-5.4-Mini",
+      "evaluator_model": "Llama-3.1-8B",
+      "status": "ready_for_execution"
+    },
+    {
+      "source_model": "GPT-5.4-Mini",
+      "evaluator_model": "GPT-OSS-20B",
+      "status": "ready_for_execution"
+    },
+    {
+      "source_model": "GPT-5.4-Mini",
+      "evaluator_model": "GPT-5.4-Nano",
+      "status": "ready_for_execution"
+    },
+    {
+      "source_model": "GPT-5.4-Mini",
+      "evaluator_model": "Grok-4-Fast",
+      "status": "ready_for_execution"
+    },
+    {
+      "source_model": "Grok-4-Fast",
+      "evaluator_model": "Qwen-2.5-7B",
+      "status": "ready_for_execution"
+    },
+    {
+      "source_model": "Grok-4-Fast",
+      "evaluator_model": "Llama-3.1-8B",
+      "status": "ready_for_execution"
+    },
+    {
+      "source_model": "Grok-4-Fast",
+      "evaluator_model": "GPT-OSS-20B",
+      "status": "ready_for_execution"
+    },
+    {
+      "source_model": "Grok-4-Fast",
+      "evaluator_model": "GPT-5.4-Nano",
+      "status": "ready_for_execution"
+    },
+    {
+      "source_model": "Grok-4-Fast",
+      "evaluator_model": "GPT-5.4-Mini",
+      "status": "ready_for_execution"
+    }
+  ],
+  "execution_contract": [
+    "Generate or reuse a source-model skill for each transfer benchmark and source model.",
+    "Evaluate that skill on the same benchmark test split with each non-identical evaluator model.",
+    "Compare each transferred skill against the evaluator model's own no-skill baseline.",
+    "Treat source skills deprecated by the verification gate as no-op skills, matching the paper description."
+  ],
+  "remaining_blockers": [
+    "ALFWorld OOD has a Group A reconstructed-execution contract package.",
+    "Transfer execution still needs approved canonical data download, adapter implementation, generated OOD train/test TaskInstance files, and per-round trace retention."
+  ]
+}

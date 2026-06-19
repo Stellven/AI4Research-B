@@ -1,0 +1,9 @@
+{
+  "mode": "hash",
+  "count": 3,
+  "dim": 256,
+  "repeat_equal": true,
+  "single_equal_first": true,
+  "norm_first": 1.0,
+  "nonzero_first": 2
+}

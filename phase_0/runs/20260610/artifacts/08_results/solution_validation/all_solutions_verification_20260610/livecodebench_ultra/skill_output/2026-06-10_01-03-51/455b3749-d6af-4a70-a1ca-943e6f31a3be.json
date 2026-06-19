@@ -1,0 +1,31 @@
+{
+  "skill_id": "455b3749-d6af-4a70-a1ca-943e6f31a3be",
+  "body": "This skill focuses on solving a competitive programming problem centered around string manipulation and dictionary lookup within Python. The agent must break down a given input string \u2018s\u2019 into non-overlapping substrings, ensuring each substring is present in a predefined dictionary of words. The core challenge lies in minimizing the number of extra characters that remain after this breakdown \u2013 essentially finding the optimal segmentation to satisfy the constraints.\n\nThe problem's difficulty will vary depending on the complexity of the input string and the size/diversity of the dictionary.  The agent\u2019s task is to implement a function that takes a string as input, splits it into substrings, checks if each substring exists in a dictionary, and returns the minimum number of characters that need to be added to make all substrings present.\n\nThe skill will involve implementing a dynamic programming approach for optimal solution.  The agent must handle edge cases such as empty strings or dictionaries with no elements.\n\n## Successful experiences\n- Dynamic Programming provides an efficient way to solve this problem, reducing the time complexity from exponential to polynomial. The implementation of the DP table and iteration through combinations are key to achieving this efficiency.\n- A greedy approach \u2013 prioritizing adding characters that minimize extra length \u2013 often yields optimal results for this type of problem.  This strategy is particularly effective when dealing with strings containing repeating patterns.\n- Utilizing a well-structured DP table significantly reduces computational overhead, making the solution more scalable for larger input strings.\n\n## Failure lessons\n- A common mistake is neglecting the initial setup of the DP table \u2013 leading to incorrect minimum character counts.  The agent must always initialize the `dp` array with a default value and iterate through all possible substring combinations.\n- Failing to iterate through all possible combinations causes errors in calculating the correct answer, resulting in an inaccurate result for subsequent calculations.\n- The lack of initialization prevents the agent from executing the core logic effectively.  The agent must always initialize the `dp` array with a default value and then iterate through all possible substring combinations to calculate the minimum characters, ensuring that each iteration accurately reflects the correct solution.\n\nExample: Consider the string 'ababa'. The expected output should be 1 (because 'a' appears twice, 'b' appears twice, and 'aba' is present).  The agent must correctly implement the dynamic programming logic to find this minimum character count.",
+  "contextual_abstract": "This task involves solving a competitive programming problem centered around string manipulation and dictionary lookup within Python. The agent must break down a given input string 's' into non-overlapping substrings, ensuring each substring is present in a predefined dictionary of words.  The core challenge lies in minimizing the number of extra characters that remain after this breakdown \u2013 essentially finding the optimal segmentation to satisfy the constraints. This task requires careful consideration of string patterns and efficient algorithm design, potentially involving nested loops or other optimization techniques. The problem\u2019s difficulty will vary depending on the complexity of the input string and the size/diversity of the dictionary.",
+  "scripts": [],
+  "requirements": [],
+  "references": [],
+  "reference_docs": [],
+  "status": "deprecated",
+  "version": 1,
+  "analysis_id": "136d9e19-661f-4217-9bd5-0d4f2a4a2d3b",
+  "dataset_id": "livecodebench_release_v6_construction_n50_seed42_ultra_train_20260610",
+  "task_name": "livecodebench_release_v6_competitive_programming",
+  "source_candidate_id": "b3923d57-ef8e-48d7-9048-c48cc235bf14",
+  "verification_history": [
+    {
+      "round_idx": 0,
+      "passed": false,
+      "net_gain": 0,
+      "repair_count": 0,
+      "regression_count": 0,
+      "baseline_acc": 0.0,
+      "skill_acc": 0.0,
+      "diagnostic": "mode=net_gain_gated, paired_n=1, n_target=1, n_success_guard=0, baseline_acc=0.0%, skill_acc=0.0%, repair=0/1 (0.0%), regression=0/0 (0.0%), net_gain=0, required=1 (abs=1, rel=0.00*n), passed=False",
+      "rejected_no_passing_round": true
+    }
+  ],
+  "token_count": 398,
+  "behavioral_aim": "",
+  "semantic_aim": ""
+}

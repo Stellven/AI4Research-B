@@ -1,0 +1,71 @@
+{
+  "schema_version": "0.1",
+  "group": "C_execution_trace",
+  "scope": "Minimum per-round trace retention checklist for future SkillGen full/refinement runs",
+  "run_dir": "20260611",
+  "status": "ready_for_execution",
+  "retention_policy": [
+    "Do not delete or overwrite verification/round_* directories after selecting the final skill.",
+    "Store round artifacts under target/model/run-specific directories so retries cannot replace earlier evidence.",
+    "Every future full-matrix or Figure 7 run must fail validation if a required trace file is missing.",
+    "A parsed aggregate may be regenerated from raw traces, but raw traces must remain the primary evidence."
+  ],
+  "checks": [
+    {
+      "id": "verification_baseline",
+      "required": true,
+      "glob": "artifacts/raw_benchmark_outputs/**/artifacts/runs/*/verification/round_*/verification_baseline.jsonl",
+      "purpose": "Recompute baseline outcomes and identify cases repaired by candidate skills.",
+      "current_count": 0,
+      "status": "missing_in_current_run"
+    },
+    {
+      "id": "verification_with_skill",
+      "required": true,
+      "glob": "artifacts/raw_benchmark_outputs/**/artifacts/runs/*/verification/round_*/verification_with_skill.jsonl",
+      "purpose": "Recompute with-skill outcomes and identify regressions.",
+      "current_count": 0,
+      "status": "missing_in_current_run"
+    },
+    {
+      "id": "verification_summary",
+      "required": true,
+      "glob": "artifacts/raw_benchmark_outputs/**/artifacts/runs/*/verification/round_*/verification_summary.json",
+      "purpose": "Read paired_n, accuracy, repair, regression, net_gain, and gate pass/fail per round.",
+      "current_count": 0,
+      "status": "missing_in_current_run"
+    },
+    {
+      "id": "verification_case_analyses",
+      "required": true,
+      "glob": "artifacts/raw_benchmark_outputs/**/artifacts/runs/*/verification/round_*/verification_case_analyses.json",
+      "purpose": "Preserve per-case repair/regression explanations for audit and Figure 7 debugging.",
+      "current_count": 0,
+      "status": "missing_in_current_run"
+    },
+    {
+      "id": "candidate_skill_artifact",
+      "required": true,
+      "glob": "artifacts/raw_benchmark_outputs/**/candidates/*_gen.json",
+      "purpose": "Link each round's result to the candidate skill that was evaluated.",
+      "current_count": 0,
+      "status": "missing_in_current_run"
+    },
+    {
+      "id": "run_metadata",
+      "required": true,
+      "glob": "artifacts/raw_benchmark_outputs/**/artifacts/runs/*/run_metadata.json",
+      "purpose": "Preserve benchmark, model, dataset, config, route, and execution metadata for grouping.",
+      "current_count": 0,
+      "status": "missing_in_current_run"
+    },
+    {
+      "id": "token_usage",
+      "required": false,
+      "glob": "artifacts/raw_benchmark_outputs/**/artifacts/runs/*/token_usage.json",
+      "purpose": "Support token-cost and runtime diagnostics without mixing them into Figure 7 accuracy.",
+      "current_count": 0,
+      "status": "missing_in_current_run"
+    }
+  ]
+}

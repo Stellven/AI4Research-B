@@ -1,0 +1,50 @@
+{
+  "benchmark": "mcp_bench_single",
+  "model": "gemma3:12b",
+  "train_n": 40,
+  "test_n": 16,
+  "status": "inconclusive",
+  "construction": {
+    "baseline_correct": 40,
+    "skill_correct": null,
+    "baseline_acc": 1.0,
+    "skill_acc": null,
+    "delta_acc": null,
+    "repair_count": null,
+    "regression_count": null,
+    "net_gain": null,
+    "skill_status": "not_generated_no_failures"
+  },
+  "held_out": {
+    "baseline_correct": null,
+    "skill_correct": null,
+    "baseline_acc": null,
+    "skill_acc": null,
+    "delta_acc": null,
+    "repair_count": null,
+    "regression_count": null,
+    "net_gain": null
+  },
+  "runtime": {
+    "train_seconds": 5105,
+    "eval_seconds": null
+  },
+  "evidence": {
+    "config_path": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/07_configs_and_inputs/generated_configs/local_ollama/mcp_bench_single/gemma3_12b.yaml",
+    "run_artifact_path": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_12b/artifacts/runs/20260604-225535",
+    "skill_repo_path": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_12b/skill_output/2026-06-04_22-55-35",
+    "verification_summary_path": "",
+    "eval_results_path": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_12b/eval_results.json",
+    "trace_inventory_path": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_12b/trace_inventory.md"
+  },
+  "null_explanations": {
+    "construction.skill_correct": "No skill was generated because baseline collection had 0 failures.",
+    "construction.skill_acc": "No skill was generated because baseline collection had 0 failures.",
+    "construction.delta_acc": "No skill-vs-baseline comparison exists without a generated skill.",
+    "construction.repair_count": "No verification loop ran because there were no baseline failures.",
+    "construction.regression_count": "No verification loop ran because there were no baseline failures.",
+    "construction.net_gain": "No verification loop ran because there were no baseline failures.",
+    "held_out": "Held-out eval was not run because eval_skill.py requires a generated skill repository.",
+    "runtime.eval_seconds": "Held-out eval was not run."
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "schema_version": "0.1",
+  "status": "passed",
+  "scope": "Minimal ALFWorld reconstructed adapter smoke test. This validates that SkillGen main.py and eval_skill.py loaders can load the generated JSON files; it does not run LLM inference or live ALFWorld.",
+  "commands": [
+    {
+      "name": "py_compile",
+      "exit_code": 0,
+      "stdout": "py_compile_stdout.txt",
+      "stderr": "py_compile_stderr.txt"
+    },
+    {
+      "name": "main_eval_loader_smoke",
+      "exit_code": 0,
+      "stdout": "main_eval_loader_smoke_stdout.txt",
+      "stderr": "main_eval_loader_smoke_stderr.txt"
+    }
+  ],
+  "loaded_datasets": [
+    {
+      "path": "data/alfworld_iod/train.json",
+      "loader": "main.load_dataset and eval_skill.load_dataset",
+      "n": 500,
+      "task_type": "open_ended"
+    },
+    {
+      "path": "data/alfworld_iod/test.json",
+      "loader": "main.load_dataset and eval_skill.load_dataset",
+      "n": 150,
+      "task_type": "open_ended"
+    },
+    {
+      "path": "data/alfworld_ood/train.json",
+      "loader": "main.load_dataset and eval_skill.load_dataset",
+      "n": 500,
+      "task_type": "open_ended"
+    },
+    {
+      "path": "data/alfworld_ood/test.json",
+      "loader": "main.load_dataset and eval_skill.load_dataset",
+      "n": 255,
+      "task_type": "open_ended"
+    }
+  ],
+  "not_executed": [
+    "main.py full training",
+    "eval_skill.py LLM evaluation",
+    "live ALFWorld TextWorld rollouts"
+  ]
+}
+

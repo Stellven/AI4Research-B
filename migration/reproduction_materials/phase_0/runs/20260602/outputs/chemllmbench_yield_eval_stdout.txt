@@ -1,0 +1,47 @@
+Loading skill from: ../../artifacts/raw_benchmark_outputs/chemllmbench_yield_prediction/skill_output/2026-06-02_17-29-12
+  -> ad80410d-3091-43d5-93e2-8721d9f1837d: 
+  [!] Skill REJECTED: status=DEPRECATED (no verification round passed).
+  [!] Skipping skill-condition eval; reporting skill==baseline (net_gain=0).
+
+Loading dataset: data/chemllmbench/yield_prediction_test.json
+  -> 10 instances, task_type=binary
+  -> Using all 10 instances
+
+Models to test     : ['openai/gpt-5.4-nano']
+Judge model        : openai/gpt-5.4-mini
+Skill web_search   : disabled
+Skill script exec  : disabled (mock)
+Blank-pair policy  : DROP (paired_n shrinks, cleanest)
+
+-- Model: openai/gpt-5.4-nano --
+  -> Skill rejected; reusing baseline for skill condition.
+
+========================================================================
+  SKILL A/B EVALUATION REPORT
+========================================================================
+  Skill ID   : ad80410d-3091-43d5-93e2-8721d9f1837d
+  Abstract   : Binary yield prediction for cross-coupling reactions: identify the coupling class, map electrophile/nucleophile roles, and judge whether the exact substrate/catalyst/base combination is likely to exceed a >30% yield threshold.
+  Status     : deprecated
+========================================================================
+
+  Model: openai/gpt-5.4-nano
+      Condition                       N  Pass     Acc   Latency
+      ----------------------------------------------------
+      Without skill                  10     7  70.0%      0.8s
+      With skill                     10     7  70.0%      0.8s
+
+      Accuracy delta : - 0.0%  (baseline=70.0%, skill=70.0%)
+      Repair     : 0/3   (0.0% of baseline failures fixed)
+      Regression : 0/7   (0.0% of baseline successes broken)
+      Net gain   : +0 instances
+
+      Paired outcome matrix (N=10 after filter):
+                               Skill pass   Skill fail
+      Baseline pass                     7            0
+      Baseline fail                     0            3
+
+========================================================================
+
+Results saved to: ../../artifacts/raw_benchmark_outputs/chemllmbench_yield_prediction/eval_results.json
+Trajectories   : ../../artifacts/raw_benchmark_outputs/chemllmbench_yield_prediction/eval_results_trajectories/
+Token usage    : prompt=2,570 | completion=361 | total=2,931 -> ../../artifacts/raw_benchmark_outputs/chemllmbench_yield_prediction/eval_results.token_usage.json

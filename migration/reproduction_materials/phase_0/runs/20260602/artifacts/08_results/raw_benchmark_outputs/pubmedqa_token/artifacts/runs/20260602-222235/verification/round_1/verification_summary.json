@@ -1,0 +1,93 @@
+{
+  "skill_id": "958cd0e0-5617-43bd-bc6c-07343f0e67bc",
+  "artifact_prefix": "verification",
+  "baseline_inference_model": "openai/gpt-5.4-nano",
+  "baseline_judge_model": "openai/gpt-5.4-mini",
+  "with_skill_inference_model": "openai/gpt-5.4-nano",
+  "with_skill_judge_model": "openai/gpt-5.4-mini",
+  "n_instances": 4,
+  "target_failure_ids": [
+    "20674150"
+  ],
+  "boundary_success_ids": [
+    "15222284",
+    "10877371",
+    "19643525"
+  ],
+  "baseline_path": "../../artifacts/raw_benchmark_outputs/pubmedqa_token/artifacts/runs/20260602-222235/verification/round_1/verification_baseline.jsonl",
+  "with_skill_path": "../../artifacts/raw_benchmark_outputs/pubmedqa_token/artifacts/runs/20260602-222235/verification/round_1/verification_with_skill.jsonl",
+  "result": {
+    "passed": true,
+    "paired_n": 4,
+    "baseline_acc": 0.75,
+    "skill_acc": 1.0,
+    "repair_count": 1,
+    "regression_count": 0,
+    "repair_rate": 1.0,
+    "regression_rate": 0.0,
+    "net_gain": 1,
+    "target_repair_count": 1,
+    "target_fail_count": 1,
+    "success_guard_regression_count": 0,
+    "success_guard_pass_count": 3,
+    "repaired_ids": [
+      "20674150"
+    ],
+    "regression_ids": [],
+    "failed_ids_after_skill": [],
+    "cases": [
+      {
+        "instance_id": "20674150",
+        "bucket": "target_failure",
+        "outcome": "repair",
+        "task_input": "Answer the biomedical research question using ONLY the provided abstract.\n\n## Abstract\n### BACKGROUND\nA new edition of the TNM was recently released that includes modifications for the staging system of kidney cancers. Specifically, T2 cancers were subclassified into T2a and T2b (<or =10 cm vs>10 cm), tumors with renal vein involvement or perinephric fat involvement were classified as T3a cancers, and those with adrenal involvement were classified as T4 cancers.\n\n### OBJECTIVE\nOur aim was to validate the recently released edition of the TNM staging system for primary tumor classification in kidney cancer.\n\n### DESIGN, SETTING, AND PARTICIPANTS\nOur multicenter retrospective study consisted of 5339 patients treated in 16 academic Italian centers.\n\n### INTERVENTION\nPatients underwent either radical or partial nephrectomy.\n\n### MEASUREMENTS\nUnivariable and multivariable Cox regression models addressed cancer-specific survival (CSS) after surgery.\n\n### RESULTS AND LIMITATIONS\nIn the study, 1897 patients (35.5%) were classified as pT1a, 1453 (27%) as pT1b, 437 (8%) as pT2a, 153 (3%) as pT2b, 1059 (20%) as pT3a, 117 (2%) as pT3b, 26 (0.5%) as pT3c, and 197 (4%) as pT4. At a median follow-up of 42 mo, 786 (15%) had died of disease. In univariable analysis, patients with pT2b and pT3a tumors had similar CSS, as did patients with pT3c and pT4 tumors. Moreover, both pT3a and pT3b stages included patients with heterogeneous outcomes. In multivariable analysis, the novel classification of the primary tumor was a powerful independent predictor of CSS (p for trend<0.0001). However, the substratification of pT1 tumors did not retain an independent predictive role. The major limitations of the study are retrospective design, lack of central pathologic review, and the small number of patients included in some substages.\n\n## Question\nValidation of the 2009 TNM version in a large multi-institutional cohort of patients treated for renal cell carcinoma: are further improvements needed?\n\nOn the last line, write exactly one of: yes, no, maybe (lowercase, no punctuation).",
+        "ground_truth": "yes",
+        "baseline_output": "Step by step:\n1. The study validates the recently released TNM edition for primary tumor (T) classification in renal cancer using 5339 surgically treated patients across 16 centers.\n2. The new T classification shows strong prognostic value: in multivariable Cox analysis, the primary tumor classification is an independent predictor of cancer-specific survival with a significant trend (p for trend < 0.0001).\n3. However, the study also finds limitations in prognostic separation: pT2b and pT3a have similar CSS, and pT3c and pT4 have similar CSS; additionally, pT3a and pT3b contain heterogeneous outcomes.\n4. The substratification of pT1 tumors does not retain independent predictive value.\n5. These findings indicate that while the TNM update is validated overall, there are still areas where staging discrimination is imperfect, suggesting further improvements may be needed.\n\nFinal answer: maybe",
+        "skill_output": "The abstract reports that the newly released TNM edition (with the described T2/T3/T4 modifications) was **validated**: in multivariable Cox regression, the **novel primary tumor classification was a powerful independent predictor of cancer-specific survival** (p for trend < 0.0001). However, it also notes that **subclassification of pT1 tumors did not retain independent predictive value**, and some substages had small numbers and there were limitations (retrospective design, no central pathology review).\n\nBecause the TNM update performs well overall but shows **at least one component (pT1 substratification) that may not add predictive improvement**, the evidence suggests **further improvements may be needed** rather than concluding the system is fully optimal.\n\n**Final answer: yes**",
+        "baseline_success": false,
+        "skill_success": true,
+        "baseline_score": 0.0,
+        "skill_score": 1.0
+      }
+    ],
+    "diagnostic_summary": "mode=net_gain_gated, paired_n=4, n_target=1, n_success_guard=3, baseline_acc=75.0%, skill_acc=100.0%, repair=1/1 (100.0%), regression=0/3 (0.0%), net_gain=1, required=1 (abs=1, rel=0.00*n), passed=True"
+  },
+  "per_instance": [
+    {
+      "instance_id": "20674150",
+      "bucket": "target_failure",
+      "baseline_success": false,
+      "skill_success": true,
+      "outcome": "repair",
+      "baseline_output": "Step by step:\n1. The study validates the recently released TNM edition for primary tumor (T) classification in renal cancer using 5339 surgically treated patients across 16 centers.\n2. The new T classification shows strong prognostic value: in multivariable Cox analysis, the primary tumor classification is an independent predictor of cancer-specific survival with a significant trend (p for trend < 0.0001).\n3. However, the study also finds limitations in prognostic separation: pT2b and pT3a have similar CSS, and pT3c and pT4 have similar CSS; additionally, pT3a and pT3b contain heterogeneous outcomes.\n4. The substratification of pT1 tumors does not retain independent predictive value.\n5. These findings indicate that while the TNM update is validated overall, there are still areas where staging discrimination is imperfect, suggesting further improvements may be needed.\n\nFinal answer: maybe",
+      "skill_output": "The abstract reports that the newly released TNM edition (with the described T2/T3/T4 modifications) was **validated**: in multivariable Cox regression, the **novel primary tumor classification was a powerful independent predictor of cancer-specific survival** (p for trend < 0.0001). However, it also notes that **subclassification of pT1 tumors did not retain independent predictive value**, and some substages had small numbers and there were limitations (retrospective design, no central pathology review).\n\nBecause the TNM update performs well overall but shows **at least one component (pT1 substratification) that may not add predictive improvement**, the evidence suggests **further improvements may be needed** rather than concluding the system is fully optimal.\n\n**Final answer: yes**"
+    },
+    {
+      "instance_id": "15222284",
+      "bucket": "success_guard",
+      "baseline_success": true,
+      "skill_success": true,
+      "outcome": "both_pass",
+      "baseline_output": "Step by step:\n1. The study compares two bioprostheses (Mosaic vs Perimount) using postoperative effective orifice area (EOA) and also an indexed measure: the ratio of EOA to the patient\u2019s aortic annulus area (measured intraoperatively).\n2. Although raw postoperative gradients and EOA ranges differ between groups, when EOA is indexed to the patient\u2019s annulus area, the study reports **no significant difference** between the two bioprostheses.\n3. This suggests that the EOA/patient annulus area ratio accounts for patient anatomy and valve sizing differences, making it a more appropriate comparative metric than unindexed EOA alone.\n\nFinal answer: **yes**",
+      "skill_output": "The study directly evaluated whether indexing effective orifice area (EOA) by the ratio of **EOA to patient aortic annulus area** (to account for patient anatomy and valve dimensions) provides a better comparison between two bioprostheses (Medtronic Mosaic vs Edwards Perimount). They found that while raw postoperative gradients differed for some valve sizes, **when using the EOA/patient annulus area ratio, there was no significant difference between the two bioprostheses**. This supports the idea that the ratio is a useful comparative metric.\n\nyes"
+    },
+    {
+      "instance_id": "10877371",
+      "bucket": "success_guard",
+      "baseline_success": true,
+      "skill_success": true,
+      "outcome": "both_pass",
+      "baseline_output": "Step by step:\n1. The study measured central anterior chamber depth in patients with unilateral pseudoexfoliation in both supine (face-up) and prone (face-down) positions.\n2. In pseudoexfoliation eyes, anterior chamber depth decreased from 3.08 mm (supine) to 2.95 mm (prone).\n3. In fellow eyes, anterior chamber depth also decreased slightly from 3.01 mm to 2.97 mm.\n4. The decrease in anterior chamber depth in pseudoexfoliation eyes when facing down was significantly greater than in fellow eyes.\n5. Therefore, head positioning (prone vs supine) influences anterior chamber depth in pseudoexfoliation syndrome.\n\nyes",
+      "skill_output": "The study measured central anterior chamber depth in patients with unilateral pseudoexfoliation syndrome in two head positions (face-up vs face-down). While both eyes showed some decrease in anterior chamber depth when prone, the decrease was **significantly greater in the pseudoexfoliation eyes** than in the fellow eyes. This indicates that head positioning (prone vs supine) influences anterior chamber depth in pseudoexfoliation syndrome.\n\nyes"
+    },
+    {
+      "instance_id": "19643525",
+      "bucket": "success_guard",
+      "baseline_success": true,
+      "skill_success": true,
+      "outcome": "both_pass",
+      "baseline_output": "The abstract states that measuring pH from wet mount microscopy slides after adding saline causes systematic increases of pH, leading to false positive readings, across both abnormal and normal/intermediate ranges. Therefore, vaginal pH cannot be accurately measured from the wet mount slide as described.\n\nno",
+      "skill_output": "The study compared vaginal pH measured on wet mount microscopy slides (after adding saline) versus direct measurements on fresh vaginal fluid. The results showed that measuring pH from microscopy slides after adding saline caused systematic increases in pH, leading to false positive readings, across all infection types and pH ranges. Therefore, slide-based measurement is not accurate.\n\nno"
+    }
+  ]
+}

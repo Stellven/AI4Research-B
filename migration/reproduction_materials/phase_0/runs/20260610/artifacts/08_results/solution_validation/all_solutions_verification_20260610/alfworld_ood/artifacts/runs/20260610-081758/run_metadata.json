@@ -1,0 +1,56 @@
+{
+  "dataset_id": "alfworld_ood_train_n500_seed42_local_smoke_train_20260610",
+  "task_name": "alfworld_ood",
+  "dataset_metadata": {
+    "benchmark": "alfworld",
+    "adapter_mode": "reconstructed_offline_plan",
+    "environment": "AlfredTWEnv",
+    "target_id": "alfworld_ood",
+    "paper_split": "ood",
+    "dataset_split": "train",
+    "source_split": "train",
+    "n": 500,
+    "seed": 42,
+    "source": "alfworld/alfworld",
+    "source_url": "https://github.com/alfworld/alfworld.git",
+    "source_commit": "aaba6870f86c5be6a08a491f32a50b906227bc3e",
+    "source_version": "0.5.0",
+    "sampling": "stratified_by_task_type_seed42",
+    "paper_reproduction_scope": "reconstructed_adapter_not_author_original_runner",
+    "trace_retention_required": true,
+    "solution_validation_smoke": true,
+    "source_dataset": "phase_0/runs/skillgen_phase0_thorough_20260602/code/official/data/alfworld_ood/train.json",
+    "source_instance_count": 500
+  },
+  "task_type": "open_ended",
+  "n_instances": 4,
+  "models": {
+    "default": "gemma3:1b",
+    "baseline_agent": "gemma3:1b",
+    "baseline_judge": "gemma3:1b",
+    "induction": "gemma3:1b",
+    "induction_contextual": "gemma3:1b",
+    "induction_summary": "gemma3:1b",
+    "induction_pattern": "gemma3:1b",
+    "induction_contrastive": "gemma3:1b",
+    "generation_plan": "gemma3:1b",
+    "generation_execute": "gemma3:1b",
+    "refinement": "gemma3:1b",
+    "verification_agent": "gemma3:1b",
+    "verification_judge": "gemma3:1b",
+    "verification_case_analyst": "gemma3:1b",
+    "verification_revision_synthesiser": "gemma3:1b"
+  },
+  "llm": {
+    "temperature": 0.0,
+    "max_tokens": 192,
+    "max_tokens_generation": 512
+  },
+  "pipeline": {
+    "max_refine_rounds": 1,
+    "baseline_runs_per_instance": 1,
+    "max_workers": 1,
+    "artifact_root": "../../artifacts/08_results/solution_validation/all_solutions_verification_20260610/alfworld_ood/artifacts/runs"
+  },
+  "skill_output_path": "../../artifacts/08_results/solution_validation/all_solutions_verification_20260610/alfworld_ood/skill_output/2026-06-10_08-17-58"
+}

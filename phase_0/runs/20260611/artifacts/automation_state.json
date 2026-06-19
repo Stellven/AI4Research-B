@@ -1,0 +1,40 @@
+{
+  "schema_version": "0.3",
+  "status": "ready_for_approval",
+  "code_intake": "intake_complete",
+  "smoke_assets": "already_prepared",
+  "contract": "skillgen_aime_smoke",
+  "command_plan": "ready_for_approval",
+  "artifact_mode": "full",
+  "long_inference_approved": true,
+  "status_model": {
+    "all_claim_status_counts": "Backward-compatible alias for all_claim_verdict_status_counts.",
+    "all_claim_verdict_status_counts": "Counts paper-claim validation verdicts only.",
+    "all_claim_readiness_status_counts": "Counts next-step execution readiness only; not claim validation evidence."
+  },
+  "minimal_artifact_policy": "When long_inference_approved is false, the run writes only the core Phase 0 evidence artifacts needed for selected-claim validation.",
+  "all_claim_status_counts": {
+    "blocked": 12
+  },
+  "all_claim_verdict_status_counts": {
+    "blocked": 12
+  },
+  "all_claim_readiness_status_counts": {
+    "blocked_missing_paired_smoke_output": 1,
+    "partially_ready_full_matrix": 2,
+    "ready_for_reconstructed_alfworld_implementation": 1,
+    "ready_for_source_identity_review": 1,
+    "ready_for_reconstructed_ablation_human_review": 1,
+    "blocked_by_alfworld_ood_execution": 1,
+    "ready_for_execution": 2,
+    "ready_for_trace_generation_after_full_runs": 1,
+    "ready_for_full_token_cost_execution": 1,
+    "blocked_missing_skill_artifact_run": 1
+  },
+  "external_source_intake_task_count": 5,
+  "benchmark_execution_target_counts": {
+    "ready_for_reconstructed_execution": 2,
+    "ready_for_execution": 11
+  },
+  "baseline_comparison_status": "blocked_pending_baseline_source_identity_review"
+}

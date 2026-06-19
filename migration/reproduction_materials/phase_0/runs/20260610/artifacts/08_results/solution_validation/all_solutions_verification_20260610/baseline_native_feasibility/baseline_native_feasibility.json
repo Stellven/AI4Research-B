@@ -1,0 +1,85 @@
+[
+  {
+    "method": "Trace2Skill",
+    "repo_path": "phase_0/runs/skillgen_phase0_thorough_20260602/code/official/baselines/Trace2Skill",
+    "local_commit": "3d0b52a140f002a512930252b613c49048f7d5ac",
+    "remote_head": "3d0b52a140f002a512930252b613c49048f7d5ac",
+    "python_files": 38,
+    "probe_status": "native_entrypoints_help_verified_domain_mismatch",
+    "source_identity_solved": true,
+    "native_algorithm_adapter_verified": false,
+    "evidence": [
+      "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/baseline_native_feasibility/trace2skill/repo_identity_status.json",
+      "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/baseline_native_feasibility/trace2skill/py_compile_core_entrypoints_status.json",
+      "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/baseline_native_feasibility/trace2skill/analyze_results_help_status.json",
+      "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/baseline_native_feasibility/trace2skill/error_analysis_help_status.json",
+      "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/baseline_native_feasibility/trace2skill/success_analysis_help_status.json",
+      "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/baseline_native_feasibility/trace2skill/skill_evolution_help_status.json",
+      "phase_0/runs/skillgen_phase0_thorough_20260602/code/official/baselines/Trace2Skill/README.md"
+    ],
+    "missing_or_failed": [],
+    "interpretation": "Trace2Skill has runnable native entrypoints, but they target SpreadsheetBench logs/skills. This verifies source-code availability, not a SkillGen-trajectory adapter."
+  },
+  {
+    "method": "SkillX",
+    "repo_path": "phase_0/runs/skillgen_phase0_thorough_20260602/code/official/baselines/SkillX",
+    "local_commit": "0137cb8c2f9e69d5cc499e562dea789b2c5a8e35",
+    "remote_head": "0137cb8c2f9e69d5cc499e562dea789b2c5a8e35",
+    "python_files": 90,
+    "probe_status": "library_import_or_compile_verified_no_cli_adapter",
+    "source_identity_solved": true,
+    "native_algorithm_adapter_verified": false,
+    "evidence": [
+      "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/baseline_native_feasibility/skillx/repo_identity_status.json",
+      "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/baseline_native_feasibility/skillx/py_compile_pipeline_status.json",
+      "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/baseline_native_feasibility/skillx/package_import_pipeline_status.json",
+      "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/baseline_native_feasibility/skillx/pipeline_script_help_status.json",
+      "phase_0/runs/skillgen_phase0_thorough_20260602/code/official/baselines/SkillX/README.md"
+    ],
+    "missing_or_failed": [
+      "pipeline_script_help exited 1"
+    ],
+    "interpretation": "SkillX source can be compiled/imported locally, but the repo has no verified CLI that consumes SkillGen trajectories and exports one static Markdown skill."
+  },
+  {
+    "method": "EvoSkill",
+    "repo_path": "phase_0/runs/skillgen_phase0_thorough_20260602/code/official/baselines/EvoSkill",
+    "local_commit": "925229680ac4ceebedb44bc548dfb82631c66525",
+    "remote_head": "925229680ac4ceebedb44bc548dfb82631c66525",
+    "python_files": 151,
+    "probe_status": "native_cli_or_compile_verified_benchmark_adapter_missing",
+    "source_identity_solved": true,
+    "native_algorithm_adapter_verified": false,
+    "evidence": [
+      "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/baseline_native_feasibility/evoskill/repo_identity_status.json",
+      "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/baseline_native_feasibility/evoskill/py_compile_cli_and_scripts_status.json",
+      "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/baseline_native_feasibility/evoskill/cli_module_help_status.json",
+      "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/baseline_native_feasibility/evoskill/run_loop_help_status.json",
+      "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/baseline_native_feasibility/evoskill/run_eval_help_status.json",
+      "phase_0/runs/skillgen_phase0_thorough_20260602/code/official/baselines/EvoSkill/README.md"
+    ],
+    "missing_or_failed": [
+      "run_loop_help exited 1",
+      "run_eval_help exited 1"
+    ],
+    "interpretation": "EvoSkill has native code/CLI surfaces, but no verified project/config adapter maps SkillGen trajectories into EvoSkill and exports a single Markdown skill."
+  },
+  {
+    "method": "CoEvoSkills",
+    "repo_path": "phase_0/runs/skillgen_phase0_thorough_20260602/code/official/baselines/CoEvoSkills",
+    "local_commit": "3171de28cc8d3c3bbbec0ef5445e59faca46815b",
+    "remote_head": "3171de28cc8d3c3bbbec0ef5445e59faca46815b",
+    "python_files": 0,
+    "probe_status": "source_page_only_no_native_code",
+    "source_identity_solved": false,
+    "native_algorithm_adapter_verified": false,
+    "evidence": [
+      "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/baseline_native_feasibility/coevoskills/repo_identity_status.json",
+      "phase_0/runs/skillgen_phase0_thorough_20260602/code/official/baselines/CoEvoSkills/README.md"
+    ],
+    "missing_or_failed": [
+      "No Python/source implementation files were found in the local CoEvoSkills repository."
+    ],
+    "interpretation": "The local CoEvoSkills repository is a project page/assets repository, not an executable baseline implementation."
+  }
+]

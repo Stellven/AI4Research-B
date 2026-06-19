@@ -1,0 +1,43 @@
+{
+  "analysis_id": "478aee05-d230-4c3c-81a1-697b7ee885c0",
+  "dataset_id": "livecodebench_release_v6_construction_n50_seed42_local_smoke_train_20260610",
+  "task_name": "livecodebench_release_v6_competitive_programming",
+  "task_type": "binary",
+  "contextual_abstract": "This task involves optimizing a route for a truck traveling between two fuel tanks, considering both fuel levels and transfer operations. The agent must determine the maximum distance that can be traveled while adhering to specific rules about fuel usage and transfers.  The problem requires careful consideration of the truck's mileage and the potential for fuel transfer, necessitating strategic decisions regarding when and how to utilize additional fuel. It\u2019s a combination of optimization and logic-based decision making, demanding efficient resource management within a defined constraint.",
+  "n_total": 3,
+  "n_failures": 3,
+  "n_successes": 0,
+  "failure_clusters": [
+    {
+      "cluster_id": "2e79148f-31da-47fb-a616-984859887909",
+      "kind": "failure",
+      "member_trajectory_ids": [
+        "f15a477b-d2f0-40b0-9bfa-fc80d9cf5562",
+        "ccc3b9d5-eff8-4ddd-bc33-1ea1c391436b",
+        "6bcd2dfc-76d3-470e-af83-3f464301eacf"
+      ],
+      "member_instance_ids": [
+        "2755",
+        "2857",
+        "2868"
+      ],
+      "member_summaries": [
+        "The agent failed because it attempted to use a dynamic programming approach without properly initializing the `dp` array and calculating the minimum extra characters correctly. The traceback indicates that the 'benchmarks' module is not available, which prevents the agent from executing the code.  It also doesn't handle the edge case where no substring can be formed from s.\n",
+        "The agent failed because it didn\u2019t correctly apply the core logic of the problem \u2013 calculating the maximum distance traveled by transferring fuel from the additional tank based on the truck's mileage and the amount of fuel consumed in the main tank. It relied solely on a simple conditional statement without considering the crucial step of determining when to transfer fuel, which is essential for maximizing distance.\n",
+        "The agent failed because it attempted to implement a nested loop solution for counting continuous subarrays without first correctly interpreting and applying the problem constraints regarding subarray boundaries and the allowed difference between elements. The core logic of checking if each pair of indices satisfies the condition is missing, leading to an incorrect count."
+      ],
+      "pattern": "Name: Insufficient Initialization & Core Logic Missing\nRoot cause: The agent failed because it lacked proper initialization of the dynamic programming table and didn\u2019t fully implement the core logic for calculating distance traveled, resulting in an incorrect solution.\nTypical mistake sequence: It starts with a basic approach without establishing the necessary foundation \u2013 failing to initialize the DP array or correctly apply the fundamental calculation. Subsequently, it attempts to execute a complex algorithm without first validating key assumptions and constraints of the problem's structure.\nObservable signals: Error Traceback; Unstable Output\nCorrect behavior: The agent should have initialized the dynamic programming table with appropriate values before starting the core logic calculations, ensuring that all necessary variables are set to avoid errors during the calculation.",
+      "size": 3
+    }
+  ],
+  "success_clusters": [],
+  "contrastive_pairs": [],
+  "metadata": {
+    "contextual_model": "gemma3:1b",
+    "summary_model": "gemma3:1b",
+    "pattern_model": "gemma3:1b",
+    "contrastive_model": "gemma3:1b",
+    "embedding_model": "local-hash-embedding",
+    "clustering_method": "kmeans"
+  }
+}

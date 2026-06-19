@@ -1,0 +1,895 @@
+[2m16:54:39[0m [36mINFO    [0m [34mmain[0m Loaded dataset 'tau-bench-retail-train' with 30 instances (binary)
+[2m16:54:39[0m [36mINFO    [0m [34mpipeline[0m Skill output dir for this run: ../../artifacts/raw_benchmark_outputs/tau_bench_retail/skill_output/2026-06-02_16-54-39
+[2m16:54:39[0m [36mINFO    [0m [34mpipeline[0m Run artifacts will be saved under ../../artifacts/raw_benchmark_outputs/tau_bench_retail/artifacts/runs/20260602-165439
+[2m16:54:39[0m [36mINFO    [0m [34mpipeline[0m Models | baseline=openai/gpt-5.4-nano | baseline_judge=openai/gpt-5.4-mini | generation=openai/gpt-5.4-mini | verification=openai/gpt-5.4-nano
+[2m16:54:39[0m [36mINFO    [0m [34mpipeline[0m Stage 1/3 | Collecting baseline trajectories on 30 instances | inference_model=openai/gpt-5.4-nano | judge_model=openai/gpt-5.4-mini
+[2m16:54:40[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:54:42[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:54:42[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:54:43[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:54:43[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:54:44[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:54:44[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:54:45[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:54:46[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:54:47[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:54:47[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:54:48[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:54:48[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:54:49[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:54:49[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:54:50[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:54:50[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:54:51[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:54:51[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:54:53[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:54:54[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:54:55[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:54:55[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:54:57[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:54:57[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:54:58[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:54:58[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:54:59[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:54:59[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:00[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:00[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:01[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:01[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:02[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:02[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:03[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:03[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:04[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:04[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:05[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:06[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:07[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:07[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:08[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:08[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:08[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:08[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:09[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:10[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:11[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:11[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:12[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:12[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:13[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:13[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:14[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:14[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:15[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:15[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:16[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:17[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:17[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:17[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:18[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:19[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:19[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:19[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:20[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:20[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:21[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:21[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:23[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:23[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:23[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:23[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:24[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:24[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:26[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:26[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:26[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:26[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:27[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:27[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:28[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:28[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:29[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:29[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:30[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:30[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:31[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:31[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:32[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:32[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:33[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:33[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:34[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:34[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:34[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:34[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:35[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:37[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:38[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:38[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:39[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:39[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:40[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:40[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:41[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:41[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:42[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:42[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:43[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:43[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:44[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:44[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:45[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:46[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:46[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:46[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:55:48[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:55:48[0m [36mINFO    [0m [34mpipeline[0m Baseline | 30 trajectories | 30 failures | 0 successes
+[2m16:55:48[0m [36mINFO    [0m [34mpipeline[0m Stage 2/3 | Running multi-aspect induction...
+[2m16:57:11[0m [36mINFO    [0m [34mmain[0m Loaded dataset 'tau-bench-retail-train' with 30 instances (binary)
+[2m16:58:11[0m [36mINFO    [0m [34mmain[0m Loaded dataset 'tau-bench-retail-train' with 30 instances (binary)
+[2m16:58:11[0m [36mINFO    [0m [34mpipeline[0m Skill output dir for this run: ../../artifacts/raw_benchmark_outputs/tau_bench_retail/skill_output/2026-06-02_16-58-11
+[2m16:58:11[0m [36mINFO    [0m [34mpipeline[0m Run artifacts will be saved under ../../artifacts/raw_benchmark_outputs/tau_bench_retail/artifacts/runs/20260602-165811
+[2m16:58:11[0m [36mINFO    [0m [34mpipeline[0m Models | baseline=openai/gpt-5.4-nano | baseline_judge=openai/gpt-5.4-mini | generation=openai/gpt-5.4-mini | verification=openai/gpt-5.4-nano
+[2m16:58:11[0m [36mINFO    [0m [34mpipeline[0m Stage 1/3 | Collecting baseline trajectories on 30 instances | inference_model=openai/gpt-5.4-nano | judge_model=openai/gpt-5.4-mini
+[2m16:58:12[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:58:13[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:58:13[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:58:14[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:58:16[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:58:17[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:58:20[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:58:23[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:58:24[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:58:25[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:58:28[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:58:29[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:58:30[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:58:32[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:58:34[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:58:35[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:58:35[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:58:36[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:58:36[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:58:37[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:58:39[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:58:39[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:58:42[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:58:43[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:58:47[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:58:49[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:58:51[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:58:51[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:58:54[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:58:55[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:58:57[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:58:58[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:59:01[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:59:01[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:59:01[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:59:02[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:59:02[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:59:03[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:59:07[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:59:08[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:59:11[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:59:11[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:59:14[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:59:14[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:59:14[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:59:15[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:59:15[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:59:16[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:59:17[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:59:18[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:59:21[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:59:21[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:59:23[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:59:25[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:59:26[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:59:27[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:59:28[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:59:29[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:59:31[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:59:32[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:59:34[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:59:35[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:59:35[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:59:35[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:59:35[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:59:36[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:59:39[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:59:40[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:59:43[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:59:44[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:59:48[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:59:49[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:59:51[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:59:52[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:59:54[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:59:55[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m16:59:59[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m16:59:59[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:00:02[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:00:03[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:00:06[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:00:06[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:00:09[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:00:10[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:00:10[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:00:11[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:00:11[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:00:12[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:00:15[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:00:15[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:00:19[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:00:20[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:00:24[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:00:24[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:00:25[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:00:26[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:00:26[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:00:27[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:00:30[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:00:31[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:00:34[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:00:35[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:00:37[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:00:39[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:00:39[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:00:40[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:00:40[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:00:41[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:00:45[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:00:47[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:00:50[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:00:51[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:00:53[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:00:54[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:00:54[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:00:55[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:00:55[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:00:56[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:00:58[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:00:59[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:01:03[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:01:04[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:01:08[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:01:09[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:01:15[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:01:16[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:01:16[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:01:17[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:01:17[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:01:19[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:01:21[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:01:22[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:01:26[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:01:27[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:01:29[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:01:30[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:01:30[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:01:31[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:01:31[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:01:32[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:01:34[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:01:35[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:01:37[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:01:38[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:01:39[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:01:41[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:01:42[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:01:44[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:01:45[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:01:46[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:01:48[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:01:49[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:01:50[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:01:51[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:01:51[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:01:52[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:01:55[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:01:57[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:01:59[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:02:00[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:02:03[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:02:04[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:02:05[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:02:06[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:02:09[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:02:10[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:02:13[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:02:15[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:02:20[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:02:22[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:02:24[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:02:25[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:02:25[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:02:26[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:02:26[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:02:27[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:02:31[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:02:32[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:02:36[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:02:37[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:02:39[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:02:41[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:02:47[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:02:49[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:02:52[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:02:53[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:02:53[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:02:54[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:02:54[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:02:55[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:02:59[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:02:59[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:03:02[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:03:03[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:03:05[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:03:06[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:03:10[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:03:11[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:03:11[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:03:12[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:03:13[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:03:13[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:03:14[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:03:15[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:03:18[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:03:19[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:03:23[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:03:23[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:03:25[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:03:26[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:03:28[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:03:29[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:03:29[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:03:30[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:03:30[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:03:31[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:03:33[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:03:34[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:03:37[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:03:38[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:03:43[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:03:44[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:03:45[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:03:46[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:03:46[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:03:46[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:03:52[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:03:53[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:03:56[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:03:57[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:03:59[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:04:00[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:04:04[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:04:05[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:04:06[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:04:07[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:04:10[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:04:10[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:04:13[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:04:14[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:04:16[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:04:17[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:04:20[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:04:22[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:04:27[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:04:29[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:04:32[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:04:33[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:04:35[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:04:37[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:04:37[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:04:38[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:04:38[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:04:39[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:04:41[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:04:41[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:04:46[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:04:47[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:04:49[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:04:50[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:04:50[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:04:51[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:04:51[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:04:52[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:04:53[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:04:55[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:04:59[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:04:59[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:05:01[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:05:02[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:05:02[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:05:03[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:05:03[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:05:04[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:05:06[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:05:06[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:05:09[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:05:10[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:05:13[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:05:14[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:05:14[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:05:15[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:05:15[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:05:15[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:05:17[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:05:18[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:05:21[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:05:22[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:05:23[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:05:25[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:05:26[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:05:27[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:05:27[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:05:28[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:05:29[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:05:29[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:05:31[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:05:32[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:05:36[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:05:36[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:05:39[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:05:39[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:05:39[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:05:40[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:05:40[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:05:41[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:05:42[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:05:43[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:05:43[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:05:44[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:05:44[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:05:45[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:05:47[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:05:47[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:05:52[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:05:54[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:05:57[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:05:58[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:05:59[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:06:00[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:06:02[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:06:03[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:06:03[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:06:04[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:06:04[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:06:05[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:06:08[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:06:09[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:06:13[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:06:13[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:06:16[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:06:17[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:06:20[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:06:21[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:06:25[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:06:26[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:06:28[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:06:29[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:06:29[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:06:29[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:06:30[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:06:32[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:06:35[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:06:35[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:06:37[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:06:39[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:06:42[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:06:42[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:06:44[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:06:45[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:06:49[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:06:49[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:06:53[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:06:54[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:06:57[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:06:58[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:07:00[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:07:01[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:07:01[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:07:02[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:07:02[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:07:03[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:07:04[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:07:05[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:07:11[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:07:12[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:07:18[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:07:19[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:07:21[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:07:22[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:07:24[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:07:25[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:07:27[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:07:27[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:07:29[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:07:30[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:07:34[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:07:34[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:07:36[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:07:36[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:07:39[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:07:40[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:07:40[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:07:41[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:07:41[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:07:42[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:07:43[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:07:44[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:07:47[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:07:47[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:07:49[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:07:50[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:07:50[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:07:51[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:07:51[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:07:52[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:07:55[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:07:56[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:08:04[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:08:05[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:08:07[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:08:08[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:08:18[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:08:19[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:08:19[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:08:20[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:08:20[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:08:21[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:08:23[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:08:24[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:08:28[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:08:28[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:08:31[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:08:32[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:08:35[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:08:36[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:08:39[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:08:39[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:08:39[0m [36mINFO    [0m [34mpipeline[0m Baseline | 30 trajectories | 19 failures | 11 successes
+[2m17:08:39[0m [36mINFO    [0m [34mpipeline[0m Stage 2/3 | Running multi-aspect induction...
+[2m17:09:43[0m [36mINFO    [0m [34mpipeline[0m Induction | 2 failure clusters | 2 success clusters | 4 contrastive pairs (3 same-type)
+[2m17:09:43[0m [36mINFO    [0m [34mpipeline[0m Verification sample | size=4 (target_n=1 baseline-failures, guard_n=3 baseline-successes) | drawn uniformly from 30 instances
+[2m17:09:43[0m [36mINFO    [0m [34mpipeline[0m Round 1/1 | Generating candidate skill...
+[2m17:09:51[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:09:51[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:09:51[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:09:51[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:09:52[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:09:52[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:09:52[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:09:52[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:09:53[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:09:53[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:09:53[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:09:53[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:09:53[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:09:54[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:09:54[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:09:54[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:09:55[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:09:56[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:09:56[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:09:56[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:09:56[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:09:57[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:09:57[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:09:57[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:09:59[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:09:59[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:09:59[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:09:59[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:10:00[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:10:00[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:10:01[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:10:02[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:10:02[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:10:02[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:10:03[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:10:03[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:10:05[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:10:10[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:10:10[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:10:11[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:10:14[0m [36mINFO    [0m [34mLiteLLM[0m 
+LiteLLM completion() model= gpt-5.4-nano; provider = openai
+[2m17:10:14[0m [36mINFO    [0m [34mLiteLLM[0m Wrapper: Completed Call, calling success_handler
+[2m17:10:15[0m [36mINFO    [0m [34mverification[0m [verification round 0] running case analyst on 3 case(s) (model=openai/gpt-5.4-mini, workers=1)
+[2m17:10:27[0m [36mINFO    [0m [34mverification[0m [verification round 0] synthesising revision guidance (model=openai/gpt-5.4-mini) over 3 case analyses
+[2m17:10:33[0m [36mINFO    [0m [34mpipeline[0m Round 1 | paired_n=4 | baseline_acc=75.0% | skill_acc=50.0% | repair=1 | regression=2 | net_gain=-1 | passed=False
+[2m17:10:33[0m [33mWARNING [0m [34mpipeline[0m No refinement round passed the verification gate; marking skill 28b0778e-7dd4-4f88-a89e-c4f39df3c9a1 as DEPRECATED (best observed net_gain=-1). Downstream eval will skip the skill condition and report net_gain=0.
+[2m17:10:33[0m [36mINFO    [0m [34mpipeline[0m Token usage | prompt=1,598,803 | completion=30,543 | total=1,629,346 | 8 (model,stage,call_type) cells -> ../../artifacts/raw_benchmark_outputs/tau_bench_retail/artifacts/runs/20260602-165811/token_usage.json
+[2m17:10:33[0m [36mINFO    [0m [34mpipeline[0m Pipeline complete | skill_id=28b0778e-7dd4-4f88-a89e-c4f39df3c9a1 | stored at ../../artifacts/raw_benchmark_outputs/tau_bench_retail/skill_output/2026-06-02_16-58-11
+[2m17:10:33[0m [36mINFO    [0m [34mmain[0m Done. Generated skill id=28b0778e-7dd4-4f88-a89e-c4f39df3c9a1

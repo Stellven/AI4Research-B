@@ -1,0 +1,122 @@
+{
+  "skill_id": "25cc437b-c484-4fc8-984f-9338e60964ea",
+  "artifact_prefix": "verification",
+  "baseline_inference_model": "openai/gpt-5.4-nano",
+  "baseline_judge_model": "openai/gpt-5.4-mini",
+  "with_skill_inference_model": "openai/gpt-5.4-nano",
+  "with_skill_judge_model": "openai/gpt-5.4-mini",
+  "n_instances": 4,
+  "target_failure_ids": [
+    "retail:train:443"
+  ],
+  "boundary_success_ids": [
+    "retail:train:209",
+    "retail:train:156",
+    "retail:train:479"
+  ],
+  "baseline_path": "../../artifacts/raw_benchmark_outputs/tau_bench_retail/artifacts/runs/20260602-165811/verification/round_1/verification_baseline.jsonl",
+  "with_skill_path": "../../artifacts/raw_benchmark_outputs/tau_bench_retail/artifacts/runs/20260602-165811/verification/round_1/verification_with_skill.jsonl",
+  "result": {
+    "passed": false,
+    "paired_n": 4,
+    "baseline_acc": 0.75,
+    "skill_acc": 0.5,
+    "repair_count": 1,
+    "regression_count": 2,
+    "repair_rate": 1.0,
+    "regression_rate": 0.6666666666666666,
+    "net_gain": -1,
+    "target_repair_count": 1,
+    "target_fail_count": 1,
+    "success_guard_regression_count": 2,
+    "success_guard_pass_count": 3,
+    "repaired_ids": [
+      "retail:train:443"
+    ],
+    "regression_ids": [
+      "retail:train:209",
+      "retail:train:156"
+    ],
+    "failed_ids_after_skill": [],
+    "cases": [
+      {
+        "instance_id": "retail:train:443",
+        "bucket": "target_failure",
+        "outcome": "repair",
+        "task_input": "Interactive benchmark task.\nBenchmark: tau-bench\nDomain: retail\nSplit: train\nTask ID: 443\n\nCustomer instruction:\nYour name is Noah Kovacs and your email is noah.kovacs8240@example.com. You are patient, shy. Cancel order #W9440076 because no longer needed. For #W3002300, exchange Bluetooth Speaker {'color': 'green', 'battery life': '10 hours', 'water resistance': 'no'} to {'color': 'red', 'battery life': '20 hours', 'water resistance': 'yes'}; Bluetooth Speaker {'color': 'black', 'battery life': '10 hours', 'water resistance': 'no'} to {'color': 'blue', 'battery life': '20 hours'}; via gift_card_2486551. ",
+        "ground_truth": "",
+        "baseline_output": "Your order **#W9440076** has been **cancelled** successfully.\n\nSince you paid with a **gift card**, the **$768.80** refund has been added to your gift card balance **immediately**.",
+        "skill_output": "Done\u2014your exchange for order **#W3002300** has been submitted.\n\n- Status is now: **exchange requested**\n- Items exchanged:\n  1) **9179378709** (green, 10 hours, no water resistance) \u2192 **7617930199** (red, 20 hours, yes water resistance)\n  2) **7597543861** (black, 10 hours, no water resistance) \u2192 **2635605237** (blue, 20 hours, no water resistance)\n- Payment method for the exchange: **gift_card_2486551**\n- Price difference: **- $79.23** (refund to your gift card)\n\nYou\u2019ll receive an email with return instructions for the items to send back.",
+        "baseline_success": false,
+        "skill_success": true,
+        "baseline_score": 0.0,
+        "skill_score": 1.0
+      },
+      {
+        "instance_id": "retail:train:209",
+        "bucket": "success_guard",
+        "outcome": "regression",
+        "task_input": "Interactive benchmark task.\nBenchmark: tau-bench\nDomain: retail\nSplit: train\nTask ID: 209\n\nCustomer instruction:\nYour name is Noah Khan and your email is noah.khan7453@example.com. You are pessimistic, creative, insecure, messy. For #W1483350, exchange Cycling Helmet {'size': 'L', 'color': 'white', 'ventilation': 'medium'} to {'size': 'M', 'color': 'blue', 'ventilation': 'high'}; Mechanical Keyboard {'switch type': 'linear', 'backlight': 'none', 'size': 'full size'} to {'switch type': 'clicky', 'backlight': 'white'}; via paypal_2319812. ",
+        "ground_truth": "",
+        "baseline_output": "Your exchange for **order #W1483350** has been submitted successfully.\n\n- **Cycling Helmet:** 6697922351 \u2192 **9013366374**  \n- **Mechanical Keyboard:** 9570044148 \u2192 **6342039236**  \n- **Payment method for any price difference:** **paypal_2319812** (price difference: **$38.95**)  \n- **New order status:** **exchange requested**\n\nYou\u2019ll receive an email with instructions on how to return the items.",
+        "skill_output": "Your exchange request for order **#W1483350** has been submitted using **PayPal_2319812**.\n\n- **Cycling Helmet** (item **6697922351**) \u2014 exchange requested  \n- **Mechanical Keyboard** (item **9570044148**) \u2014 exchange requested  \n\nYou\u2019ll receive an email with the next steps for returning the items.",
+        "baseline_success": true,
+        "skill_success": false,
+        "baseline_score": 1.0,
+        "skill_score": 0.0
+      },
+      {
+        "instance_id": "retail:train:156",
+        "bucket": "success_guard",
+        "outcome": "regression",
+        "task_input": "Interactive benchmark task.\nBenchmark: tau-bench\nDomain: retail\nSplit: train\nTask ID: 156\n\nCustomer instruction:\nYour name is Evelyn Ahmed and your email is evelyn.ahmed2006@example.com. You are patient, rigid, busy. Cancel order #W3746173 because no longer needed. Cancel order #W1416704 because ordered by mistake. ",
+        "ground_truth": "",
+        "baseline_output": "Your order **#W1416704** has been cancelled successfully.\n\nSince you paid with a **gift card**, the **$1,024.60** refund has been added back to your gift card balance immediately.",
+        "skill_output": "Your order **#W3746173** has been **cancelled** successfully.\n\nA **$261.11** refund has been issued back to your **original gift card** immediately.",
+        "baseline_success": true,
+        "skill_success": false,
+        "baseline_score": 1.0,
+        "skill_score": 0.0
+      }
+    ],
+    "diagnostic_summary": "mode=net_gain_gated, paired_n=4, n_target=1, n_success_guard=3, baseline_acc=75.0%, skill_acc=50.0%, repair=1/1 (100.0%), regression=2/3 (66.7%), net_gain=-1, required=1 (abs=1, rel=0.00*n), passed=False"
+  },
+  "per_instance": [
+    {
+      "instance_id": "retail:train:443",
+      "bucket": "target_failure",
+      "baseline_success": false,
+      "skill_success": true,
+      "outcome": "repair",
+      "baseline_output": "Your order **#W9440076** has been **cancelled** successfully.\n\nSince you paid with a **gift card**, the **$768.80** refund has been added to your gift card balance **immediately**.",
+      "skill_output": "Done\u2014your exchange for order **#W3002300** has been submitted.\n\n- Status is now: **exchange requested**\n- Items exchanged:\n  1) **9179378709** (green, 10 hours, no water resistance) \u2192 **7617930199** (red, 20 hours, yes water resistance)\n  2) **7597543861** (black, 10 hours, no water resistance) \u2192 **2635605237** (blue, 20 hours, no water resistance)\n- Payment method for the exchange: **gift_card_2486551**\n- Price difference: **- $79.23** (refund to your gift card)\n\nYou\u2019ll receive an email with return instructions for the items to send back."
+    },
+    {
+      "instance_id": "retail:train:209",
+      "bucket": "success_guard",
+      "baseline_success": true,
+      "skill_success": false,
+      "outcome": "regression",
+      "baseline_output": "Your exchange for **order #W1483350** has been submitted successfully.\n\n- **Cycling Helmet:** 6697922351 \u2192 **9013366374**  \n- **Mechanical Keyboard:** 9570044148 \u2192 **6342039236**  \n- **Payment method for any price difference:** **paypal_2319812** (price difference: **$38.95**)  \n- **New order status:** **exchange requested**\n\nYou\u2019ll receive an email with instructions on how to return the items.",
+      "skill_output": "Your exchange request for order **#W1483350** has been submitted using **PayPal_2319812**.\n\n- **Cycling Helmet** (item **6697922351**) \u2014 exchange requested  \n- **Mechanical Keyboard** (item **9570044148**) \u2014 exchange requested  \n\nYou\u2019ll receive an email with the next steps for returning the items."
+    },
+    {
+      "instance_id": "retail:train:156",
+      "bucket": "success_guard",
+      "baseline_success": true,
+      "skill_success": false,
+      "outcome": "regression",
+      "baseline_output": "Your order **#W1416704** has been cancelled successfully.\n\nSince you paid with a **gift card**, the **$1,024.60** refund has been added back to your gift card balance immediately.",
+      "skill_output": "Your order **#W3746173** has been **cancelled** successfully.\n\nA **$261.11** refund has been issued back to your **original gift card** immediately."
+    },
+    {
+      "instance_id": "retail:train:479",
+      "bucket": "success_guard",
+      "baseline_success": true,
+      "skill_success": true,
+      "outcome": "both_pass",
+      "baseline_output": "Your return has been submitted for **order #W1630030**.\n\n- **Item returned:** Electric Kettle (item id **4458619711**)  \n- **Refund to:** **original payment method (paypal_2417743)**  \n- **Status:** **return requested**\n\nYou\u2019ll receive an email with instructions on how and where to return the item.",
+      "skill_output": "Your return request has been submitted for **#W1630030** (Electric Kettle, item id **4458619711**) and the refund will go to **paypal_2417743**.  \n\nYou\u2019ll receive an email with the return instructions shortly."
+    }
+  ]
+}

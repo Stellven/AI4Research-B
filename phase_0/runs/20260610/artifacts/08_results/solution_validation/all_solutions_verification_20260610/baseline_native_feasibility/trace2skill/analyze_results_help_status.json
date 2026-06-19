@@ -1,0 +1,15 @@
+{
+  "name": "analyze_results_help",
+  "argv": [
+    "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/baselines/Trace2Skill/.venv_probe/bin/python",
+    "analyze_results.py",
+    "--help"
+  ],
+  "cwd": "phase_0/runs/skillgen_phase0_thorough_20260602/code/official/baselines/Trace2Skill",
+  "started": true,
+  "timed_out": false,
+  "returncode": 0,
+  "stdout_path": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/baseline_native_feasibility/trace2skill/analyze_results_help_stdout.txt",
+  "stderr_path": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/baseline_native_feasibility/trace2skill/analyze_results_help_stderr.txt",
+  "status_path": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/baseline_native_feasibility/trace2skill/analyze_results_help_status.json"
+}

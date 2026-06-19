@@ -1,0 +1,104 @@
+{
+  "date": "2026-06-07 01:20:07 EDT -0400",
+  "root": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/ollama_mcp_bench_single",
+  "required_files": [
+    "environment_manifest.md",
+    "deviation_note.md",
+    "ollama_probe_stdout.txt",
+    "chat_probe_stdout.txt",
+    "embedding_probe_stdout.txt",
+    "skillgen_wrapper_probe_stdout.txt",
+    "train_stdout.txt",
+    "train_stderr.txt",
+    "train_command_status.json",
+    "eval_stdout.txt",
+    "eval_stderr.txt",
+    "eval_command_status.json",
+    "eval_results.json",
+    "parsed_metrics.json",
+    "solution_validation_result.md",
+    "solution_validation_result.json",
+    "trace_inventory.md"
+  ],
+  "directories": [
+    {
+      "name": "gemma3_12b",
+      "artifact_completeness": "partial",
+      "result_status": "inconclusive",
+      "missing_required_files": [
+        "eval_command_status.json"
+      ],
+      "summary": "Training completed and produced parseable evidence, but baseline solved 40/40 train cases, so no skill was generated and held-out skill eval could not be meaningfully run."
+    },
+    {
+      "name": "gemma3_4b",
+      "artifact_completeness": "complete",
+      "result_status": "not_solution_validated",
+      "missing_required_files": [],
+      "summary": "Train and held-out eval completed, but the pre-fix construction verifier sampled zero baseline failures and the generated skill was deprecated with net_gain 0."
+    },
+    {
+      "name": "gemma3_4b_stratified",
+      "artifact_completeness": "complete",
+      "result_status": "partially_solution_validated",
+      "missing_required_files": [],
+      "summary": "Post-fix run completed. The stratified sampler selected baseline failures and construction verification passed, but held-out eval regressed by one case."
+    },
+    {
+      "name": "llama3.1_latest",
+      "artifact_completeness": "partial",
+      "result_status": "failed_to_run",
+      "missing_required_files": [
+        "train_stdout.txt",
+        "train_stderr.txt",
+        "train_command_status.json",
+        "eval_stdout.txt",
+        "eval_stderr.txt",
+        "eval_command_status.json",
+        "eval_results.json",
+        "parsed_metrics.json",
+        "solution_validation_result.md",
+        "solution_validation_result.json",
+        "trace_inventory.md"
+      ],
+      "summary": "Contains probe files and aborted/stalled attempt notes, but no canonical completed train/eval package."
+    },
+    {
+      "name": "llama3.1_latest_ctx8192",
+      "artifact_completeness": "partial",
+      "result_status": "failed_to_run",
+      "missing_required_files": [
+        "eval_stdout.txt",
+        "eval_stderr.txt",
+        "eval_command_status.json",
+        "eval_results.json",
+        "parsed_metrics.json",
+        "solution_validation_result.md",
+        "solution_validation_result.json",
+        "trace_inventory.md"
+      ],
+      "summary": "Training started but exited 143 after 605 seconds with only partial baseline progress; no held-out eval artifacts exist."
+    },
+    {
+      "name": "qwen3_8b",
+      "artifact_completeness": "partial",
+      "result_status": "failed_to_run",
+      "missing_required_files": [
+        "eval_stdout.txt",
+        "eval_stderr.txt",
+        "eval_command_status.json",
+        "eval_results.json",
+        "parsed_metrics.json",
+        "solution_validation_result.md",
+        "solution_validation_result.json",
+        "trace_inventory.md"
+      ],
+      "summary": "Training started but exited 143 after 1629 seconds with only partial baseline progress; no held-out eval artifacts exist."
+    }
+  ],
+  "extra_directory_not_in_requested_checklist": {
+    "name": "gemma3_1b_smoke",
+    "artifact_completeness": "minimal",
+    "summary": "Only deviation_note.md was found; not treated as one of the requested previous result directories."
+  }
+}

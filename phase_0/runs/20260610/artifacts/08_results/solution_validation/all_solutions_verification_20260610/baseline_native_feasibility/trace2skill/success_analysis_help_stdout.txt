@@ -1,0 +1,36 @@
+usage: run_success_analysis_llm.py [-h] --logs_dir LOGS_DIR --output_dir
+                                   OUTPUT_DIR [--model MODEL]
+                                   [--base_url BASE_URL] [--api_key API_KEY]
+                                   [--generation_config GENERATION_CONFIG]
+                                   [--seed SEED] [--instance_ids INSTANCE_IDS]
+                                   [--sample SAMPLE] [--all]
+                                   [--max_workers MAX_WORKERS]
+                                   [--repeat REPEAT]
+
+LLM-only success analysis for successful spreadsheet agent runs.
+
+options:
+  -h, --help            show this help message and exit
+  --logs_dir LOGS_DIR   Directory containing agent trajectory log files
+  --output_dir OUTPUT_DIR
+                        Directory to save per-instance analysis reports
+  --model MODEL         LLM model name (default: OPENAI_MODEL env var)
+  --base_url BASE_URL   OpenAI-compatible API base URL (default:
+                        OPENAI_BASE_URL env var or http://localhost:8000/v1)
+  --api_key API_KEY     API key (default: OPENAI_API_KEY env var or EMPTY)
+  --generation_config GENERATION_CONFIG
+                        Generation config as a JSON string or path to a JSON
+                        file
+  --seed SEED           Seed merged into generation config
+  --instance_ids INSTANCE_IDS
+                        Comma-separated instance IDs to analyze (default: all
+                        discovered)
+  --sample SAMPLE       Only analyze the first N instances
+  --all                 Include all log outcomes, not just SUCCEED (default:
+                        SUCCEED only)
+  --max_workers MAX_WORKERS
+                        Max parallel LLM calls (default: min(32, cpu_count *
+                        4))
+  --repeat REPEAT       Number of seed runs. When > 1, discovers logs from
+                        seed_*/ subdirectories under --logs_dir and uses
+                        composite IDs like {id}_seed_{seed} (default: 1).

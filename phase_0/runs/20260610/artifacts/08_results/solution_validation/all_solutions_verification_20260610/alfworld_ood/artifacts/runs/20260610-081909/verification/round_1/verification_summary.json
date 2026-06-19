@@ -1,0 +1,73 @@
+{
+  "skill_id": "03d4673e-4cad-4ffa-8fe4-18bdc1bf7831",
+  "artifact_prefix": "verification",
+  "baseline_inference_model": "gemma3:1b",
+  "baseline_judge_model": "gemma3:1b",
+  "with_skill_inference_model": "gemma3:1b",
+  "with_skill_judge_model": "gemma3:1b",
+  "n_instances": 2,
+  "target_failure_ids": [
+    "alfworld::alfworld_ood::train::pick_cool_then_place_in_recep::trial_T20190909_105100_154263"
+  ],
+  "boundary_success_ids": [
+    "alfworld::alfworld_ood::train::pick_cool_then_place_in_recep::trial_T20190909_153504_497265"
+  ],
+  "baseline_path": "../../artifacts/08_results/solution_validation/all_solutions_verification_20260610/alfworld_ood/artifacts/runs/20260610-081909/verification/round_1/verification_baseline.jsonl",
+  "with_skill_path": "../../artifacts/08_results/solution_validation/all_solutions_verification_20260610/alfworld_ood/artifacts/runs/20260610-081909/verification/round_1/verification_with_skill.jsonl",
+  "result": {
+    "passed": true,
+    "paired_n": 2,
+    "baseline_acc": 0.5,
+    "skill_acc": 1.0,
+    "repair_count": 1,
+    "regression_count": 0,
+    "repair_rate": 1.0,
+    "regression_rate": 0.0,
+    "net_gain": 1,
+    "target_repair_count": 1,
+    "target_fail_count": 1,
+    "success_guard_regression_count": 0,
+    "success_guard_pass_count": 1,
+    "repaired_ids": [
+      "alfworld::alfworld_ood::train::pick_cool_then_place_in_recep::trial_T20190909_105100_154263"
+    ],
+    "regression_ids": [],
+    "failed_ids_after_skill": [],
+    "cases": [
+      {
+        "instance_id": "alfworld::alfworld_ood::train::pick_cool_then_place_in_recep::trial_T20190909_105100_154263",
+        "bucket": "target_failure",
+        "outcome": "repair",
+        "task_input": "You are solving an ALFWorld task in a reconstructed offline planning variant for SkillGen. The live TextWorld environment is not available inside this prompt. Produce a concise high-level plan of ALFWorld text actions that should solve the task.\n\n## Split\nOOD / source=train\n\n## Goal\nput an egg in the fridge then the sink\n\n## Task type\npick_cool_then_place_in_recep\n\n## PDDL target parameters\n- object_sliced: False\n- object_target: Egg\n- parent_target: SinkBasin\n\n## Human demonstration step hints\n- go to the sink\n- take the egg from the sink\n- take the egg to the fridge\n- put the egg in the fridge then remove\n- take the egg to the sink\n- put the egg in the sink\n\n## Action grammar\nALFWorld TextWorld actions are short imperative commands. Common high-level\nsteps include:\n  navigation   : go to <location>\n  pickup       : pick up <object>\n  placement    : put <object> in/on <receptacle>\n  cleaning     : clean <object>\n  heating      : heat <object>\n  cooling      : cool <object>\n  lighting     : turn on <object>, look at <object> under <light>\n  two-object   : repeat pickup/place steps for both target objects\n\nPrefer concise commands. Preserve prerequisite order: navigate before pickup,\npickup before placement, clean/heat/cool before final placement, and turn on\nthe light before examining an object in light tasks.\n\n## Output format\nRespond with exactly a numbered plan, one action per line, and no prose:\n```\n1. <action>\n2. <action>\n...\n```",
+        "ground_truth": "Goal: put an egg in the fridge then the sink\nReference high-level actions:\n1. go to countertop\n2. pick up egg\n3. go to fridge\n4. cool egg\n5. go to sinkbasin\n6. put egg in/on sinkbasin",
+        "baseline_output": "1. Navigate to the sink.\n2. Pick up the egg from the sink.\n3. Navigate to the fridge.\n4. Place the egg in the fridge.\n5. Turn on the light.",
+        "skill_output": "1.  Go to the sink\n2.  Take the egg from the sink\n3.  Take the egg to the fridge\n4.  Put the egg in the fridge\n5.  Remove the egg from the fridge\n```",
+        "baseline_success": false,
+        "skill_success": true,
+        "baseline_score": 0.3333333333333333,
+        "skill_score": 0.6666666666666666
+      }
+    ],
+    "diagnostic_summary": "mode=net_gain_gated, paired_n=2, n_target=1, n_success_guard=1, baseline_acc=50.0%, skill_acc=100.0%, repair=1/1 (100.0%), regression=0/1 (0.0%), net_gain=1, required=1 (abs=1, rel=0.00*n), passed=True"
+  },
+  "per_instance": [
+    {
+      "instance_id": "alfworld::alfworld_ood::train::pick_cool_then_place_in_recep::trial_T20190909_105100_154263",
+      "bucket": "target_failure",
+      "baseline_success": false,
+      "skill_success": true,
+      "outcome": "repair",
+      "baseline_output": "1. Navigate to the sink.\n2. Pick up the egg from the sink.\n3. Navigate to the fridge.\n4. Place the egg in the fridge.\n5. Turn on the light.",
+      "skill_output": "1.  Go to the sink\n2.  Take the egg from the sink\n3.  Take the egg to the fridge\n4.  Put the egg in the fridge\n5.  Remove the egg from the fridge\n```"
+    },
+    {
+      "instance_id": "alfworld::alfworld_ood::train::pick_cool_then_place_in_recep::trial_T20190909_153504_497265",
+      "bucket": "success_guard",
+      "baseline_success": true,
+      "skill_success": true,
+      "outcome": "both_pass",
+      "baseline_output": "1. Navigate to the counter.\n2. Pick up the lettuce from the counter.\n3. Turn around and walk across to the white table.\n4. Slice the cabbage on the table.\n5. Go back to the counter with the toaster.\n6. Put the knife on the counter.\n7. Turn around and go back to the table with the cut cabbage.\n8. Pick a cabbage slice up from the table.",
+      "skill_output": "1. Navigate to the counter.\n2. Pick up the cabbage slice.\n3. Turn around.\n4. Walk across to the white table.\n5. Place the cabbage slice on the counter.\n6. Turn around.\n7. Go back to the table.\n8. Pick a cabbage slice up from the table.\n9. Turn around.\n10. Return to the table with the cut cabbage.\n11. Put the knife on the counter.\n12. Turn around.\n13. Go back to the table with the cut cabbage.\n14. Pick a cabbage slice up from the table.\n```"
+    }
+  ]
+}

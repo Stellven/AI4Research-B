@@ -1,0 +1,14 @@
+Loading skill from: ../../artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_4b_stratified/skill_output/2026-06-06_10-55-11
+  -> bd029056-5133-4626-b151-3a21e8e67ea2: 
+
+Loading dataset: data/mcp_bench/test.json
+  -> 16 instances, task_type=open_ended
+  -> Sampled 1 instances (seed=42)
+
+Models to test     : ['qwen3:4b']
+Judge model        : qwen3:4b
+Skill web_search   : disabled
+Skill script exec  : disabled (mock)
+Blank-pair policy  : DROP (paired_n shrinks, cleanest)
+
+-- Model: qwen3:4b --

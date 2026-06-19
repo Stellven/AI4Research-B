@@ -1,0 +1,12 @@
+{
+  "analysis_id": "08761e65-dc7f-407b-921f-2a72a06a8e06",
+  "dataset_id": "alfworld_iod_train_n500_seed42_local_smoke_train_20260610",
+  "task_name": "alfworld_iod",
+  "n_failures": 3,
+  "n_successes": 1,
+  "n_failure_clusters": 1,
+  "n_success_clusters": 1,
+  "n_contrastive_pairs": 1,
+  "same_type_pairs": 1,
+  "contextual_abstract": "This task involves generating ALFWorld text actions to accomplish a specific goal, requiring the agent to understand and execute instructions within a simulated offline planning environment. The agent must interpret complex prompts involving object manipulation, spatial reasoning, and potentially iterative problem-solving.  The task necessitates a combination of understanding natural language, interpreting visual cues (represented in the prompt), and applying logical steps to achieve a defined outcome \u2013 this is akin to a customer support dialogue or a simple tool-use scenario. The agent must produce a concise sequence of actions that effectively solve the given objective, considering constraints imposed by the ALFWorld environment's rules and limitations.  The task\u2019s success hinges on accurately translating human instructions into actionable steps within the simulated world."
+}

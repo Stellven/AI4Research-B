@@ -1,0 +1,69 @@
+{
+  "dataset_id": "aime_test_smoke_n4_seed42",
+  "task_name": "aime_olympiad_math_test",
+  "task_type": "binary",
+  "instances": [
+    {
+      "instance_id": "7",
+      "input": "Each vertex of a regular dodecagon ($12$-gon) is to be colored either red or blue, and thus there are $2^{12}$ possible colorings. Find the number of these colorings with the property that no four vertices colored the same color are the four vertices of a rectangle.\n\nSolve the problem carefully. Your final answer must be a single integer from 000 to 999. On the last line, write only that integer.",
+      "ground_truth": "928",
+      "metadata": {
+        "benchmark": "aime",
+        "year": 2023,
+        "contest": null,
+        "problem_number": null,
+        "url": "https://artofproblemsolving.com/wiki/index.php/2023_AIME_II_Problems/Problem_7",
+        "raw_answer": "928"
+      }
+    },
+    {
+      "instance_id": "1",
+      "input": "Rhombus $ABCD$ has $\\angle BAD < 90^\\circ.$ There is a point $P$ on the incircle of the rhombus such that the distances from $P$ to the lines $DA,AB,$ and $BC$ are $9,$ $5,$ and $16,$ respectively. Find the perimeter of $ABCD.$\n\nSolve the problem carefully. Your final answer must be a single integer from 000 to 999. On the last line, write only that integer.",
+      "ground_truth": "125",
+      "metadata": {
+        "benchmark": "aime",
+        "year": 2023,
+        "contest": null,
+        "problem_number": null,
+        "url": "https://artofproblemsolving.com/wiki/index.php/2023_AIME_I_Problems/Problem_8",
+        "raw_answer": "125"
+      }
+    },
+    {
+      "instance_id": "17",
+      "input": "Find the number of triples of nonnegative integers \\((a,b,c)\\) satisfying \\(a + b + c = 300\\) and\n\\begin{equation*}\na^2b + a^2c + b^2a + b^2c + c^2a + c^2b = 6,000,000.\n\\end{equation*}\n\nSolve the problem carefully. Your final answer must be a single integer from 000 to 999. On the last line, write only that integer.",
+      "ground_truth": "601",
+      "metadata": {
+        "benchmark": "aime",
+        "year": 2024,
+        "contest": null,
+        "problem_number": null,
+        "url": "https://artofproblemsolving.com/wiki/index.php/2024_AIME_II_Problems/Problem_11",
+        "raw_answer": "601"
+      }
+    },
+    {
+      "instance_id": "15",
+      "input": "Consider the paths of length $16$ that follow the lines from the lower left corner to the upper right corner on an $8\\times 8$ grid. Find the number of such paths that change direction exactly four times, as in the examples shown below.\n\nSolve the problem carefully. Your final answer must be a single integer from 000 to 999. On the last line, write only that integer.",
+      "ground_truth": "294",
+      "metadata": {
+        "benchmark": "aime",
+        "year": 2024,
+        "contest": null,
+        "problem_number": null,
+        "url": "https://artofproblemsolving.com/wiki/index.php/2024_AIME_I_Problems/Problem_6",
+        "raw_answer": "294"
+      }
+    }
+  ],
+  "metadata": {
+    "source": "allenai/aime-2022-2025",
+    "domain": "olympiad_math",
+    "n": 40,
+    "year_filter": null,
+    "split_strategy": "single_shuffle_no_overlap",
+    "split": "test",
+    "seed": 42,
+    "grader": "aime_grader.evaluate_aime_output (exact-match integer)"
+  }
+}

@@ -1,0 +1,45 @@
+Loading skill from: ../../artifacts/08_results/solution_validation/all_solutions_verification_20260610/ablation_smoke/skill_repos/A3
+  -> ablation-smoke-a3: 
+
+Loading dataset: data/mcp_bench/test.json
+  -> 16 instances, task_type=open_ended
+  -> Sampled 1 instances (seed=42)
+
+Models to test     : ['gemma3:1b']
+Judge model        : gemma3:1b
+Skill web_search   : disabled
+Skill script exec  : disabled (mock)
+Blank-pair policy  : DROP (paired_n shrinks, cleanest)
+
+-- Model: gemma3:1b --
+  (reusing shared baseline: ../../artifacts/08_results/solution_validation/all_solutions_verification_20260610/ablation_smoke/Full/eval_results_trajectories/gemma3:1b_baseline.jsonl)
+
+========================================================================
+  SKILL A/B EVALUATION REPORT
+========================================================================
+  Skill ID   : ablation-smoke-a3
+  Abstract   : The task involves generating structured plans for MCP-Bench benchmark problems, requiring precise tool selection and a clear articulation of the reasoning process. The agent must effectively interpret user requests to identify appropriate tools and execute necessary calculations or operations within the MCP environment. Success hinges on accurately leveraging the available tools and ensuring the generated plan adheres to specific constraints defined by the user.  The task demands a balance between efficient execution, thorough grounding in the problem context, and careful consideration of dependency relationships between steps.
+  Status     : active
+========================================================================
+
+  Model: gemma3:1b
+      Condition                       N  Pass     Acc   Latency
+      ----------------------------------------------------
+      Without skill                   1     0   0.0%     13.7s
+      With skill                      1     0   0.0%     16.3s
+
+      Accuracy delta : - 0.0%  (baseline=0.0%, skill=0.0%)
+      Repair     : 0/1   (0.0% of baseline failures fixed)
+      Regression : 0/0   (0.0% of baseline successes broken)
+      Net gain   : +0 instances
+
+      Paired outcome matrix (N=1 after filter):
+                               Skill pass   Skill fail
+      Baseline pass                     0            0
+      Baseline fail                     0            1
+
+========================================================================
+
+Results saved to: ../../artifacts/08_results/solution_validation/all_solutions_verification_20260610/ablation_smoke/A3/eval_results.json
+Trajectories   : ../../artifacts/08_results/solution_validation/all_solutions_verification_20260610/ablation_smoke/A3/eval_results_trajectories/
+Token usage    : prompt=3,786 | completion=1,419 | total=5,205 -> ../../artifacts/08_results/solution_validation/all_solutions_verification_20260610/ablation_smoke/A3/eval_results.token_usage.json

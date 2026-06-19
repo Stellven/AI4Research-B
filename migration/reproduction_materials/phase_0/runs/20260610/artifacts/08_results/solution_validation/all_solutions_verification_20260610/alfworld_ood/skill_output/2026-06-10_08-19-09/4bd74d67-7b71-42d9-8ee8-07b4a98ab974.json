@@ -1,0 +1,31 @@
+{
+  "skill_id": "4bd74d67-7b71-42d9-8ee8-07b4a98ab974",
+  "body": "This task involves generating ALFWorld text actions to accomplish a specific goal, requiring the agent to understand and execute instructions within a simulated offline planning environment. The agent must interpret complex prompts involving object manipulation, spatial reasoning, and potentially iterative problem-solving. Success hinges on accurately translating human intent into discrete actions that effectively achieve the desired outcome \u2013 completing the task \u2013 in ALFWorld.  The agent must demonstrate reasoning skills related to spatial relationships, tool usage, and potentially follow-up instructions within the ALFWorld environment.\n\nThe skill will be structured around a \u2018sequence of actions\u2019 approach. Each section will detail the core action and its associated context. The goal is to create a reusable module for generating ALFWorld text actions, prioritizing clarity and conciseness.  The agent should generate actions that are logically connected to the overall objective.\n\nThe skill will be structured around a \u2018sequence of actions\u2019 approach. Each section will detail the core action and its associated context. The goal is to create a reusable module for generating ALFWorld text actions, prioritizing clarity and conciseness.  The agent should generate actions that are logically connected to the overall objective.\n\nThe skill will be structured around a \u2018sequence of actions\u2019 approach. Each section will detail the core action and its associated context. The goal is to create a reusable module for generating ALFWorld text actions, prioritizing clarity and conciseness.  The agent should generate actions that are logically connected to the overall objective.\n\nThe skill will be structured around a \u2018sequence of actions\u2019 approach. Each section will detail the core action and its associated context. The goal is to create a reusable module for generating ALFWorld text actions, prioritizing clarity and conciseness.  The agent should generate actions that are logically connected to the overall objective.\n\nThe skill will be structured around a \u2018sequence of actions\u2019 approach. Each section will detail the core action and its associated context. The goal is to create a reusable module for generating ALFWorld text actions, prioritizing clarity and conciseness.  The agent should generate actions that are logically connected to the overall objective.",
+  "contextual_abstract": "This task involves generating ALFWorld text actions to accomplish a specific goal \u2013 placing an item on a counter. The agent must interpret complex prompts involving object manipulation, spatial reasoning, and potentially iterative problem-solving within the ALFWorld environment. Success hinges on accurately translating human intent into discrete actions that effectively achieve the desired outcome - completing the task \u2013 in ALFWorld.  The agent must demonstrate reasoning skills related to spatial relationships, tool usage, and potentially follow-up instructions within the ALFWorld environment.\n\nThe skill will be structured around a \u2018sequence of actions\u2019 approach. Each section will detail the core action and its associated context. The goal is to create a reusable module for generating ALFWorld text actions, prioritizing clarity and conciseness.  The agent should generate actions that are logically connected to the overall objective.\n\nThe skill will be structured around a \u2018sequence of actions\u2019 approach. Each section will detail the core action and its associated context. The goal is to create a reusable module for generating ALFWorld text actions, prioritizing clarity and conciseness.  The agent should generate actions that are logically connected to the overall objective.\n\nThe skill will be structured around a \u2018sequence of actions\u2019 approach. Each section will detail the core action and its associated context. The goal is to create a reusable module for generating ALFWorld text actions, prioritizing clarity and conciseness.  The agent should generate actions that are logically connected to the overall objective.",
+  "scripts": [],
+  "requirements": [],
+  "references": [],
+  "reference_docs": [],
+  "status": "active",
+  "version": 1,
+  "analysis_id": "ebe34e22-cd8e-4cd2-9e93-7e18a5eefd7b",
+  "dataset_id": "alfworld_ood_train_n500_seed42_local_smoke_train_20260610",
+  "task_name": "alfworld_ood",
+  "source_candidate_id": "03d4673e-4cad-4ffa-8fe4-18bdc1bf7831",
+  "verification_history": [
+    {
+      "round_idx": 0,
+      "passed": true,
+      "net_gain": 1,
+      "repair_count": 1,
+      "regression_count": 0,
+      "baseline_acc": 0.5,
+      "skill_acc": 1.0,
+      "diagnostic": "mode=net_gain_gated, paired_n=2, n_target=1, n_success_guard=1, baseline_acc=50.0%, skill_acc=100.0%, repair=1/1 (100.0%), regression=0/1 (0.0%), net_gain=1, required=1 (abs=1, rel=0.00*n), passed=True",
+      "rejected_no_passing_round": false
+    }
+  ],
+  "token_count": 344,
+  "behavioral_aim": "",
+  "semantic_aim": ""
+}

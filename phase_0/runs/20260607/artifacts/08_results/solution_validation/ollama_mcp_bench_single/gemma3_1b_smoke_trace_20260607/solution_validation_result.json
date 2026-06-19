@@ -1,0 +1,55 @@
+{
+  "run_label": "gemma3_1b_smoke_trace_20260607",
+  "status": "not_solution_validated",
+  "not_paper_reproduction": true,
+  "primary_question_answer": "This smoke run validated additional local infrastructure and traceability fixes, but it did not validate generated skill effectiveness.",
+  "status_basis": [
+    "The first train attempt reproduced a generation robustness crash caused by a non-string dedup_notes field.",
+    "After patching generation field coercion, the train rerun completed with exit code 0.",
+    "The persisted skill included source_candidate_id matching the generated candidate id.",
+    "Construction verification selected two baseline failures in an all-failure training sample but had net_gain 0, so the skill was deprecated.",
+    "Held-out smoke eval completed with exit code 0, but skipped real skill-condition eval because the skill was deprecated."
+  ],
+  "train": {
+    "exit_code": 0,
+    "runtime_seconds": 914,
+    "baseline_failures": 4,
+    "baseline_successes": 0,
+    "candidate_id": "d3ee4895-eb51-4ca6-b53f-885c6440af9f",
+    "skill_id": "d0f2da35-08f1-4bc8-af8a-ed2322c5f402",
+    "skill_status": "deprecated",
+    "source_candidate_id": "d3ee4895-eb51-4ca6-b53f-885c6440af9f"
+  },
+  "construction_verification": {
+    "passed": false,
+    "paired_n": 2,
+    "baseline_acc": 0.0,
+    "skill_acc": 0.0,
+    "repair_count": 0,
+    "regression_count": 0,
+    "net_gain": 0
+  },
+  "eval": {
+    "ran": true,
+    "exit_code": 0,
+    "runtime_seconds": 48,
+    "n_instances": 4,
+    "skill_rejected": true,
+    "baseline_acc": 0.0,
+    "skill_acc": 0.0,
+    "net_gain": 0
+  },
+  "validated_fixes": [
+    "offline local routing test passes",
+    "real local Ollama smoke command ran through train/eval",
+    "generation parser no longer crashes on list-valued dedup_notes",
+    "persisted skill records source_candidate_id",
+    "all-failure verification sample selects target failures",
+    "deprecated skill eval policy records skill==baseline"
+  ],
+  "remaining_gaps": [
+    "Generated skill effectiveness remains not validated.",
+    "The smoke model produced zero baseline successes and no successful repairs.",
+    "A larger confirmation with held-out repair opportunity is still needed."
+  ]
+}

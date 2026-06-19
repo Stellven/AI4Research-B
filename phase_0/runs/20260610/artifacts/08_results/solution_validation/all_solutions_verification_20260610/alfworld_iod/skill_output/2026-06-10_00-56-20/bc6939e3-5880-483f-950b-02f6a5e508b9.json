@@ -1,0 +1,31 @@
+{
+  "skill_id": "bc6939e3-5880-483f-950b-02f6a5e508b9",
+  "body": "The ALFWorld task involves generating text actions to solve a simulated offline planning problem. The agent must interpret complex prompts, understand spatial relationships, and execute logical steps within the ALFWorld environment's rules. Success hinges on accurately translating human instructions into actionable steps \u2013 this is a simplified version of a customer support dialogue or tool-use scenario.",
+  "contextual_abstract": "The agent must generate ALFWorld text actions to accomplish a specific goal, requiring the agent to understand and execute instructions within a simulated offline planning environment. The agent must interpret complex prompts involving object manipulation, spatial reasoning, and potentially iterative problem-solving. The task necessitates a combination of understanding natural language, interpreting visual cues (represented in the prompt), and applying logical steps to achieve a defined outcome \u2013 this is akin to a customer support dialogue or a simple tool-use scenario. The agent must produce a concise sequence of actions that effectively solve the given objective, considering constraints imposed by the ALFWorld environment's rules and limitations.",
+  "scripts": [],
+  "requirements": [],
+  "references": [],
+  "reference_docs": [],
+  "status": "deprecated",
+  "version": 1,
+  "analysis_id": "08761e65-dc7f-407b-921f-2a72a06a8e06",
+  "dataset_id": "alfworld_iod_train_n500_seed42_local_smoke_train_20260610",
+  "task_name": "alfworld_iod",
+  "source_candidate_id": "5d270046-fdfb-4773-9913-33ee9f66051f",
+  "verification_history": [
+    {
+      "round_idx": 0,
+      "passed": false,
+      "net_gain": 0,
+      "repair_count": 0,
+      "regression_count": 0,
+      "baseline_acc": 0.5,
+      "skill_acc": 0.5,
+      "diagnostic": "mode=net_gain_gated, paired_n=2, n_target=1, n_success_guard=1, baseline_acc=50.0%, skill_acc=50.0%, repair=0/1 (0.0%), regression=0/1 (0.0%), net_gain=0, required=1 (abs=1, rel=0.00*n), passed=False",
+      "rejected_no_passing_round": true
+    }
+  ],
+  "token_count": 56,
+  "behavioral_aim": "",
+  "semantic_aim": ""
+}

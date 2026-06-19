@@ -1,0 +1,30 @@
+{
+  "skill_id": "ad80410d-3091-43d5-93e2-8721d9f1837d",
+  "body": "## Contextual abstract\nThis task is a binary yield prediction for organic cross-coupling reactions. The model must identify the coupling class, map the electrophile and nucleophile roles, and judge whether the exact substrate/catalyst/base combination is likely to clear a >30% isolated-yield threshold. The core skill is reaction-feasibility reasoning: recognize the transformation, then decide if the specific partners and conditions are realistically productive.\n\n## Successful experiences\n1. **Classify the coupling first.**\n   - Treat aryl/heteroaryl halide + boron partner as Suzuki-Miyaura.\n   - Treat aryl halide + amine/aniline as Buchwald-Hartwig C\u2013N coupling.\n   - Use the reaction class to set the default reactivity expectations before looking at details.\n\n2. **Check the exact substrate pair, not just the named reaction.**\n   - Ask whether the electrophile is activated enough: iodide > bromide > chloride, with heteroaryl or crowded systems often harder.\n   - Ask whether the nucleophile is a normal boron reagent or a sufficiently reactive amine/aniline partner.\n   - If the pair looks only marginally compatible, keep the prediction conservative.\n\n3. **Judge catalyst/ligand/base fit for the specific substrates.**\n   - Look for a Pd/ligand/base system that plausibly matches the coupling class and substrate difficulty.\n   - If the setup is specialized, bulky, or not obviously tuned to the substrate pair, do not assume high yield.\n\n4. **Use a conservative fallback when the reaction is crowded or atypical.**\n   - Heteroaryl-rich, highly functionalized, or sterically congested couplings often underperform.\n   - When the setup is uncertain, prefer a low-yield call rather than a blanket positive prediction.\n\n## Failure lessons\n- **Signal:** The reaction contains a familiar cross-coupling catalyst system, but the model still predicts high yield without checking the actual partners. **Counter-action:** Ground the answer in the electrophile/nucleophile pair and the specific coupling class first.\n\n- **Signal:** The halide is relatively unactivated, the substrate is heteroaryl or bulky, or the partner identity is easy to misread as a more reactive analog. **Counter-action:** Downgrade confidence and re-evaluate leaving-group quality, sterics, and substrate activation before answering Yes.\n\n- **Signal:** The model fixates on additives, solvent complexity, or generic Pd conditions while ignoring whether the catalyst/ligand system is a practical match. **Counter-action:** Ignore decorative condition details unless they change feasibility; prioritize catalyst fit and substrate compatibility.\n\n- **Signal:** The reaction is treated as \u201cstandard\u201d solely because it resembles a textbook Suzuki or Buchwald-Hartwig example. **Counter-action:** Compare the exact substrates against the threshold for productive coupling; if the match is not clearly strong, choose the conservative binary outcome.",
+  "contextual_abstract": "Binary yield prediction for cross-coupling reactions: identify the coupling class, map electrophile/nucleophile roles, and judge whether the exact substrate/catalyst/base combination is likely to exceed a >30% yield threshold.",
+  "scripts": [],
+  "requirements": [],
+  "references": [],
+  "reference_docs": [],
+  "status": "deprecated",
+  "version": 1,
+  "analysis_id": "9ca519a6-0718-4376-a97a-e0aaef1dd8c6",
+  "dataset_id": "chemllmbench_yield_prediction",
+  "task_name": "chemllmbench_yield_prediction_train",
+  "verification_history": [
+    {
+      "round_idx": 0,
+      "passed": false,
+      "net_gain": 0,
+      "repair_count": 0,
+      "regression_count": 0,
+      "baseline_acc": 1.0,
+      "skill_acc": 1.0,
+      "diagnostic": "mode=net_gain_gated, paired_n=4, n_target=0, n_success_guard=4, baseline_acc=100.0%, skill_acc=100.0%, repair=0/0 (0.0%), regression=0/4 (0.0%), net_gain=0, required=1 (abs=1, rel=0.00*n), passed=False",
+      "rejected_no_passing_round": true
+    }
+  ],
+  "token_count": 402,
+  "behavioral_aim": "",
+  "semantic_aim": ""
+}

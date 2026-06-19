@@ -1,0 +1,202 @@
+{
+  "analysis_id": "9ca519a6-0718-4376-a97a-e0aaef1dd8c6",
+  "dataset_id": "chemllmbench_yield_prediction",
+  "task_name": "chemllmbench_yield_prediction_train",
+  "task_type": "binary",
+  "contextual_abstract": "This task asks the model to predict whether a given organic cross-coupling reaction will achieve a high isolated yield, and to answer in a strict binary format such as Yes/No. Solving it requires chemical reasoning about reaction feasibility: recognizing the coupling type, assessing substrate compatibility, leaving-group quality, catalyst/ligand/reagent choices, and common failure modes like steric hindrance, heteroatom poisoning, or poor electrophile/nucleophile pairing. The inputs vary by reaction class and by the specific reactants, catalysts, bases, solvents, and additives listed in SMILES-like notation, but the output is always just a binary yield judgment. Overall, this is a chemistry classification problem centered on expert-level reaction outcome prediction rather than synthesis planning or detailed mechanistic explanation.",
+  "n_total": 30,
+  "n_failures": 4,
+  "n_successes": 26,
+  "failure_clusters": [
+    {
+      "cluster_id": "adef1184-8a40-4946-8225-e9aad2adf792",
+      "kind": "failure",
+      "member_trajectory_ids": [
+        "eb1af069-add8-469c-85d5-17849e4bf2af",
+        "febd5885-7346-48ad-b087-e16f5d67239d"
+      ],
+      "member_instance_ids": [
+        "yield_prediction_00004",
+        "yield_prediction_00021"
+      ],
+      "member_summaries": [
+        "The agent likely failed because it did not properly assess the reaction as a standard Buchwald\u2013Hartwig amination between an aryl iodide and an aniline, which is generally a favorable coupling under the given Pd/ligand/base system. It appears to have missed the key reactivity cue that the substrate pair is well-suited for C\u2013N bond formation and instead defaulted to an unsupported negative prediction.",
+        "The agent likely failed to recognize that this is a plausible Suzuki coupling between a heteroaryl boronate and a heteroaryl iodide under standard Pd/phosphine/base conditions, which can often proceed in moderate to good yield. It appears to have over-weighted the presence of many additives/solvents and did not explicitly assess the key reactivity of the coupling partners and catalyst system."
+      ],
+      "pattern": "Name: Missed coupling-reactivity recognition\nRoot cause: The agent lacks reliable reaction-class recognition for standard cross-coupling chemistry, so it fails to map the substrate pair and catalyst/base system onto the expected reactivity pattern. Instead of using the core transformation logic, it defaults to an unsupported yield judgment.\nTypical mistake sequence: It first overlooks the key coupling motif and the compatibility of the partners under the stated Pd-catalyzed conditions, then over-weights distracting details such as additives, solvent complexity, or generic uncertainty. This leads to a pessimistic or arbitrary prediction without explicitly evaluating whether the transformation is a well-precedented, favorable coupling.\nObservable signals: The reaction involves a classic cross-coupling pair such as aryl/heteroaryl halide plus boron or amine partner under Pd catalyst and base.; The prompt contains standard coupling conditions that usually support C\u2013C or C\u2013N bond formation, but the model still predicts low yield or expresses uncertainty without discussing the coupling class.\nCorrect behavior: The agent should first identify the reaction family and assess whether the substrate pair is intrinsically well-suited to that coupling under the given catalyst/base system. It should anchor the yield estimate in known reactivity of the coupling partners and only then adjust for secondary factors like heteroatoms, sterics, or additives.",
+      "size": 2
+    },
+    {
+      "cluster_id": "888c57a6-8ecf-45b8-a64c-a59ccb487c2e",
+      "kind": "failure",
+      "member_trajectory_ids": [
+        "1c72d5ab-9078-46c7-8b90-5ee988ab341c",
+        "a13cee99-9bb8-469b-bad6-9549d9a884d4"
+      ],
+      "member_instance_ids": [
+        "yield_prediction_00002",
+        "yield_prediction_00026"
+      ],
+      "member_summaries": [
+        "The agent overgeneralized from the presence of a Buchwald\u2013Hartwig catalyst system and failed to assess whether the specific substrate pair is actually favorable. It missed key reaction-feasibility factors such as the relatively unactivated aryl chloride and the possibility that the catalyst/ligand set may not be optimal enough to guarantee a >30% yield.",
+        "The agent made a key substrate-identification error: it treated the amine partner as a simple aniline nucleophile, but the product requires coupling to a much less reactive aryl amine partner and the overall transformation is not a straightforward high-probability Buchwald\u2013Hartwig case. It also failed to weigh whether the specific catalyst/ligand set is actually well matched to this substrate combination, leading to an overconfident \u201chigh yield\u201d prediction."
+      ],
+      "pattern": "Name: Overgeneralized reaction-feasibility assessment\nRoot cause: The agent lacks robust substrate-specific reactivity reasoning and instead relies on superficial reaction-class recognition. It treats the mere presence of a known coupling catalyst system as evidence of high yield without checking whether the exact substrate pair is actually compatible.\nTypical mistake sequence: It first identifies a familiar transformation pattern, then assumes the reaction is a standard, high-probability case, and finally assigns an overly optimistic yield without evaluating substrate activation, nucleophile strength, or catalyst/ligand fit. In doing so, it may also misclassify one partner\u2019s identity or reactivity class, which further inflates confidence.\nObservable signals: The task involves a coupling reaction where one or both partners are relatively unactivated or weakly reactive, yet the model still predicts a high yield.; The catalyst/ligand system is present but there is no clear evidence it is especially well matched to the specific substrate combination, or the substrate identity is easy to misread as a more reactive analog.\nCorrect behavior: The agent should explicitly evaluate whether the exact substrates are reactive enough for the named transformation, including leaving-group quality, nucleophile strength, and catalyst/ligand suitability. If the match is uncertain or the substrates are less activated than a typical textbook case, it should downgrade confidence and avoid a blanket high-yield prediction.",
+      "size": 2
+    }
+  ],
+  "success_clusters": [
+    {
+      "cluster_id": "29d20a2f-fd93-4f4a-8913-95a2fa23e38e",
+      "kind": "success",
+      "member_trajectory_ids": [
+        "59b37552-f8dd-4e8f-9c40-4725cc53362f",
+        "1267fb08-9cce-4bb1-b47a-dc6cd292b174",
+        "f2cae7f9-3e46-4d0b-a60b-b6bbf307543d",
+        "ee3063ef-2428-4d5b-8516-a62d03f77e20",
+        "9bdf4e20-72f0-4bc6-8062-b53200706e01",
+        "5e25535e-8cd0-4028-afea-d1121bd0bcad",
+        "e977ad0e-16ae-4fbc-a596-a5897a0d911a",
+        "9e83af85-8e91-491e-b6da-cd6cbc570701",
+        "cce49b2b-0111-47a0-b1bb-0c2f309ace52",
+        "de711f51-f836-4d29-ba39-db841ee1d829",
+        "e420160c-76b0-47fa-bc7a-fdb72f18d0c4",
+        "b4754b75-73b9-467c-9428-9ef3bb2fb74f",
+        "38df0c5c-d598-48a8-9fd1-bb5b53617d3c",
+        "ea5e46a3-40c7-4545-8fc4-3bbefcbc12a7"
+      ],
+      "member_instance_ids": [
+        "yield_prediction_00001",
+        "yield_prediction_00003",
+        "yield_prediction_00005",
+        "yield_prediction_00007",
+        "yield_prediction_00009",
+        "yield_prediction_00011",
+        "yield_prediction_00013",
+        "yield_prediction_00015",
+        "yield_prediction_00017",
+        "yield_prediction_00019",
+        "yield_prediction_00023",
+        "yield_prediction_00025",
+        "yield_prediction_00027",
+        "yield_prediction_00029"
+      ],
+      "member_summaries": [
+        "The agent identified the intended Suzuki coupling between the heteroaryl boronic acid and heteroaryl iodide, then checked whether the reaction setup was plausible for a productive cross-coupling. It concluded the conditions and substrate combination were unlikely to give a high-yielding product, so it answered **No**.",
+        "The agent identified this as a Suzuki coupling and checked whether the aryl bromide/boronic acid pair and catalyst system were likely to be compatible with productive cross-coupling. It then judged that the reaction conditions and substrate set were not favorable enough for a high-yield outcome, so it answered \u201cNo.\u201d",
+        "The agent identified the reaction as a Suzuki coupling and checked whether the substrate/reagent set was likely to support efficient cross-coupling. It likely judged the conditions as unfavorable or too uncertain for a high-yield outcome, then committed to the conservative prediction of low yield.",
+        "The agent identified the reaction as a Suzuki coupling between an aryl bromide and an aryl boronic acid, then checked whether the substrate/catalyst set was favorable for efficient cross-coupling. It likely judged that the highly functionalized heteroaryl partners and the unusual additive/solvent system made a high-yield outcome unlikely, so it answered \u201cNo.\u201d",
+        "The agent identified the reaction as a Suzuki-Miyaura coupling and checked whether the required aryl halide/boronic acid pair and catalytic conditions were likely to be compatible with productive cross-coupling. It concluded the substrate set and conditions were not favorable for a high-yield outcome, so it answered \u201cNo.\u201d",
+        "The agent identified this as a Suzuki coupling between an aryl bromide and an aryl boronate, then checked whether the substrate/catalyst set looked favorable for productive cross-coupling. It judged the reaction unlikely to give a high yield, likely due to the heteroaryl/complex substrate context and the presence of conditions that suggest a challenging or low-reactivity coupling, and therefore answered \u201cNo.\u201d",
+        "The agent identified the reaction as a Suzuki-Miyaura coupling and checked whether the provided conditions were suitable for a productive cross-coupling. It concluded the setup was unlikely to give a high-yield product, likely due to the reaction context/compatibility of the reagents, and therefore answered \u201cNo.\u201d",
+        "The agent identified the reaction as a Suzuki coupling between an aryl bromide and a heteroaryl boronic ester, then judged that the substrate/catalyst set was likely to be problematic rather than reliably high-yielding. It likely weighed the heteroaryl bromide/boronate complexity and the crowded catalyst/reagent mixture, and concluded the coupling would not exceed the >30% threshold.",
+        "The agent identified this as a Suzuki coupling and checked whether the substrate/reagent set was suitable for efficient cross-coupling. It likely judged that the conditions were not favorable enough for a high-yield outcome, so it conservatively answered \u201cNo.\u201d",
+        "The agent identified the reaction as a Suzuki coupling and checked whether the required coupling partners and conditions were plausible for a high-yield cross-coupling. It likely noticed the presence of a heteroaryl boronate and heteroaryl iodide but judged the overall setup as unfavorable/uncertain enough to stay below the >30% threshold, then committed to \u201cNo.\u201d",
+        "The agent identified the reaction as a Suzuki coupling and checked whether the provided aryl halide/boronate pair and catalyst system were likely to be compatible with a productive cross-coupling. It judged that the substrate/catalyst/reagent combination was unfavorable enough that the reaction would not reach a high yield, so it answered \u201cNo.\u201d",
+        "The agent identified this as a Suzuki coupling between an aryl bromide and an aryl boronic acid, then judged the substrate/catalyst/reagent set as unlikely to give a high-yield outcome. It likely weighed the reaction conditions and structural complexity, concluded the coupling would be inefficient, and committed to \u201cNo.\u201d",
+        "The agent identified the reaction as a Suzuki coupling between an aryl bromide and an aryl boronate, then checked whether the catalyst/ligand/base/solvent set was suitable for efficient cross-coupling. It judged that the specific substrate combination and conditions were unlikely to give a high-yielding coupling, so it answered \u201cNo.\u201d",
+        "The agent identified this as a Suzuki coupling between a heteroaryl boronic ester and a heteroaryl iodide, then judged the substrate combination and conditions as likely to be problematic rather than efficient. It used that structural/reactivity assessment to conclude the reaction would not exceed the high-yield threshold, so it answered \u201cNo.\u201d"
+      ],
+      "pattern": "Technique: Suzuki feasibility screening\nProcedure: First identify the reaction class as a Suzuki/Suzuki-Miyaura cross-coupling and map the roles of the coupling partners (aryl/heteroaryl halide plus boronic acid/boronate/ester). Then quickly judge whether the substrate pair, catalyst system, solvent/additives, and overall reaction context look compatible with efficient cross-coupling; if the setup appears crowded, heteroaryl-rich, or otherwise atypical, default to a conservative low-yield prediction.\nObservable signals: Presence of an aryl or heteroaryl halide paired with a boronic acid/boronate/boronic ester; Catalyst/solvent/additive conditions typical of cross-coupling but with heteroaryl, highly functionalized, or otherwise challenging substrates\nRobustness checks: The agent repeatedly sanity-checked that the reaction was truly a Suzuki-type coupling before evaluating yield, rather than treating it as an unrelated transformation. It also cross-checked substrate compatibility against the condition set and used a conservative fallback when the combination looked uncertain or likely to be low-reactivity.",
+      "size": 14
+    },
+    {
+      "cluster_id": "00aeb6e2-4b0b-4cbd-95c6-cc6b13f3a98d",
+      "kind": "success",
+      "member_trajectory_ids": [
+        "707a9535-632d-4e9b-b5a5-6be8602f3e1e",
+        "3c4eec26-1b2a-4033-b0b9-16943a3201e4",
+        "fe8a7168-8ca4-48e7-868d-cbef7f934994",
+        "46de4a1d-ae08-43bb-8b46-f9534a4aa137",
+        "2a26ee49-8543-4dca-bdba-4a639a861186",
+        "8ab7ebef-4d36-497c-8599-997618633a9a",
+        "0ff426fb-f967-4bc9-a330-16d6843035a3",
+        "cecde202-ac71-4614-a4ce-fd0d3d084e26",
+        "77e7039d-0421-4515-8493-071ffd17b217",
+        "71fab0ee-4563-4d26-abcb-dbe175746697",
+        "3a352968-adfa-4abc-b672-c1b68f3137bd",
+        "31bab383-856b-416f-a3d5-fc5fe51eb118"
+      ],
+      "member_instance_ids": [
+        "yield_prediction_00000",
+        "yield_prediction_00006",
+        "yield_prediction_00008",
+        "yield_prediction_00010",
+        "yield_prediction_00012",
+        "yield_prediction_00014",
+        "yield_prediction_00016",
+        "yield_prediction_00018",
+        "yield_prediction_00020",
+        "yield_prediction_00022",
+        "yield_prediction_00024",
+        "yield_prediction_00028"
+      ],
+      "member_summaries": [
+        "The agent identified this as a Buchwald-Hartwig amination between an aryl chloride and an aniline, then assessed whether the catalyst/ligand system was suitable for activating the relatively unreactive chloroarene. It judged that the substrate and conditions were not favorable enough to expect a high-yield coupling, so it answered \u201cNo.\u201d",
+        "The agent identified the transformation as a Buchwald-Hartwig amination between an aryl chloride and an aniline, then assessed whether the catalyst/ligand/base set was suitable for this specific substrate pair. It judged the aryl chloride as relatively unactivated and the overall setup as unlikely to exceed the >30% yield threshold, so it answered \u201cNo.\u201d",
+        "The agent identified the transformation as a Buchwald\u2013Hartwig C\u2013N coupling and checked whether the substrate/catalyst combination was likely to be productive. It judged that the heteroaryl chloride and the very bulky, unusual Pd/ligand system made the coupling unlikely to proceed in high yield, so it answered \u201cNo.\u201d",
+        "The agent identified the transformation as a Buchwald\u2013Hartwig C\u2013N coupling between an aryl bromide and an aniline, then assessed whether the catalyst/reagent set was suitable for a clean high-yield coupling. It weighed the complexity and steric bulk of the substrate/catalyst system and concluded the reaction was unlikely to exceed the >30% yield threshold, so it answered \u201cNo.\u201d",
+        "The agent identified this as a Buchwald-Hartwig amination and checked whether the aryl iodide/amine pair and catalyst system were suitable for a productive coupling. It then judged that the reaction was unlikely to exceed the high-yield threshold and committed to the negative classification.",
+        "The agent identified the transformation as a Buchwald-Hartwig amination of an aryl iodide with an aniline, then assessed whether the catalyst/ligand system was suitable for this specific coupling. It judged that the substrate and conditions were not likely to deliver a sufficiently efficient coupling, so it concluded the yield would not exceed the 30% threshold.",
+        "The agent identified this as a Buchwald-Hartwig amination between an aryl chloride and an aniline, then checked whether the catalyst/ligand/base set was suitable for efficient coupling. It judged that the substrate/catalyst combination was not favorable enough to expect a yield above 30%, so it answered \u201cNo.\u201d",
+        "The agent identified the transformation as a Buchwald\u2013Hartwig C\u2013N coupling between an aryl iodide and an aniline, then checked whether the catalyst/ligand set was suitable for that bond formation. It judged that despite the correct reaction type, the specific conditions were unlikely to be reliably high-yielding, so it answered No.",
+        "The agent identified this as a Buchwald-Hartwig C\u2013N coupling and checked whether the substrate/product pair and catalyst system were compatible with a high-yield aryl amination. It then judged that the reaction was unlikely to exceed the 30% yield threshold and committed to the binary answer accordingly.",
+        "The agent identified this as a Buchwald\u2013Hartwig amination between an aryl chloride and an aniline, then checked whether the substrate/catalyst combination was likely to be productive. It judged the aryl chloride as relatively unactivated and the catalyst/ligand system as not obviously favorable enough to guarantee efficient coupling, so it concluded the yield would likely be below the 30% threshold.",
+        "The agent identified the transformation as a Buchwald\u2013Hartwig amination between an aryl chloride and an aniline, then assessed whether the catalyst/ligand/base set was suitable for efficient coupling. It judged that the substrate/catalyst combination was unlikely to deliver a high-yielding reaction under these conditions, so it answered \u201cNo.\u201d",
+        "The agent identified the transformation as a Buchwald\u2013Hartwig C\u2013N coupling and checked whether the substrates and catalyst set were suitable for efficient aryl amination. It then judged that, despite the correct reaction class, the specific substrate/catalyst combination was unlikely to give a high yield and committed to \u201cNo.\u201d"
+      ],
+      "pattern": "Technique: Reaction-class feasibility screening\nProcedure: First, identify the exact coupling class and partners, here a Buchwald-Hartwig C\u2013N amination between an aryl halide and an aniline/amine. Next, judge whether the specific halide reactivity, substrate substitution, and Pd/ligand/base system are a good match for efficient oxidative addition and productive coupling, then compare that expected performance against the >30% yield threshold. If the aryl halide is relatively unactivated, heteroaryl, or paired with a bulky/unusual catalyst system that looks mismatched, default to a negative yield call.\nObservable signals: Buchwald-Hartwig amination / C\u2013N coupling is explicitly mentioned; The substrate is an aryl chloride, aryl bromide, aryl iodide, or heteroaryl halide paired with an aniline/amine; The prompt highlights catalyst/ligand/base choice or unusual steric bulk; The task asks for a binary yield threshold such as >30%\nRobustness checks: The agent repeatedly sanity-checked whether the catalyst/ligand set was actually suitable for the specific substrate pair rather than assuming all Buchwald-Hartwig reactions are high-yielding. It also cross-checked halide reactivity and substrate complexity/sterics to avoid overestimating difficult couplings.",
+      "size": 12
+    }
+  ],
+  "contrastive_pairs": [
+    {
+      "failure_instance_id": "yield_prediction_00021",
+      "failure_trajectory_id": "febd5885-7346-48ad-b087-e16f5d67239d",
+      "success_instance_id": "yield_prediction_00019",
+      "success_trajectory_id": "de711f51-f836-4d29-ba39-db841ee1d829",
+      "similarity": 0.933041592145028,
+      "same_type": true,
+      "same_type_reason": "Both are Suzuki-Miyaura yield predictions requiring the same core judgment about whether the coupling partners and catalyst system are plausible for a productive cross-coupling.",
+      "analysis": "The success correctly focused on the actual coupling pair: a heteroaryl boron reagent with a heteroaryl iodide under Pd/phosphine conditions, then judged the overall setup as not clearly high-yielding. The failure went off track by overemphasizing the many additives/solvents and treating the presence of a boron reagent plus iodide as sufficient for a positive call. The transferable rule is to first identify the true electrophile/nucleophile pair and then ask whether the specific substrate combination and conditions are likely to exceed the >30% threshold, rather than assuming any Suzuki-like mixture will work well."
+    },
+    {
+      "failure_instance_id": "yield_prediction_00004",
+      "failure_trajectory_id": "eb1af069-add8-469c-85d5-17849e4bf2af",
+      "success_instance_id": "yield_prediction_00018",
+      "success_trajectory_id": "cecde202-ac71-4614-a4ce-fd0d3d084e26",
+      "similarity": 0.9203940126376112,
+      "same_type": true,
+      "same_type_reason": "Both are Buchwald\u2013Hartwig C\u2013N coupling yield predictions for the same aryl iodide/aniline pairing under Pd/ligand conditions.",
+      "analysis": "The successful trajectory correctly recognized the transformation as a standard Buchwald\u2013Hartwig amination and then evaluated the actual reaction conditions rather than the product alone. It noticed that, despite the right coupling partners, the catalyst/ligand/base set was unusually specialized and not obviously a robust high-yield setup, so it chose No. The failure went off track by treating the substrate pair as automatically favorable and ignoring whether the specific Pd system was likely to deliver >30% yield. The transferable rule is: identify the coupling type, then judge yield from both substrate compatibility and the practicality of the catalyst/ligand system, not just from the presence of an aryl iodide and an aniline."
+    },
+    {
+      "failure_instance_id": "yield_prediction_00002",
+      "failure_trajectory_id": "1c72d5ab-9078-46c7-8b90-5ee988ab341c",
+      "success_instance_id": "yield_prediction_00006",
+      "success_trajectory_id": "3c4eec26-1b2a-4033-b0b9-16943a3201e4",
+      "similarity": 0.9028397113672106,
+      "same_type": true,
+      "same_type_reason": "Both tasks ask whether the same Buchwald\u2013Hartwig aryl amination is likely to exceed a yield threshold based on substrate and catalyst/ligand suitability.",
+      "analysis": "The successful trajectory did not just recognize a Buchwald\u2013Hartwig coupling; it evaluated whether the specific aryl chloride and catalyst/base combination were strong enough for this substrate pair. The failure went off track by assuming that any Pd/phosphine system implies a high-yielding amination, without checking that the aryl chloride is relatively unactivated and may be sluggish. The transferable rule is to judge reactivity from substrate activation and catalyst fit, not from the mere presence of a Buchwald\u2013Hartwig setup. Applying that rule here would lead to the same low-confidence, below-threshold conclusion."
+    },
+    {
+      "failure_instance_id": "yield_prediction_00026",
+      "failure_trajectory_id": "a13cee99-9bb8-469b-bad6-9549d9a884d4",
+      "success_instance_id": "yield_prediction_00022",
+      "success_trajectory_id": "71fab0ee-4563-4d26-abcb-dbe175746697",
+      "similarity": 0.8950218088302518,
+      "same_type": true,
+      "same_type_reason": "Both are Buchwald-Hartwig aminations asking whether an aryl halide/aniline coupling under a given Pd/ligand system is likely to exceed the yield threshold.",
+      "analysis": "The successful trajectory correctly treated the reaction as a low-confidence Buchwald\u2013Hartwig coupling and judged the specific substrate/catalyst match as not reliably productive. The failure went off track by overgeneralizing from the presence of an aryl bromide and an aniline to an assumed high-yield amination, without checking whether this exact halide/ligand set is well suited. The transferable rule is to evaluate not just the reaction class, but the halide leaving group and catalyst/ligand compatibility; if the coupling partner is less favorable or the system is not clearly optimized, do not predict high yield."
+    }
+  ],
+  "metadata": {
+    "contextual_model": "openai/gpt-5.4-mini",
+    "summary_model": "openai/gpt-5.4-mini",
+    "pattern_model": "openai/gpt-5.4-mini",
+    "contrastive_model": "openai/gpt-5.4-mini",
+    "embedding_model": "text-embedding-3-small",
+    "clustering_method": "kmeans"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "skill_id": "ablation-smoke-a1",
+  "body": "## Contextual Abstract\nReconstructed ICL k=3 demonstration-style skill for MCP-Bench smoke.\n\n## Successful Experiences\n- Read the user request carefully, identify the required tool or computation, and produce a concise final answer.\n- For tool-use style tasks, first list required inputs, then call or simulate the relevant tool step, then verify the returned value.\n- Preserve requested output format exactly.\n\n## Failure Lessons\n- Do not answer before identifying the needed operation.\n- Do not invent external data when the task asks for a specific tool-backed result.\n",
+  "contextual_abstract": "This skill guides the agent to solve complex user requests by breaking them down into manageable steps, leveraging external tools effectively, and proactively addressing potential pitfalls in planning and execution.",
+  "scripts": [],
+  "requirements": [],
+  "references": [],
+  "reference_docs": [],
+  "status": "active",
+  "version": 1,
+  "analysis_id": "fd7320a8-5d77-455a-abf5-20384ea02fef",
+  "dataset_id": "mcp_bench_single_train_n40_seed42",
+  "task_name": "mcp_bench_single_train",
+  "verification_history": [
+    {
+      "round_idx": 0,
+      "passed": true,
+      "net_gain": 1,
+      "repair_count": 2,
+      "regression_count": 1,
+      "baseline_acc": 0.5,
+      "skill_acc": 0.75,
+      "diagnostic": "mode=net_gain_gated, paired_n=4, n_target=2, n_success_guard=2, baseline_acc=50.0%, skill_acc=75.0%, repair=2/2 (100.0%), regression=1/2 (50.0%), net_gain=1, required=1 (abs=1, rel=0.00*n), passed=True",
+      "rejected_no_passing_round": false
+    },
+    {
+      "ablation_smoke_arm": "A1",
+      "deviation_note": "A1 reconstructed ICL k=3 arm represented as a demonstration-style Markdown skill."
+    }
+  ],
+  "token_count": 738,
+  "behavioral_aim": "",
+  "semantic_aim": "",
+  "source_candidate_id": "reconstructed-A1"
+}

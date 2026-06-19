@@ -1,0 +1,124 @@
+{
+  "analysis_id": "deebfe32-7e6a-44f5-b7de-68331c31d7f7",
+  "dataset_id": "aime_train_smoke_n8_seed42",
+  "task_name": "aime_olympiad_math_train",
+  "task_type": "binary",
+  "contextual_abstract": "This dataset consists of olympiad-style math problems that require producing a single numeric answer, typically the remainder or a small integer, formatted as a three-digit integer from 000 to 999 on the last line. Solving them usually involves careful multi-step reasoning in combinatorics, number theory, algebra, and geometry, often with modular arithmetic, counting arguments, or geometric deductions rather than heavy computation. The inputs vary widely in surface topic and setup, but each instance is a self-contained proof-style question with enough structure to derive an exact integer result. Overall, the task is short-form mathematical problem solving with emphasis on precision, symbolic reasoning, and final-answer formatting.",
+  "n_total": 8,
+  "n_failures": 5,
+  "n_successes": 3,
+  "failure_clusters": [
+    {
+      "cluster_id": "c9419bda-cd04-4132-90b8-06bb1a49f74c",
+      "kind": "failure",
+      "member_trajectory_ids": [
+        "e71ebc56-c072-467b-a9eb-23a31c74d670",
+        "495dbaf5-ec19-4d02-b8e0-09ae44adb7dc",
+        "aa418b8c-6a4a-43fd-892f-0309b76fa6ad",
+        "ae00fa0d-91f0-4a3a-babd-8870ed7e55dd"
+      ],
+      "member_instance_ids": [
+        "14",
+        "3",
+        "31",
+        "28"
+      ],
+      "member_summaries": [
+        "The agent started correctly by rewriting each term algebraically, but it failed to finish the reduction carefully and likely made an arithmetic/modular-computation mistake in the remaining summation. The root issue was incomplete execution of the simplification strategy: it did not carry the algebra through to a verified result modulo 1000, so the final remainder was incorrect.",
+        "The agent misread the constraint: \u201cno person sits next to two other people\u201d does **not** mean every occupied block can only have length at most 2; it only forbids a person from having both adjacent seats occupied, which requires a more careful counting of 8-element subsets. It then jumped into an oversimplified block-decomposition approach without fully accounting for all valid configurations, leading to an incorrect total.",
+        "The agent only checked the very largest decimal palindromes and stopped after rejecting a few, instead of systematically searching for numbers whose base-8 form is also palindromic. It missed the key reasoning step of constraining the search by the octal-palindrome structure, which led it to overlook the true maximum.",
+        "The agent stopped after observing that the total positive and negative mass are each \\(1/2\\), but it failed to use the ordering constraints to bound where the 16th and 76th terms can lie. The key missing step was a careful extremal argument showing how to concentrate the positive and negative mass so that \\(x_{76}-x_{16}\\) is maximized, rather than assuming a simple split would suffice."
+      ],
+      "pattern": "Name: Premature Simplification\nRoot cause: The agent lacks disciplined problem completion: it can start with a valid idea, but it does not carry that idea through the final constraint-sensitive reasoning or verification step. This leads to answers that are plausible at a glance but wrong because a crucial combinatorial, extremal, or arithmetic detail was skipped.\nTypical mistake sequence: It first applies an oversimplified mental model or partial reduction, then stops once the problem looks \"mostly handled\" instead of checking the remaining edge cases or proving the final bound/result. Commonly it confuses a local pattern with the full constraint set, or performs an incomplete calculation and assumes the unfinished expression is already reliable.\nObservable signals: The solution jumps from a promising setup to a final conclusion without a full case check, extremal argument, or verified computation.; The task contains subtle constraints or structure (ordering, modular arithmetic, palindromic/boundary conditions, occupancy rules) that require careful finishing rather than a coarse heuristic.\nCorrect behavior: The agent should continue from the initial reduction all the way to a fully checked result, explicitly testing the remaining constraints and edge cases before concluding. It should verify arithmetic and structural implications step by step, using the problem's exact conditions rather than an oversimplified shortcut.",
+      "size": 4
+    },
+    {
+      "cluster_id": "f9c58ce1-b0b4-441e-8d60-1349874e1d56",
+      "kind": "failure",
+      "member_trajectory_ids": [
+        "ada12080-3268-4d9e-b77e-b6f80f69d203"
+      ],
+      "member_instance_ids": [
+        "69"
+      ],
+      "member_summaries": [
+        "The agent failed because it began with an unsupported setup and never completed the geometric derivation relating the splitting lines\u2019 directions to the side lengths. It treated the configuration too generically, missing the key angle condition that should determine a specific algebraic relation among the triangle\u2019s sides, which led to the wrong perimeter."
+      ],
+      "pattern": "Name: Unsupported geometric generalization\nRoot cause: The agent lacks the ability to anchor a geometry problem in the exact given constraints before deriving formulas. It jumps to a plausible generic setup instead of extracting the specific angle/length relationships that determine the answer.\nTypical mistake sequence: It first assumes an unsupported configuration or symmetry, then proceeds with broad geometric reasoning without proving the needed relations. As a result, it never derives the key algebraic condition from the stated angle or line-direction constraints and computes an incorrect quantity.\nObservable signals: The solution starts by introducing a diagram interpretation, symmetry, or special case that is not explicitly justified by the prompt.; A critical given condition, especially an angle, direction, or intersection constraint, is mentioned but never translated into an equation or used in the derivation.\nCorrect behavior: The agent should first restate the exact constraints and derive the mandatory relations they imply before choosing a method. It should check each geometric assumption against the prompt, build the algebra from the stated conditions, and only then compute the requested value.",
+      "size": 1
+    }
+  ],
+  "success_clusters": [
+    {
+      "cluster_id": "40ee0d36-79f0-4362-aaf2-288334e51513",
+      "kind": "success",
+      "member_trajectory_ids": [
+        "d527b07e-cc5e-428b-b02c-4816f3c9f832",
+        "07db458b-3020-487a-9b51-ff0411438fd1",
+        "b8bd4e9e-22b2-4fbf-9120-215c3f798a2a"
+      ],
+      "member_instance_ids": [
+        "35",
+        "17",
+        "13"
+      ],
+      "member_summaries": [
+        "The agent first factored \\(13!\\) into prime powers, then used the condition that \\(13!/m\\) be a perfect square to determine the allowable exponents of \\(m\\): each exponent had to have the same parity as the corresponding exponent in \\(13!\\). It then summed all such \\(m\\) by treating the choices for each prime independently as a geometric series, factored the total sum into a product, and extracted the exponents \\(a,b,c,d,e,f\\) from that product to get their sum.\n\n012",
+        "The agent rewrote the first modulus equation as a circle in the \\((x,y)\\)-plane and interpreted the second modulus equation as the perpendicular bisector of two points. It then found the line equation from the equal-distance condition, intersected that line with the circle, and used the \u201cexactly one solution\u201d condition to identify the tangent case and the corresponding \\(k\\)-values.",
+        "The agent set up the problem by choosing the unique consecutive pair \\((k,k+1)\\) and then counted valid subsets for each possible \\(k\\) while forbidding any other adjacent pair. It implicitly used a case-based combinatorial count, summing the allowable choices across all positions of the single consecutive pair to reach the total."
+      ],
+      "pattern": "Technique: Structure-then-count decomposition\nProcedure: First, rewrite the problem into independent structural constraints: factor numbers into prime powers, convert equations into geometric objects, or isolate the single allowed combinatorial pattern. Then analyze each independent choice or case separately, combine the results by multiplication or summation, and finally extract the requested quantity from the resulting closed form or case count.\nObservable signals: The problem has repeated independent conditions that can be separated by coordinates, primes, or case positions; A final answer is obtained by summing over cases or multiplying independent choices, especially when a uniqueness or exact-count condition is present\nRobustness checks: The agent checked parity/exponent consistency, verified geometric intersection conditions such as tangency or a single intersection, and enforced combinatorial restrictions like forbidding extra adjacent pairs. These checks ensure only admissible configurations are counted and that edge cases do not slip in.",
+      "size": 3
+    }
+  ],
+  "contrastive_pairs": [
+    {
+      "failure_instance_id": "14",
+      "failure_trajectory_id": "e71ebc56-c072-467b-a9eb-23a31c74d670",
+      "success_instance_id": "35",
+      "success_trajectory_id": "d527b07e-cc5e-428b-b02c-4816f3c9f832",
+      "similarity": 0.6431445340042709,
+      "same_type": false,
+      "same_type_reason": "The success uses prime-factor parity and geometric-series factorization, while the failure is a modular summation of combinatorial terms; they require different core techniques.",
+      "analysis": ""
+    },
+    {
+      "failure_instance_id": "3",
+      "failure_trajectory_id": "495dbaf5-ec19-4d02-b8e0-09ae44adb7dc",
+      "success_instance_id": "13",
+      "success_trajectory_id": "b8bd4e9e-22b2-4fbf-9120-215c3f798a2a",
+      "similarity": 0.6347718506295659,
+      "same_type": false,
+      "same_type_reason": "The first problem is a spacing/counting-of-8-occupied-seats constraint, while the second is counting subsets with exactly one adjacent pair; they require different combinatorial models.",
+      "analysis": ""
+    },
+    {
+      "failure_instance_id": "28",
+      "failure_trajectory_id": "ae00fa0d-91f0-4a3a-babd-8870ed7e55dd",
+      "success_instance_id": "35",
+      "success_trajectory_id": "d527b07e-cc5e-428b-b02c-4816f3c9f832",
+      "similarity": 0.6335332380139694,
+      "same_type": false,
+      "same_type_reason": "The tasks use entirely different solving patterns: the failure is an extremal inequality/ordering problem, while the success is a prime-factorization and divisibility-counting problem.",
+      "analysis": ""
+    },
+    {
+      "failure_instance_id": "31",
+      "failure_trajectory_id": "aa418b8c-6a4a-43fd-892f-0309b76fa6ad",
+      "success_instance_id": "13",
+      "success_trajectory_id": "b8bd4e9e-22b2-4fbf-9120-215c3f798a2a",
+      "similarity": 0.5228511285391082,
+      "same_type": false,
+      "same_type_reason": "The tasks use different solving patterns: one is a structured combinatorial count, while the other is a number-search problem about simultaneous palindromic representations.",
+      "analysis": ""
+    }
+  ],
+  "metadata": {
+    "contextual_model": "openai/gpt-5.4-mini",
+    "summary_model": "openai/gpt-5.4-mini",
+    "pattern_model": "openai/gpt-5.4-mini",
+    "contrastive_model": "openai/gpt-5.4-mini",
+    "embedding_model": "text-embedding-3-small",
+    "clustering_method": "kmeans"
+  }
+}

@@ -1,0 +1,126 @@
+usage: run_parallel_skill_evolution.py [-h] --input-json INPUT_JSON
+                                       --skill-dir SKILL_DIR
+                                       [--data-path DATA_PATH] --model MODEL
+                                       [--llm-client {openai,api_chat}]
+                                       [--api-chat-config API_CHAT_CONFIG]
+                                       [--base-url BASE_URL]
+                                       [--api-key API_KEY]
+                                       [--generation-config GENERATION_CONFIG]
+                                       [--seed SEED] [--cache-path CACHE_PATH]
+                                       [--batch-size BATCH_SIZE]
+                                       [--merge-batch-size MERGE_BATCH_SIZE]
+                                       [--max-workers MAX_WORKERS]
+                                       [--max-merge-levels MAX_MERGE_LEVELS]
+                                       [--start-idx START_IDX]
+                                       [--end-idx END_IDX]
+                                       [--shuffle-seed SHUFFLE_SEED]
+                                       [--sample-task-count SAMPLE_TASK_COUNT]
+                                       [--sample-task-seed SAMPLE_TASK_SEED]
+                                       [--continue-evolving] [--dry-run]
+                                       [--max-skill-lines MAX_SKILL_LINES]
+                                       [--temperature TEMPERATURE]
+                                       [--max-tokens MAX_TOKENS] [--verbose]
+                                       [--output-dir OUTPUT_DIR]
+                                       [--save-intermediates]
+                                       [--parse-failure-dir PARSE_FAILURE_DIR]
+                                       [--intermediates-dir INTERMEDIATES_DIR]
+                                       [--changelog CHANGELOG]
+                                       [--patch-file PATCH_FILE]
+                                       [--prompt {skill,generic,patterns,patterns_generic}]
+                                       [--input-mode {records,patterns,auto}]
+                                       [--skip-translation]
+                                       [--patch-pipeline {json,markdown}]
+                                       [--semantic-item-marker-format {bracket,heading}]
+                                       [--disable-json-format-self-fix]
+
+Evolve a skill using parallel map-reduce pipeline
+
+options:
+  -h, --help            show this help message and exit
+  --input-json INPUT_JSON
+                        Path to parsed error analysis JSON or an analysis
+                        output directory (default: None)
+  --skill-dir SKILL_DIR
+                        Path to skill directory to evolve (default: None)
+  --data-path DATA_PATH
+                        SpreadsheetBench dataset path used to derive the task-
+                        id sample pool (default: None)
+  --model MODEL         LLM model name (default: None)
+  --llm-client {openai,api_chat}
+                        LLM client backend to use (default: openai)
+  --api-chat-config API_CHAT_CONFIG
+                        Path to ApiChat config JSON when --llm-client=api_chat
+                        (default: config/llm_api.json)
+  --base-url BASE_URL   OpenAI-compatible API base URL (default: None)
+  --api-key API_KEY     API key (default: None)
+  --generation-config GENERATION_CONFIG
+                        Generation config as JSON string or path to JSON file
+                        (default: None)
+  --seed SEED           Seed merged into generation config (default: None)
+  --cache-path CACHE_PATH
+                        Disk cache path for LLM responses (default: None)
+  --batch-size BATCH_SIZE
+                        Records per MAP phase LLM call (default: 1)
+  --merge-batch-size MERGE_BATCH_SIZE
+                        Patches per MERGE phase LLM call (default: 5)
+  --max-workers MAX_WORKERS
+                        ThreadPoolExecutor parallelism (default: 4)
+  --max-merge-levels MAX_MERGE_LEVELS
+                        Safety cap on hierarchical merge levels (default: 5)
+  --start-idx START_IDX
+                        Start index (inclusive) for slicing records, or
+                        dataset tasks when --data-path is provided (default:
+                        None)
+  --end-idx END_IDX     End index (exclusive) for slicing records, or dataset
+                        tasks when --data-path is provided (default: None)
+  --shuffle-seed SHUFFLE_SEED
+                        Shuffle record order, or dataset task order when
+                        --data-path is provided, with a fixed seed (default:
+                        None)
+  --sample-task-count SAMPLE_TASK_COUNT
+                        Take this many task ids from the dataset-derived pool
+                        and keep only lessons from those tasks (default: None)
+  --sample-task-seed SAMPLE_TASK_SEED
+                        Deprecated alias for --shuffle-seed when sampling by
+                        dataset task ids (default: None)
+  --continue-evolving   Continue evolving without creating a backup (default:
+                        False)
+  --dry-run             Show changes without writing to disk (default: False)
+  --max-skill-lines MAX_SKILL_LINES
+                        Max SKILL.md lines (default: 500)
+  --temperature TEMPERATURE
+                        LLM temperature (default: 0.6)
+  --max-tokens MAX_TOKENS
+                        Max generation tokens for LLM responses (default:
+                        None)
+  --verbose             Print detailed progress (default: False)
+  --output-dir OUTPUT_DIR
+                        Copy final skill here (default: None)
+  --save-intermediates  Save intermediate artifacts (map patches, merge
+                        results) (default: False)
+  --parse-failure-dir PARSE_FAILURE_DIR
+                        Directory to save parse-failed LLM prompt/response
+                        artifacts (default: parse_failures_parallel)
+  --intermediates-dir INTERMEDIATES_DIR
+                        Directory for intermediate artifacts (default: {skill-
+                        dir}_parallel_output/) (default: None)
+  --changelog CHANGELOG
+                        Write changelog to file (default: None)
+  --patch-file PATCH_FILE
+                        Write cumulative unified diff to file (default: None)
+  --prompt {skill,generic,patterns,patterns_generic}
+                        Prompt variant for MAP phase (default: skill)
+  --input-mode {records,patterns,auto}
+                        Input format: 'records', 'patterns', or 'auto' (detect
+                        from JSON) (default: auto)
+  --skip-translation    Skip TRANSLATION phase and apply merged edits directly
+                        (default: False)
+  --patch-pipeline {json,markdown}
+                        Patch pipeline format: strict JSON or semantic
+                        markdown (default: json)
+  --semantic-item-marker-format {bracket,heading}
+                        Item marker syntax for markdown semantic patches
+                        (default: bracket)
+  --disable-json-format-self-fix
+                        Disable JSON format-fix retry prompts and rely on
+                        direct/heuristic parsing (default: False)

@@ -1,0 +1,88 @@
+{
+  "run_label": "gemma3_1b_smoke_trace_20260607",
+  "run_type": "solution_validation_smoke",
+  "classification": "not_solution_validated",
+  "classification_reason": "The bounded smoke run completed train and eval, and validated several infrastructure fixes, but the generated skill was deprecated after construction verification had net_gain 0 and held-out smoke eval showed no improvement.",
+  "not_paper_reproduction": true,
+  "timestamp": "2026-06-07 13:25:57 EDT -0400",
+  "model": "gemma3:1b",
+  "local_routing": {
+    "local_openai_compat": true,
+    "base_url": "http://127.0.0.1:11434/v1",
+    "hash_embeddings": true,
+    "openai_api_key_unset": true,
+    "openrouter_api_key_unset": true,
+    "direct_openai_fallback_disabled": true
+  },
+  "commands": {
+    "train_attempt_1": {
+      "exit_code": 1,
+      "runtime_seconds": 78,
+      "reason": "Generation crashed when local gemma3:1b returned a list for dedup_notes and generation.py assumed a string."
+    },
+    "train_rerun_after_generation_fix": {
+      "exit_code": 0,
+      "runtime_seconds": 914
+    },
+    "eval": {
+      "exit_code": 0,
+      "runtime_seconds": 48
+    }
+  },
+  "train": {
+    "dataset": "../../artifacts/07_configs_and_inputs/smoke_data/mcp_bench_single_train_n4_seed42.json",
+    "dataset_id": "mcp_bench_single_train_n4_seed42",
+    "n_instances": 4,
+    "baseline_failures": 4,
+    "baseline_successes": 0,
+    "artifact_run_id": "20260607-113617",
+    "failure_clusters": 2,
+    "success_clusters": 0,
+    "contrastive_pairs": 0,
+    "candidate_id": "d3ee4895-eb51-4ca6-b53f-885c6440af9f",
+    "persisted_skill_id": "d0f2da35-08f1-4bc8-af8a-ed2322c5f402",
+    "persisted_skill_status": "deprecated",
+    "source_candidate_id": "d3ee4895-eb51-4ca6-b53f-885c6440af9f"
+  },
+  "construction_verification": {
+    "passed": false,
+    "sample_size": 2,
+    "target_failure_ids": [
+      "fruityvice_001",
+      "medical_calculator_001"
+    ],
+    "success_guard_ids": [],
+    "baseline_acc": 0.0,
+    "skill_acc": 0.0,
+    "repair_count": 0,
+    "regression_count": 0,
+    "net_gain": 0,
+    "failed_ids_after_skill": [
+      "fruityvice_001",
+      "medical_calculator_001"
+    ]
+  },
+  "held_out_eval": {
+    "dataset": "../../artifacts/07_configs_and_inputs/smoke_data/mcp_bench_single_test_n4_seed42.json",
+    "n_instances": 4,
+    "skill_rejected": true,
+    "baseline_acc": 0.0,
+    "skill_acc": 0.0,
+    "delta_acc": 0.0,
+    "repair": 0,
+    "regression": 0,
+    "net_gain": 0,
+    "note": "Skill was deprecated, so eval reused baseline for the skill condition."
+  },
+  "validated_solution_fixes": {
+    "local_routing_runtime": true,
+    "generation_non_string_field_robustness": true,
+    "source_candidate_id_persistence": true,
+    "all_failure_sampler_case": true,
+    "deprecated_skill_eval_policy": true
+  },
+  "token_usage": {
+    "train_total_tokens": 91377,
+    "eval_total_tokens": 21074
+  }
+}

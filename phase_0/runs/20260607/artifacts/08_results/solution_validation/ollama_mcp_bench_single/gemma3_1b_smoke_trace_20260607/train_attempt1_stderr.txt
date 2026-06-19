@@ -1,0 +1,21 @@
+Baseline trajectories:   0%|          | 0/4 [00:00<?, ?it/s]Baseline trajectories:  25%|██▌       | 1/4 [00:08<00:24,  8.06s/it]Baseline trajectories:  50%|█████     | 2/4 [00:30<00:33, 16.68s/it]Baseline trajectories:  75%|███████▌  | 3/4 [00:40<00:13, 13.34s/it]Baseline trajectories: 100%|██████████| 4/4 [01:00<00:00, 16.22s/it]                                                                    Summarizing failures:   0%|          | 0/4 [00:00<?, ?it/s]Summarizing failures:  25%|██▌       | 1/4 [00:01<00:03,  1.28s/it]Summarizing failures:  50%|█████     | 2/4 [00:02<00:02,  1.47s/it]Summarizing failures:  75%|███████▌  | 3/4 [00:03<00:01,  1.28s/it]Summarizing failures: 100%|██████████| 4/4 [00:05<00:00,  1.21s/it]                                                                   Synthesizing failure patterns:   0%|          | 0/2 [00:00<?, ?it/s]Synthesizing failure patterns:  50%|█████     | 1/2 [00:02<00:02,  2.59s/it]Synthesizing failure patterns: 100%|██████████| 2/2 [00:04<00:00,  2.18s/it]                                                                            Refine rounds:   0%|          | 0/1 [00:00<?, ?it/s]                                                    Refine rounds:   0%|          | 0/1 [00:00<?, ?it/s]Refine rounds:   0%|          | 0/1 [00:03<?, ?it/s]
+Traceback (most recent call last):
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/main.py", line 98, in <module>
+    main()
+    ~~~~^^
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/main.py", line 81, in main
+    skill = run_pipeline(
+        dataset.instances,
+    ...<6 lines>...
+        resume_dir=args.resume,
+    )
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/pipeline.py", line 367, in run_pipeline
+    candidate = generate_skill(
+        analysis,
+    ...<10 lines>...
+        candidate_dir=candidate_dir,
+    )
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/agents/generation.py", line 190, in generate_skill
+    dedup_notes=(plan.get("dedup_notes") or "").strip() or "(none)",
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'strip'

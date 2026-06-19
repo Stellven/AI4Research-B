@@ -1,0 +1,17 @@
+[2m00:56:20[0m [36mINFO    [0m [34mmain[0m Loaded dataset 'alfworld_iod' with 4 instances (open_ended)
+[2m00:56:20[0m [36mINFO    [0m [34mpipeline[0m Skill output dir for this run: ../../artifacts/08_results/solution_validation/all_solutions_verification_20260610/alfworld_iod/skill_output/2026-06-10_00-56-20
+[2m00:56:20[0m [36mINFO    [0m [34mpipeline[0m Run artifacts will be saved under ../../artifacts/08_results/solution_validation/all_solutions_verification_20260610/alfworld_iod/artifacts/runs/20260610-005620
+[2m00:56:20[0m [36mINFO    [0m [34mpipeline[0m Models | baseline=gemma3:1b | baseline_judge=gemma3:1b | generation=gemma3:1b | verification=gemma3:1b
+[2m00:56:20[0m [36mINFO    [0m [34mpipeline[0m Stage 1/3 | Collecting baseline trajectories on 4 instances | inference_model=gemma3:1b | judge_model=gemma3:1b
+[2m00:56:26[0m [36mINFO    [0m [34mpipeline[0m Baseline | 4 trajectories | 3 failures | 1 successes
+[2m00:56:26[0m [36mINFO    [0m [34mpipeline[0m Stage 2/3 | Running multi-aspect induction...
+[2m00:56:40[0m [36mINFO    [0m [34mpipeline[0m Induction | 1 failure clusters | 1 success clusters | 1 contrastive pairs (1 same-type)
+[2m00:56:40[0m [36mINFO    [0m [34mpipeline[0m Verification sample | size=2 (target_n=1 baseline-failures, guard_n=1 baseline-successes) | drawn uniformly from 4 instances
+[2m00:56:40[0m [36mINFO    [0m [34mpipeline[0m Round 1/1 | Generating candidate skill...
+[2m00:56:50[0m [36mINFO    [0m [34mverification[0m [verification round 0] running case analyst on 1 case(s) (model=gemma3:1b, workers=1)
+[2m00:56:52[0m [36mINFO    [0m [34mverification[0m [verification round 0] synthesising revision guidance (model=gemma3:1b) over 1 case analyses
+[2m00:57:05[0m [36mINFO    [0m [34mpipeline[0m Round 1 | paired_n=2 | baseline_acc=50.0% | skill_acc=50.0% | repair=0 | regression=0 | net_gain=+0 | passed=False
+[2m00:57:05[0m [33mWARNING [0m [34mpipeline[0m No refinement round passed the verification gate; marking skill bc6939e3-5880-483f-950b-02f6a5e508b9 as DEPRECATED (best observed net_gain=+0). Downstream eval will skip the skill condition and report net_gain=0.
+[2m00:57:05[0m [36mINFO    [0m [34mpipeline[0m Token usage | prompt=14,211 | completion=3,147 | total=17,358 | 7 (model,stage,call_type) cells -> ../../artifacts/08_results/solution_validation/all_solutions_verification_20260610/alfworld_iod/artifacts/runs/20260610-005620/token_usage.json
+[2m00:57:05[0m [36mINFO    [0m [34mpipeline[0m Pipeline complete | skill_id=bc6939e3-5880-483f-950b-02f6a5e508b9 | stored at ../../artifacts/08_results/solution_validation/all_solutions_verification_20260610/alfworld_iod/skill_output/2026-06-10_00-56-20
+[2m00:57:05[0m [36mINFO    [0m [34mmain[0m Done. Generated skill id=bc6939e3-5880-483f-950b-02f6a5e508b9

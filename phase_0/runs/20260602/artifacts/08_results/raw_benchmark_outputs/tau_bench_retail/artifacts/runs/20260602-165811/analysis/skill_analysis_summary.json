@@ -1,0 +1,12 @@
+{
+  "analysis_id": "1819b44b-9617-4f32-ba29-23e5c14b0263",
+  "dataset_id": "tau_bench_retail_train_n30_seed42",
+  "task_name": "tau-bench-retail-train",
+  "n_failures": 19,
+  "n_successes": 11,
+  "n_failure_clusters": 2,
+  "n_success_clusters": 2,
+  "n_contrastive_pairs": 4,
+  "same_type_pairs": 3,
+  "contextual_abstract": "This task consists of interactive retail customer-support dialogues where the agent must decide and carry out the correct service action, such as canceling an order or processing one or more item exchanges. The output is not a free-form essay but a structured support response that follows the conversation and uses the provided customer identity, order details, item attributes, and payment/refund method information. Solving these instances requires careful reading, state tracking across multiple requested changes, and reasoning about product variants and replacement constraints so the requested modifications are consistent. The inputs vary in customer profile, order IDs, item categories and attributes, number of actions per order, and the specified payment or refund channel, making this a multi-step tool-use and decision-making problem rather than a simple classification task."
+}

@@ -1,0 +1,10 @@
+[2m11:33:30[0m [36mINFO    [0m [34mmain[0m Loaded dataset 'mcp_bench_single_train_smoke' with 4 instances (open_ended)
+[2m11:33:30[0m [36mINFO    [0m [34mpipeline[0m Skill output dir for this run: ../../artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_1b_smoke_trace_20260607/skill_output/2026-06-07_11-33-30
+[2m11:33:30[0m [36mINFO    [0m [34mpipeline[0m Run artifacts will be saved under ../../artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_1b_smoke_trace_20260607/artifacts/runs/20260607-113330
+[2m11:33:30[0m [36mINFO    [0m [34mpipeline[0m Models | baseline=gemma3:1b | baseline_judge=gemma3:1b | generation=gemma3:1b | verification=gemma3:1b
+[2m11:33:30[0m [36mINFO    [0m [34mpipeline[0m Stage 1/3 | Collecting baseline trajectories on 4 instances | inference_model=gemma3:1b | judge_model=gemma3:1b
+[2m11:34:31[0m [36mINFO    [0m [34mpipeline[0m Baseline | 4 trajectories | 4 failures | 0 successes
+[2m11:34:31[0m [36mINFO    [0m [34mpipeline[0m Stage 2/3 | Running multi-aspect induction...
+[2m11:34:41[0m [36mINFO    [0m [34mpipeline[0m Induction | 2 failure clusters | 0 success clusters | 0 contrastive pairs (0 same-type)
+[2m11:34:41[0m [36mINFO    [0m [34mpipeline[0m Verification sample | size=2 (target_n=2 baseline-failures, guard_n=0 baseline-successes) | drawn uniformly from 4 instances
+[2m11:34:41[0m [36mINFO    [0m [34mpipeline[0m Round 1/1 | Generating candidate skill...

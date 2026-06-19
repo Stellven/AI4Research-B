@@ -1,0 +1,47 @@
+Loading skill from: ../../artifacts/08_results/solution_validation/all_solutions_verification_20260610/alfworld_iod/skill_output/2026-06-10_00-56-20
+  -> bc6939e3-5880-483f-950b-02f6a5e508b9: 
+  [!] Skill REJECTED: status=DEPRECATED (no verification round passed).
+  [!] Skipping skill-condition eval; reporting skill==baseline (net_gain=0).
+
+Loading dataset: ../../artifacts/08_results/solution_validation/all_solutions_verification_20260610/smoke_data/alfworld_iod_test_n2.json
+  -> 2 instances, task_type=open_ended
+  -> Using all 2 instances
+
+Models to test     : ['gemma3:1b']
+Judge model        : gemma3:1b
+Skill web_search   : disabled
+Skill script exec  : disabled (mock)
+Blank-pair policy  : DROP (paired_n shrinks, cleanest)
+
+-- Model: gemma3:1b --
+  -> Skill rejected; reusing baseline for skill condition.
+
+========================================================================
+  SKILL A/B EVALUATION REPORT
+========================================================================
+  Skill ID   : bc6939e3-5880-483f-950b-02f6a5e508b9
+  Abstract   : The agent must generate ALFWorld text actions to accomplish a specific goal, requiring the agent to understand and execute instructions within a simulated offline planning environment. The agent must interpret complex prompts involving object manipulation, spatial reasoning, and potentially iterative problem-solving. The task necessitates a combination of understanding natural language, interpreting visual cues (represented in the prompt), and applying logical steps to achieve a defined outcome – this is akin to a customer support dialogue or a simple tool-use scenario. The agent must produce a concise sequence of actions that effectively solve the given objective, considering constraints imposed by the ALFWorld environment's rules and limitations.
+  Status     : deprecated
+========================================================================
+
+  Model: gemma3:1b
+      Condition                       N  Pass     Acc   Latency
+      ----------------------------------------------------
+      Without skill                   2     0   0.0%      1.2s
+      With skill                      2     0   0.0%      1.2s
+
+      Accuracy delta : - 0.0%  (baseline=0.0%, skill=0.0%)
+      Repair     : 0/2   (0.0% of baseline failures fixed)
+      Regression : 0/0   (0.0% of baseline successes broken)
+      Net gain   : +0 instances
+
+      Paired outcome matrix (N=2 after filter):
+                               Skill pass   Skill fail
+      Baseline pass                     0            0
+      Baseline fail                     0            2
+
+========================================================================
+
+Results saved to: ../../artifacts/08_results/solution_validation/all_solutions_verification_20260610/alfworld_iod/eval_results.json
+Trajectories   : ../../artifacts/08_results/solution_validation/all_solutions_verification_20260610/alfworld_iod/eval_results_trajectories/
+Token usage    : prompt=884 | completion=134 | total=1,018 -> ../../artifacts/08_results/solution_validation/all_solutions_verification_20260610/alfworld_iod/eval_results.token_usage.json

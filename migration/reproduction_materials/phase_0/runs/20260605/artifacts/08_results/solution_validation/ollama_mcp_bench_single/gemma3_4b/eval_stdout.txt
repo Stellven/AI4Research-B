@@ -1,0 +1,47 @@
+Loading skill from: ../../artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_4b/skill_output/2026-06-05_09-26-22
+  -> 795eee49-f44e-4d43-bd1b-af1406f7a3bc: 
+  [!] Skill REJECTED: status=DEPRECATED (no verification round passed).
+  [!] Skipping skill-condition eval; reporting skill==baseline (net_gain=0).
+
+Loading dataset: data/mcp_bench/test.json
+  -> 16 instances, task_type=open_ended
+  -> Using all 16 instances
+
+Models to test     : ['gemma3:4b']
+Judge model        : gemma3:4b
+Skill web_search   : disabled
+Skill script exec  : disabled (mock)
+Blank-pair policy  : DROP (paired_n shrinks, cleanest)
+
+-- Model: gemma3:4b --
+  -> Skill rejected; reusing baseline for skill condition.
+
+========================================================================
+  SKILL A/B EVALUATION REPORT
+========================================================================
+  Skill ID   : 795eee49-f44e-4d43-bd1b-af1406f7a3bc
+  Abstract   : This skill guides the agent to solve complex user requests by breaking them down into manageable steps, leveraging external tools effectively, and proactively addressing potential pitfalls in planning and execution.
+  Status     : deprecated
+========================================================================
+
+  Model: gemma3:4b
+      Condition                       N  Pass     Acc   Latency
+      ----------------------------------------------------
+      Without skill                  16    16 100.0%     32.8s
+      With skill                     16    16 100.0%     32.8s
+
+      Accuracy delta : - 0.0%  (baseline=100.0%, skill=100.0%)
+      Repair     : 0/0   (0.0% of baseline failures fixed)
+      Regression : 0/16   (0.0% of baseline successes broken)
+      Net gain   : +0 instances
+
+      Paired outcome matrix (N=16 after filter):
+                               Skill pass   Skill fail
+      Baseline pass                    16            0
+      Baseline fail                     0            0
+
+========================================================================
+
+Results saved to: ../../artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_4b/eval_results.json
+Trajectories   : ../../artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_4b/eval_results_trajectories/
+Token usage    : prompt=76,555 | completion=27,070 | total=103,625 -> ../../artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_4b/eval_results.token_usage.json

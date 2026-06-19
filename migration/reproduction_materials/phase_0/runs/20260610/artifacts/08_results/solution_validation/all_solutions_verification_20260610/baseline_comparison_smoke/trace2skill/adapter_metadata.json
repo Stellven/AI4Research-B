@@ -1,0 +1,14 @@
+{
+  "method": "trace2skill",
+  "verification_type": "mechanical_output_contract_smoke",
+  "not_native_algorithm_execution": true,
+  "input_split": "mcp_bench/test n=1 eval-only smoke",
+  "model": "gemma3:1b",
+  "seed": 42,
+  "dropped_capabilities": [
+    "native generator algorithm",
+    "retrieval",
+    "multi-skill selection",
+    "scripts"
+  ]
+}

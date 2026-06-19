@@ -1,0 +1,22 @@
+usage: evolve.py [-h] [--config CONFIG] [--tasks TASKS] [--model MODEL]
+                 [--provider {anthropic,openai,deepseek}] [--output OUTPUT]
+                 [--benchmark BENCHMARK] [--parallel PARALLEL] [--n N] [--m M]
+                 [--partial-credit]
+
+CoEvoSkills skill evolution
+
+options:
+  -h, --help            show this help message and exit
+  --config CONFIG       Config file path
+  --tasks TASKS         Task name or 'all'
+  --model MODEL         Override LLM model
+  --provider {anthropic,openai,deepseek}
+                        LLM provider
+  --output OUTPUT       Output directory
+  --benchmark BENCHMARK
+                        SkillsBench root
+  --parallel PARALLEL   Override parallel workers
+  --n N                 Override evolution N (max oracle interventions)
+  --m M                 Override evolution M (max surrogate retries)
+  --partial-credit      Enable partial credit (Oracle returns passed/total
+                        ratio)

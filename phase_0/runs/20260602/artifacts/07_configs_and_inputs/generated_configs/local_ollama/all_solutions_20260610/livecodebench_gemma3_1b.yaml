@@ -1,0 +1,72 @@
+# Local Ollama solution-verification smoke config.
+models:
+  default: "gemma3:1b"
+  baseline_agent: "gemma3:1b"
+  baseline_judge: "gemma3:1b"
+  induction: "gemma3:1b"
+  induction_contextual: "gemma3:1b"
+  induction_summary: "gemma3:1b"
+  induction_pattern: "gemma3:1b"
+  induction_contrastive: "gemma3:1b"
+  generation_plan: "gemma3:1b"
+  generation_execute: "gemma3:1b"
+  refinement: "gemma3:1b"
+  verification_agent: "gemma3:1b"
+  verification_judge: "gemma3:1b"
+  verification_case_analyst: "gemma3:1b"
+  verification_revision_synthesiser: "gemma3:1b"
+
+llm:
+  temperature: 0.0
+  max_tokens: 192
+  max_tokens_generation: 512
+
+embedding:
+  model: "local-hash-embedding"
+
+clustering:
+  method: "kmeans"
+  n_clusters: null
+  max_failure_clusters: 1
+  max_success_clusters: 1
+  min_clusters: 1
+  target_cluster_size: 1
+  min_cluster_size: 1
+
+induction:
+  max_contrastive_pairs: 1
+
+generation:
+  use_web_search: false
+  max_search_queries: 0
+  candidate_output_dir: "../../artifacts/08_results/solution_validation/all_solutions_verification_20260610/livecodebench/candidates"
+  generate_scripts: false
+  max_failure_clusters_in_prompt: 1
+  max_success_clusters_in_prompt: 1
+  max_contrastive_pairs_in_prompt: 1
+
+verification_analysis:
+  case_analyst_workers: 1
+  case_analyst_max_tokens: 256
+  revision_synthesiser_max_tokens: 512
+
+verification:
+  sample_size: 2
+  min_sample: 1
+  seed: 42
+  min_net_gain_abs: 1
+  min_net_gain_rel: 0.0
+
+router:
+  enabled: false
+  model: "gemma3:1b"
+  max_workers: 1
+
+pipeline:
+  max_refine_rounds: 1
+  baseline_runs_per_instance: 1
+  max_workers: 1
+  artifact_root: "../../artifacts/08_results/solution_validation/all_solutions_verification_20260610/livecodebench/artifacts/runs"
+
+skill_output:
+  path: "../../artifacts/08_results/solution_validation/all_solutions_verification_20260610/livecodebench/skill_output"

@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/baselines/SkillX/pipeline.py", line 11, in <module>
+    from .llm.client import LLM
+ImportError: attempted relative import with no known parent package

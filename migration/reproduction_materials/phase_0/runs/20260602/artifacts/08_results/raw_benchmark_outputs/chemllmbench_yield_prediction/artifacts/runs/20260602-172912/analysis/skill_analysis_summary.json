@@ -1,0 +1,12 @@
+{
+  "analysis_id": "9ca519a6-0718-4376-a97a-e0aaef1dd8c6",
+  "dataset_id": "chemllmbench_yield_prediction",
+  "task_name": "chemllmbench_yield_prediction_train",
+  "n_failures": 4,
+  "n_successes": 26,
+  "n_failure_clusters": 2,
+  "n_success_clusters": 2,
+  "n_contrastive_pairs": 4,
+  "same_type_pairs": 4,
+  "contextual_abstract": "This task asks the model to predict whether a given organic cross-coupling reaction will achieve a high isolated yield, and to answer in a strict binary format such as Yes/No. Solving it requires chemical reasoning about reaction feasibility: recognizing the coupling type, assessing substrate compatibility, leaving-group quality, catalyst/ligand/reagent choices, and common failure modes like steric hindrance, heteroatom poisoning, or poor electrophile/nucleophile pairing. The inputs vary by reaction class and by the specific reactants, catalysts, bases, solvents, and additives listed in SMILES-like notation, but the output is always just a binary yield judgment. Overall, this is a chemistry classification problem centered on expert-level reaction outcome prediction rather than synthesis planning or detailed mechanistic explanation."
+}

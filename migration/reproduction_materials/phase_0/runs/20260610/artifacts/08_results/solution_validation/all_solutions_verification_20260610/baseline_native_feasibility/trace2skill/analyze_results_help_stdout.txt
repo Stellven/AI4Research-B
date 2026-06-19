@@ -1,0 +1,24 @@
+usage: analyze_results.py [-h] --eval_results EVAL_RESULTS [--log_dir LOG_DIR]
+                          [--failed_only] [--passed_only] [--csv CSV]
+                          [--no_details] [--repeat REPEAT]
+                          [--base_log_dir BASE_LOG_DIR]
+
+Analyze evaluation results with log files
+
+options:
+  -h, --help            show this help message and exit
+  --eval_results EVAL_RESULTS
+                        Path to evaluation results JSON file
+  --log_dir LOG_DIR     Directory containing agent log files
+  --failed_only         Show only failed instances
+  --passed_only         Show only passed instances
+  --csv CSV             Export results to CSV file
+  --no_details          Show only summary, not detailed results
+  --repeat REPEAT       Number of seed runs to process. When > 1, treats
+                        --eval_results as a base directory containing seed_*/
+                        subdirs, each with eval_official_results.json
+                        (default: 1).
+  --base_log_dir BASE_LOG_DIR
+                        Base log directory containing seed_*/ subdirs (used
+                        with --repeat > 1). When set, each seed's logs are
+                        read from base_log_dir/seed_*/.

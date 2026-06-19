@@ -1,0 +1,27 @@
+{
+  "schema_version": "0.1",
+  "source_key": "livecodebench",
+  "status": "source_ready_needs_or_has_split",
+  "official_source": "livecodebench/code_generation_lite",
+  "official_release": "release_v6",
+  "paper_held_out_split": "test_release_v6",
+  "source_dataset": "code/official/data/livecodebench/release_v6_all.json",
+  "source_exists": true,
+  "adapter": "code/official/benchmarks/livecodebench_adapter.py",
+  "adapter_exists": true,
+  "dataset_id": "livecodebench_release_v6",
+  "task_name": "livecodebench_release_v6_competitive_programming",
+  "task_type": "binary",
+  "source_total_instances": 1055,
+  "paper_table3": {
+    "construction_n": 50,
+    "held_out_test_n": 150,
+    "seed": 42,
+    "note": "Sampled from release v6; seed 42."
+  },
+  "identity_basis": [
+    "Official SkillGen code includes benchmarks/livecodebench_adapter.py.",
+    "Official preparation plan uses livecodebench/code_generation_lite with release_v6.",
+    "The local release_v6_all.json is already a SkillGen TaskInstance wrapper."
+  ]
+}

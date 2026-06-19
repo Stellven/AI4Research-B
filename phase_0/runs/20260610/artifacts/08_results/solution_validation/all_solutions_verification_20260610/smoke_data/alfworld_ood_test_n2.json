@@ -1,0 +1,122 @@
+{
+  "dataset_id": "alfworld_ood_test_n255_seed42_local_smoke_test_20260610",
+  "task_name": "alfworld_ood",
+  "task_type": "open_ended",
+  "instances": [
+    {
+      "instance_id": "alfworld::alfworld_ood::test::look_at_obj_in_light::trial_T20190908_222917_366542",
+      "input": "You are solving an ALFWorld task in a reconstructed offline planning variant for SkillGen. The live TextWorld environment is not available inside this prompt. Produce a concise high-level plan of ALFWorld text actions that should solve the task.\n\n## Split\nOOD / source=valid_unseen\n\n## Goal\nHold the clock and turn on the lamp.\n\n## Task type\nlook_at_obj_in_light\n\n## PDDL target parameters\n- object_sliced: False\n- object_target: AlarmClock\n- toggle_target: DeskLamp\n\n## Human demonstration step hints\n- Turn to the left and face the desk.\n- Pick up the clock from the back of the desk.\n- Carry the clock and turn to the right. Turn to the left and then face the desk on the left.\n- Hold the clock and turn on the lamp on the right side of the desk.\n\n## Action grammar\nALFWorld TextWorld actions are short imperative commands. Common high-level\nsteps include:\n  navigation   : go to <location>\n  pickup       : pick up <object>\n  placement    : put <object> in/on <receptacle>\n  cleaning     : clean <object>\n  heating      : heat <object>\n  cooling      : cool <object>\n  lighting     : turn on <object>, look at <object> under <light>\n  two-object   : repeat pickup/place steps for both target objects\n\nPrefer concise commands. Preserve prerequisite order: navigate before pickup,\npickup before placement, clean/heat/cool before final placement, and turn on\nthe light before examining an object in light tasks.\n\n## Output format\nRespond with exactly a numbered plan, one action per line, and no prose:\n```\n1. <action>\n2. <action>\n...\n```",
+      "ground_truth": "Goal: Hold the clock and turn on the lamp.\nReference high-level actions:\n1. go to desk\n2. pick up alarmclock\n3. go to desklamp\n4. turn on desklamp\n5. NoOp",
+      "metadata": {
+        "benchmark": "alfworld",
+        "adapter_mode": "reconstructed_offline_plan",
+        "environment": "AlfredTWEnv",
+        "target_id": "alfworld_ood",
+        "paper_split": "ood",
+        "dataset_split": "test",
+        "source_split": "valid_unseen",
+        "task_type": "look_at_obj_in_light",
+        "task_id": "trial_T20190908_222917_366542",
+        "task_dir": "json_2.1.1/valid_unseen/look_at_obj_in_light-AlarmClock-None-DeskLamp-308/trial_T20190908_222917_366542",
+        "traj_data": "json_2.1.1/valid_unseen/look_at_obj_in_light-AlarmClock-None-DeskLamp-308/trial_T20190908_222917_366542/traj_data.json",
+        "game_file": "json_2.1.1/valid_unseen/look_at_obj_in_light-AlarmClock-None-DeskLamp-308/trial_T20190908_222917_366542/game.tw-pddl",
+        "initial_state": "json_2.1.1/valid_unseen/look_at_obj_in_light-AlarmClock-None-DeskLamp-308/trial_T20190908_222917_366542/initial_state.pddl",
+        "goal": "Hold the clock and turn on the lamp.",
+        "pddl_params": {
+          "mrecep_target": "",
+          "object_sliced": false,
+          "object_target": "AlarmClock",
+          "parent_target": "",
+          "toggle_target": "DeskLamp"
+        },
+        "scene": {
+          "floor_plan": "FloorPlan308",
+          "scene_num": 308,
+          "random_seed": 268601207
+        },
+        "human_high_descs": [
+          "Turn to the left and face the desk.",
+          "Pick up the clock from the back of the desk.",
+          "Carry the clock and turn to the right. Turn to the left and then face the desk on the left.",
+          "Hold the clock and turn on the lamp on the right side of the desk."
+        ],
+        "gold_actions": [
+          "go to desk",
+          "pick up alarmclock",
+          "go to desklamp",
+          "turn on desklamp",
+          "NoOp"
+        ],
+        "max_steps": 50
+      }
+    },
+    {
+      "instance_id": "alfworld::alfworld_ood::test::look_at_obj_in_light::trial_T20190908_222933_607649",
+      "input": "You are solving an ALFWorld task in a reconstructed offline planning variant for SkillGen. The live TextWorld environment is not available inside this prompt. Produce a concise high-level plan of ALFWorld text actions that should solve the task.\n\n## Split\nOOD / source=valid_unseen\n\n## Goal\nExamine the alarm clock by the light\n\n## Task type\nlook_at_obj_in_light\n\n## PDDL target parameters\n- object_sliced: False\n- object_target: AlarmClock\n- toggle_target: DeskLamp\n\n## Human demonstration step hints\n- Turn left then face the desk\n- Pick up the alarm clock on the desk\n- Turn right then walk straight head to the desk with lamp on your left\n- Turn on the lamp\n\n## Action grammar\nALFWorld TextWorld actions are short imperative commands. Common high-level\nsteps include:\n  navigation   : go to <location>\n  pickup       : pick up <object>\n  placement    : put <object> in/on <receptacle>\n  cleaning     : clean <object>\n  heating      : heat <object>\n  cooling      : cool <object>\n  lighting     : turn on <object>, look at <object> under <light>\n  two-object   : repeat pickup/place steps for both target objects\n\nPrefer concise commands. Preserve prerequisite order: navigate before pickup,\npickup before placement, clean/heat/cool before final placement, and turn on\nthe light before examining an object in light tasks.\n\n## Output format\nRespond with exactly a numbered plan, one action per line, and no prose:\n```\n1. <action>\n2. <action>\n...\n```",
+      "ground_truth": "Goal: Examine the alarm clock by the light\nReference high-level actions:\n1. go to desk\n2. pick up alarmclock\n3. go to desklamp\n4. turn on desklamp\n5. NoOp",
+      "metadata": {
+        "benchmark": "alfworld",
+        "adapter_mode": "reconstructed_offline_plan",
+        "environment": "AlfredTWEnv",
+        "target_id": "alfworld_ood",
+        "paper_split": "ood",
+        "dataset_split": "test",
+        "source_split": "valid_unseen",
+        "task_type": "look_at_obj_in_light",
+        "task_id": "trial_T20190908_222933_607649",
+        "task_dir": "json_2.1.1/valid_unseen/look_at_obj_in_light-AlarmClock-None-DeskLamp-308/trial_T20190908_222933_607649",
+        "traj_data": "json_2.1.1/valid_unseen/look_at_obj_in_light-AlarmClock-None-DeskLamp-308/trial_T20190908_222933_607649/traj_data.json",
+        "game_file": "json_2.1.1/valid_unseen/look_at_obj_in_light-AlarmClock-None-DeskLamp-308/trial_T20190908_222933_607649/game.tw-pddl",
+        "initial_state": "json_2.1.1/valid_unseen/look_at_obj_in_light-AlarmClock-None-DeskLamp-308/trial_T20190908_222933_607649/initial_state.pddl",
+        "goal": "Examine the alarm clock by the light",
+        "pddl_params": {
+          "mrecep_target": "",
+          "object_sliced": false,
+          "object_target": "AlarmClock",
+          "parent_target": "",
+          "toggle_target": "DeskLamp"
+        },
+        "scene": {
+          "floor_plan": "FloorPlan308",
+          "scene_num": 308,
+          "random_seed": 3064571044
+        },
+        "human_high_descs": [
+          "Turn left then face the desk",
+          "Pick up the alarm clock on the desk",
+          "Turn right then walk straight head to the desk with lamp on your left",
+          "Turn on the lamp"
+        ],
+        "gold_actions": [
+          "go to desk",
+          "pick up alarmclock",
+          "go to desklamp",
+          "turn on desklamp",
+          "NoOp"
+        ],
+        "max_steps": 50
+      }
+    }
+  ],
+  "metadata": {
+    "benchmark": "alfworld",
+    "adapter_mode": "reconstructed_offline_plan",
+    "environment": "AlfredTWEnv",
+    "target_id": "alfworld_ood",
+    "paper_split": "ood",
+    "dataset_split": "test",
+    "source_split": "valid_unseen",
+    "n": 255,
+    "seed": 42,
+    "source": "alfworld/alfworld",
+    "source_url": "https://github.com/alfworld/alfworld.git",
+    "source_commit": "aaba6870f86c5be6a08a491f32a50b906227bc3e",
+    "source_version": "0.5.0",
+    "sampling": "stratified_by_task_type_seed42",
+    "paper_reproduction_scope": "reconstructed_adapter_not_author_original_runner",
+    "trace_retention_required": true,
+    "solution_validation_smoke": true,
+    "source_dataset": "phase_0/runs/skillgen_phase0_thorough_20260602/code/official/data/alfworld_ood/test.json",
+    "source_instance_count": 255
+  }
+}

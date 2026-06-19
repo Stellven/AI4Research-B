@@ -1,0 +1,45 @@
+$ .venv/bin/python eval_skill.py --skill-repo ../../artifacts/raw_benchmark_outputs/skillgen_aime_smoke/skill_output/2026-06-02_02-03-02 --dataset ../../artifacts/smoke_data/aime_test_n4_seed42.json --n 4 --seed 42 --models openai/gpt-5.4-nano --judge-model openai/gpt-5.4-mini --max-workers 1 --output ../../artifacts/raw_benchmark_outputs/skillgen_aime_smoke/eval_results.json
+Loading skill from: ../../artifacts/raw_benchmark_outputs/skillgen_aime_smoke/skill_output/2026-06-02_02-03-02
+  -> c9924dba-ba8a-4735-960c-bc07c129b57c: 
+
+Loading dataset: ../../artifacts/smoke_data/aime_test_n4_seed42.json
+  -> 4 instances, task_type=binary
+  -> Using all 4 instances
+
+Models to test     : ['openai/gpt-5.4-nano']
+Judge model        : openai/gpt-5.4-mini
+Skill web_search   : disabled
+Skill script exec  : disabled (mock)
+Blank-pair policy  : DROP (paired_n shrinks, cleanest)
+
+-- Model: openai/gpt-5.4-nano --
+
+========================================================================
+  SKILL A/B EVALUATION REPORT
+========================================================================
+  Skill ID   : c9924dba-ba8a-4735-960c-bc07c129b57c
+  Abstract   : Short olympiad-style math tasks with one exact integer answer, requiring structured reductions and careful verification. The agent should translate all conditions into constraints, solve by cases or decomposition, and return a fully checked final number.
+  Status     : active
+========================================================================
+
+  Model: openai/gpt-5.4-nano
+      Condition                       N  Pass     Acc   Latency
+      ----------------------------------------------------
+      Without skill                   4     1  25.0%     12.1s
+      With skill                      4     1  25.0%     17.2s
+
+      Accuracy delta : - 0.0%  (baseline=25.0%, skill=25.0%)
+      Repair     : 0/3   (0.0% of baseline failures fixed)
+      Regression : 0/1   (0.0% of baseline successes broken)
+      Net gain   : +0 instances
+
+      Paired outcome matrix (N=4 after filter):
+                               Skill pass   Skill fail
+      Baseline pass                     1            0
+      Baseline fail                     0            3
+
+========================================================================
+
+Results saved to: ../../artifacts/raw_benchmark_outputs/skillgen_aime_smoke/eval_results.json
+Trajectories   : ../../artifacts/raw_benchmark_outputs/skillgen_aime_smoke/eval_results_trajectories/
+Token usage    : prompt=3,604 | completion=10,792 | total=14,396 -> ../../artifacts/raw_benchmark_outputs/skillgen_aime_smoke/eval_results.token_usage.json

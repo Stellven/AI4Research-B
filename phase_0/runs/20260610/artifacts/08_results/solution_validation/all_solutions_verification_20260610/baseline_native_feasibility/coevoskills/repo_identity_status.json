@@ -1,0 +1,7 @@
+{
+  "method": "CoEvoSkills",
+  "repo_path": "phase_0/runs/skillgen_phase0_thorough_20260602/code/official/baselines/CoEvoSkills",
+  "local_commit": "3171de28cc8d3c3bbbec0ef5445e59faca46815b",
+  "remote_head": "3171de28cc8d3c3bbbec0ef5445e59faca46815b",
+  "python_files": 0
+}

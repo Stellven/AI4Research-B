@@ -1,0 +1,5 @@
+{
+  "command": "OPENROUTER_HTTP_TIMEOUT=600 .venv/bin/python eval_skill.py --skill-repo ../../artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_4b/skill_output/2026-06-05_09-26-22 --dataset data/mcp_bench/test.json --n 16 --seed 42 --models gemma3:4b --judge-model gemma3:4b --max-workers 1 --output ../../artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_4b/eval_results.json",
+  "exit_code": 0,
+  "runtime_seconds": 694
+}

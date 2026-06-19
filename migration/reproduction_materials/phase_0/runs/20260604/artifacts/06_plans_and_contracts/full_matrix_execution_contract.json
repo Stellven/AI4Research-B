@@ -1,0 +1,1032 @@
+{
+  "schema_version": "0.1",
+  "group": "C_execution_trace",
+  "scope": "Full Table 1 execution and aggregation contract for SkillGen Phase 0",
+  "run_dir": "skillgen_phase0_thorough_20260602",
+  "status": "authorized_for_planned_execution_openai_first_waiting_non_openai_provider_routes",
+  "dependencies": [
+    {
+      "group": "A",
+      "artifact": "logs/phase_0_parallel_20260604/A_alfworld/alfworld_adapter_contract.md",
+      "reason": "ALFWorld IOD/OOD rows need a SkillGen adapter and paper-matching split before the 80-entry matrix is complete."
+    },
+    {
+      "group": "B",
+      "artifact": "logs/phase_0_parallel_20260604/B_livecodebench/livecodebench_split_contract.md",
+      "reason": "LiveCodeBench needs an approved train/test split contract before its eight model entries can be counted."
+    }
+  ],
+  "source_artifacts": [
+    "artifacts/benchmark_execution_plan.json",
+    "artifacts/model_route_mapping.template.json"
+  ],
+  "table1_rows": [
+    {
+      "table1_row": "alfworld_iod",
+      "dataset_status": "ready_for_reconstructed_execution",
+      "train": "data/alfworld_iod/train.json",
+      "test": "data/alfworld_iod/test.json",
+      "blockers": [],
+      "execution_notes": [
+        "authorized reconstructed execution; must label results and validate evidence after run.",
+        "Required label: canonical ALFWorld data + reconstructed SkillGen offline-plan adapter."
+      ]
+    },
+    {
+      "table1_row": "alfworld_ood",
+      "dataset_status": "ready_for_reconstructed_execution",
+      "train": "data/alfworld_ood/train.json",
+      "test": "data/alfworld_ood/test.json",
+      "blockers": [],
+      "execution_notes": [
+        "authorized reconstructed execution; must label results and validate evidence after run.",
+        "Required label: canonical ALFWorld data + reconstructed SkillGen offline-plan adapter."
+      ]
+    },
+    {
+      "table1_row": "livecodebench",
+      "dataset_status": "ready_for_execution",
+      "train": "data/livecodebench/train_release_v6_n50_seed42.json",
+      "test": "data/livecodebench/test_release_v6_n150_seed42.json",
+      "blockers": [
+        "No benchmark target plan exists for this Table 1 row."
+      ]
+    },
+    {
+      "table1_row": "mcp_bench_all",
+      "dataset_status": "ready_for_execution",
+      "train": "data/mcp_bench_all/train_all_n40_seed42.json",
+      "test": "data/mcp_bench_all/test_all_n16_seed42.json",
+      "blockers": [
+        "No benchmark target plan exists for this Table 1 row."
+      ]
+    },
+    {
+      "table1_row": "mcp_bench_single",
+      "dataset_status": "ready_for_execution",
+      "train": "data/mcp_bench/train.json",
+      "test": "data/mcp_bench/test.json",
+      "blockers": [
+        "No benchmark target plan exists for this Table 1 row."
+      ]
+    },
+    {
+      "table1_row": "mind2web",
+      "dataset_status": "ready_for_execution",
+      "train": "data/mind2web/train.json",
+      "test": "data/mind2web/test.json",
+      "blockers": [
+        "No benchmark target plan exists for this Table 1 row."
+      ]
+    },
+    {
+      "table1_row": "pubmedqa",
+      "dataset_status": "ready_for_execution",
+      "train": "data/pubmedqa/train.json",
+      "test": "data/pubmedqa/test.json",
+      "blockers": [
+        "No benchmark target plan exists for this Table 1 row."
+      ]
+    },
+    {
+      "table1_row": "scienceworld",
+      "dataset_status": "ready_for_execution",
+      "train": "data/scienceworld/train.json",
+      "test": "data/scienceworld/test.json",
+      "blockers": [
+        "No benchmark target plan exists for this Table 1 row."
+      ]
+    },
+    {
+      "table1_row": "socialmaze_fts",
+      "dataset_status": "ready_for_execution",
+      "train": "data/socialmaze/train.json",
+      "test": "data/socialmaze/test.json",
+      "blockers": [
+        "No benchmark target plan exists for this Table 1 row."
+      ]
+    },
+    {
+      "table1_row": "socialmaze_upi",
+      "dataset_status": "ready_for_execution",
+      "train": "data/socialmaze_upi/train_n60_seed42.json",
+      "test": "data/socialmaze_upi/test_n50_seed42.json",
+      "blockers": [
+        "No benchmark target plan exists for this Table 1 row."
+      ]
+    }
+  ],
+  "paper_models": [
+    "Gemma-4-26B",
+    "Llama-3.1-8B",
+    "Mistral-Nemo",
+    "Qwen-2.5-7B",
+    "Claude-Haiku-4.5",
+    "GPT-5.4-Nano",
+    "GPT-5.4-Mini",
+    "Grok-4-Fast"
+  ],
+  "entry_count": {
+    "paper_required": 80,
+    "ready": 80,
+    "blocked": 0,
+    "openai_routes_immediately_attemptable": 20,
+    "non_openai_routes_require_provider_availability": 60
+  },
+  "execution_manifest_template": {
+    "entry_key": "{table1_row}::{paper_model}",
+    "config_path": "artifacts/generated_configs/{table1_row}/{model_slug}.yaml",
+    "skill_output_dir": "artifacts/raw_benchmark_outputs/full_matrix/{table1_row}/{model_slug}/skill_output",
+    "eval_results": "artifacts/raw_benchmark_outputs/full_matrix/{table1_row}/{model_slug}/eval_results.json",
+    "eval_trajectories_dir": "artifacts/raw_benchmark_outputs/full_matrix/{table1_row}/{model_slug}/eval_results_trajectories",
+    "token_usage": "artifacts/raw_benchmark_outputs/full_matrix/{table1_row}/{model_slug}/eval_results.token_usage.json",
+    "run_metadata": "artifacts/raw_benchmark_outputs/full_matrix/{table1_row}/{model_slug}/artifacts/runs/{run_id}/run_metadata.json"
+  },
+  "required_result_fields": [
+    "n_instances",
+    "baseline_acc",
+    "skill_acc",
+    "delta_acc",
+    "repair",
+    "regression",
+    "net_gain"
+  ],
+  "aggregation_rules": [
+    {
+      "claim_id": "claim_table1_average_gains_all_models",
+      "rule": "For each paper model, average delta_acc across the 10 Table 1 rows after all 80 entries are present.",
+      "ready_condition": "All 80 entries have parsed baseline_acc, skill_acc, and delta_acc from official eval outputs."
+    },
+    {
+      "claim_id": "claim_table1_entry_counts",
+      "rule": "Classify each of the 80 delta_acc values as improved if > 0, unchanged if == 0, and regressed if < 0; compare counts to 50/25/5.",
+      "ready_condition": "All 80 entries are present and no row is filled by a smoke-scale or reconstructed-only substitute."
+    },
+    {
+      "claim_id": "claim_table1_alfworld_scienceworld_patterns",
+      "rule": "Count positive delta_acc for ALFWorld IOD/OOD across 16 entries and ScienceWorld across 8 entries; compare to 14/16 and 8/8.",
+      "ready_condition": "ALFWorld IOD/OOD and ScienceWorld entries are executed against paper-matching splits."
+    }
+  ],
+  "blocked_rows": [],
+  "execution_entries": [
+    {
+      "entry_id": "alfworld_iod::Gemma-4-26B",
+      "table1_row": "alfworld_iod",
+      "paper_model": "Gemma-4-26B",
+      "provider_route_id": "google/gemma-4-26b-a4b-it",
+      "dataset_status": "ready_for_reconstructed_execution",
+      "route_status": "route_resolved_equivalent",
+      "status": "ready_after_technical_provider_route_available",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/alfworld_iod/{model_slug}",
+      "reconstruction_disclosure": "canonical ALFWorld data + reconstructed SkillGen offline-plan adapter",
+      "execution_note": "authorized reconstructed execution; must label results and validate evidence after run.",
+      "provider_availability_note": "No human approval blocker remains; route still must work technically at execution time."
+    },
+    {
+      "entry_id": "alfworld_iod::Llama-3.1-8B",
+      "table1_row": "alfworld_iod",
+      "paper_model": "Llama-3.1-8B",
+      "provider_route_id": "meta-llama/llama-3.1-8b-instruct",
+      "dataset_status": "ready_for_reconstructed_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_after_technical_provider_route_available",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/alfworld_iod/{model_slug}",
+      "reconstruction_disclosure": "canonical ALFWorld data + reconstructed SkillGen offline-plan adapter",
+      "execution_note": "authorized reconstructed execution; must label results and validate evidence after run.",
+      "provider_availability_note": "No human approval blocker remains; route still must work technically at execution time."
+    },
+    {
+      "entry_id": "alfworld_iod::Mistral-Nemo",
+      "table1_row": "alfworld_iod",
+      "paper_model": "Mistral-Nemo",
+      "provider_route_id": "mistralai/mistral-nemo",
+      "dataset_status": "ready_for_reconstructed_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_after_technical_provider_route_available",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/alfworld_iod/{model_slug}",
+      "reconstruction_disclosure": "canonical ALFWorld data + reconstructed SkillGen offline-plan adapter",
+      "execution_note": "authorized reconstructed execution; must label results and validate evidence after run.",
+      "provider_availability_note": "No human approval blocker remains; route still must work technically at execution time."
+    },
+    {
+      "entry_id": "alfworld_iod::Qwen-2.5-7B",
+      "table1_row": "alfworld_iod",
+      "paper_model": "Qwen-2.5-7B",
+      "provider_route_id": "qwen/qwen-2.5-7b-instruct",
+      "dataset_status": "ready_for_reconstructed_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_after_technical_provider_route_available",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/alfworld_iod/{model_slug}",
+      "reconstruction_disclosure": "canonical ALFWorld data + reconstructed SkillGen offline-plan adapter",
+      "execution_note": "authorized reconstructed execution; must label results and validate evidence after run.",
+      "provider_availability_note": "No human approval blocker remains; route still must work technically at execution time."
+    },
+    {
+      "entry_id": "alfworld_iod::Claude-Haiku-4.5",
+      "table1_row": "alfworld_iod",
+      "paper_model": "Claude-Haiku-4.5",
+      "provider_route_id": "anthropic/claude-haiku-4.5",
+      "dataset_status": "ready_for_reconstructed_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_after_technical_provider_route_available",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/alfworld_iod/{model_slug}",
+      "reconstruction_disclosure": "canonical ALFWorld data + reconstructed SkillGen offline-plan adapter",
+      "execution_note": "authorized reconstructed execution; must label results and validate evidence after run.",
+      "provider_availability_note": "No human approval blocker remains; route still must work technically at execution time."
+    },
+    {
+      "entry_id": "alfworld_iod::GPT-5.4-Nano",
+      "table1_row": "alfworld_iod",
+      "paper_model": "GPT-5.4-Nano",
+      "provider_route_id": "openai/gpt-5.4-nano",
+      "dataset_status": "ready_for_reconstructed_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_authorized_reconstructed_openai_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/alfworld_iod/{model_slug}",
+      "reconstruction_disclosure": "canonical ALFWorld data + reconstructed SkillGen offline-plan adapter",
+      "execution_note": "authorized reconstructed execution; must label results and validate evidence after run."
+    },
+    {
+      "entry_id": "alfworld_iod::GPT-5.4-Mini",
+      "table1_row": "alfworld_iod",
+      "paper_model": "GPT-5.4-Mini",
+      "provider_route_id": "openai/gpt-5.4-mini",
+      "dataset_status": "ready_for_reconstructed_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_authorized_reconstructed_openai_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/alfworld_iod/{model_slug}",
+      "reconstruction_disclosure": "canonical ALFWorld data + reconstructed SkillGen offline-plan adapter",
+      "execution_note": "authorized reconstructed execution; must label results and validate evidence after run."
+    },
+    {
+      "entry_id": "alfworld_iod::Grok-4-Fast",
+      "table1_row": "alfworld_iod",
+      "paper_model": "Grok-4-Fast",
+      "provider_route_id": "x-ai/grok-4.3",
+      "dataset_status": "ready_for_reconstructed_execution",
+      "route_status": "route_resolved_equivalent",
+      "status": "ready_after_technical_provider_route_available",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/alfworld_iod/{model_slug}",
+      "reconstruction_disclosure": "canonical ALFWorld data + reconstructed SkillGen offline-plan adapter",
+      "execution_note": "authorized reconstructed execution; must label results and validate evidence after run.",
+      "provider_availability_note": "No human approval blocker remains; route still must work technically at execution time."
+    },
+    {
+      "entry_id": "alfworld_ood::Gemma-4-26B",
+      "table1_row": "alfworld_ood",
+      "paper_model": "Gemma-4-26B",
+      "provider_route_id": "google/gemma-4-26b-a4b-it",
+      "dataset_status": "ready_for_reconstructed_execution",
+      "route_status": "route_resolved_equivalent",
+      "status": "ready_after_technical_provider_route_available",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/alfworld_ood/{model_slug}",
+      "reconstruction_disclosure": "canonical ALFWorld data + reconstructed SkillGen offline-plan adapter",
+      "execution_note": "authorized reconstructed execution; must label results and validate evidence after run.",
+      "provider_availability_note": "No human approval blocker remains; route still must work technically at execution time."
+    },
+    {
+      "entry_id": "alfworld_ood::Llama-3.1-8B",
+      "table1_row": "alfworld_ood",
+      "paper_model": "Llama-3.1-8B",
+      "provider_route_id": "meta-llama/llama-3.1-8b-instruct",
+      "dataset_status": "ready_for_reconstructed_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_after_technical_provider_route_available",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/alfworld_ood/{model_slug}",
+      "reconstruction_disclosure": "canonical ALFWorld data + reconstructed SkillGen offline-plan adapter",
+      "execution_note": "authorized reconstructed execution; must label results and validate evidence after run.",
+      "provider_availability_note": "No human approval blocker remains; route still must work technically at execution time."
+    },
+    {
+      "entry_id": "alfworld_ood::Mistral-Nemo",
+      "table1_row": "alfworld_ood",
+      "paper_model": "Mistral-Nemo",
+      "provider_route_id": "mistralai/mistral-nemo",
+      "dataset_status": "ready_for_reconstructed_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_after_technical_provider_route_available",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/alfworld_ood/{model_slug}",
+      "reconstruction_disclosure": "canonical ALFWorld data + reconstructed SkillGen offline-plan adapter",
+      "execution_note": "authorized reconstructed execution; must label results and validate evidence after run.",
+      "provider_availability_note": "No human approval blocker remains; route still must work technically at execution time."
+    },
+    {
+      "entry_id": "alfworld_ood::Qwen-2.5-7B",
+      "table1_row": "alfworld_ood",
+      "paper_model": "Qwen-2.5-7B",
+      "provider_route_id": "qwen/qwen-2.5-7b-instruct",
+      "dataset_status": "ready_for_reconstructed_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_after_technical_provider_route_available",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/alfworld_ood/{model_slug}",
+      "reconstruction_disclosure": "canonical ALFWorld data + reconstructed SkillGen offline-plan adapter",
+      "execution_note": "authorized reconstructed execution; must label results and validate evidence after run.",
+      "provider_availability_note": "No human approval blocker remains; route still must work technically at execution time."
+    },
+    {
+      "entry_id": "alfworld_ood::Claude-Haiku-4.5",
+      "table1_row": "alfworld_ood",
+      "paper_model": "Claude-Haiku-4.5",
+      "provider_route_id": "anthropic/claude-haiku-4.5",
+      "dataset_status": "ready_for_reconstructed_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_after_technical_provider_route_available",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/alfworld_ood/{model_slug}",
+      "reconstruction_disclosure": "canonical ALFWorld data + reconstructed SkillGen offline-plan adapter",
+      "execution_note": "authorized reconstructed execution; must label results and validate evidence after run.",
+      "provider_availability_note": "No human approval blocker remains; route still must work technically at execution time."
+    },
+    {
+      "entry_id": "alfworld_ood::GPT-5.4-Nano",
+      "table1_row": "alfworld_ood",
+      "paper_model": "GPT-5.4-Nano",
+      "provider_route_id": "openai/gpt-5.4-nano",
+      "dataset_status": "ready_for_reconstructed_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_authorized_reconstructed_openai_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/alfworld_ood/{model_slug}",
+      "reconstruction_disclosure": "canonical ALFWorld data + reconstructed SkillGen offline-plan adapter",
+      "execution_note": "authorized reconstructed execution; must label results and validate evidence after run."
+    },
+    {
+      "entry_id": "alfworld_ood::GPT-5.4-Mini",
+      "table1_row": "alfworld_ood",
+      "paper_model": "GPT-5.4-Mini",
+      "provider_route_id": "openai/gpt-5.4-mini",
+      "dataset_status": "ready_for_reconstructed_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_authorized_reconstructed_openai_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/alfworld_ood/{model_slug}",
+      "reconstruction_disclosure": "canonical ALFWorld data + reconstructed SkillGen offline-plan adapter",
+      "execution_note": "authorized reconstructed execution; must label results and validate evidence after run."
+    },
+    {
+      "entry_id": "alfworld_ood::Grok-4-Fast",
+      "table1_row": "alfworld_ood",
+      "paper_model": "Grok-4-Fast",
+      "provider_route_id": "x-ai/grok-4.3",
+      "dataset_status": "ready_for_reconstructed_execution",
+      "route_status": "route_resolved_equivalent",
+      "status": "ready_after_technical_provider_route_available",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/alfworld_ood/{model_slug}",
+      "reconstruction_disclosure": "canonical ALFWorld data + reconstructed SkillGen offline-plan adapter",
+      "execution_note": "authorized reconstructed execution; must label results and validate evidence after run.",
+      "provider_availability_note": "No human approval blocker remains; route still must work technically at execution time."
+    },
+    {
+      "entry_id": "livecodebench::Gemma-4-26B",
+      "table1_row": "livecodebench",
+      "paper_model": "Gemma-4-26B",
+      "provider_route_id": "google/gemma-4-26b-a4b-it",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_equivalent",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/livecodebench/{model_slug}"
+    },
+    {
+      "entry_id": "livecodebench::Llama-3.1-8B",
+      "table1_row": "livecodebench",
+      "paper_model": "Llama-3.1-8B",
+      "provider_route_id": "meta-llama/llama-3.1-8b-instruct",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/livecodebench/{model_slug}"
+    },
+    {
+      "entry_id": "livecodebench::Mistral-Nemo",
+      "table1_row": "livecodebench",
+      "paper_model": "Mistral-Nemo",
+      "provider_route_id": "mistralai/mistral-nemo",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/livecodebench/{model_slug}"
+    },
+    {
+      "entry_id": "livecodebench::Qwen-2.5-7B",
+      "table1_row": "livecodebench",
+      "paper_model": "Qwen-2.5-7B",
+      "provider_route_id": "qwen/qwen-2.5-7b-instruct",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/livecodebench/{model_slug}"
+    },
+    {
+      "entry_id": "livecodebench::Claude-Haiku-4.5",
+      "table1_row": "livecodebench",
+      "paper_model": "Claude-Haiku-4.5",
+      "provider_route_id": "anthropic/claude-haiku-4.5",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/livecodebench/{model_slug}"
+    },
+    {
+      "entry_id": "livecodebench::GPT-5.4-Nano",
+      "table1_row": "livecodebench",
+      "paper_model": "GPT-5.4-Nano",
+      "provider_route_id": "openai/gpt-5.4-nano",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/livecodebench/{model_slug}"
+    },
+    {
+      "entry_id": "livecodebench::GPT-5.4-Mini",
+      "table1_row": "livecodebench",
+      "paper_model": "GPT-5.4-Mini",
+      "provider_route_id": "openai/gpt-5.4-mini",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/livecodebench/{model_slug}"
+    },
+    {
+      "entry_id": "livecodebench::Grok-4-Fast",
+      "table1_row": "livecodebench",
+      "paper_model": "Grok-4-Fast",
+      "provider_route_id": "x-ai/grok-4.3",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_equivalent",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/livecodebench/{model_slug}"
+    },
+    {
+      "entry_id": "mcp_bench_all::Gemma-4-26B",
+      "table1_row": "mcp_bench_all",
+      "paper_model": "Gemma-4-26B",
+      "provider_route_id": "google/gemma-4-26b-a4b-it",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_equivalent",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_all/{model_slug}"
+    },
+    {
+      "entry_id": "mcp_bench_all::Llama-3.1-8B",
+      "table1_row": "mcp_bench_all",
+      "paper_model": "Llama-3.1-8B",
+      "provider_route_id": "meta-llama/llama-3.1-8b-instruct",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_all/{model_slug}"
+    },
+    {
+      "entry_id": "mcp_bench_all::Mistral-Nemo",
+      "table1_row": "mcp_bench_all",
+      "paper_model": "Mistral-Nemo",
+      "provider_route_id": "mistralai/mistral-nemo",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_all/{model_slug}"
+    },
+    {
+      "entry_id": "mcp_bench_all::Qwen-2.5-7B",
+      "table1_row": "mcp_bench_all",
+      "paper_model": "Qwen-2.5-7B",
+      "provider_route_id": "qwen/qwen-2.5-7b-instruct",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_all/{model_slug}"
+    },
+    {
+      "entry_id": "mcp_bench_all::Claude-Haiku-4.5",
+      "table1_row": "mcp_bench_all",
+      "paper_model": "Claude-Haiku-4.5",
+      "provider_route_id": "anthropic/claude-haiku-4.5",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_all/{model_slug}"
+    },
+    {
+      "entry_id": "mcp_bench_all::GPT-5.4-Nano",
+      "table1_row": "mcp_bench_all",
+      "paper_model": "GPT-5.4-Nano",
+      "provider_route_id": "openai/gpt-5.4-nano",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_all/{model_slug}"
+    },
+    {
+      "entry_id": "mcp_bench_all::GPT-5.4-Mini",
+      "table1_row": "mcp_bench_all",
+      "paper_model": "GPT-5.4-Mini",
+      "provider_route_id": "openai/gpt-5.4-mini",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_all/{model_slug}"
+    },
+    {
+      "entry_id": "mcp_bench_all::Grok-4-Fast",
+      "table1_row": "mcp_bench_all",
+      "paper_model": "Grok-4-Fast",
+      "provider_route_id": "x-ai/grok-4.3",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_equivalent",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_all/{model_slug}"
+    },
+    {
+      "entry_id": "mcp_bench_single::Gemma-4-26B",
+      "table1_row": "mcp_bench_single",
+      "paper_model": "Gemma-4-26B",
+      "provider_route_id": "google/gemma-4-26b-a4b-it",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_equivalent",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_single/{model_slug}"
+    },
+    {
+      "entry_id": "mcp_bench_single::Llama-3.1-8B",
+      "table1_row": "mcp_bench_single",
+      "paper_model": "Llama-3.1-8B",
+      "provider_route_id": "meta-llama/llama-3.1-8b-instruct",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_single/{model_slug}"
+    },
+    {
+      "entry_id": "mcp_bench_single::Mistral-Nemo",
+      "table1_row": "mcp_bench_single",
+      "paper_model": "Mistral-Nemo",
+      "provider_route_id": "mistralai/mistral-nemo",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_single/{model_slug}"
+    },
+    {
+      "entry_id": "mcp_bench_single::Qwen-2.5-7B",
+      "table1_row": "mcp_bench_single",
+      "paper_model": "Qwen-2.5-7B",
+      "provider_route_id": "qwen/qwen-2.5-7b-instruct",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_single/{model_slug}"
+    },
+    {
+      "entry_id": "mcp_bench_single::Claude-Haiku-4.5",
+      "table1_row": "mcp_bench_single",
+      "paper_model": "Claude-Haiku-4.5",
+      "provider_route_id": "anthropic/claude-haiku-4.5",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_single/{model_slug}"
+    },
+    {
+      "entry_id": "mcp_bench_single::GPT-5.4-Nano",
+      "table1_row": "mcp_bench_single",
+      "paper_model": "GPT-5.4-Nano",
+      "provider_route_id": "openai/gpt-5.4-nano",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_single/{model_slug}"
+    },
+    {
+      "entry_id": "mcp_bench_single::GPT-5.4-Mini",
+      "table1_row": "mcp_bench_single",
+      "paper_model": "GPT-5.4-Mini",
+      "provider_route_id": "openai/gpt-5.4-mini",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_single/{model_slug}"
+    },
+    {
+      "entry_id": "mcp_bench_single::Grok-4-Fast",
+      "table1_row": "mcp_bench_single",
+      "paper_model": "Grok-4-Fast",
+      "provider_route_id": "x-ai/grok-4.3",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_equivalent",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_single/{model_slug}"
+    },
+    {
+      "entry_id": "mind2web::Gemma-4-26B",
+      "table1_row": "mind2web",
+      "paper_model": "Gemma-4-26B",
+      "provider_route_id": "google/gemma-4-26b-a4b-it",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_equivalent",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/mind2web/{model_slug}"
+    },
+    {
+      "entry_id": "mind2web::Llama-3.1-8B",
+      "table1_row": "mind2web",
+      "paper_model": "Llama-3.1-8B",
+      "provider_route_id": "meta-llama/llama-3.1-8b-instruct",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/mind2web/{model_slug}"
+    },
+    {
+      "entry_id": "mind2web::Mistral-Nemo",
+      "table1_row": "mind2web",
+      "paper_model": "Mistral-Nemo",
+      "provider_route_id": "mistralai/mistral-nemo",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/mind2web/{model_slug}"
+    },
+    {
+      "entry_id": "mind2web::Qwen-2.5-7B",
+      "table1_row": "mind2web",
+      "paper_model": "Qwen-2.5-7B",
+      "provider_route_id": "qwen/qwen-2.5-7b-instruct",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/mind2web/{model_slug}"
+    },
+    {
+      "entry_id": "mind2web::Claude-Haiku-4.5",
+      "table1_row": "mind2web",
+      "paper_model": "Claude-Haiku-4.5",
+      "provider_route_id": "anthropic/claude-haiku-4.5",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/mind2web/{model_slug}"
+    },
+    {
+      "entry_id": "mind2web::GPT-5.4-Nano",
+      "table1_row": "mind2web",
+      "paper_model": "GPT-5.4-Nano",
+      "provider_route_id": "openai/gpt-5.4-nano",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/mind2web/{model_slug}"
+    },
+    {
+      "entry_id": "mind2web::GPT-5.4-Mini",
+      "table1_row": "mind2web",
+      "paper_model": "GPT-5.4-Mini",
+      "provider_route_id": "openai/gpt-5.4-mini",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/mind2web/{model_slug}"
+    },
+    {
+      "entry_id": "mind2web::Grok-4-Fast",
+      "table1_row": "mind2web",
+      "paper_model": "Grok-4-Fast",
+      "provider_route_id": "x-ai/grok-4.3",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_equivalent",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/mind2web/{model_slug}"
+    },
+    {
+      "entry_id": "pubmedqa::Gemma-4-26B",
+      "table1_row": "pubmedqa",
+      "paper_model": "Gemma-4-26B",
+      "provider_route_id": "google/gemma-4-26b-a4b-it",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_equivalent",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/pubmedqa/{model_slug}"
+    },
+    {
+      "entry_id": "pubmedqa::Llama-3.1-8B",
+      "table1_row": "pubmedqa",
+      "paper_model": "Llama-3.1-8B",
+      "provider_route_id": "meta-llama/llama-3.1-8b-instruct",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/pubmedqa/{model_slug}"
+    },
+    {
+      "entry_id": "pubmedqa::Mistral-Nemo",
+      "table1_row": "pubmedqa",
+      "paper_model": "Mistral-Nemo",
+      "provider_route_id": "mistralai/mistral-nemo",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/pubmedqa/{model_slug}"
+    },
+    {
+      "entry_id": "pubmedqa::Qwen-2.5-7B",
+      "table1_row": "pubmedqa",
+      "paper_model": "Qwen-2.5-7B",
+      "provider_route_id": "qwen/qwen-2.5-7b-instruct",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/pubmedqa/{model_slug}"
+    },
+    {
+      "entry_id": "pubmedqa::Claude-Haiku-4.5",
+      "table1_row": "pubmedqa",
+      "paper_model": "Claude-Haiku-4.5",
+      "provider_route_id": "anthropic/claude-haiku-4.5",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/pubmedqa/{model_slug}"
+    },
+    {
+      "entry_id": "pubmedqa::GPT-5.4-Nano",
+      "table1_row": "pubmedqa",
+      "paper_model": "GPT-5.4-Nano",
+      "provider_route_id": "openai/gpt-5.4-nano",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/pubmedqa/{model_slug}"
+    },
+    {
+      "entry_id": "pubmedqa::GPT-5.4-Mini",
+      "table1_row": "pubmedqa",
+      "paper_model": "GPT-5.4-Mini",
+      "provider_route_id": "openai/gpt-5.4-mini",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/pubmedqa/{model_slug}"
+    },
+    {
+      "entry_id": "pubmedqa::Grok-4-Fast",
+      "table1_row": "pubmedqa",
+      "paper_model": "Grok-4-Fast",
+      "provider_route_id": "x-ai/grok-4.3",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_equivalent",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/pubmedqa/{model_slug}"
+    },
+    {
+      "entry_id": "scienceworld::Gemma-4-26B",
+      "table1_row": "scienceworld",
+      "paper_model": "Gemma-4-26B",
+      "provider_route_id": "google/gemma-4-26b-a4b-it",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_equivalent",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/scienceworld/{model_slug}"
+    },
+    {
+      "entry_id": "scienceworld::Llama-3.1-8B",
+      "table1_row": "scienceworld",
+      "paper_model": "Llama-3.1-8B",
+      "provider_route_id": "meta-llama/llama-3.1-8b-instruct",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/scienceworld/{model_slug}"
+    },
+    {
+      "entry_id": "scienceworld::Mistral-Nemo",
+      "table1_row": "scienceworld",
+      "paper_model": "Mistral-Nemo",
+      "provider_route_id": "mistralai/mistral-nemo",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/scienceworld/{model_slug}"
+    },
+    {
+      "entry_id": "scienceworld::Qwen-2.5-7B",
+      "table1_row": "scienceworld",
+      "paper_model": "Qwen-2.5-7B",
+      "provider_route_id": "qwen/qwen-2.5-7b-instruct",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/scienceworld/{model_slug}"
+    },
+    {
+      "entry_id": "scienceworld::Claude-Haiku-4.5",
+      "table1_row": "scienceworld",
+      "paper_model": "Claude-Haiku-4.5",
+      "provider_route_id": "anthropic/claude-haiku-4.5",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/scienceworld/{model_slug}"
+    },
+    {
+      "entry_id": "scienceworld::GPT-5.4-Nano",
+      "table1_row": "scienceworld",
+      "paper_model": "GPT-5.4-Nano",
+      "provider_route_id": "openai/gpt-5.4-nano",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/scienceworld/{model_slug}"
+    },
+    {
+      "entry_id": "scienceworld::GPT-5.4-Mini",
+      "table1_row": "scienceworld",
+      "paper_model": "GPT-5.4-Mini",
+      "provider_route_id": "openai/gpt-5.4-mini",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/scienceworld/{model_slug}"
+    },
+    {
+      "entry_id": "scienceworld::Grok-4-Fast",
+      "table1_row": "scienceworld",
+      "paper_model": "Grok-4-Fast",
+      "provider_route_id": "x-ai/grok-4.3",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_equivalent",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/scienceworld/{model_slug}"
+    },
+    {
+      "entry_id": "socialmaze_fts::Gemma-4-26B",
+      "table1_row": "socialmaze_fts",
+      "paper_model": "Gemma-4-26B",
+      "provider_route_id": "google/gemma-4-26b-a4b-it",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_equivalent",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/socialmaze_fts/{model_slug}"
+    },
+    {
+      "entry_id": "socialmaze_fts::Llama-3.1-8B",
+      "table1_row": "socialmaze_fts",
+      "paper_model": "Llama-3.1-8B",
+      "provider_route_id": "meta-llama/llama-3.1-8b-instruct",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/socialmaze_fts/{model_slug}"
+    },
+    {
+      "entry_id": "socialmaze_fts::Mistral-Nemo",
+      "table1_row": "socialmaze_fts",
+      "paper_model": "Mistral-Nemo",
+      "provider_route_id": "mistralai/mistral-nemo",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/socialmaze_fts/{model_slug}"
+    },
+    {
+      "entry_id": "socialmaze_fts::Qwen-2.5-7B",
+      "table1_row": "socialmaze_fts",
+      "paper_model": "Qwen-2.5-7B",
+      "provider_route_id": "qwen/qwen-2.5-7b-instruct",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/socialmaze_fts/{model_slug}"
+    },
+    {
+      "entry_id": "socialmaze_fts::Claude-Haiku-4.5",
+      "table1_row": "socialmaze_fts",
+      "paper_model": "Claude-Haiku-4.5",
+      "provider_route_id": "anthropic/claude-haiku-4.5",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/socialmaze_fts/{model_slug}"
+    },
+    {
+      "entry_id": "socialmaze_fts::GPT-5.4-Nano",
+      "table1_row": "socialmaze_fts",
+      "paper_model": "GPT-5.4-Nano",
+      "provider_route_id": "openai/gpt-5.4-nano",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/socialmaze_fts/{model_slug}"
+    },
+    {
+      "entry_id": "socialmaze_fts::GPT-5.4-Mini",
+      "table1_row": "socialmaze_fts",
+      "paper_model": "GPT-5.4-Mini",
+      "provider_route_id": "openai/gpt-5.4-mini",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/socialmaze_fts/{model_slug}"
+    },
+    {
+      "entry_id": "socialmaze_fts::Grok-4-Fast",
+      "table1_row": "socialmaze_fts",
+      "paper_model": "Grok-4-Fast",
+      "provider_route_id": "x-ai/grok-4.3",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_equivalent",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/socialmaze_fts/{model_slug}"
+    },
+    {
+      "entry_id": "socialmaze_upi::Gemma-4-26B",
+      "table1_row": "socialmaze_upi",
+      "paper_model": "Gemma-4-26B",
+      "provider_route_id": "google/gemma-4-26b-a4b-it",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_equivalent",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/socialmaze_upi/{model_slug}"
+    },
+    {
+      "entry_id": "socialmaze_upi::Llama-3.1-8B",
+      "table1_row": "socialmaze_upi",
+      "paper_model": "Llama-3.1-8B",
+      "provider_route_id": "meta-llama/llama-3.1-8b-instruct",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/socialmaze_upi/{model_slug}"
+    },
+    {
+      "entry_id": "socialmaze_upi::Mistral-Nemo",
+      "table1_row": "socialmaze_upi",
+      "paper_model": "Mistral-Nemo",
+      "provider_route_id": "mistralai/mistral-nemo",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/socialmaze_upi/{model_slug}"
+    },
+    {
+      "entry_id": "socialmaze_upi::Qwen-2.5-7B",
+      "table1_row": "socialmaze_upi",
+      "paper_model": "Qwen-2.5-7B",
+      "provider_route_id": "qwen/qwen-2.5-7b-instruct",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/socialmaze_upi/{model_slug}"
+    },
+    {
+      "entry_id": "socialmaze_upi::Claude-Haiku-4.5",
+      "table1_row": "socialmaze_upi",
+      "paper_model": "Claude-Haiku-4.5",
+      "provider_route_id": "anthropic/claude-haiku-4.5",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/socialmaze_upi/{model_slug}"
+    },
+    {
+      "entry_id": "socialmaze_upi::GPT-5.4-Nano",
+      "table1_row": "socialmaze_upi",
+      "paper_model": "GPT-5.4-Nano",
+      "provider_route_id": "openai/gpt-5.4-nano",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/socialmaze_upi/{model_slug}"
+    },
+    {
+      "entry_id": "socialmaze_upi::GPT-5.4-Mini",
+      "table1_row": "socialmaze_upi",
+      "paper_model": "GPT-5.4-Mini",
+      "provider_route_id": "openai/gpt-5.4-mini",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_exact",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/socialmaze_upi/{model_slug}"
+    },
+    {
+      "entry_id": "socialmaze_upi::Grok-4-Fast",
+      "table1_row": "socialmaze_upi",
+      "paper_model": "Grok-4-Fast",
+      "provider_route_id": "x-ai/grok-4.3",
+      "dataset_status": "ready_for_execution",
+      "route_status": "route_resolved_equivalent",
+      "status": "ready_for_execution",
+      "output_dir_template": "artifacts/raw_benchmark_outputs/full_matrix/socialmaze_upi/{model_slug}"
+    }
+  ],
+  "authorization_artifact": "artifacts/05_reviews_and_approval/full_matrix_execution_authorization.md",
+  "pre_execution_human_gate": "not_required_for_planned_entries",
+  "post_run_evidence_validation_required": true,
+  "execution_authorization": {
+    "status": "authorized_for_full_matrix_preparation_and_planned_execution",
+    "authorization_artifact": "artifacts/05_reviews_and_approval/full_matrix_execution_authorization.md",
+    "api_spending_authorized": true,
+    "direct_openai_fallback_authorized_for_openai_routes": true,
+    "alfworld_reconstructed_adapter_authorized": true,
+    "alfworld_required_label": "canonical ALFWorld data + reconstructed SkillGen offline-plan adapter",
+    "non_openai_routes": "Still require technically working provider route; no extra human approval if listed in model_route_mapping.template.json.",
+    "partial_runs": "Partial/staged/low-cost runs are partial evidence only and cannot satisfy full Table 1 aggregation.",
+    "post_run_evidence_validation": "mandatory per entry"
+  }
+}

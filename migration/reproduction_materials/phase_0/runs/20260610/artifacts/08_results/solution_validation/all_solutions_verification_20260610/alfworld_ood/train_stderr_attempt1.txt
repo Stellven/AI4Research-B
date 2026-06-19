@@ -1,0 +1,51 @@
+Baseline trajectories:   0%|          | 0/4 [00:00<?, ?it/s]Baseline trajectories:  25%|██▌       | 1/4 [00:00<00:01,  2.45it/s]                                                                    Traceback (most recent call last):
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/main.py", line 98, in <module>
+    main()
+    ~~~~^^
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/main.py", line 81, in main
+    skill = run_pipeline(
+        dataset.instances,
+    ...<6 lines>...
+        resume_dir=args.resume,
+    )
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/pipeline.py", line 263, in run_pipeline
+    analysis = run_induction(
+        failures, successes, instances, task_type,
+    ...<19 lines>...
+        artifact_dir=analysis_dir,
+    )
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/agents/induction.py", line 293, in run_induction
+    contextual_abstract = _infer_contextual_abstract(
+        instances,
+    ...<2 lines>...
+        model=contextual_model,
+    )
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/agents/induction.py", line 68, in _infer_contextual_abstract
+    result = llm.chat_json(
+        CONTEXTUAL_ABSTRACT_PROMPT.format(
+    ...<6 lines>...
+        model=model,
+    )
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/llm.py", line 355, in chat_json
+    resp = _router_chat_create(**kwargs)
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/llm.py", line 180, in _router_chat_create
+    return _get_router_client().chat.completions.create(**kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/.venv/lib/python3.14/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/.venv/lib/python3.14/site-packages/openai/resources/chat/completions/completions.py", line 1239, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/chat/completions",
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<51 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/.venv/lib/python3.14/site-packages/openai/_base_client.py", line 1332, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/.venv/lib/python3.14/site-packages/openai/_base_client.py", line 1105, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Missing Authentication header', 'code': 401}}

@@ -1,0 +1,11 @@
+[
+  {
+    "model": "gemma3:1b",
+    "stage": "eval_baseline::gemma3:1b",
+    "call_type": "chat_multi_turn",
+    "calls": 1,
+    "prompt_tokens": 404,
+    "completion_tokens": 201,
+    "total_tokens": 605
+  }
+]

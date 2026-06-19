@@ -1,0 +1,44 @@
+{
+  "dataset_id": "mcp_bench_single_train_n40_seed42",
+  "task_name": "mcp_bench_single_train",
+  "dataset_metadata": {
+    "benchmark": "mcp_bench",
+    "split": "single",
+    "split_label": "train",
+    "n": 40,
+    "seed": 42,
+    "pool_total": 56,
+    "source": "Accenture/mcp-bench"
+  },
+  "task_type": "open_ended",
+  "n_instances": 40,
+  "models": {
+    "default": "llama3.1:latest",
+    "baseline_agent": "llama3.1:latest",
+    "baseline_judge": "llama3.1:latest",
+    "induction": "llama3.1:latest",
+    "induction_contextual": "llama3.1:latest",
+    "induction_summary": "llama3.1:latest",
+    "induction_pattern": "llama3.1:latest",
+    "induction_contrastive": "llama3.1:latest",
+    "generation_plan": "llama3.1:latest",
+    "generation_execute": "llama3.1:latest",
+    "refinement": "llama3.1:latest",
+    "verification_agent": "llama3.1:latest",
+    "verification_judge": "llama3.1:latest",
+    "verification_case_analyst": "llama3.1:latest",
+    "verification_revision_synthesiser": "llama3.1:latest"
+  },
+  "llm": {
+    "temperature": 0.0,
+    "max_tokens": 1024,
+    "max_tokens_generation": 4096
+  },
+  "pipeline": {
+    "max_refine_rounds": 1,
+    "baseline_runs_per_instance": 1,
+    "max_workers": 1,
+    "artifact_root": "../../artifacts/08_results/solution_validation/ollama_mcp_bench_single/llama3.1_latest_ctx8192/artifacts/runs"
+  },
+  "skill_output_path": "../../artifacts/08_results/solution_validation/ollama_mcp_bench_single/llama3.1_latest_ctx8192/skill_output/2026-06-04_16-31-00"
+}

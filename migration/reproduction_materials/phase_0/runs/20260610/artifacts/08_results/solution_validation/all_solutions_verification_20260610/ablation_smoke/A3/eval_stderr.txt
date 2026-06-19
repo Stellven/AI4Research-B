@@ -1,0 +1,1 @@
+with skill | gemma3:1b:   0%|          | 0/1 [00:00<?, ?it/s]with skill | gemma3:1b: 100%|██████████| 1/1 [00:18<00:00, 18.85s/it]                                                                     

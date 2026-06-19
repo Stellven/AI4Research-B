@@ -1,0 +1,140 @@
+{
+  "schema_version": "0.1",
+  "group": "E_ablation",
+  "scope": "Config and wrapper matrix for reconstructed SkillGen Figure 3 ablations",
+  "status": "ready_for_reconstructed_ablation_execution",
+  "claim_id": "claim_ablation_full_wins",
+  "rows": [
+    {
+      "arm_id": "Full",
+      "name": "Complete SkillGen",
+      "status": "ready_for_reconstructed_ablation_execution",
+      "implementation_type": "full_config",
+      "config_overrides": {
+        "pipeline.max_refine_rounds": 8,
+        "verification.gate_enabled": true,
+        "generation.include_failure_lessons": true,
+        "generation.generate_scripts": "paper_target_dependent",
+        "generation.generate_references": "paper_target_dependent"
+      },
+      "patch_or_wrapper_path": null,
+      "expected_artifact_outputs": [
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/Full/train_stdout.txt",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/Full/train_stderr.txt",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/Full/skill_output",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/Full/eval_results.json",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/Full/eval_results_trajectories",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/Full/deviation_note.md"
+      ],
+      "deviation_label": "reference_full_system",
+      "rollback_note": "No rollback needed; this is the reference arm."
+    },
+    {
+      "arm_id": "A1",
+      "name": "ICL k=3 instead of induced skill",
+      "status": "ready_for_reconstructed_ablation_execution",
+      "implementation_type": "wrapper_generated_skill",
+      "config_overrides": {
+        "ablation.mode": "icl_k3_demonstration_skill",
+        "ablation.demo_k": 3,
+        "ablation.demo_source": "construction_baseline_successes",
+        "ablation.demo_seed": 42
+      },
+      "patch_or_wrapper_path": "artifacts/ablation_configs/A1_icl_k3_demonstration_skill.md",
+      "expected_artifact_outputs": [
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A1/train_stdout.txt",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A1/train_stderr.txt",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A1/skill_output",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A1/eval_results.json",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A1/eval_results_trajectories",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A1/deviation_note.md"
+      ],
+      "deviation_label": "reconstructed_icl_k3_demo_selection",
+      "rollback_note": "Delete the generated demonstration skill and rerun the normal Full generation path."
+    },
+    {
+      "arm_id": "A2",
+      "name": "No refinement",
+      "status": "ready_for_reconstructed_ablation_execution",
+      "implementation_type": "config_only",
+      "config_overrides": {
+        "pipeline.max_refine_rounds": 1
+      },
+      "patch_or_wrapper_path": "artifacts/ablation_configs/A2_no_refinement.yaml",
+      "expected_artifact_outputs": [
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A2/train_stdout.txt",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A2/train_stderr.txt",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A2/skill_output",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A2/eval_results.json",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A2/eval_results_trajectories",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A2/deviation_note.md"
+      ],
+      "deviation_label": "reconstructed_no_refinement_config",
+      "rollback_note": "Restore pipeline.max_refine_rounds to the Full arm value."
+    },
+    {
+      "arm_id": "A3",
+      "name": "No verification gate",
+      "status": "ready_for_reconstructed_ablation_execution",
+      "implementation_type": "behavioral_config_or_runner_patch",
+      "config_overrides": {
+        "verification.disable_gate_for_ablation": true,
+        "verification.record_results": true,
+        "ablation.force_eval_failed_gate_skill": true
+      },
+      "patch_or_wrapper_path": "artifacts/ablation_patches/A3_disable_gate.patch",
+      "expected_artifact_outputs": [
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A3/train_stdout.txt",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A3/train_stderr.txt",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A3/skill_output",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A3/eval_results.json",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A3/eval_results_trajectories",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A3/deviation_note.md"
+      ],
+      "deviation_label": "safety_gate_disabled_reconstructed_ablation",
+      "rollback_note": "Remove the A3 runner override and restore normal deprecated-skill/no-op handling."
+    },
+    {
+      "arm_id": "A4",
+      "name": "No Failure Lessons",
+      "status": "ready_for_reconstructed_ablation_execution",
+      "implementation_type": "prompt_patch_preferred",
+      "config_overrides": {
+        "generation.include_failure_lessons": false,
+        "refinement.include_failure_lessons": false
+      },
+      "patch_or_wrapper_path": "artifacts/ablation_patches/A4_no_failure_lessons_prompt.patch",
+      "expected_artifact_outputs": [
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A4/train_stdout.txt",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A4/train_stderr.txt",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A4/skill_output",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A4/eval_results.json",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A4/eval_results_trajectories",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A4/deviation_note.md"
+      ],
+      "deviation_label": "reconstructed_no_failure_lessons_prompt",
+      "rollback_note": "Restore the original generation/refinement prompts and skill post-processing."
+    },
+    {
+      "arm_id": "A5",
+      "name": "Plain-text skill, no script/reference bundle",
+      "status": "ready_for_reconstructed_ablation_execution",
+      "implementation_type": "config_only",
+      "config_overrides": {
+        "generation.generate_scripts": false,
+        "generation.generate_references": false
+      },
+      "patch_or_wrapper_path": "artifacts/ablation_configs/A5_plain_text_skill.yaml",
+      "expected_artifact_outputs": [
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A5/train_stdout.txt",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A5/train_stderr.txt",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A5/skill_output",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A5/eval_results.json",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A5/eval_results_trajectories",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A5/deviation_note.md"
+      ],
+      "deviation_label": "reconstructed_plain_text_skill_config",
+      "rollback_note": "Restore script/reference generation to the Full arm setting."
+    }
+  ]
+}

@@ -1,0 +1,245 @@
+{
+  "dataset_id": "alfworld_ood_train_n500_seed42_local_smoke_train_20260610",
+  "task_name": "alfworld_ood",
+  "task_type": "open_ended",
+  "instances": [
+    {
+      "instance_id": "alfworld::alfworld_ood::train::pick_cool_then_place_in_recep::trial_T20190909_153504_497265",
+      "input": "You are solving an ALFWorld task in a reconstructed offline planning variant for SkillGen. The live TextWorld environment is not available inside this prompt. Produce a concise high-level plan of ALFWorld text actions that should solve the task.\n\n## Split\nOOD / source=train\n\n## Goal\nPut a chilled cabbage slice on the counter\n\n## Task type\npick_cool_then_place_in_recep\n\n## PDDL target parameters\n- object_sliced: True\n- object_target: Lettuce\n- parent_target: CounterTop\n\n## Human demonstration step hints\n- Turn around, go to the counter with a toaster to the left of the fridge\n- Pick up the knife from the counter\n- Turn around and walk across to the white table\n- Slice the cabbage on the table\n- Go back to the counter with the toaster\n- Put the knife on the counter\n- Turn around and go back to the table with the cut cabbage\n- Pick a cabbage slice up from the table\n\n## Action grammar\nALFWorld TextWorld actions are short imperative commands. Common high-level\nsteps include:\n  navigation   : go to <location>\n  pickup       : pick up <object>\n  placement    : put <object> in/on <receptacle>\n  cleaning     : clean <object>\n  heating      : heat <object>\n  cooling      : cool <object>\n  lighting     : turn on <object>, look at <object> under <light>\n  two-object   : repeat pickup/place steps for both target objects\n\nPrefer concise commands. Preserve prerequisite order: navigate before pickup,\npickup before placement, clean/heat/cool before final placement, and turn on\nthe light before examining an object in light tasks.\n\n## Output format\nRespond with exactly a numbered plan, one action per line, and no prose:\n```\n1. <action>\n2. <action>\n...\n```",
+      "ground_truth": "Goal: Put a chilled cabbage slice on the counter\nReference high-level actions:\n1. go to countertop\n2. pick up knife\n3. go to lettuce\n4. slice lettuce\n5. go to countertop\n6. put knife in/on countertop\n7. go to diningtable\n8. pick up lettuce\n9. go to fridge\n10. cool lettuce\n11. go to countertop\n12. put lettuce in/on countertop\n13. NoOp",
+      "metadata": {
+        "benchmark": "alfworld",
+        "adapter_mode": "reconstructed_offline_plan",
+        "environment": "AlfredTWEnv",
+        "target_id": "alfworld_ood",
+        "paper_split": "ood",
+        "dataset_split": "train",
+        "source_split": "train",
+        "task_type": "pick_cool_then_place_in_recep",
+        "task_id": "trial_T20190909_153504_497265",
+        "task_dir": "json_2.1.1/train/pick_cool_then_place_in_recep-LettuceSliced-None-CounterTop-27/trial_T20190909_153504_497265",
+        "traj_data": "json_2.1.1/train/pick_cool_then_place_in_recep-LettuceSliced-None-CounterTop-27/trial_T20190909_153504_497265/traj_data.json",
+        "game_file": null,
+        "initial_state": "json_2.1.1/train/pick_cool_then_place_in_recep-LettuceSliced-None-CounterTop-27/trial_T20190909_153504_497265/initial_state.pddl",
+        "goal": "Put a chilled cabbage slice on the counter",
+        "pddl_params": {
+          "mrecep_target": "",
+          "object_sliced": true,
+          "object_target": "Lettuce",
+          "parent_target": "CounterTop",
+          "toggle_target": ""
+        },
+        "scene": {
+          "floor_plan": "FloorPlan27",
+          "scene_num": 27,
+          "random_seed": 538607226
+        },
+        "human_high_descs": [
+          "Turn around, go to the counter with a toaster to the left of the fridge",
+          "Pick up the knife from the counter",
+          "Turn around and walk across to the white table",
+          "Slice the cabbage on the table",
+          "Go back to the counter with the toaster",
+          "Put the knife on the counter",
+          "Turn around and go back to the table with the cut cabbage",
+          "Pick a cabbage slice up from the table",
+          "Go to the fridge",
+          "Chill the cabbage slice for a few seconds and take it out of the fridge",
+          "Go back to the counter",
+          "Place the cabbage slice in on the counter"
+        ],
+        "gold_actions": [
+          "go to countertop",
+          "pick up knife",
+          "go to lettuce",
+          "slice lettuce",
+          "go to countertop",
+          "put knife in/on countertop",
+          "go to diningtable",
+          "pick up lettuce",
+          "go to fridge",
+          "cool lettuce",
+          "go to countertop",
+          "put lettuce in/on countertop",
+          "NoOp"
+        ],
+        "max_steps": 50
+      }
+    },
+    {
+      "instance_id": "alfworld::alfworld_ood::train::pick_cool_then_place_in_recep::trial_T20190909_105100_154263",
+      "input": "You are solving an ALFWorld task in a reconstructed offline planning variant for SkillGen. The live TextWorld environment is not available inside this prompt. Produce a concise high-level plan of ALFWorld text actions that should solve the task.\n\n## Split\nOOD / source=train\n\n## Goal\nput an egg in the fridge then the sink\n\n## Task type\npick_cool_then_place_in_recep\n\n## PDDL target parameters\n- object_sliced: False\n- object_target: Egg\n- parent_target: SinkBasin\n\n## Human demonstration step hints\n- go to the sink\n- take the egg from the sink\n- take the egg to the fridge\n- put the egg in the fridge then remove\n- take the egg to the sink\n- put the egg in the sink\n\n## Action grammar\nALFWorld TextWorld actions are short imperative commands. Common high-level\nsteps include:\n  navigation   : go to <location>\n  pickup       : pick up <object>\n  placement    : put <object> in/on <receptacle>\n  cleaning     : clean <object>\n  heating      : heat <object>\n  cooling      : cool <object>\n  lighting     : turn on <object>, look at <object> under <light>\n  two-object   : repeat pickup/place steps for both target objects\n\nPrefer concise commands. Preserve prerequisite order: navigate before pickup,\npickup before placement, clean/heat/cool before final placement, and turn on\nthe light before examining an object in light tasks.\n\n## Output format\nRespond with exactly a numbered plan, one action per line, and no prose:\n```\n1. <action>\n2. <action>\n...\n```",
+      "ground_truth": "Goal: put an egg in the fridge then the sink\nReference high-level actions:\n1. go to countertop\n2. pick up egg\n3. go to fridge\n4. cool egg\n5. go to sinkbasin\n6. put egg in/on sinkbasin",
+      "metadata": {
+        "benchmark": "alfworld",
+        "adapter_mode": "reconstructed_offline_plan",
+        "environment": "AlfredTWEnv",
+        "target_id": "alfworld_ood",
+        "paper_split": "ood",
+        "dataset_split": "train",
+        "source_split": "train",
+        "task_type": "pick_cool_then_place_in_recep",
+        "task_id": "trial_T20190909_105100_154263",
+        "task_dir": "json_2.1.1/train/pick_cool_then_place_in_recep-Egg-None-SinkBasin-25/trial_T20190909_105100_154263",
+        "traj_data": "json_2.1.1/train/pick_cool_then_place_in_recep-Egg-None-SinkBasin-25/trial_T20190909_105100_154263/traj_data.json",
+        "game_file": null,
+        "initial_state": "json_2.1.1/train/pick_cool_then_place_in_recep-Egg-None-SinkBasin-25/trial_T20190909_105100_154263/initial_state.pddl",
+        "goal": "put an egg in the fridge then the sink",
+        "pddl_params": {
+          "mrecep_target": "",
+          "object_sliced": false,
+          "object_target": "Egg",
+          "parent_target": "SinkBasin",
+          "toggle_target": ""
+        },
+        "scene": {
+          "floor_plan": "FloorPlan25",
+          "scene_num": 25,
+          "random_seed": 1065473264
+        },
+        "human_high_descs": [
+          "go to the sink",
+          "take the egg from the sink",
+          "take the egg to the fridge",
+          "put the egg in the fridge then remove",
+          "take the egg to the sink",
+          "put the egg in the sink"
+        ],
+        "gold_actions": [
+          "go to countertop",
+          "pick up egg",
+          "go to fridge",
+          "cool egg",
+          "go to sinkbasin",
+          "put egg in/on sinkbasin"
+        ],
+        "max_steps": 50
+      }
+    },
+    {
+      "instance_id": "alfworld::alfworld_ood::train::pick_and_place_with_movable_recep::trial_T20190918_181744_096425",
+      "input": "You are solving an ALFWorld task in a reconstructed offline planning variant for SkillGen. The live TextWorld environment is not available inside this prompt. Produce a concise high-level plan of ALFWorld text actions that should solve the task.\n\n## Split\nOOD / source=train\n\n## Goal\nPlace chilled orange cup with spoon on counter between kettle and tomato\n\n## Task type\npick_and_place_with_movable_recep\n\n## PDDL target parameters\n- mrecep_target: Cup\n- object_sliced: False\n- object_target: Spoon\n- parent_target: CounterTop\n\n## Human demonstration step hints\n- turn around, go to sink to the right\n- pick up spoon from sink\n- turn around, go to refrigerator to the left\n- place spoon in orange cup on second shelf of refrigerator\n- pick up orange cup with spoon, close refrigerator\n- turn around, face counter with kettle\n- place orange cup with spoon on counter in between kettle and tomato\n\n## Action grammar\nALFWorld TextWorld actions are short imperative commands. Common high-level\nsteps include:\n  navigation   : go to <location>\n  pickup       : pick up <object>\n  placement    : put <object> in/on <receptacle>\n  cleaning     : clean <object>\n  heating      : heat <object>\n  cooling      : cool <object>\n  lighting     : turn on <object>, look at <object> under <light>\n  two-object   : repeat pickup/place steps for both target objects\n\nPrefer concise commands. Preserve prerequisite order: navigate before pickup,\npickup before placement, clean/heat/cool before final placement, and turn on\nthe light before examining an object in light tasks.\n\n## Output format\nRespond with exactly a numbered plan, one action per line, and no prose:\n```\n1. <action>\n2. <action>\n...\n```",
+      "ground_truth": "Goal: Place chilled orange cup with spoon on counter between kettle and tomato\nReference high-level actions:\n1. go to sinkbasin\n2. pick up spoon\n3. go to cup\n4. put spoon in/on cup\n5. pick up cup\n6. go to countertop\n7. put cup in/on countertop\n8. NoOp",
+      "metadata": {
+        "benchmark": "alfworld",
+        "adapter_mode": "reconstructed_offline_plan",
+        "environment": "AlfredTWEnv",
+        "target_id": "alfworld_ood",
+        "paper_split": "ood",
+        "dataset_split": "train",
+        "source_split": "train",
+        "task_type": "pick_and_place_with_movable_recep",
+        "task_id": "trial_T20190918_181744_096425",
+        "task_dir": "json_2.1.1/train/pick_and_place_with_movable_recep-Spoon-Cup-CounterTop-30/trial_T20190918_181744_096425",
+        "traj_data": "json_2.1.1/train/pick_and_place_with_movable_recep-Spoon-Cup-CounterTop-30/trial_T20190918_181744_096425/traj_data.json",
+        "game_file": null,
+        "initial_state": "json_2.1.1/train/pick_and_place_with_movable_recep-Spoon-Cup-CounterTop-30/trial_T20190918_181744_096425/initial_state.pddl",
+        "goal": "Place chilled orange cup with spoon on counter between kettle and tomato",
+        "pddl_params": {
+          "mrecep_target": "Cup",
+          "object_sliced": false,
+          "object_target": "Spoon",
+          "parent_target": "CounterTop",
+          "toggle_target": ""
+        },
+        "scene": {
+          "floor_plan": "FloorPlan30",
+          "scene_num": 30,
+          "random_seed": 3026577049
+        },
+        "human_high_descs": [
+          "turn around, go to sink to the right",
+          "pick up spoon from sink",
+          "turn around, go to refrigerator to the left",
+          "place spoon in orange cup on second shelf of refrigerator",
+          "pick up orange cup with spoon, close refrigerator",
+          "turn around, face counter with kettle",
+          "place orange cup with spoon on counter in between kettle and tomato"
+        ],
+        "gold_actions": [
+          "go to sinkbasin",
+          "pick up spoon",
+          "go to cup",
+          "put spoon in/on cup",
+          "pick up cup",
+          "go to countertop",
+          "put cup in/on countertop",
+          "NoOp"
+        ],
+        "max_steps": 50
+      }
+    },
+    {
+      "instance_id": "alfworld::alfworld_ood::train::pick_cool_then_place_in_recep::trial_T20190908_005640_809681",
+      "input": "You are solving an ALFWorld task in a reconstructed offline planning variant for SkillGen. The live TextWorld environment is not available inside this prompt. Produce a concise high-level plan of ALFWorld text actions that should solve the task.\n\n## Split\nOOD / source=train\n\n## Goal\nPut a chilled tomato in the microwave.\n\n## Task type\npick_cool_then_place_in_recep\n\n## PDDL target parameters\n- object_sliced: False\n- object_target: Tomato\n- parent_target: Microwave\n\n## Human demonstration step hints\n- Walk forward, then hang a right and walk up to the counter.\n- Pick up the tomato off of the counter to the right of the sink.\n- Turn around and walk over to the fridge.\n- Open the fridge door and put the tomato inside then close the fridge door, after a couple seconds open the fridge back up and remove the tomato, then close the fridge door.\n- Turn left and walk over to the counter, then turn left and walk up to the microwave.\n- Open the microwave and put the chilled tomato inside to the right of the cup, then close the door.\n\n## Action grammar\nALFWorld TextWorld actions are short imperative commands. Common high-level\nsteps include:\n  navigation   : go to <location>\n  pickup       : pick up <object>\n  placement    : put <object> in/on <receptacle>\n  cleaning     : clean <object>\n  heating      : heat <object>\n  cooling      : cool <object>\n  lighting     : turn on <object>, look at <object> under <light>\n  two-object   : repeat pickup/place steps for both target objects\n\nPrefer concise commands. Preserve prerequisite order: navigate before pickup,\npickup before placement, clean/heat/cool before final placement, and turn on\nthe light before examining an object in light tasks.\n\n## Output format\nRespond with exactly a numbered plan, one action per line, and no prose:\n```\n1. <action>\n2. <action>\n...\n```",
+      "ground_truth": "Goal: Put a chilled tomato in the microwave.\nReference high-level actions:\n1. go to countertop\n2. pick up tomato\n3. go to fridge\n4. cool tomato\n5. go to microwave\n6. put tomato in/on microwave\n7. NoOp",
+      "metadata": {
+        "benchmark": "alfworld",
+        "adapter_mode": "reconstructed_offline_plan",
+        "environment": "AlfredTWEnv",
+        "target_id": "alfworld_ood",
+        "paper_split": "ood",
+        "dataset_split": "train",
+        "source_split": "train",
+        "task_type": "pick_cool_then_place_in_recep",
+        "task_id": "trial_T20190908_005640_809681",
+        "task_dir": "json_2.1.1/train/pick_cool_then_place_in_recep-Tomato-None-Microwave-2/trial_T20190908_005640_809681",
+        "traj_data": "json_2.1.1/train/pick_cool_then_place_in_recep-Tomato-None-Microwave-2/trial_T20190908_005640_809681/traj_data.json",
+        "game_file": "json_2.1.1/train/pick_cool_then_place_in_recep-Tomato-None-Microwave-2/trial_T20190908_005640_809681/game.tw-pddl",
+        "initial_state": "json_2.1.1/train/pick_cool_then_place_in_recep-Tomato-None-Microwave-2/trial_T20190908_005640_809681/initial_state.pddl",
+        "goal": "Put a chilled tomato in the microwave.",
+        "pddl_params": {
+          "mrecep_target": "",
+          "object_sliced": false,
+          "object_target": "Tomato",
+          "parent_target": "Microwave",
+          "toggle_target": ""
+        },
+        "scene": {
+          "floor_plan": "FloorPlan2",
+          "scene_num": 2,
+          "random_seed": 411009815
+        },
+        "human_high_descs": [
+          "Walk forward, then hang a right and walk up to the counter.",
+          "Pick up the tomato off of the counter to the right of the sink.",
+          "Turn around and walk over to the fridge.",
+          "Open the fridge door and put the tomato inside then close the fridge door, after a couple seconds open the fridge back up and remove the tomato, then close the fridge door.",
+          "Turn left and walk over to the counter, then turn left and walk up to the microwave.",
+          "Open the microwave and put the chilled tomato inside to the right of the cup, then close the door."
+        ],
+        "gold_actions": [
+          "go to countertop",
+          "pick up tomato",
+          "go to fridge",
+          "cool tomato",
+          "go to microwave",
+          "put tomato in/on microwave",
+          "NoOp"
+        ],
+        "max_steps": 50
+      }
+    }
+  ],
+  "metadata": {
+    "benchmark": "alfworld",
+    "adapter_mode": "reconstructed_offline_plan",
+    "environment": "AlfredTWEnv",
+    "target_id": "alfworld_ood",
+    "paper_split": "ood",
+    "dataset_split": "train",
+    "source_split": "train",
+    "n": 500,
+    "seed": 42,
+    "source": "alfworld/alfworld",
+    "source_url": "https://github.com/alfworld/alfworld.git",
+    "source_commit": "aaba6870f86c5be6a08a491f32a50b906227bc3e",
+    "source_version": "0.5.0",
+    "sampling": "stratified_by_task_type_seed42",
+    "paper_reproduction_scope": "reconstructed_adapter_not_author_original_runner",
+    "trace_retention_required": true,
+    "solution_validation_smoke": true,
+    "source_dataset": "phase_0/runs/20260602/code/official/data/alfworld_ood/train.json",
+    "source_instance_count": 500
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "dataset_id": "tau_bench_retail_train_n30_seed42",
+  "task_name": "tau-bench-retail-train",
+  "dataset_metadata": {
+    "benchmark": "tau_bench",
+    "domain": "retail",
+    "task_split": "train",
+    "split_label": "train",
+    "n": 30,
+    "seed": 42,
+    "user_strategy": "llm",
+    "user_model": "gpt-5.4-nano",
+    "user_provider": "openai",
+    "max_env_steps": 30,
+    "source": "sierra-research/tau-bench"
+  },
+  "task_type": "binary",
+  "n_instances": 30,
+  "models": {
+    "default": "openai/gpt-5.4-mini",
+    "baseline_agent": "openai/gpt-5.4-nano",
+    "baseline_judge": "openai/gpt-5.4-mini",
+    "induction": "openai/gpt-5.4-mini",
+    "induction_contextual": "openai/gpt-5.4-mini",
+    "induction_summary": "openai/gpt-5.4-mini",
+    "induction_pattern": "openai/gpt-5.4-mini",
+    "induction_contrastive": "openai/gpt-5.4-mini",
+    "generation_plan": "openai/gpt-5.4-mini",
+    "generation_execute": "openai/gpt-5.4-mini",
+    "refinement": "openai/gpt-5.4-mini",
+    "verification_agent": "openai/gpt-5.4-nano",
+    "verification_judge": "openai/gpt-5.4-mini",
+    "verification_case_analyst": "openai/gpt-5.4-mini",
+    "verification_revision_synthesiser": "openai/gpt-5.4-mini"
+  },
+  "llm": {
+    "temperature": 0.0,
+    "max_tokens": 1024,
+    "max_tokens_generation": 4096
+  },
+  "pipeline": {
+    "max_refine_rounds": 1,
+    "baseline_runs_per_instance": 1,
+    "max_workers": 1,
+    "artifact_root": "../../artifacts/raw_benchmark_outputs/tau_bench_retail/artifacts/runs"
+  },
+  "skill_output_path": "../../artifacts/raw_benchmark_outputs/tau_bench_retail/skill_output/2026-06-02_16-54-39"
+}

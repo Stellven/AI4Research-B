@@ -1,0 +1,35 @@
+{
+  "skill_id": "ablation-smoke-a4",
+  "body": "## Contextual Abstract\nThis task presents an open-ended planning challenge where an agent must generate a structured plan and final answer to user requests, utilizing external tools for complex problem-solving. The core requirement is to perform multi-step reasoning across diverse domains – including medical calculations, data retrieval from online sources (like Reddit), and mathematical operations – demanding strong grounding in relevant concepts and the ability to effectively leverage specialized tools. Input instances vary significantly in their complexity and domain, ranging from simple arithmetic problems to intricate customer support scenarios requiring tool chaining. Essentially, this task simulates a scenario where an agent needs to orchestrate a series of actions using external resources to achieve a specific goal, judged against a predefined reference plan based on accuracy and efficiency.\n\n## Successful Experiences\n- **Modular Calculation Decomposition:** This technique involves breaking down a complex request into smaller, manageable calculations. The agent first identifies the necessary individual steps or formulas required to achieve the desired outcome. It then systematically utilizes specialized tools (like calculators or converters) within a server environment to perform each step sequentially, feeding the results of one calculation into the next until the final answer is obtained. Observable signals: Request involves multiple interdependent calculations; The user explicitly asks for intermediate values or derived metrics. Robustness checks: Each step’s output is verified against expected ranges or known formulas to catch significant errors early. The agent utilizes batch conversion tools where appropriate, ensuring consistent unit handling across all calculations.\n- **Structured Decomposition & Tool Application:** This technique involves breaking down a complex user request into smaller, manageable steps. The agent first identifies the specific data or information needed and then systematically selects and applies appropriate tools to gather that data. This process continues iteratively until all required components are assembled, often culminating in a structured output format as requested by the user. Each step is carefully planned and executed using pre-defined tools. Observable signals: Explicit Decomposition of Request; Tool Selection Based on Specific Data Needs. Robustness checks: A key element is verifying that each tool’s output aligns with the next stage's requirements, ensuring data consistency. Furthermore, the agent frequently checks for adherence to a defined output format or specified criteria throughout the process.\n- **Iterative Query Refinement:** This technique centers on dynamically expanding search queries based on user intent and contextual understanding. The agent initially formulates an initial query string, then iteratively refines it by incorporating relevant keywords and filters, continuously adapting its approach until it achieves a sufficiently relevant set of results that accurately reflects the user’s requirements.\n",
+  "contextual_abstract": "This skill guides the agent to solve complex user requests by breaking them down into manageable steps, leveraging external tools effectively, and proactively addressing potential pitfalls in planning and execution.",
+  "scripts": [],
+  "requirements": [],
+  "references": [],
+  "reference_docs": [],
+  "status": "active",
+  "version": 1,
+  "analysis_id": "fd7320a8-5d77-455a-abf5-20384ea02fef",
+  "dataset_id": "mcp_bench_single_train_n40_seed42",
+  "task_name": "mcp_bench_single_train",
+  "verification_history": [
+    {
+      "round_idx": 0,
+      "passed": true,
+      "net_gain": 1,
+      "repair_count": 2,
+      "regression_count": 1,
+      "baseline_acc": 0.5,
+      "skill_acc": 0.75,
+      "diagnostic": "mode=net_gain_gated, paired_n=4, n_target=2, n_success_guard=2, baseline_acc=50.0%, skill_acc=75.0%, repair=2/2 (100.0%), regression=1/2 (50.0%), net_gain=1, required=1 (abs=1, rel=0.00*n), passed=True",
+      "rejected_no_passing_round": false
+    },
+    {
+      "ablation_smoke_arm": "A4",
+      "deviation_note": "A4 removes the Failure Lessons section from the active skill body."
+    }
+  ],
+  "token_count": 738,
+  "behavioral_aim": "",
+  "semantic_aim": "",
+  "source_candidate_id": "reconstructed-A4"
+}

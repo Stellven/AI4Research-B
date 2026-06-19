@@ -1,0 +1,24 @@
+{
+  "skill_id": "baseline-smoke-coevoskills",
+  "body": "## Contextual Abstract\nMechanical single-Markdown-skill smoke for coevoskills.\n\n## Successful Experiences\n- Decompose the task.\n- Use the requested tool or reasoning operation.\n- Return the requested answer format.\n\n## Failure Lessons\n- Do not invent missing data.\n- Do not skip required intermediate steps.\n",
+  "contextual_abstract": "Mechanical baseline comparison smoke for coevoskills",
+  "scripts": [],
+  "requirements": [],
+  "references": [],
+  "reference_docs": [],
+  "status": "active",
+  "version": 1,
+  "analysis_id": "baseline_comparison_smoke_20260610",
+  "dataset_id": "mcp_bench_single_baseline_comparison_smoke",
+  "task_name": "mcp_bench_single",
+  "source_candidate_id": "mechanical-coevoskills",
+  "verification_history": [
+    {
+      "baseline_smoke_method": "coevoskills",
+      "note": "Mechanical adapter-output contract smoke; not native baseline algorithm execution."
+    }
+  ],
+  "token_count": 45,
+  "behavioral_aim": "",
+  "semantic_aim": "Mechanical baseline comparison smoke for coevoskills"
+}

@@ -1,0 +1,12 @@
+{
+  "analysis_id": "478aee05-d230-4c3c-81a1-697b7ee885c0",
+  "dataset_id": "livecodebench_release_v6_construction_n50_seed42_local_smoke_train_20260610",
+  "task_name": "livecodebench_release_v6_competitive_programming",
+  "n_failures": 3,
+  "n_successes": 0,
+  "n_failure_clusters": 1,
+  "n_success_clusters": 0,
+  "n_contrastive_pairs": 0,
+  "same_type_pairs": 0,
+  "contextual_abstract": "This task involves optimizing a route for a truck traveling between two fuel tanks, considering both fuel levels and transfer operations. The agent must determine the maximum distance that can be traveled while adhering to specific rules about fuel usage and transfers.  The problem requires careful consideration of the truck's mileage and the potential for fuel transfer, necessitating strategic decisions regarding when and how to utilize additional fuel. It\u2019s a combination of optimization and logic-based decision making, demanding efficient resource management within a defined constraint."
+}

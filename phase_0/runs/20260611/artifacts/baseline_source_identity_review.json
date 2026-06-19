@@ -1,0 +1,170 @@
+{
+  "schema_version": "0.1",
+  "scope": "Group D baseline source identity review for SkillGen Figure 2 reconstruction",
+  "run_dir": "20260611",
+  "status": "blocked_pending_baseline_source_identity_review",
+  "storage_rule": "All baseline repositories must be cloned under code/official/baselines inside this run directory before execution.",
+  "human_review_artifact": "artifacts/baseline_source_identity_human_review.json",
+  "human_review_approved": false,
+  "license_exception_approved": false,
+  "adapter_deviation_approved": false,
+  "source_count": 4,
+  "status_counts": {
+    "source_intake_complete_pending_human_identity_review": 4
+  },
+  "baselines": [
+    {
+      "source_key": "trace2skill",
+      "method_name": "Trace2Skill",
+      "repository": "Qwen-Applications/Trace2Skill",
+      "source_url": "https://github.com/Qwen-Applications/Trace2Skill.git",
+      "target_path": "code/official/baselines/Trace2Skill",
+      "target_exists": true,
+      "commit": "3d0b52a140f002a512930252b613c49048f7d5ac",
+      "expected_license_spdx": "Apache-2.0",
+      "local_license_files": [
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/annotated_types-0.7.0.dist-info/licenses/LICENSE",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/anyio-4.13.0.dist-info/licenses/LICENSE",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/certifi-2026.5.20.dist-info/licenses/LICENSE",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/charset_normalizer-3.4.7.dist-info/licenses/LICENSE",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/diskcache-5.6.3.dist-info/LICENSE",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/distro-1.9.0.dist-info/LICENSE",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/h11-0.16.0.dist-info/licenses/LICENSE.txt",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/httpcore-1.0.9.dist-info/licenses/LICENSE.md",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/httpx-0.28.1.dist-info/licenses/LICENSE.md",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/idna-3.18.dist-info/licenses/LICENSE.md",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/jiter-0.15.0.dist-info/licenses/LICENSE",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/openai-2.41.0.dist-info/licenses/LICENSE",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/pip/_vendor/cachecontrol/LICENSE.txt",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/pip/_vendor/certifi/LICENSE",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/pip/_vendor/distlib/LICENSE.txt",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/pip/_vendor/distro/LICENSE",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/pip/_vendor/idna/LICENSE.md",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/pip/_vendor/msgpack/COPYING",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/pip/_vendor/packaging/LICENSE",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/pip/_vendor/pkg_resources/LICENSE",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/pip/_vendor/platformdirs/LICENSE",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/pip/_vendor/pygments/LICENSE",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/pip/_vendor/pyproject_hooks/LICENSE",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/pip/_vendor/requests/LICENSE",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/pip/_vendor/resolvelib/LICENSE",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/pip/_vendor/rich/LICENSE",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/pip/_vendor/tomli/LICENSE",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/pip/_vendor/tomli_w/LICENSE",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/pip/_vendor/truststore/LICENSE",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/pip/_vendor/urllib3/LICENSE.txt",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/pip-26.1.2.dist-info/licenses/LICENSE.txt",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/pip-26.1.2.dist-info/licenses/src/pip/_vendor/cachecontrol/LICENSE.txt",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/pip-26.1.2.dist-info/licenses/src/pip/_vendor/certifi/LICENSE",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/pip-26.1.2.dist-info/licenses/src/pip/_vendor/distlib/LICENSE.txt",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/pip-26.1.2.dist-info/licenses/src/pip/_vendor/distro/LICENSE",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/pip-26.1.2.dist-info/licenses/src/pip/_vendor/idna/LICENSE.md",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/pip-26.1.2.dist-info/licenses/src/pip/_vendor/msgpack/COPYING",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/pip-26.1.2.dist-info/licenses/src/pip/_vendor/packaging/LICENSE",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/pip-26.1.2.dist-info/licenses/src/pip/_vendor/pkg_resources/LICENSE",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/pip-26.1.2.dist-info/licenses/src/pip/_vendor/platformdirs/LICENSE",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/pip-26.1.2.dist-info/licenses/src/pip/_vendor/pygments/LICENSE",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/pip-26.1.2.dist-info/licenses/src/pip/_vendor/pyproject_hooks/LICENSE",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/pip-26.1.2.dist-info/licenses/src/pip/_vendor/requests/LICENSE",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/pip-26.1.2.dist-info/licenses/src/pip/_vendor/resolvelib/LICENSE",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/pip-26.1.2.dist-info/licenses/src/pip/_vendor/rich/LICENSE",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/pip-26.1.2.dist-info/licenses/src/pip/_vendor/tomli/LICENSE",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/pip-26.1.2.dist-info/licenses/src/pip/_vendor/tomli_w/LICENSE",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/pip-26.1.2.dist-info/licenses/src/pip/_vendor/truststore/LICENSE",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/pip-26.1.2.dist-info/licenses/src/pip/_vendor/urllib3/LICENSE.txt",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/pydantic-2.13.4.dist-info/licenses/LICENSE",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/pydantic_core-2.46.4.dist-info/licenses/LICENSE",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/requests-2.34.2.dist-info/licenses/LICENSE",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/sniffio-1.3.1.dist-info/LICENSE",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/typing_extensions-4.15.0.dist-info/licenses/LICENSE",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/typing_inspection-0.4.2.dist-info/licenses/LICENSE",
+        "code/official/baselines/Trace2Skill/.venv_probe/lib/python3.12/site-packages/urllib3-2.7.0.dist-info/licenses/LICENSE.txt",
+        "code/official/baselines/Trace2Skill/released_skills/trace2skill-xlsx-122B-combined/LICENSE.txt",
+        "code/official/baselines/Trace2Skill/released_skills/trace2skill-xlsx-35B-combined/LICENSE.txt",
+        "code/official/baselines/Trace2Skill/spreadsheet_agent/skills/xlsx/LICENSE.txt"
+      ],
+      "license_evidence_scope": "nested_only",
+      "human_review_decision": "pending",
+      "license_evidence_approved": false,
+      "paper_identity_basis": "SkillGen Appendix C.6 names Trace2Skill as a baseline generator; Group D identifies this public repository as the candidate implementation.",
+      "native_output": "A skill directory evolved from trajectory analyses, with spreadsheet-agent skills and released skill artifacts.",
+      "status": "source_intake_complete_pending_human_identity_review",
+      "remaining_blockers": [
+        "Human must confirm nested-only local license evidence is acceptable for this baseline.",
+        "Human must confirm this repository is the correct implementation identity for the SkillGen Appendix C.6 baseline."
+      ]
+    },
+    {
+      "source_key": "skillx",
+      "method_name": "SkillX",
+      "repository": "zjunlp/SkillX",
+      "source_url": "https://github.com/zjunlp/SkillX.git",
+      "target_path": "code/official/baselines/SkillX",
+      "target_exists": true,
+      "commit": "0137cb8c2f9e69d5cc499e562dea789b2c5a8e35",
+      "expected_license_spdx": "MIT",
+      "local_license_files": [
+        "code/official/baselines/SkillX/LICENSE"
+      ],
+      "license_evidence_scope": "top_level",
+      "human_review_decision": "pending",
+      "license_evidence_approved": false,
+      "paper_identity_basis": "SkillGen Appendix C.6 names SkillX as a baseline generator; Group D identifies this public repository as the candidate implementation.",
+      "native_output": "A reusable skill knowledge base with planning, functional, and atomic skill hierarchy.",
+      "status": "source_intake_complete_pending_human_identity_review",
+      "remaining_blockers": [
+        "Human must confirm this repository is the correct implementation identity for the SkillGen Appendix C.6 baseline."
+      ]
+    },
+    {
+      "source_key": "evoskill",
+      "method_name": "EvoSkill",
+      "repository": "sentient-agi/EvoSkill",
+      "source_url": "https://github.com/sentient-agi/EvoSkill.git",
+      "target_path": "code/official/baselines/EvoSkill",
+      "target_exists": true,
+      "commit": "925229680ac4ceebedb44bc548dfb82631c66525",
+      "expected_license_spdx": "Apache-2.0",
+      "local_license_files": [
+        "code/official/baselines/EvoSkill/LICENSE"
+      ],
+      "license_evidence_scope": "top_level",
+      "human_review_decision": "pending",
+      "license_evidence_approved": false,
+      "paper_identity_basis": "SkillGen Appendix C.6 names EvoSkill as a baseline generator; Group D identifies this public repository as the candidate implementation.",
+      "native_output": "An evolved agent program containing prompt and skill mutations selected by validation performance.",
+      "status": "source_intake_complete_pending_human_identity_review",
+      "remaining_blockers": [
+        "Human must confirm this repository is the correct implementation identity for the SkillGen Appendix C.6 baseline."
+      ]
+    },
+    {
+      "source_key": "coevoskills",
+      "method_name": "CoEvoSkills",
+      "repository": "Zhang-Henry/CoEvoSkills",
+      "source_url": "https://github.com/Zhang-Henry/CoEvoSkills.git",
+      "target_path": "code/official/baselines/CoEvoSkills",
+      "target_exists": true,
+      "commit": "3171de28cc8d3c3bbbec0ef5445e59faca46815b",
+      "expected_license_spdx": "MIT",
+      "local_license_files": [
+        "code/official/baselines/CoEvoSkills/LICENSE"
+      ],
+      "license_evidence_scope": "top_level",
+      "human_review_decision": "pending",
+      "license_evidence_approved": false,
+      "paper_identity_basis": "SkillGen Appendix C.6 names CoEvoSkills as a baseline generator; Group D identifies this public repository as the candidate implementation.",
+      "native_output": "A structured multi-file skill package generated with co-evolutionary verification.",
+      "status": "source_intake_complete_pending_human_identity_review",
+      "remaining_blockers": [
+        "Human must confirm this repository is the correct implementation identity for the SkillGen Appendix C.6 baseline."
+      ]
+    }
+  ],
+  "ready_conditions": [
+    "All four repositories exist under code/official/baselines.",
+    "Each repository has an immutable commit recorded in this artifact.",
+    "Each repository license is present locally and reviewed.",
+    "A human review artifact approves the repository identity for reconstructed comparison use."
+  ]
+}

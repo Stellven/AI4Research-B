@@ -1,0 +1,82 @@
+{
+  "schema_version": "0.1",
+  "review_type": "baseline_source_identity_review",
+  "baseline_source_identity_review_approved": false,
+  "approval_status": "pending_human_review",
+  "review_scope": "Approve whether the cloned public baseline repositories are acceptable reconstructed identities for the SkillGen Appendix C.6 / Figure 2 baseline comparison.",
+  "source_identity_review_artifact": "artifacts/06_plans_and_contracts/baseline_source_identity_review.json",
+  "adapter_contract_artifact": "artifacts/06_plans_and_contracts/baseline_single_skill_adapter_contract.json",
+  "baselines": [
+    {
+      "method_name": "Trace2Skill",
+      "repository": "Qwen-Applications/Trace2Skill",
+      "source_url": "https://github.com/Qwen-Applications/Trace2Skill.git",
+      "target_path": "code/official/baselines/Trace2Skill",
+      "commit": "3d0b52a140f002a512930252b613c49048f7d5ac",
+      "expected_license_spdx": "Apache-2.0",
+      "local_license_files": [],
+      "review_decision": "pending",
+      "required_human_checks": [
+        "Confirm whether this repository is the intended Trace2Skill baseline implementation for SkillGen Appendix C.6.",
+        "Resolve the missing top-level local license evidence before approval.",
+        "Confirm that the single-Markdown-skill adapter is an acceptable reconstructed comparison deviation."
+      ]
+    },
+    {
+      "method_name": "SkillX",
+      "repository": "zjunlp/SkillX",
+      "source_url": "https://github.com/zjunlp/SkillX.git",
+      "target_path": "code/official/baselines/SkillX",
+      "commit": "0137cb8c2f9e69d5cc499e562dea789b2c5a8e35",
+      "expected_license_spdx": "MIT",
+      "local_license_files": [
+        "code/official/baselines/SkillX/LICENSE"
+      ],
+      "review_decision": "pending",
+      "required_human_checks": [
+        "Confirm whether this repository is the intended SkillX baseline implementation for SkillGen Appendix C.6.",
+        "Confirm that the local license evidence is acceptable.",
+        "Confirm that the single-Markdown-skill adapter is an acceptable reconstructed comparison deviation."
+      ]
+    },
+    {
+      "method_name": "EvoSkill",
+      "repository": "sentient-agi/EvoSkill",
+      "source_url": "https://github.com/sentient-agi/EvoSkill.git",
+      "target_path": "code/official/baselines/EvoSkill",
+      "commit": "925229680ac4ceebedb44bc548dfb82631c66525",
+      "expected_license_spdx": "Apache-2.0",
+      "local_license_files": [
+        "code/official/baselines/EvoSkill/LICENSE"
+      ],
+      "review_decision": "pending",
+      "required_human_checks": [
+        "Confirm whether this repository is the intended EvoSkill baseline implementation for SkillGen Appendix C.6.",
+        "Confirm that the local license evidence is acceptable.",
+        "Confirm that the single-Markdown-skill adapter is an acceptable reconstructed comparison deviation."
+      ]
+    },
+    {
+      "method_name": "CoEvoSkills",
+      "repository": "Zhang-Henry/CoEvoSkills",
+      "source_url": "https://github.com/Zhang-Henry/CoEvoSkills.git",
+      "target_path": "code/official/baselines/CoEvoSkills",
+      "commit": "3171de28cc8d3c3bbbec0ef5445e59faca46815b",
+      "expected_license_spdx": "MIT",
+      "local_license_files": [
+        "code/official/baselines/CoEvoSkills/LICENSE"
+      ],
+      "review_decision": "pending",
+      "required_human_checks": [
+        "Confirm whether this repository is the intended CoEvoSkills baseline implementation for SkillGen Appendix C.6.",
+        "Confirm that the local license evidence is acceptable.",
+        "Confirm that the single-Markdown-skill adapter is an acceptable reconstructed comparison deviation."
+      ]
+    }
+  ],
+  "approval_effect": [
+    "If approved and saved as artifacts/baseline_source_identity_human_review.json, the reconstructed baseline comparison may move from source-identity review to adapter execution approval.",
+    "Approval does not mean the baseline comparison claim is reproduced; it only approves using these public repositories for reconstructed execution.",
+    "Baseline execution still requires command review, raw log retention, parsed results, and claim comparison."
+  ]
+}

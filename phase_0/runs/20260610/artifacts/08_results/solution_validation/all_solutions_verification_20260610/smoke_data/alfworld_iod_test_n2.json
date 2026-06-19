@@ -1,0 +1,144 @@
+{
+  "dataset_id": "alfworld_iod_test_n150_seed42_local_smoke_test_20260610",
+  "task_name": "alfworld_iod",
+  "task_type": "open_ended",
+  "instances": [
+    {
+      "instance_id": "alfworld::alfworld_iod::test::pick_and_place_with_movable_recep::trial_T20190908_103955_680867",
+      "input": "You are solving an ALFWorld task in a reconstructed offline planning variant for SkillGen. The live TextWorld environment is not available inside this prompt. Produce a concise high-level plan of ALFWorld text actions that should solve the task.\n\n## Split\nIOD / source=valid_seen\n\n## Goal\nPut a pot with sponge in the sink.\n\n## Task type\npick_and_place_with_movable_recep\n\n## PDDL target parameters\n- mrecep_target: Pot\n- object_sliced: False\n- object_target: DishSponge\n- parent_target: SinkBasin\n\n## Human demonstration step hints\n- Turn around, move around the island to the right, move to the sink, turn left, go to the sponge on the counter left of the sink.\n- Pick up the sponge on the counter.\n- Turn around, move forward, bring the sponge to the fridge on the left.\n- Put the sponge in the pot in the fridge.\n- Pick up the pot with sponge in the fridge.\n- Bring the pot with sponge to the sink on the left.\n- Put the pot with sponge in the sink.\n\n## Action grammar\nALFWorld TextWorld actions are short imperative commands. Common high-level\nsteps include:\n  navigation   : go to <location>\n  pickup       : pick up <object>\n  placement    : put <object> in/on <receptacle>\n  cleaning     : clean <object>\n  heating      : heat <object>\n  cooling      : cool <object>\n  lighting     : turn on <object>, look at <object> under <light>\n  two-object   : repeat pickup/place steps for both target objects\n\nPrefer concise commands. Preserve prerequisite order: navigate before pickup,\npickup before placement, clean/heat/cool before final placement, and turn on\nthe light before examining an object in light tasks.\n\n## Output format\nRespond with exactly a numbered plan, one action per line, and no prose:\n```\n1. <action>\n2. <action>\n...\n```",
+      "ground_truth": "Goal: Put a pot with sponge in the sink.\nReference high-level actions:\n1. go to countertop\n2. pick up dishsponge\n3. go to pot\n4. put dishsponge in/on pot\n5. pick up pot\n6. go to sinkbasin\n7. put pot in/on sinkbasin\n8. NoOp",
+      "metadata": {
+        "benchmark": "alfworld",
+        "adapter_mode": "reconstructed_offline_plan",
+        "environment": "AlfredTWEnv",
+        "target_id": "alfworld_iod",
+        "paper_split": "iod",
+        "dataset_split": "test",
+        "source_split": "valid_seen",
+        "task_type": "pick_and_place_with_movable_recep",
+        "task_id": "trial_T20190908_103955_680867",
+        "task_dir": "json_2.1.1/valid_seen/pick_and_place_with_movable_recep-DishSponge-Pot-SinkBasin-1/trial_T20190908_103955_680867",
+        "traj_data": "json_2.1.1/valid_seen/pick_and_place_with_movable_recep-DishSponge-Pot-SinkBasin-1/trial_T20190908_103955_680867/traj_data.json",
+        "game_file": null,
+        "initial_state": "json_2.1.1/valid_seen/pick_and_place_with_movable_recep-DishSponge-Pot-SinkBasin-1/trial_T20190908_103955_680867/initial_state.pddl",
+        "goal": "Put a pot with sponge in the sink.",
+        "pddl_params": {
+          "mrecep_target": "Pot",
+          "object_sliced": false,
+          "object_target": "DishSponge",
+          "parent_target": "SinkBasin",
+          "toggle_target": ""
+        },
+        "scene": {
+          "floor_plan": "FloorPlan1",
+          "scene_num": 1,
+          "random_seed": 3969967142
+        },
+        "human_high_descs": [
+          "Turn around, move around the island to the right, move to the sink, turn left, go to the sponge on the counter left of the sink.",
+          "Pick up the sponge on the counter.",
+          "Turn around, move forward, bring the sponge to the fridge on the left.",
+          "Put the sponge in the pot in the fridge.",
+          "Pick up the pot with sponge in the fridge.",
+          "Bring the pot with sponge to the sink on the left.",
+          "Put the pot with sponge in the sink."
+        ],
+        "gold_actions": [
+          "go to countertop",
+          "pick up dishsponge",
+          "go to pot",
+          "put dishsponge in/on pot",
+          "pick up pot",
+          "go to sinkbasin",
+          "put pot in/on sinkbasin",
+          "NoOp"
+        ],
+        "max_steps": 50
+      }
+    },
+    {
+      "instance_id": "alfworld::alfworld_iod::test::pick_and_place_with_movable_recep::trial_T20190906_180021_201134",
+      "input": "You are solving an ALFWorld task in a reconstructed offline planning variant for SkillGen. The live TextWorld environment is not available inside this prompt. Produce a concise high-level plan of ALFWorld text actions that should solve the task.\n\n## Split\nIOD / source=valid_seen\n\n## Goal\nPut a cut apple in a pot.\n\n## Task type\npick_and_place_with_movable_recep\n\n## PDDL target parameters\n- mrecep_target: Pot\n- object_sliced: True\n- object_target: Apple\n- parent_target: CounterTop\n\n## Human demonstration step hints\n- Turn around and face the stove.\n- Pick up the pot on the right burner.\n- Turn left and walk to the counter to the left of the sink.\n- Place the pot on the counter to the right of and behind the salt shaker.\n- Step right and walk to the sink.\n- Take the apple out of the sink.\n- Step left to where the pot now is.\n- Put the apple in the pot.\n\n## Action grammar\nALFWorld TextWorld actions are short imperative commands. Common high-level\nsteps include:\n  navigation   : go to <location>\n  pickup       : pick up <object>\n  placement    : put <object> in/on <receptacle>\n  cleaning     : clean <object>\n  heating      : heat <object>\n  cooling      : cool <object>\n  lighting     : turn on <object>, look at <object> under <light>\n  two-object   : repeat pickup/place steps for both target objects\n\nPrefer concise commands. Preserve prerequisite order: navigate before pickup,\npickup before placement, clean/heat/cool before final placement, and turn on\nthe light before examining an object in light tasks.\n\n## Output format\nRespond with exactly a numbered plan, one action per line, and no prose:\n```\n1. <action>\n2. <action>\n...\n```",
+      "ground_truth": "Goal: Put a cut apple in a pot.\nReference high-level actions:\n1. go to stoveburner\n2. pick up pot\n3. go to countertop\n4. put pot in/on countertop\n5. go to sinkbasin\n6. pick up apple\n7. go to pot\n8. put apple in/on pot\n9. go to sinkbasin\n10. pick up knife\n11. go to apple\n12. slice apple\n13. NoOp",
+      "metadata": {
+        "benchmark": "alfworld",
+        "adapter_mode": "reconstructed_offline_plan",
+        "environment": "AlfredTWEnv",
+        "target_id": "alfworld_iod",
+        "paper_split": "iod",
+        "dataset_split": "test",
+        "source_split": "valid_seen",
+        "task_type": "pick_and_place_with_movable_recep",
+        "task_id": "trial_T20190906_180021_201134",
+        "task_dir": "json_2.1.1/valid_seen/pick_and_place_with_movable_recep-AppleSliced-Pot-CounterTop-4/trial_T20190906_180021_201134",
+        "traj_data": "json_2.1.1/valid_seen/pick_and_place_with_movable_recep-AppleSliced-Pot-CounterTop-4/trial_T20190906_180021_201134/traj_data.json",
+        "game_file": null,
+        "initial_state": "json_2.1.1/valid_seen/pick_and_place_with_movable_recep-AppleSliced-Pot-CounterTop-4/trial_T20190906_180021_201134/initial_state.pddl",
+        "goal": "Put a cut apple in a pot.",
+        "pddl_params": {
+          "mrecep_target": "Pot",
+          "object_sliced": true,
+          "object_target": "Apple",
+          "parent_target": "CounterTop",
+          "toggle_target": ""
+        },
+        "scene": {
+          "floor_plan": "FloorPlan4",
+          "scene_num": 4,
+          "random_seed": 3776569309
+        },
+        "human_high_descs": [
+          "Turn around and face the stove.",
+          "Pick up the pot on the right burner.",
+          "Turn left and walk to the counter to the left of the sink.",
+          "Place the pot on the counter to the right of and behind the salt shaker.",
+          "Step right and walk to the sink.",
+          "Take the apple out of the sink.",
+          "Step left to where the pot now is.",
+          "Put the apple in the pot.",
+          "Go back to the sink.",
+          "Pick up the knife.",
+          "Walk back to the counter where the pot is and put the apple in the pot.",
+          "Cut the apple in the pot."
+        ],
+        "gold_actions": [
+          "go to stoveburner",
+          "pick up pot",
+          "go to countertop",
+          "put pot in/on countertop",
+          "go to sinkbasin",
+          "pick up apple",
+          "go to pot",
+          "put apple in/on pot",
+          "go to sinkbasin",
+          "pick up knife",
+          "go to apple",
+          "slice apple",
+          "NoOp"
+        ],
+        "max_steps": 50
+      }
+    }
+  ],
+  "metadata": {
+    "benchmark": "alfworld",
+    "adapter_mode": "reconstructed_offline_plan",
+    "environment": "AlfredTWEnv",
+    "target_id": "alfworld_iod",
+    "paper_split": "iod",
+    "dataset_split": "test",
+    "source_split": "valid_seen",
+    "n": 150,
+    "seed": 42,
+    "source": "alfworld/alfworld",
+    "source_url": "https://github.com/alfworld/alfworld.git",
+    "source_commit": "aaba6870f86c5be6a08a491f32a50b906227bc3e",
+    "source_version": "0.5.0",
+    "sampling": "stratified_by_task_type_seed42",
+    "paper_reproduction_scope": "reconstructed_adapter_not_author_original_runner",
+    "trace_retention_required": true,
+    "solution_validation_smoke": true,
+    "source_dataset": "phase_0/runs/skillgen_phase0_thorough_20260602/code/official/data/alfworld_iod/test.json",
+    "source_instance_count": 150
+  }
+}

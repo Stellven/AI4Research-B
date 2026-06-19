@@ -1,0 +1,41 @@
+{
+  "schema_version": "0.1",
+  "scope": "Canonical benchmark source fetch status for paper-named sources not fully covered by SkillGen official checkout",
+  "run_dir": "20260611",
+  "status_counts": {
+    "canonical_source_fetched_not_skillgen_ready": 1,
+    "canonical_source_fetched_skillgen_data_ready": 1
+  },
+  "sources": [
+    {
+      "source_key": "alfworld",
+      "status": "canonical_source_fetched_not_skillgen_ready",
+      "paper_benchmark": "ALFWorld",
+      "source": "alfworld/alfworld",
+      "source_url": "https://github.com/alfworld/alfworld.git",
+      "target_path": "code/official/benchmarks/external/alfworld",
+      "target_exists": true,
+      "commit": "aaba6870f86c5be6a08a491f32a50b906227bc3e",
+      "identity_basis": "Paper Table 1 and Figure 4 name ALFWorld; this is the canonical public ALFWorld benchmark repository.",
+      "skillgen_compatibility_status": "missing_skillgen_adapter_and_iod_ood_split_contract",
+      "remaining_blockers": [
+        "Group A ALFWorld source/adapter/split/deviation contracts are present.",
+        "Canonical data still needs to be downloaded into the run directory after human approval.",
+        "The reconstructed SkillGen TextWorld adapter still needs implementation and smoke execution evidence."
+      ]
+    },
+    {
+      "source_key": "scienceworld",
+      "status": "canonical_source_fetched_skillgen_data_ready",
+      "paper_benchmark": "ScienceWorld",
+      "source": "allenai/ScienceWorld",
+      "source_url": "https://github.com/allenai/ScienceWorld.git",
+      "target_path": "code/official/external/scienceworld",
+      "target_exists": true,
+      "commit": "f6d8f5ec41eadfdcad23cc3ab097f0903dc1378b",
+      "identity_basis": "SkillGen official prepare_scienceworld.py records source allenai/ScienceWorld.",
+      "skillgen_compatibility_status": "bundled_data_already_ready_for_skillgen_execution_plan",
+      "remaining_blockers": []
+    }
+  ]
+}

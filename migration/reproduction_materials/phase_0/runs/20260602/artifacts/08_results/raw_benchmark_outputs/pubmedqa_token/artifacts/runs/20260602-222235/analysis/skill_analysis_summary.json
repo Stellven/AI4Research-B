@@ -1,0 +1,12 @@
+{
+  "analysis_id": "142a9460-cafb-4cee-87f0-a13f55123c52",
+  "dataset_id": "pubmedqa_train_n150_seed42",
+  "task_name": "pubmedqa_train",
+  "n_failures": 40,
+  "n_successes": 110,
+  "n_failure_clusters": 2,
+  "n_success_clusters": 2,
+  "n_contrastive_pairs": 4,
+  "same_type_pairs": 2,
+  "contextual_abstract": "This task asks the agent to read a biomedical research abstract and produce a binary answer to a clinical or scientific question, using only the information contained in that abstract. The required skill is evidence-based reading comprehension in the life sciences: identifying the study objective, methods, results, and conclusion, then deciding whether the abstract supports a yes/no judgment. Inputs vary across many medical and biological topics, study designs, populations, interventions, and outcome measures, but the core reasoning pattern is always to infer the answer from reported experimental or observational evidence rather than outside knowledge. Overall, this is a short-form scientific QA task with constrained evidence use and binary classification output."
+}

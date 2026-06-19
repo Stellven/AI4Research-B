@@ -1,0 +1,50 @@
+Loading skill from: ../../artifacts/08_results/solution_validation/all_solutions_verification_20260610/alfworld_ood/skill_output/2026-06-10_08-19-09
+  -> 4bd74d67-7b71-42d9-8ee8-07b4a98ab974: 
+
+Loading dataset: ../../artifacts/08_results/solution_validation/all_solutions_verification_20260610/smoke_data/alfworld_ood_test_n2.json
+  -> 2 instances, task_type=open_ended
+  -> Using all 2 instances
+
+Models to test     : ['gemma3:1b']
+Judge model        : gemma3:1b
+Skill web_search   : disabled
+Skill script exec  : disabled (mock)
+Blank-pair policy  : DROP (paired_n shrinks, cleanest)
+
+-- Model: gemma3:1b --
+
+========================================================================
+  SKILL A/B EVALUATION REPORT
+========================================================================
+  Skill ID   : 4bd74d67-7b71-42d9-8ee8-07b4a98ab974
+  Abstract   : This task involves generating ALFWorld text actions to accomplish a specific goal – placing an item on a counter. The agent must interpret complex prompts involving object manipulation, spatial reasoning, and potentially iterative problem-solving within the ALFWorld environment. Success hinges on accurately translating human intent into discrete actions that effectively achieve the desired outcome - completing the task – in ALFWorld.  The agent must demonstrate reasoning skills related to spatial relationships, tool usage, and potentially follow-up instructions within the ALFWorld environment.
+
+The skill will be structured around a ‘sequence of actions’ approach. Each section will detail the core action and its associated context. The goal is to create a reusable module for generating ALFWorld text actions, prioritizing clarity and conciseness.  The agent should generate actions that are logically connected to the overall objective.
+
+The skill will be structured around a ‘sequence of actions’ approach. Each section will detail the core action and its associated context. The goal is to create a reusable module for generating ALFWorld text actions, prioritizing clarity and conciseness.  The agent should generate actions that are logically connected to the overall objective.
+
+The skill will be structured around a ‘sequence of actions’ approach. Each section will detail the core action and its associated context. The goal is to create a reusable module for generating ALFWorld text actions, prioritizing clarity and conciseness.  The agent should generate actions that are logically connected to the overall objective.
+  Status     : active
+========================================================================
+
+  Model: gemma3:1b
+      Condition                       N  Pass     Acc   Latency
+      ----------------------------------------------------
+      Without skill                   2     2 100.0%      1.0s
+      With skill                      2     2 100.0%      0.9s
+
+      Accuracy delta : - 0.0%  (baseline=100.0%, skill=100.0%)
+      Repair     : 0/0   (0.0% of baseline failures fixed)
+      Regression : 0/2   (0.0% of baseline successes broken)
+      Net gain   : +0 instances
+
+      Paired outcome matrix (N=2 after filter):
+                               Skill pass   Skill fail
+      Baseline pass                     2            0
+      Baseline fail                     0            0
+
+========================================================================
+
+Results saved to: ../../artifacts/08_results/solution_validation/all_solutions_verification_20260610/alfworld_ood/eval_results.json
+Trajectories   : ../../artifacts/08_results/solution_validation/all_solutions_verification_20260610/alfworld_ood/eval_results_trajectories/
+Token usage    : prompt=1,438 | completion=206 | total=1,644 -> ../../artifacts/08_results/solution_validation/all_solutions_verification_20260610/alfworld_ood/eval_results.token_usage.json

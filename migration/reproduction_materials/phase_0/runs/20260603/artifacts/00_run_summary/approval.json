@@ -1,0 +1,22 @@
+{
+  "schema_version": "0.2",
+  "command_plan_approved": true,
+  "approved_targets": [
+    "skillgen_aime_smoke"
+  ],
+  "allow_install": true,
+  "allow_benchmark": true,
+  "allow_network": true,
+  "allow_paid_api": true,
+  "allow_project_local_install": true,
+  "skip_install_if_environment_present": true,
+  "auto_retry_approved": true,
+  "max_retry_attempts": 1,
+  "long_inference_approved": false,
+  "dependency_scope_required": "inside_project_directory",
+  "max_cost_usd": 5.0,
+  "approved_by": "codex_tool_approval",
+  "approval_source": "codex_native_command_approval",
+  "approved_at": "2026-06-02T06:02:19.348047+00:00",
+  "notes": "Approved through Codex for the SkillGen fresh Phase 0 AIME smoke verification only."
+}

@@ -1,0 +1,116 @@
+{
+  "schema_version": "0.1",
+  "group": "E_ablation",
+  "scope": "Smoke execution plan for reconstructed SkillGen Figure 3 ablation arms",
+  "run_dir": "20260611",
+  "status": "ready_for_reconstructed_ablation_execution",
+  "approval_required_before_execution": true,
+  "recommended_target": {
+    "target_id": "skillgen_aime_smoke",
+    "reason": "Use the existing low-cost smoke target to verify ablation mechanics before any paper-target matrix.",
+    "train_dataset": "artifacts/smoke_data/aime_train_n8_seed42.json",
+    "test_dataset": "artifacts/smoke_data/aime_test_n4_seed42.json",
+    "model_route": "openai/gpt-5.4-nano",
+    "judge_model_route": "openai/gpt-5.4-mini"
+  },
+  "arm_sequence": [
+    "Full",
+    "A1",
+    "A2",
+    "A3",
+    "A4",
+    "A5"
+  ],
+  "command_templates": {
+    "train": {
+      "workdir": "code/official",
+      "argv": [
+        ".venv/bin/python",
+        "main.py",
+        "{train_dataset}",
+        "--config",
+        "{ablation_config_path}"
+      ]
+    },
+    "eval": {
+      "workdir": "code/official",
+      "argv": [
+        ".venv/bin/python",
+        "eval_skill.py",
+        "--skill-repo",
+        "{skill_output_dir}",
+        "--dataset",
+        "{test_dataset}",
+        "--n",
+        "{eval_n}",
+        "--seed",
+        "42",
+        "--models",
+        "{model_route}",
+        "--judge-model",
+        "{judge_model_route}",
+        "--max-workers",
+        "{max_workers}",
+        "--output",
+        "artifacts/raw_benchmark_outputs/ablation/smoke/{target_id}/{model_slug}/{arm_id}/eval_results.json"
+      ]
+    }
+  },
+  "required_preflight_checks": [
+    "Write one config/patch/deviation artifact per arm before execution.",
+    "Verify A1 demonstration ids come only from construction successes.",
+    "Verify A3 gate override is scoped only to A3 and records original gate result.",
+    "Verify A4 records whether prompt-level or fallback post-process ablation was used.",
+    "Verify A5 Full comparison is meaningful only when Full has scripts/references enabled."
+  ],
+  "expected_outputs": {
+    "Full": [
+      "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/Full/train_stdout.txt",
+      "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/Full/train_stderr.txt",
+      "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/Full/skill_output",
+      "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/Full/eval_results.json",
+      "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/Full/eval_results_trajectories",
+      "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/Full/deviation_note.md"
+    ],
+    "A1": [
+      "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A1/train_stdout.txt",
+      "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A1/train_stderr.txt",
+      "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A1/skill_output",
+      "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A1/eval_results.json",
+      "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A1/eval_results_trajectories",
+      "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A1/deviation_note.md"
+    ],
+    "A2": [
+      "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A2/train_stdout.txt",
+      "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A2/train_stderr.txt",
+      "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A2/skill_output",
+      "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A2/eval_results.json",
+      "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A2/eval_results_trajectories",
+      "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A2/deviation_note.md"
+    ],
+    "A3": [
+      "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A3/train_stdout.txt",
+      "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A3/train_stderr.txt",
+      "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A3/skill_output",
+      "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A3/eval_results.json",
+      "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A3/eval_results_trajectories",
+      "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A3/deviation_note.md"
+    ],
+    "A4": [
+      "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A4/train_stdout.txt",
+      "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A4/train_stderr.txt",
+      "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A4/skill_output",
+      "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A4/eval_results.json",
+      "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A4/eval_results_trajectories",
+      "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A4/deviation_note.md"
+    ],
+    "A5": [
+      "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A5/train_stdout.txt",
+      "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A5/train_stderr.txt",
+      "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A5/skill_output",
+      "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A5/eval_results.json",
+      "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A5/eval_results_trajectories",
+      "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A5/deviation_note.md"
+    ]
+  }
+}

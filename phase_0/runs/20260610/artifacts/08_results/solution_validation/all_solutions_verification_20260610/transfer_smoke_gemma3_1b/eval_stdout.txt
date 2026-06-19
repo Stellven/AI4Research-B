@@ -1,0 +1,44 @@
+Loading skill from: ../../artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_4b_stratified/skill_output/2026-06-06_10-55-11
+  -> bd029056-5133-4626-b151-3a21e8e67ea2: 
+
+Loading dataset: data/mcp_bench/test.json
+  -> 16 instances, task_type=open_ended
+  -> Sampled 1 instances (seed=42)
+
+Models to test     : ['gemma3:1b']
+Judge model        : gemma3:1b
+Skill web_search   : disabled
+Skill script exec  : disabled (mock)
+Blank-pair policy  : DROP (paired_n shrinks, cleanest)
+
+-- Model: gemma3:1b --
+
+========================================================================
+  SKILL A/B EVALUATION REPORT
+========================================================================
+  Skill ID   : bd029056-5133-4626-b151-3a21e8e67ea2
+  Abstract   : This skill guides the agent to solve complex user requests by breaking them down into manageable steps, leveraging external tools effectively, and proactively addressing potential pitfalls in planning and execution.
+  Status     : active
+========================================================================
+
+  Model: gemma3:1b
+      Condition                       N  Pass     Acc   Latency
+      ----------------------------------------------------
+      Without skill                   1     0   0.0%     15.3s
+      With skill                      1     0   0.0%     14.1s
+
+      Accuracy delta : - 0.0%  (baseline=0.0%, skill=0.0%)
+      Repair     : 0/1   (0.0% of baseline failures fixed)
+      Regression : 0/0   (0.0% of baseline successes broken)
+      Net gain   : +0 instances
+
+      Paired outcome matrix (N=1 after filter):
+                               Skill pass   Skill fail
+      Baseline pass                     0            0
+      Baseline fail                     0            1
+
+========================================================================
+
+Results saved to: ../../artifacts/08_results/solution_validation/all_solutions_verification_20260610/transfer_smoke_gemma3_1b/eval_results.json
+Trajectories   : ../../artifacts/08_results/solution_validation/all_solutions_verification_20260610/transfer_smoke_gemma3_1b/eval_results_trajectories/
+Token usage    : prompt=10,364 | completion=2,500 | total=12,864 -> ../../artifacts/08_results/solution_validation/all_solutions_verification_20260610/transfer_smoke_gemma3_1b/eval_results.token_usage.json

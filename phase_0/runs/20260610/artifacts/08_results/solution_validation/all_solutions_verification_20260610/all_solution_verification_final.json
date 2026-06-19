@@ -1,0 +1,361 @@
+{
+  "date": "2026-06-10",
+  "scope": "All currently identified SkillGen Phase 0 repair solutions under strict blocker-resolution verification",
+  "paper_reproduction": false,
+  "status_counts": {
+    "verified_structural_and_tested": 1,
+    "verified_executable_infrastructure": 1,
+    "verified_executable_iod_ood_smoke_no_heldout_gain": 1,
+    "verified_executable_ultra_smoke_with_runtime_risk": 1,
+    "verified_executable_smoke_no_effect": 1,
+    "verified_executable_mechanical_smoke": 1,
+    "partially_verified_contract_and_source_identity_native_adapters_unverified": 1,
+    "verified_dry_run_and_policy": 1,
+    "verified_across_local_smokes": 1
+  },
+  "solutions": [
+    {
+      "solution_id": "status_semantics_split",
+      "status": "verified_structural_and_tested",
+      "meaning": "The verdict/readiness split is represented in artifacts and covered by the automation test suite.",
+      "evidence": [
+        "tests: python3 -m unittest discover -s tests -> 18 OK",
+        "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/00_run_summary/research_validation_report.md",
+        "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/02_claims/all_claim_verification_matrix.json"
+      ],
+      "limitation": "This is reporting correctness, not benchmark reproduction.",
+      "blocker_resolution": "verified for its scoped blocker under current local/reconstructed validation criteria."
+    },
+    {
+      "solution_id": "local_ollama_routing_hash_embeddings_sampler_traceability",
+      "status": "verified_executable_infrastructure",
+      "meaning": "Local OpenAI-compatible routing, no-external-key execution, hash embeddings, sampler fix, and source_candidate_id traceability have tests and completed local runs.",
+      "evidence": [
+        "tests/test_skillgen_local_routing_and_traceability.py",
+        "tests/test_skillgen_hash_embedding.py",
+        "tests/test_skillgen_verification_sampling.py",
+        "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/overnight_verification_20260607/final_verification_summary.md"
+      ],
+      "limitation": "This validates infrastructure, not positive skill effectiveness.",
+      "blocker_resolution": "verified for its scoped blocker under current local/reconstructed validation criteria."
+    },
+    {
+      "solution_id": "alfworld_reconstructed_adapter_pipeline",
+      "status": "verified_executable_iod_ood_smoke_no_heldout_gain",
+      "blocker_resolution": "solved for executable local/reconstructed ALFWorld IOD and OOD smoke validation; not solved for paper-scale performance reproduction.",
+      "meaning": "Reconstructed ALFWorld IOD and OOD data/adapters can be loaded by SkillGen, trained with local Ollama, evaluated, and traced.",
+      "iod_train_exit_code": 0,
+      "iod_eval_exit_code": 0,
+      "ood_train_exit_code": 0,
+      "ood_eval_exit_code": 0,
+      "iod_metrics": {
+        "n_instances": 2,
+        "baseline_acc": 0.0,
+        "skill_acc": 0.0,
+        "delta_acc": 0.0,
+        "repair": 0,
+        "regression": 0,
+        "net_gain": 0,
+        "skill_status": "deprecated"
+      },
+      "ood_metrics": {
+        "n_instances": 2,
+        "baseline_acc": 1.0,
+        "skill_acc": 1.0,
+        "delta_acc": 0.0,
+        "repair": 0,
+        "regression": 0,
+        "net_gain": 0,
+        "skill_status": "active"
+      },
+      "evidence": [
+        "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/alfworld_iod/train_stdout.txt",
+        "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/alfworld_iod/eval_results.json",
+        "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/alfworld_ood/train_stdout.txt",
+        "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/alfworld_ood/eval_results.json",
+        "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/alfworld_ood/eval_results_trajectories"
+      ],
+      "limitation": "Smoke scale only. IOD produced a deprecated/no-gain skill; OOD produced an active skill with no held-out gain because baseline already passed both sampled test instances."
+    },
+    {
+      "solution_id": "livecodebench_reconstructed_split_pipeline",
+      "status": "verified_executable_ultra_smoke_with_runtime_risk",
+      "meaning": "LiveCodeBench reconstructed split can run through local SkillGen train/eval at n=1 ultra-smoke. The n=3 smoke stalled after partial train progress.",
+      "n3_train_exit_code": 143,
+      "ultra_train_exit_code": 0,
+      "ultra_eval_exit_code": 0,
+      "metrics": {
+        "n_instances": 1,
+        "baseline_acc": 0.0,
+        "skill_acc": 0.0,
+        "delta_acc": 0.0,
+        "repair": 0,
+        "regression": 0,
+        "net_gain": 0
+      },
+      "evidence": [
+        "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/livecodebench/train_stdout.txt",
+        "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/livecodebench_ultra/train_stdout.txt",
+        "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/livecodebench_ultra/eval_results.json",
+        "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/livecodebench_ultra/eval_results_trajectories"
+      ],
+      "limitation": "n=3 runtime stalled; n=1 proves executability only, not scalable performance or paper-equivalent split quality.",
+      "blocker_resolution": "verified for its scoped blocker under current local/reconstructed validation criteria."
+    },
+    {
+      "solution_id": "cross_model_transfer_execution_path",
+      "status": "verified_executable_smoke_no_effect",
+      "meaning": "A source skill generated by gemma3:4b was evaluated by a different local model, gemma3:1b, through the paired eval harness.",
+      "qwen_attempt_exit_code": 143,
+      "fast_attempt_exit_code": 0,
+      "metrics": {
+        "n_instances": 1,
+        "baseline_acc": 0.0,
+        "skill_acc": 0.0,
+        "delta_acc": 0.0,
+        "repair": 0,
+        "regression": 0,
+        "net_gain": 0
+      },
+      "evidence": [
+        "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/transfer_smoke/eval_stdout.txt",
+        "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/transfer_smoke_gemma3_1b/eval_results.json",
+        "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/transfer_smoke_gemma3_1b/eval_results_trajectories"
+      ],
+      "limitation": "This is one local off-diagonal smoke, not the paper 120-comparison transfer matrix; qwen3:4b attempt stalled.",
+      "blocker_resolution": "verified for its scoped blocker under current local/reconstructed validation criteria."
+    },
+    {
+      "solution_id": "reconstructed_ablation_a1_a5_harness",
+      "status": "verified_executable_mechanical_smoke",
+      "meaning": "Full/A1/A2/A3/A4/A5 reconstructed arm repos all evaluated with exit code 0 through the shared paired harness.",
+      "arms": {
+        "Full": {
+          "exit_code": 0,
+          "metrics": {
+            "n_instances": 1,
+            "baseline_acc": 0.0,
+            "skill_acc": 0.0,
+            "delta_acc": 0.0,
+            "repair": 0,
+            "regression": 0,
+            "net_gain": 0
+          },
+          "output": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/ablation_smoke/Full/eval_results.json"
+        },
+        "A1": {
+          "exit_code": 0,
+          "metrics": {
+            "n_instances": 1,
+            "baseline_acc": 0.0,
+            "skill_acc": 0.0,
+            "delta_acc": 0.0,
+            "repair": 0,
+            "regression": 0,
+            "net_gain": 0
+          },
+          "output": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/ablation_smoke/A1/eval_results.json"
+        },
+        "A2": {
+          "exit_code": 0,
+          "metrics": {
+            "n_instances": 1,
+            "baseline_acc": 0.0,
+            "skill_acc": 0.0,
+            "delta_acc": 0.0,
+            "repair": 0,
+            "regression": 0,
+            "net_gain": 0
+          },
+          "output": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/ablation_smoke/A2/eval_results.json"
+        },
+        "A3": {
+          "exit_code": 0,
+          "metrics": {
+            "n_instances": 1,
+            "baseline_acc": 0.0,
+            "skill_acc": 0.0,
+            "delta_acc": 0.0,
+            "repair": 0,
+            "regression": 0,
+            "net_gain": 0
+          },
+          "output": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/ablation_smoke/A3/eval_results.json"
+        },
+        "A4": {
+          "exit_code": 0,
+          "metrics": {
+            "n_instances": 1,
+            "baseline_acc": 0.0,
+            "skill_acc": 0.0,
+            "delta_acc": 0.0,
+            "repair": 0,
+            "regression": 0,
+            "net_gain": 0
+          },
+          "output": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/ablation_smoke/A4/eval_results.json"
+        },
+        "A5": {
+          "exit_code": 0,
+          "metrics": {
+            "n_instances": 1,
+            "baseline_acc": 0.0,
+            "skill_acc": 0.0,
+            "delta_acc": 0.0,
+            "repair": 0,
+            "regression": 0,
+            "net_gain": 0
+          },
+          "output": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/ablation_smoke/A5/eval_results.json"
+        }
+      },
+      "evidence": [
+        "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/ablation_smoke/ablation_variant_manifest.json",
+        "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/ablation_smoke/deviation_note.md",
+        "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/ablation_smoke/Full/eval_results_trajectories"
+      ],
+      "limitation": "Arms are reconstructed mechanical proxies; this is not Figure 3 reproduction.",
+      "blocker_resolution": "verified for its scoped blocker under current local/reconstructed validation criteria."
+    },
+    {
+      "solution_id": "baseline_generator_comparison_path",
+      "status": "partially_verified_contract_and_source_identity_native_adapters_unverified",
+      "meaning": "Four baseline slots still evaluate through the shared single-Markdown-skill harness. Trace2Skill, SkillX, and EvoSkill official/open-source repos have local source/probe evidence; official CoEvoSkills does not contain executable code. An unofficial CoEvoSkills fallback has compile/help evidence but is not official.",
+      "methods": {
+        "trace2skill": {
+          "exit_code": 0,
+          "metrics": {
+            "n_instances": 1,
+            "baseline_acc": 0.0,
+            "skill_acc": 0.0,
+            "delta_acc": 0.0,
+            "repair": 0,
+            "regression": 0,
+            "net_gain": 0
+          },
+          "output": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/baseline_comparison_smoke/trace2skill/eval_results.json"
+        },
+        "skillx": {
+          "exit_code": 0,
+          "metrics": {
+            "n_instances": 1,
+            "baseline_acc": 0.0,
+            "skill_acc": 0.0,
+            "delta_acc": 0.0,
+            "repair": 0,
+            "regression": 0,
+            "net_gain": 0
+          },
+          "output": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/baseline_comparison_smoke/skillx/eval_results.json"
+        },
+        "evoskill": {
+          "exit_code": 0,
+          "metrics": {
+            "n_instances": 1,
+            "baseline_acc": 0.0,
+            "skill_acc": 0.0,
+            "delta_acc": 0.0,
+            "repair": 0,
+            "regression": 0,
+            "net_gain": 0
+          },
+          "output": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/baseline_comparison_smoke/evoskill/eval_results.json"
+        },
+        "coevoskills": {
+          "exit_code": 0,
+          "metrics": {
+            "n_instances": 1,
+            "baseline_acc": 0.0,
+            "skill_acc": 0.0,
+            "delta_acc": 0.0,
+            "repair": 0,
+            "regression": 0,
+            "net_gain": 0
+          },
+          "output": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/baseline_comparison_smoke/coevoskills/eval_results.json"
+        }
+      },
+      "evidence": [
+        "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/baseline_comparison_smoke/deviation_note.md",
+        "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/baseline_comparison_smoke/trace2skill/adapter_metadata.json",
+        "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/baseline_comparison_smoke/skillx/adapter_metadata.json",
+        "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/baseline_comparison_smoke/evoskill/adapter_metadata.json",
+        "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/baseline_comparison_smoke/coevoskills/adapter_metadata.json",
+        "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/baseline_native_feasibility/baseline_native_feasibility.md",
+        "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/baseline_native_feasibility/coevoskills_unofficial/probe_status.json",
+        "phase_0/runs/skillgen_phase0_thorough_20260602/code/official/baselines/CoEvoSkills_unofficial_AndyLongest/README.md"
+      ],
+      "limitation": "Native baseline algorithms are still not verified as SkillGen-compatible adapters. Official CoEvoSkills remains non-executable; the executable fallback is unofficial and still requires SkillsBench/Docker/opencode/API resources for full evolution.",
+      "blocker_resolution": "solved for evaluator-output contract and source/probe discovery; not solved for native baseline algorithm execution or SkillGen-compatible adapters.",
+      "baseline_native_feasibility": [
+        {
+          "method": "Trace2Skill",
+          "probe_status": "native_entrypoints_help_verified_domain_mismatch",
+          "source_identity_solved": true,
+          "native_algorithm_adapter_verified": false
+        },
+        {
+          "method": "SkillX",
+          "probe_status": "library_import_or_compile_verified_no_cli_adapter",
+          "source_identity_solved": true,
+          "native_algorithm_adapter_verified": false
+        },
+        {
+          "method": "EvoSkill",
+          "probe_status": "native_cli_or_compile_verified_benchmark_adapter_missing",
+          "source_identity_solved": true,
+          "native_algorithm_adapter_verified": false
+        },
+        {
+          "method": "CoEvoSkills",
+          "probe_status": "source_page_only_no_native_code",
+          "source_identity_solved": false,
+          "native_algorithm_adapter_verified": false
+        }
+      ],
+      "coevoskills_unofficial_fallback": {
+        "repo": "AndyLongest/CoEvoSkills",
+        "official": false,
+        "commit": "96388fc20af036a86e8ad1f5352b912027481f52",
+        "py_compile_exit_code": 0,
+        "evolve_help_exit_code": 0,
+        "evaluate_help_exit_code": 0,
+        "notes": [
+          "Unofficial implementation candidate; not the official Zhang-Henry project-page repo.",
+          "Full evolution still requires SkillsBench checkout, Docker/opencode harness, and API/provider credentials.",
+          "This probe verifies source presence and CLI surface only, not SkillGen adapter execution."
+        ]
+      }
+    },
+    {
+      "solution_id": "full_matrix_runner_and_cost_provider_governance",
+      "status": "verified_dry_run_and_policy",
+      "meaning": "Full-matrix runner still performs dry-run planning/config/state writing; provider and cost governance artifacts exist.",
+      "dry_run_exit_code": 0,
+      "evidence": [
+        "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/full_matrix_dry_run_stdout.txt",
+        "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/full_matrix/full_matrix_runner_state.json",
+        "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/06_plans_and_contracts/provider_resolution_status.json",
+        "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/06_plans_and_contracts/full_matrix_execution_budget_policy.json"
+      ],
+      "limitation": "Dry-run is not full 80-entry execution.",
+      "blocker_resolution": "verified for its scoped blocker under current local/reconstructed validation criteria."
+    },
+    {
+      "solution_id": "trace_retention_and_artifact_completeness",
+      "status": "verified_across_local_smokes",
+      "meaning": "Current local smokes produced train/eval logs, token usage, trajectories, verification summaries, skill outputs, and command status files where applicable.",
+      "evidence": [
+        "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/alfworld_iod",
+        "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/livecodebench_ultra",
+        "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/transfer_smoke_gemma3_1b",
+        "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/ablation_smoke",
+        "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/baseline_comparison_smoke",
+        "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/overnight_verification_20260607/artifact_completeness_report.md"
+      ],
+      "limitation": "Trace preservation is smoke-scale; paper Figure 7 still needs representative full runs.",
+      "blocker_resolution": "verified for its scoped blocker under current local/reconstructed validation criteria."
+    }
+  ],
+  "strict_blocker_resolution_verification": true
+}

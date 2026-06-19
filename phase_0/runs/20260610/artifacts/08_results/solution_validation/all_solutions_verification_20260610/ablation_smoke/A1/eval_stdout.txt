@@ -1,0 +1,45 @@
+Loading skill from: ../../artifacts/08_results/solution_validation/all_solutions_verification_20260610/ablation_smoke/skill_repos/A1
+  -> ablation-smoke-a1: 
+
+Loading dataset: data/mcp_bench/test.json
+  -> 16 instances, task_type=open_ended
+  -> Sampled 1 instances (seed=42)
+
+Models to test     : ['gemma3:1b']
+Judge model        : gemma3:1b
+Skill web_search   : disabled
+Skill script exec  : disabled (mock)
+Blank-pair policy  : DROP (paired_n shrinks, cleanest)
+
+-- Model: gemma3:1b --
+  (reusing shared baseline: ../../artifacts/08_results/solution_validation/all_solutions_verification_20260610/ablation_smoke/Full/eval_results_trajectories/gemma3:1b_baseline.jsonl)
+
+========================================================================
+  SKILL A/B EVALUATION REPORT
+========================================================================
+  Skill ID   : ablation-smoke-a1
+  Abstract   : This skill guides the agent to solve complex user requests by breaking them down into manageable steps, leveraging external tools effectively, and proactively addressing potential pitfalls in planning and execution.
+  Status     : active
+========================================================================
+
+  Model: gemma3:1b
+      Condition                       N  Pass     Acc   Latency
+      ----------------------------------------------------
+      Without skill                   1     0   0.0%     13.7s
+      With skill                      1     0   0.0%      2.8s
+
+      Accuracy delta : - 0.0%  (baseline=0.0%, skill=0.0%)
+      Repair     : 0/1   (0.0% of baseline failures fixed)
+      Regression : 0/0   (0.0% of baseline successes broken)
+      Net gain   : +0 instances
+
+      Paired outcome matrix (N=1 after filter):
+                               Skill pass   Skill fail
+      Baseline pass                     0            0
+      Baseline fail                     0            1
+
+========================================================================
+
+Results saved to: ../../artifacts/08_results/solution_validation/all_solutions_verification_20260610/ablation_smoke/A1/eval_results.json
+Trajectories   : ../../artifacts/08_results/solution_validation/all_solutions_verification_20260610/ablation_smoke/A1/eval_results_trajectories/
+Token usage    : prompt=3,532 | completion=330 | total=3,862 -> ../../artifacts/08_results/solution_validation/all_solutions_verification_20260610/ablation_smoke/A1/eval_results.token_usage.json

@@ -1,0 +1,23 @@
+{
+  "schema_version": "0.1",
+  "metadata": {
+    "Author": "Yuchen Ma; Yue Huang; Han Bao; Haomin Zhuang; Swadheen Shukla; Michel Galley; Xiangliang Zhang; Stefan Feuerriegel",
+    "Creator": "arXiv GenPDF (tex2pdf:a6404ea)",
+    "DOI": "https://doi.org/10.48550/arXiv.2605.10999",
+    "License": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+    "PTEX.Fullbanner": "This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) kpathsea version 6.4.1",
+    "Producer": "pikepdf 8.15.1",
+    "Title": "SkillGen: Verified Inference-Time Agent Skill Synthesis",
+    "Trapped": "/False",
+    "arXivID": "https://arxiv.org/abs/2605.10999v1",
+    "pages": 20
+  },
+  "pages": 20,
+  "title": "SkillGen: Verified Inference-Time Agent Skill Synthesis",
+  "arxiv_id": "https://arxiv.org/abs/2605.10999v1",
+  "code_urls": [
+    "https://github.com/yccm/SkillGen"
+  ],
+  "text_characters": 70401,
+  "parser": "pypdf.PdfReader.extract_text"
+}

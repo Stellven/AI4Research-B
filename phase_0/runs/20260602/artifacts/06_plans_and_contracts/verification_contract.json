@@ -1,0 +1,53 @@
+{
+  "schema_version": "0.3",
+  "target_id": "skillgen_aime_smoke",
+  "target_name": "SkillGen AIME smoke validation",
+  "scope": "official-code smoke only; not full Table 1 reproduction",
+  "paper_claim_id": "claim_skillgen_table1_average_gains",
+  "benchmark_claim_id": "bench_skillgen_table1_paired_accuracy",
+  "paper_claim_scope_status": "blocked_unless_full_table1_setup_runs",
+  "official_code": {
+    "repo_url": "https://github.com/yccm/SkillGen",
+    "path": "code/official"
+  },
+  "dataset": {
+    "benchmark": "aime",
+    "train_subset": "artifacts/smoke_data/aime_train_n8_seed42.json",
+    "test_subset": "artifacts/smoke_data/aime_test_n4_seed42.json",
+    "seed": 42,
+    "train_n": 8,
+    "eval_n": 4
+  },
+  "models": {
+    "baseline_agent": "openai/gpt-5.4-nano",
+    "judge_model": "openai/gpt-5.4-mini",
+    "skillgen_auxiliary": "openai/gpt-5.4-mini"
+  },
+  "metric": {
+    "name": "accuracy",
+    "baseline_field": "baseline_acc",
+    "skill_field": "skill_acc",
+    "delta_field": "delta_acc",
+    "repair_field": "repair",
+    "regression_field": "regression",
+    "net_gain_field": "net_gain",
+    "expected_direction": "higher_is_better"
+  },
+  "result_parser": "skillgen_eval_results_v1",
+  "comparison_rule": {
+    "smoke_reproduced_if": "skill_acc > baseline_acc and net_gain > 0",
+    "smoke_not_reproduced_if": "skill_acc <= baseline_acc or net_gain <= 0",
+    "full_paper_claim_status": "blocked"
+  },
+  "required_env_vars": [
+    "OPENROUTER_API_KEY",
+    "OPENAI_API_KEY"
+  ],
+  "requires_network": true,
+  "requires_paid_api_or_token_budget": true,
+  "hardcoding_disclosures": [
+    "SkillGen-specific target.",
+    "AIME smoke subset selected for lowest-cost official-code validation.",
+    "Known SkillGen eval_results.json parser."
+  ]
+}

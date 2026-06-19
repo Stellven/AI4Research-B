@@ -1,0 +1,17 @@
+{
+  "schema_version": "0.3",
+  "status": "intake_complete",
+  "official_repo_url": "https://github.com/yccm/SkillGen",
+  "local_path": "code/official",
+  "commit": "3cf7c48292182a3372e7860c88f1d7059143e8d0",
+  "branch": "main",
+  "clone_error": null,
+  "key_files": [
+    "README.md",
+    "config.yaml",
+    "eval_skill.py",
+    "main.py",
+    "requirements.txt"
+  ],
+  "file_count": 73
+}

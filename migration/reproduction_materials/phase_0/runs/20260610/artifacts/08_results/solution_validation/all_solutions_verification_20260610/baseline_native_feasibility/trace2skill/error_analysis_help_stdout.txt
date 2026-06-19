@@ -1,0 +1,49 @@
+usage: run_error_analysis.py [-h] --data_path DATA_PATH --work_dir WORK_DIR
+                             --logs_dir LOGS_DIR [--output_dir OUTPUT_DIR]
+                             [--instance_ids INSTANCE_IDS] --model MODEL
+                             [--llm_client {openai,api_chat}]
+                             [--api_chat_config API_CHAT_CONFIG]
+                             [--base_url BASE_URL] [--api_key API_KEY]
+                             [--generation_config GENERATION_CONFIG]
+                             [--seed SEED] [--max_turns MAX_TURNS]
+                             [--parsed_output PARSED_OUTPUT]
+                             [--workers WORKERS] [--verbose] [--sample SAMPLE]
+                             [--repeat REPEAT]
+
+Run error analysis agent on SpreadsheetBench instances.
+
+options:
+  -h, --help            show this help message and exit
+  --data_path DATA_PATH
+                        SpreadsheetBench dataset path (e.g. data/spreadsheetbe
+                        nch_verified/spreadsheetbench_verified_400)
+  --work_dir WORK_DIR   Target agent's work directory (e.g.
+                        agent_output/cli_only_work)
+  --logs_dir LOGS_DIR   Target agent's logs directory (e.g.
+                        agent_output/cli_only_logs)
+  --output_dir OUTPUT_DIR
+                        Where to save analysis results (default:
+                        analysis_output/)
+  --instance_ids INSTANCE_IDS
+                        Comma-separated specific instance IDs to analyze
+  --model MODEL         Model name (OpenAI-compatible)
+  --llm_client {openai,api_chat}
+                        LLM client backend to use
+  --api_chat_config API_CHAT_CONFIG
+                        Path to ApiChat config JSON when --llm_client=api_chat
+  --base_url BASE_URL   OpenAI-compatible base URL
+  --api_key API_KEY     API key (or use OPENAI_API_KEY)
+  --generation_config GENERATION_CONFIG
+                        Generation config as JSON string or path to JSON file
+  --seed SEED           Seed merged into generation config
+  --max_turns MAX_TURNS
+                        Max agent turns (default: 20)
+  --parsed_output PARSED_OUTPUT
+                        Optional path for parsed JSON records (default:
+                        <output_dir>/parsed_error_records.json)
+  --workers WORKERS     Number of parallel workers
+  --verbose             Verbose logging
+  --sample SAMPLE       Only analyze the first N instances
+  --repeat REPEAT       Number of seed runs. When > 1, discovers instances
+                        from seed_*/ subdirectories under --logs_dir and names
+                        analysis dirs as {id}_seed_{seed} (default: 1).

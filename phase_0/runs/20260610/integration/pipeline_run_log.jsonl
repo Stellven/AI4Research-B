@@ -1,0 +1,3 @@
+{"step": "full_matrix_entry_execution", "status": "not_started", "timestamp": "2026-06-10T05:14:15.718887+00:00", "entry_id": "alfworld_iod::GPT-5.4-Nano"}
+{"step": "full_matrix_entry_execution", "status": "not_started", "timestamp": "2026-06-10T05:14:15.719597+00:00", "entry_id": "alfworld_iod::GPT-5.4-Mini"}
+{"step": "full_matrix_runner", "status": "dry_run_completed", "timestamp": "2026-06-10T05:14:15.720832+00:00", "artifact": "artifacts/08_results/full_matrix/full_matrix_runner_state.json"}

@@ -1,0 +1,20 @@
+[
+  {
+    "model": "gemma3:1b",
+    "stage": "eval_skill::gemma3:1b",
+    "call_type": "chat_json",
+    "calls": 1,
+    "prompt_tokens": 1949,
+    "completion_tokens": 141,
+    "total_tokens": 2090
+  },
+  {
+    "model": "gemma3:1b",
+    "stage": "eval_skill::gemma3:1b",
+    "call_type": "chat_multi_turn",
+    "calls": 1,
+    "prompt_tokens": 1837,
+    "completion_tokens": 1278,
+    "total_tokens": 3115
+  }
+]

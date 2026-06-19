@@ -1,0 +1,123 @@
+Baseline trajectories:   0%|          | 0/40 [00:00<?, ?it/s]Baseline trajectories:   2%|▎         | 1/40 [01:10<45:41, 70.28s/it]Baseline trajectories:   5%|▌         | 2/40 [02:20<44:26, 70.17s/it]Baseline trajectories:   8%|▊         | 3/40 [03:30<43:13, 70.11s/it]Baseline trajectories:  10%|█         | 4/40 [04:40<42:05, 70.15s/it]Baseline trajectories:  12%|█▎        | 5/40 [05:50<40:51, 70.05s/it]Baseline trajectories:  15%|█▌        | 6/40 [07:00<39:42, 70.06s/it]Baseline trajectories:  18%|█▊        | 7/40 [08:10<38:30, 70.02s/it]Baseline trajectories:  20%|██        | 8/40 [09:20<37:20, 70.03s/it]Baseline trajectories:  22%|██▎       | 9/40 [10:30<36:13, 70.12s/it]Baseline trajectories:  25%|██▌       | 10/40 [11:41<35:07, 70.25s/it]Baseline trajectories:  28%|██▊       | 11/40 [12:51<33:53, 70.13s/it]Baseline trajectories:  30%|███       | 12/40 [14:00<32:38, 69.94s/it]Baseline trajectories:  32%|███▎      | 13/40 [15:10<31:29, 69.97s/it]Baseline trajectories:  35%|███▌      | 14/40 [16:20<30:17, 69.89s/it]Baseline trajectories:  38%|███▊      | 15/40 [17:30<29:05, 69.81s/it]Baseline trajectories:  40%|████      | 16/40 [18:40<27:58, 69.95s/it]Baseline trajectories:  42%|████▎     | 17/40 [19:50<26:49, 69.99s/it]Baseline trajectories:  45%|████▌     | 18/40 [21:00<25:41, 70.07s/it]Baseline trajectories:  48%|████▊     | 19/40 [22:10<24:29, 69.99s/it]Baseline trajectories:  50%|█████     | 20/40 [23:20<23:18, 69.94s/it]Baseline trajectories:  52%|█████▎    | 21/40 [24:30<22:09, 69.96s/it]Baseline trajectories:  55%|█████▌    | 22/40 [25:40<20:59, 69.97s/it]Baseline trajectories:  57%|█████▊    | 23/40 [26:50<19:50, 70.02s/it]Baseline trajectories:  60%|██████    | 24/40 [28:00<18:40, 70.02s/it]Baseline trajectories:  62%|██████▎   | 25/40 [29:10<17:29, 69.95s/it]Baseline trajectories:  65%|██████▌   | 26/40 [30:20<16:18, 69.90s/it]Baseline trajectories:  68%|██████▊   | 27/40 [31:30<15:09, 69.92s/it]Baseline trajectories:  70%|███████   | 28/40 [32:40<14:00, 70.06s/it]Baseline trajectories:  72%|███████▎  | 29/40 [33:50<12:50, 70.07s/it]Baseline trajectories:  75%|███████▌  | 30/40 [35:00<11:41, 70.11s/it]Baseline trajectories:  78%|███████▊  | 31/40 [36:10<10:30, 70.08s/it]Baseline trajectories:  80%|████████  | 32/40 [37:20<09:20, 70.05s/it]Baseline trajectories:  82%|████████▎ | 33/40 [38:30<08:10, 70.08s/it]Baseline trajectories:  85%|████████▌ | 34/40 [39:41<07:01, 70.18s/it]Baseline trajectories:  88%|████████▊ | 35/40 [40:51<05:50, 70.07s/it]Baseline trajectories:  90%|█████████ | 36/40 [42:00<04:39, 69.98s/it]Baseline trajectories:  92%|█████████▎| 37/40 [43:10<03:29, 69.98s/it]Baseline trajectories:  95%|█████████▌| 38/40 [44:21<02:20, 70.04s/it]Baseline trajectories:  98%|█████████▊| 39/40 [45:31<01:10, 70.10s/it]Baseline trajectories: 100%|██████████| 40/40 [46:40<00:00, 69.95s/it]                                                                      Traceback (most recent call last):
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/.venv/lib/python3.14/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/.venv/lib/python3.14/site-packages/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/.venv/lib/python3.14/site-packages/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/.venv/lib/python3.14/site-packages/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+        pool_request.request
+    )
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/.venv/lib/python3.14/site-packages/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/.venv/lib/python3.14/site-packages/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/.venv/lib/python3.14/site-packages/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/.venv/lib/python3.14/site-packages/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/jamesyuan/.local/share/mise/installs/python/3.14.2/lib/python3.14/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/.venv/lib/python3.14/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 1] Operation not permitted
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/.venv/lib/python3.14/site-packages/openai/_base_client.py", line 1037, in request
+    response = self._send_request(
+        request,
+        stream=stream or self._should_stream_response_body(request=request),
+        **kwargs,
+    )
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/.venv/lib/python3.14/site-packages/openai/_client.py", line 440, in _send_request
+    return self._send_with_auth_retry(request, stream=stream, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/.venv/lib/python3.14/site-packages/openai/_client.py", line 418, in _send_with_auth_retry
+    response = super()._send_request(request, stream=stream, **kwargs)
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/.venv/lib/python3.14/site-packages/openai/_base_client.py", line 964, in _send_request
+    return self._client.send(request, stream=stream, **kwargs)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/.venv/lib/python3.14/site-packages/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+        request,
+    ...<2 lines>...
+        history=[],
+    )
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/.venv/lib/python3.14/site-packages/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+        request,
+        follow_redirects=follow_redirects,
+        history=history,
+    )
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/.venv/lib/python3.14/site-packages/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/.venv/lib/python3.14/site-packages/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/.venv/lib/python3.14/site-packages/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/jamesyuan/.local/share/mise/installs/python/3.14.2/lib/python3.14/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/.venv/lib/python3.14/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 1] Operation not permitted
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/main.py", line 98, in <module>
+    main()
+    ~~~~^^
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/main.py", line 81, in main
+    skill = run_pipeline(
+        dataset.instances,
+    ...<6 lines>...
+        resume_dir=args.resume,
+    )
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/pipeline.py", line 263, in run_pipeline
+    analysis = run_induction(
+        failures, successes, instances, task_type,
+    ...<19 lines>...
+        artifact_dir=analysis_dir,
+    )
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/agents/induction.py", line 293, in run_induction
+    contextual_abstract = _infer_contextual_abstract(
+        instances,
+    ...<2 lines>...
+        model=contextual_model,
+    )
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/agents/induction.py", line 68, in _infer_contextual_abstract
+    result = llm.chat_json(
+        CONTEXTUAL_ABSTRACT_PROMPT.format(
+    ...<6 lines>...
+        model=model,
+    )
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/llm.py", line 355, in chat_json
+    resp = _router_chat_create(**kwargs)
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/llm.py", line 180, in _router_chat_create
+    return _get_router_client().chat.completions.create(**kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/.venv/lib/python3.14/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/.venv/lib/python3.14/site-packages/openai/resources/chat/completions/completions.py", line 1239, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/chat/completions",
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<51 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/.venv/lib/python3.14/site-packages/openai/_base_client.py", line 1332, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/.venv/lib/python3.14/site-packages/openai/_base_client.py", line 1072, in request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.

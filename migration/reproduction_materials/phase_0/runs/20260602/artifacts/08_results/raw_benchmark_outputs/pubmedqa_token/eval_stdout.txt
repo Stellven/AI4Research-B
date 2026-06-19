@@ -1,0 +1,44 @@
+Loading skill from: ../../artifacts/raw_benchmark_outputs/pubmedqa_token/skill_output/2026-06-02_22-22-35
+  -> 5d98c0bd-bada-4992-a666-6a75f89deb38: 
+
+Loading dataset: data/pubmedqa/test.json
+  -> 100 instances, task_type=binary
+  -> Using all 100 instances
+
+Models to test     : ['openai/gpt-5.4-nano']
+Judge model        : openai/gpt-5.4-mini
+Skill web_search   : disabled
+Skill script exec  : disabled (mock)
+Blank-pair policy  : DROP (paired_n shrinks, cleanest)
+
+-- Model: openai/gpt-5.4-nano --
+
+========================================================================
+  SKILL A/B EVALUATION REPORT
+========================================================================
+  Skill ID   : 5d98c0bd-bada-4992-a666-6a75f89deb38
+  Abstract   : Read a biomedical abstract, identify the exact claim asked, and answer yes/no from the abstract’s own evidence. The main challenge is matching the question to the correct outcome, population, and conclusion, especially when the findings are mixed or indirect.
+  Status     : active
+========================================================================
+
+  Model: openai/gpt-5.4-nano
+      Condition                       N  Pass     Acc   Latency
+      ----------------------------------------------------
+      Without skill                 100    74  74.0%      1.5s
+      With skill                    100    70  70.0%      1.5s
+
+      Accuracy delta : v 4.0%  (baseline=74.0%, skill=70.0%)
+      Repair     : 6/26   (23.1% of baseline failures fixed)
+      Regression : 10/74   (13.5% of baseline successes broken)
+      Net gain   : -4 instances
+
+      Paired outcome matrix (N=100 after filter):
+                               Skill pass   Skill fail
+      Baseline pass                    64           10
+      Baseline fail                     6           20
+
+========================================================================
+
+Results saved to: ../../artifacts/raw_benchmark_outputs/pubmedqa_token/eval_results.json
+Trajectories   : ../../artifacts/raw_benchmark_outputs/pubmedqa_token/eval_results_trajectories/
+Token usage    : prompt=143,490 | completion=24,344 | total=167,834 -> ../../artifacts/raw_benchmark_outputs/pubmedqa_token/eval_results.token_usage.json

@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/baselines/EvoSkill/scripts/run_eval.py", line 15, in <module>
+    from src.agent_profiles import (
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/baselines/EvoSkill/src/agent_profiles/__init__.py", line 7, in <module>
+    from .proposer import proposer_options
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/baselines/EvoSkill/src/agent_profiles/proposer/__init__.py", line 1, in <module>
+    from .proposer import proposer_options
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/baselines/EvoSkill/src/agent_profiles/proposer/proposer.py", line 35, in <module>
+    proposer_options = get_proposer_options()
+                       ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/baselines/EvoSkill/src/agent_profiles/proposer/proposer.py", line 26, in get_proposer_options
+    return build_options(
+           ^^^^^^^^^^^^^^
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/baselines/EvoSkill/src/harness/utils.py", line 74, in build_options
+    return build_claudecode_options(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/baselines/EvoSkill/src/harness/claude/options.py", line 30, in build_claudecode_options
+    from claude_agent_sdk import ClaudeAgentOptions
+ModuleNotFoundError: No module named 'claude_agent_sdk'

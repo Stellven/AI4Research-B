@@ -1,0 +1,133 @@
+{
+  "schema_version": "0.1",
+  "scope": "Observed external source intake and preparation status for SkillGen blocked targets",
+  "run_dir": "20260611",
+  "status_counts": {
+    "prepared": 5
+  },
+  "tasks": [
+    {
+      "source_key": "livecodebench",
+      "status": "prepared",
+      "source": "livecodebench/code_generation_lite",
+      "target_path": "code/official/data/livecodebench",
+      "target_exists": true,
+      "commit": null,
+      "expected_outputs": [
+        {
+          "path": "code/official/data/livecodebench/train_release_v6_n50_seed42.json",
+          "exists": true,
+          "kind": "file"
+        },
+        {
+          "path": "code/official/data/livecodebench/test_release_v6_n150_seed42.json",
+          "exists": true,
+          "kind": "file"
+        },
+        {
+          "path": "code/official/data/livecodebench/split_release_v6_n50_n150_seed42_manifest.json",
+          "exists": true,
+          "kind": "file"
+        }
+      ],
+      "partial_outputs": [
+        "code/official/data/livecodebench/release_v6_all.json",
+        "code/official/data/livecodebench/train_release_v6_n50_seed42.json",
+        "code/official/data/livecodebench/test_release_v6_n150_seed42.json",
+        "code/official/data/livecodebench/split_release_v6_n50_n150_seed42_manifest.json"
+      ],
+      "requires_api": false,
+      "remaining_blockers": []
+    },
+    {
+      "source_key": "mcp_bench_all",
+      "status": "prepared",
+      "source": "Accenture/mcp-bench",
+      "target_path": "code/official/benchmarks/external/mcp-bench",
+      "target_exists": true,
+      "commit": "7a8eaeae83a842a2949080acc5473f65e1569daf",
+      "expected_outputs": [
+        {
+          "path": "code/official/data/mcp_bench_all/train_all_n40_seed42.json",
+          "exists": true,
+          "kind": "file"
+        },
+        {
+          "path": "code/official/data/mcp_bench_all/test_all_n16_seed42.json",
+          "exists": true,
+          "kind": "file"
+        }
+      ],
+      "partial_outputs": [],
+      "requires_api": false,
+      "remaining_blockers": []
+    },
+    {
+      "source_key": "socialmaze_upi",
+      "status": "prepared",
+      "source": "xzx34/SocialMaze",
+      "target_path": "code/official/benchmarks/external/social-maze",
+      "target_exists": true,
+      "commit": "825ac19999e035a68dfe3ae6be32ac4554d2f841",
+      "expected_outputs": [
+        {
+          "path": "code/official/data/socialmaze_upi/train_n60_seed42.json",
+          "exists": true,
+          "kind": "file"
+        },
+        {
+          "path": "code/official/data/socialmaze_upi/test_n50_seed42.json",
+          "exists": true,
+          "kind": "file"
+        }
+      ],
+      "partial_outputs": [
+        "code/official/data/socialmaze_upi_smoke/train_n1_seed42.json",
+        "code/official/data/socialmaze_upi_smoke/test_n1_seed42.json"
+      ],
+      "requires_api": true,
+      "remaining_blockers": []
+    },
+    {
+      "source_key": "tau_bench",
+      "status": "prepared",
+      "source": "sierra-research/tau-bench",
+      "target_path": "code/official/benchmarks/external/tau-bench",
+      "target_exists": true,
+      "commit": "59a200c6d575d595120f1cb70fea53cef0632f6b",
+      "expected_outputs": [
+        {
+          "path": "code/official/data/tau_bench/train_retail_n30_seed42.json",
+          "exists": true,
+          "kind": "file"
+        },
+        {
+          "path": "code/official/data/tau_bench/test_retail_n30_seed42.json",
+          "exists": true,
+          "kind": "file"
+        }
+      ],
+      "partial_outputs": [],
+      "requires_api": false,
+      "remaining_blockers": []
+    },
+    {
+      "source_key": "chemllmbench",
+      "status": "prepared",
+      "source": "ChemFoundationModels/ChemLLMBench",
+      "target_path": "code/official/external/chemllmbench",
+      "target_exists": true,
+      "commit": "b8cfb59fe1bc8500c6916cdf00c12e457f6c0720",
+      "expected_outputs": [
+        {
+          "path": "code/official/data/chemllmbench",
+          "exists": true,
+          "kind": "directory"
+        }
+      ],
+      "partial_outputs": [],
+      "requires_api": false,
+      "remaining_blockers": []
+    }
+  ]
+}

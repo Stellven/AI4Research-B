@@ -1,0 +1,80 @@
+{
+  "schema_version": "0.1",
+  "scope": "Observed SkillGen Table 1 full-matrix entries executed after the parallel repair phase.",
+  "status": "incomplete_single_entry_observed",
+  "important_limitations": [
+    "This artifact records executed entries only; it is not the complete 80-entry Table 1 matrix.",
+    "The observed entry used a reconstructed low-cost config rather than the paper's full official config.",
+    "A positive entry here could support partial evidence only; this observed entry is negative.",
+    "Aggregate Table 1 claims remain blocked until all required rows and model entries are executed or explicitly scoped as partial."
+  ],
+  "entries": [
+    {
+      "entry_id": "mcp_bench_single::openai/gpt-5.4-nano",
+      "table1_row": "mcp_bench_single",
+      "paper_model_display_name": "GPT-5.4-Nano",
+      "provider_route_id": "openai/gpt-5.4-nano",
+      "route_execution_mode": "direct_openai_for_openai_models",
+      "train_dataset": "code/official/data/mcp_bench/train.json",
+      "test_dataset": "code/official/data/mcp_bench/test.json",
+      "train_n": 40,
+      "test_n": 16,
+      "config": "artifacts/generated_configs/mcp_bench_single/openai_gpt-5.4-nano.yaml",
+      "config_deviation": "Reduced rounds/workers/verification sample for overnight cost control: max_refine_rounds=1, max_workers=1, verification.sample_size=4.",
+      "skill_id": "0d5b37cd-c4eb-42fd-8d96-1e32cc569adf",
+      "skill_status": "deprecated",
+      "skill_rejected": true,
+      "construction_verification": {
+        "paired_n": 4,
+        "baseline_acc": 0.75,
+        "skill_acc": 0.25,
+        "delta_acc": -0.5,
+        "repair": 0,
+        "regression": 2,
+        "net_gain": -2,
+        "passed": false
+      },
+      "held_out_eval": {
+        "n_instances": 16,
+        "baseline_acc": 0.8125,
+        "skill_acc": 0.8125,
+        "delta_acc": 0.0,
+        "repair": 0,
+        "regression": 0,
+        "net_gain": 0,
+        "blank_filter": {
+          "drop_blank": true,
+          "n_paired_raw": 16,
+          "n_blank_either": 0
+        }
+      },
+      "entry_verdict": "not_reproduced",
+      "entry_verdict_reason": "The skill failed construction-time verification, was marked DEPRECATED by official code, and held-out evaluation reported skill==baseline with delta_acc=0.0.",
+      "paper_claim_impact": {
+        "claim_table1_average_gains_all_models": "still_blocked_incomplete_matrix",
+        "claim_table1_entry_counts": "still_blocked_incomplete_matrix"
+      },
+      "raw_outputs": {
+        "train_stdout": "artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_single/openai_gpt-5.4-nano/train_direct_stdout.txt",
+        "train_stderr": "artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_single/openai_gpt-5.4-nano/train_direct_stderr.txt",
+        "run_artifacts": "artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_single/openai_gpt-5.4-nano/artifacts/runs/20260604-092116/",
+        "skill_output": "artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_single/openai_gpt-5.4-nano/skill_output/2026-06-04_09-21-16/",
+        "eval_results": "artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_single/openai_gpt-5.4-nano/eval_results.json",
+        "eval_token_usage": "artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_single/openai_gpt-5.4-nano/eval_results.token_usage.json",
+        "eval_trajectories": "artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_single/openai_gpt-5.4-nano/eval_results_trajectories/"
+      },
+      "token_usage_total": {
+        "training": 446895,
+        "held_out_eval": 110982,
+        "combined": 557877
+      }
+    }
+  ],
+  "entry_counts": {
+    "paper_required": 80,
+    "observed": 1,
+    "observed_not_reproduced": 1,
+    "observed_partially_reproduced": 0,
+    "remaining": 79
+  }
+}

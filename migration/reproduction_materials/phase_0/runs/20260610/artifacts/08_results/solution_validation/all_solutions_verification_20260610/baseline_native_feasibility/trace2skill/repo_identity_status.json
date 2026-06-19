@@ -1,0 +1,7 @@
+{
+  "method": "Trace2Skill",
+  "repo_path": "phase_0/runs/skillgen_phase0_thorough_20260602/code/official/baselines/Trace2Skill",
+  "local_commit": "3d0b52a140f002a512930252b613c49048f7d5ac",
+  "remote_head": "3d0b52a140f002a512930252b613c49048f7d5ac",
+  "python_files": 38
+}

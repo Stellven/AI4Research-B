@@ -1,0 +1,47 @@
+Loading skill from: ../../artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_1b_smoke_trace_20260607/skill_output/2026-06-07_11-36-17
+  -> d0f2da35-08f1-4bc8-af8a-ed2322c5f402: 
+  [!] Skill REJECTED: status=DEPRECATED (no verification round passed).
+  [!] Skipping skill-condition eval; reporting skill==baseline (net_gain=0).
+
+Loading dataset: ../../artifacts/07_configs_and_inputs/smoke_data/mcp_bench_single_test_n4_seed42.json
+  -> 4 instances, task_type=open_ended
+  -> Using all 4 instances
+
+Models to test     : ['gemma3:1b']
+Judge model        : gemma3:1b
+Skill web_search   : disabled
+Skill script exec  : disabled (mock)
+Blank-pair policy  : DROP (paired_n shrinks, cleanest)
+
+-- Model: gemma3:1b --
+  -> Skill rejected; reusing baseline for skill condition.
+
+========================================================================
+  SKILL A/B EVALUATION REPORT
+========================================================================
+  Skill ID   : d0f2da35-08f1-4bc8-af8a-ed2322c5f402
+  Abstract   : The task involves generating structured plans for MCP-Bench benchmark problems, requiring precise tool selection and a clear articulation of the reasoning process. The agent must effectively interpret user requests to identify appropriate tools and execute necessary calculations or operations within the MCP environment. Success hinges on accurately leveraging the available tools and ensuring the generated plan adheres to specific constraints defined by the user.  The task demands a balance between efficient execution, thorough grounding in the problem context, and careful consideration of dependency relationships between steps.
+  Status     : deprecated
+========================================================================
+
+  Model: gemma3:1b
+      Condition                       N  Pass     Acc   Latency
+      ----------------------------------------------------
+      Without skill                   4     0   0.0%      9.3s
+      With skill                      4     0   0.0%      9.3s
+
+      Accuracy delta : - 0.0%  (baseline=0.0%, skill=0.0%)
+      Repair     : 0/4   (0.0% of baseline failures fixed)
+      Regression : 0/0   (0.0% of baseline successes broken)
+      Net gain   : +0 instances
+
+      Paired outcome matrix (N=4 after filter):
+                               Skill pass   Skill fail
+      Baseline pass                     0            0
+      Baseline fail                     0            4
+
+========================================================================
+
+Results saved to: ../../artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_1b_smoke_trace_20260607/eval_results.json
+Trajectories   : ../../artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_1b_smoke_trace_20260607/eval_results_trajectories/
+Token usage    : prompt=16,991 | completion=4,083 | total=21,074 -> ../../artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_1b_smoke_trace_20260607/eval_results.token_usage.json

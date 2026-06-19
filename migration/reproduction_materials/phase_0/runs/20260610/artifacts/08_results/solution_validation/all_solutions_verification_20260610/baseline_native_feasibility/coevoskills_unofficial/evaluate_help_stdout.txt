@@ -1,0 +1,16 @@
+usage: evaluate.py [-h] [--config CONFIG] --skills SKILLS [--tasks TASKS]
+                   --model MODEL [--output OUTPUT] [--benchmark BENCHMARK]
+                   [--no-skill-baseline]
+
+CoEvoSkills evaluation
+
+options:
+  -h, --help            show this help message and exit
+  --config CONFIG       Config file
+  --skills SKILLS       Path to evolved skills directory
+  --tasks TASKS         Task name or 'all'
+  --model MODEL         LLM model for evaluation
+  --output OUTPUT       Output directory
+  --benchmark BENCHMARK
+                        SkillsBench root
+  --no-skill-baseline   Also run no-skill baseline

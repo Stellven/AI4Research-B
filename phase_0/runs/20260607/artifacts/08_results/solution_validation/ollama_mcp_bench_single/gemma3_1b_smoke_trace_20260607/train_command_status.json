@@ -1,0 +1,5 @@
+{
+  "command": ".venv/bin/python main.py ../../artifacts/07_configs_and_inputs/smoke_data/mcp_bench_single_train_n4_seed42.json --config ../../artifacts/07_configs_and_inputs/generated_configs/local_ollama/mcp_bench_single/gemma3_1b_smoke_trace_20260607.yaml",
+  "exit_code": 0,
+  "runtime_seconds": 914
+}

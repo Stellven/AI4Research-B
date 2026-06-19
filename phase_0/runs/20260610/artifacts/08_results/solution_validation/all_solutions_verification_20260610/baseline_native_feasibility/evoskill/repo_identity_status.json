@@ -1,0 +1,7 @@
+{
+  "method": "EvoSkill",
+  "repo_path": "phase_0/runs/skillgen_phase0_thorough_20260602/code/official/baselines/EvoSkill",
+  "local_commit": "925229680ac4ceebedb44bc548dfb82631c66525",
+  "remote_head": "925229680ac4ceebedb44bc548dfb82631c66525",
+  "python_files": 151
+}

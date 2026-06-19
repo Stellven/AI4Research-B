@@ -1,0 +1,113 @@
+{
+  "schema_version": "0.2",
+  "hardcodings": [
+    {
+      "id": "target_paper_scope",
+      "description": "The demo is intentionally scoped to SkillGen.pdf.",
+      "reason": "The user explicitly asked for a preliminary demo that only needs to work for this paper.",
+      "impact": "The claim selector prioritizes SkillGen's paired-intervention/Table 1 claim shape."
+    },
+    {
+      "id": "claim_selector_priority",
+      "description": "The demo selects the Table 1 average-gains claim as the primary benchmark claim.",
+      "reason": "The existing Phase 0 SkillGen note and the paper text identify it as the strongest Phase 0 target.",
+      "impact": "Other SkillGen claims are not selected for the preliminary run, though they remain in the parsed paper text."
+    },
+    {
+      "id": "execution_stop_policy",
+      "description": "The demo blocks before official-code execution when hosted APIs, paid token use, external benchmark assets, or missing human approval are detected.",
+      "reason": "Phase 0 rules require a human-visible command gate before risky or costly third-party execution.",
+      "impact": "The demo produces a blocked validation package instead of running official benchmarks."
+    },
+    {
+      "id": "official_repo_url",
+      "description": "The automation uses `https://github.com/yccm/SkillGen` as the official SkillGen code source.",
+      "reason": "The paper-specific POC targets SkillGen and needs a deterministic official-code intake source.",
+      "impact": "A different paper or fork requires a different code-intake contract."
+    },
+    {
+      "id": "skillgen_aime_smoke_target",
+      "description": "The first executable target is AIME with train_n=8, eval_n=4, and seed=42.",
+      "reason": "The user requested the cheapest validation target for the preliminary Phase 0 POC.",
+      "impact": "The smoke verdict does not reproduce the full SkillGen Table 1 claim."
+    },
+    {
+      "id": "skillgen_smoke_models",
+      "description": "The smoke command plan uses OpenRouter model names openai/gpt-5.4-nano and openai/gpt-5.4-mini.",
+      "reason": "The existing smoke run used the cheapest available validation setup that still exercises official code.",
+      "impact": "Changing provider routing or model availability may change cost, behavior, or reproducibility."
+    },
+    {
+      "id": "skillgen_eval_parser",
+      "description": "The result parser expects SkillGen eval_results.json, token usage JSON, and verification_summary.json shapes.",
+      "reason": "The POC only needs to automate this paper's official-code output format.",
+      "impact": "Other papers or future SkillGen output schemas need a different parser contract."
+    },
+    {
+      "id": "skillgen_eval_cli_deviation",
+      "description": "The command plan uses eval_skill.py --skill-repo/--dataset flags when the README example appears mismatched.",
+      "reason": "The executable script parser is treated as the source of truth for the current official checkout.",
+      "impact": "This is a recorded deviation from README text and must remain visible for human review."
+    },
+    {
+      "id": "skillgen_all_claim_catalog",
+      "description": "The all-claims automation uses a SkillGen-specific catalog of major empirical and executable claims.",
+      "reason": "The POC is scoped to SkillGen.pdf and the paper's claims require paper-specific grouping before verification.",
+      "impact": "The catalog is not a general claim extractor for arbitrary papers."
+    },
+    {
+      "id": "skillgen_table1_rows_and_models",
+      "description": "The all-claims matrix hardcodes the Table 1 row ids and eight paper model display names.",
+      "reason": "These are needed to detect which full-paper claims can be matched to official-code data and model routes.",
+      "impact": "Exact provider route IDs still need review before full unattended Table 1 execution."
+    },
+    {
+      "id": "skillgen_external_source_catalog",
+      "description": "The automation hardcodes official external-source candidates for missing SkillGen benchmark components.",
+      "reason": "The POC needs to distinguish unresolved missing data from officially referenced sources that can be pulled into the run package.",
+      "impact": "Only sources supported by official README/script/adapter evidence are treated as valid reproduction intake candidates."
+    },
+    {
+      "id": "skillgen_transfer_and_token_claim_tables",
+      "description": "The automation hardcodes the paper's transfer-model display names, transfer benchmark rows, and Table 4 token-cost benchmark rows.",
+      "reason": "These claim-level runner plans are SkillGen-specific and need deterministic row/model names before execution artifacts can be generated.",
+      "impact": "The route IDs, actual token logs, and benchmark outputs still need execution evidence before the corresponding claims can be reproduced."
+    },
+    {
+      "id": "skillgen_canonical_benchmark_sources",
+      "description": "The automation records canonical external benchmark repositories for paper-named benchmarks when the SkillGen checkout lacks complete runnable support.",
+      "reason": "The user asked to fetch code for paper-indicated sources even when the paper does not provide a detailed SkillGen-compatible integration.",
+      "impact": "Fetched canonical code is source evidence only until a SkillGen-compatible adapter, split contract, and execution plan are available."
+    },
+    {
+      "id": "skillgen_baseline_generator_source_catalog",
+      "description": "The automation records public baseline generator source candidates for Trace2Skill, SkillX, EvoSkill, and CoEvoSkills.",
+      "reason": "Group D needs a source identity review path before the Figure 2 baseline comparison can move beyond not_testable.",
+      "impact": "These candidates are not treated as exact SkillGen author runners until commit, license, identity, and single-skill adaptation are human-reviewed."
+    },
+    {
+      "id": "skillgen_reconstructed_ablation_arms",
+      "description": "The automation records reconstructed Figure 3 A1-A5 ablation arms from the paper description rather than from author-provided named configs.",
+      "reason": "The official checkout does not include a Figure 3 ablation runner or A1-A5 config package, but the validation workflow needs a human-reviewable execution path.",
+      "impact": "The resulting ablation matrix is deviation-backed reconstructed verification unless original author configs are later found and substituted."
+    },
+    {
+      "id": "skillgen_direct_openai_fallback_deviation",
+      "description": "Some additional target executions use a recorded official-code patch that routes openai/* chat calls directly to OpenAI when SKILLGEN_DIRECT_OPENAI_FOR_OPENAI_MODELS=1.",
+      "reason": "The OpenRouter account returned insufficient-credit errors during approved execution, while the user's OpenAI key could execute the same OpenAI model routes.",
+      "impact": "This is a human-visible execution deviation from the unpatched official checkout and must be considered when comparing results to the paper."
+    },
+    {
+      "id": "skillgen_table4_reduced_poc_scale_deviation",
+      "description": "Table 4 token groups were executed with reduced POC-scale configs rather than the full paper-scale Table 4 setup.",
+      "reason": "The Phase 0 POC needed to clear non-structural API/cost blockers while keeping the run tractable inside the current project run directory.",
+      "impact": "The run verifies token-log collection mechanics for the ready Table 4 groups, but it does not reproduce the paper's full-scale token totals."
+    },
+    {
+      "id": "skillgen_table4_concurrency_retry_deviation",
+      "description": "Some generated Table 4 configs used max_workers=4 for speed; Mind2Web was retried at max_workers=1 after an OpenAI TPM 429 rate-limit failure.",
+      "reason": "Concurrency reduced wall-clock time for long ready targets, while the retry avoided a non-structural provider rate-limit blocker.",
+      "impact": "Concurrency and retry behavior are recorded deviations that may affect latency and token timing, but the raw logs preserve the attempted and successful executions."
+    }
+  ]
+}

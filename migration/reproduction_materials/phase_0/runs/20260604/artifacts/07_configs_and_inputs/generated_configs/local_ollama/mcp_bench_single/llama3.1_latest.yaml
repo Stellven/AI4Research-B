@@ -1,0 +1,74 @@
+# SkillGen Phase 0 local Ollama solution-validation config.
+# Deviation from paper reproduction: all chat uses local Ollama llama3.1:latest
+# and embeddings use the env-gated deterministic hash fallback.
+models:
+  default: "llama3.1:latest"
+  baseline_agent: "llama3.1:latest"
+  baseline_judge: "llama3.1:latest"
+  induction: "llama3.1:latest"
+  induction_contextual: "llama3.1:latest"
+  induction_summary: "llama3.1:latest"
+  induction_pattern: "llama3.1:latest"
+  induction_contrastive: "llama3.1:latest"
+  generation_plan: "llama3.1:latest"
+  generation_execute: "llama3.1:latest"
+  refinement: "llama3.1:latest"
+  verification_agent: "llama3.1:latest"
+  verification_judge: "llama3.1:latest"
+  verification_case_analyst: "llama3.1:latest"
+  verification_revision_synthesiser: "llama3.1:latest"
+
+llm:
+  temperature: 0.0
+  max_tokens: 1024
+  max_tokens_generation: 4096
+
+embedding:
+  model: "local-hash-embedding"
+
+clustering:
+  method: "kmeans"
+  n_clusters: null
+  max_failure_clusters: 2
+  max_success_clusters: 2
+  min_clusters: 2
+  target_cluster_size: 4
+  min_cluster_size: 1
+
+induction:
+  max_contrastive_pairs: 4
+
+generation:
+  use_web_search: false
+  max_search_queries: 0
+  candidate_output_dir: "../../artifacts/08_results/solution_validation/ollama_mcp_bench_single/llama3.1_latest/candidates"
+  generate_scripts: false
+  max_failure_clusters_in_prompt: 2
+  max_success_clusters_in_prompt: 2
+  max_contrastive_pairs_in_prompt: 4
+
+verification_analysis:
+  case_analyst_workers: 1
+  case_analyst_max_tokens: 1024
+  revision_synthesiser_max_tokens: 2048
+
+verification:
+  sample_size: 4
+  min_sample: 2
+  seed: 42
+  min_net_gain_abs: 1
+  min_net_gain_rel: 0.0
+
+router:
+  enabled: false
+  model: "llama3.1:latest"
+  max_workers: 1
+
+pipeline:
+  max_refine_rounds: 1
+  baseline_runs_per_instance: 1
+  max_workers: 1
+  artifact_root: "../../artifacts/08_results/solution_validation/ollama_mcp_bench_single/llama3.1_latest/artifacts/runs"
+
+skill_output:
+  path: "../../artifacts/08_results/solution_validation/ollama_mcp_bench_single/llama3.1_latest/skill_output"

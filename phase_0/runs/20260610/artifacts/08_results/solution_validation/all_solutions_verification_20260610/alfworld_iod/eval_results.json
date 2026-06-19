@@ -1,0 +1,37 @@
+{
+  "skill_id": "bc6939e3-5880-483f-950b-02f6a5e508b9",
+  "semantic_aim": "",
+  "skill_status": "deprecated",
+  "skill_rejected": true,
+  "dataset": "../../artifacts/08_results/solution_validation/all_solutions_verification_20260610/smoke_data/alfworld_iod_test_n2.json",
+  "n_sampled": 2,
+  "seed": 42,
+  "drop_blank": true,
+  "results": [
+    {
+      "model": "gemma3:1b",
+      "skill_id": "bc6939e3-5880-483f-950b-02f6a5e508b9",
+      "n_instances": 2,
+      "baseline_acc": 0.0,
+      "skill_acc": 0.0,
+      "delta_acc": 0.0,
+      "repair": 0,
+      "regression": 0,
+      "repair_rate": 0.0,
+      "regression_rate": 0.0,
+      "net_gain": 0,
+      "blank_filter": {
+        "drop_blank": true,
+        "n_paired_raw": 2,
+        "n_blank_baseline": 0,
+        "n_blank_skill": 0,
+        "n_blank_either": 0,
+        "n_blank_both": 0
+      },
+      "tools": {
+        "enable_web_search": false,
+        "execute_scripts": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,215 @@
+{
+  "schema_version": "0.1",
+  "group": "E_ablation",
+  "scope": "Deviation-backed reconstructed execution contract for SkillGen Figure 3 ablations",
+  "run_dir": "20260611",
+  "claim_id": "claim_ablation_full_wins",
+  "status": "ready_for_reconstructed_ablation_execution",
+  "reproduction_class": "deviation_backed_reconstructed_verification",
+  "exact_reproduction_blockers": [
+    "The current official checkout does not include an author-provided Figure 3 ablation runner.",
+    "The current official checkout does not include named A1-A5 ablated config files.",
+    "Any execution from this contract must be reported as reconstructed unless original author configs are later found."
+  ],
+  "paper_arms": [
+    "Full",
+    "A1",
+    "A2",
+    "A3",
+    "A4",
+    "A5"
+  ],
+  "shared_execution_contract": {
+    "paired_harness": "Use the same no-skill baseline, held-out instances, model route, judge route, seed, and evaluator for Full and every ablation arm.",
+    "primary_metric": "delta_acc = skill_acc - baseline_acc on held-out paired evaluation.",
+    "claim_rule": "Full wins only if Full has higher held-out skill_acc or delta_acc than each A1-A5 arm for every executed dataset-model pair.",
+    "human_gate": "Human approval is required before executing reconstructed ablations, especially A3 because it disables the verification gate.",
+    "storage_rule": "All configs, patches, generated skills, raw logs, trajectories, and caches must remain inside the run directory.",
+    "trace_retention": [
+      "Retain construction baseline and checkpoint trajectories.",
+      "Retain verification/round_* baseline, with-skill, summary, and case-analysis files.",
+      "Retain held-out eval_results.json and eval_results_trajectories for every arm."
+    ]
+  },
+  "arms": [
+    {
+      "arm_id": "Full",
+      "name": "Complete SkillGen",
+      "paper_behavior": "Run contrastive induction, refinement, verification gate, Failure Lessons, and script/reference bundles where enabled by the paper setup.",
+      "implementation_type": "full_config",
+      "implementation_method": "Use the normal SkillGen configuration as the paired reference arm.",
+      "config_overrides": {
+        "pipeline.max_refine_rounds": 8,
+        "verification.gate_enabled": true,
+        "generation.include_failure_lessons": true,
+        "generation.generate_scripts": "paper_target_dependent",
+        "generation.generate_references": "paper_target_dependent"
+      },
+      "patch_or_wrapper_path": null,
+      "deviation_label": "reference_full_system",
+      "safety_note": "Full must use the same split, model route, judge route, and seed as every ablation arm.",
+      "rollback_note": "No rollback needed; this is the reference arm.",
+      "status": "ready_for_reconstructed_ablation_execution",
+      "expected_artifact_outputs": [
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/Full/train_stdout.txt",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/Full/train_stderr.txt",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/Full/skill_output",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/Full/eval_results.json",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/Full/eval_results_trajectories",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/Full/deviation_note.md"
+      ],
+      "approval_required_before_execution": false
+    },
+    {
+      "arm_id": "A1",
+      "name": "ICL k=3 instead of induced skill",
+      "paper_behavior": "Replace induced skill generation with three in-context demonstrations.",
+      "implementation_type": "wrapper_generated_skill",
+      "implementation_method": "Select three baseline-success construction trajectories with seed 42, render them as a Markdown demonstration skill, skip induction/refinement for this arm, and evaluate the demonstration skill through eval_skill.py.",
+      "config_overrides": {
+        "ablation.mode": "icl_k3_demonstration_skill",
+        "ablation.demo_k": 3,
+        "ablation.demo_source": "construction_baseline_successes",
+        "ablation.demo_seed": 42
+      },
+      "patch_or_wrapper_path": "artifacts/ablation_configs/A1_icl_k3_demonstration_skill.md",
+      "deviation_label": "reconstructed_icl_k3_demo_selection",
+      "safety_note": "Demonstrations must come only from construction trajectories; held-out test instances must not leak into the skill text.",
+      "rollback_note": "Delete the generated demonstration skill and rerun the normal Full generation path.",
+      "status": "ready_for_reconstructed_ablation_execution",
+      "expected_artifact_outputs": [
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A1/train_stdout.txt",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A1/train_stderr.txt",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A1/skill_output",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A1/eval_results.json",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A1/eval_results_trajectories",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A1/deviation_note.md"
+      ],
+      "approval_required_before_execution": true
+    },
+    {
+      "arm_id": "A2",
+      "name": "No refinement",
+      "paper_behavior": "Use the initial generated candidate skill without later refinement rounds.",
+      "implementation_type": "config_only",
+      "implementation_method": "Set pipeline.max_refine_rounds to 1 so only the initial generation round is evaluated.",
+      "config_overrides": {
+        "pipeline.max_refine_rounds": 1
+      },
+      "patch_or_wrapper_path": "artifacts/ablation_configs/A2_no_refinement.yaml",
+      "deviation_label": "reconstructed_no_refinement_config",
+      "safety_note": "Keep verification output for round 1 so failures and regressions remain auditable.",
+      "rollback_note": "Restore pipeline.max_refine_rounds to the Full arm value.",
+      "status": "ready_for_reconstructed_ablation_execution",
+      "expected_artifact_outputs": [
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A2/train_stdout.txt",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A2/train_stderr.txt",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A2/skill_output",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A2/eval_results.json",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A2/eval_results_trajectories",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A2/deviation_note.md"
+      ],
+      "approval_required_before_execution": true
+    },
+    {
+      "arm_id": "A3",
+      "name": "No verification gate",
+      "paper_behavior": "Disable the construction-time gate that rejects skills without positive verification gain.",
+      "implementation_type": "behavioral_config_or_runner_patch",
+      "implementation_method": "Record verification results normally, but force the selected candidate into held-out evaluation even when the gate fails. If the official code marks failed skills as DEPRECATED, the ablation runner must override that status only for this arm.",
+      "config_overrides": {
+        "verification.disable_gate_for_ablation": true,
+        "verification.record_results": true,
+        "ablation.force_eval_failed_gate_skill": true
+      },
+      "patch_or_wrapper_path": "artifacts/ablation_patches/A3_disable_gate.patch",
+      "deviation_label": "safety_gate_disabled_reconstructed_ablation",
+      "safety_note": "This arm intentionally disables a safety/quality gate; raw failed-gate evidence must be preserved before held-out evaluation.",
+      "rollback_note": "Remove the A3 runner override and restore normal deprecated-skill/no-op handling.",
+      "status": "ready_for_reconstructed_ablation_execution",
+      "expected_artifact_outputs": [
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A3/train_stdout.txt",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A3/train_stderr.txt",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A3/skill_output",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A3/eval_results.json",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A3/eval_results_trajectories",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A3/deviation_note.md"
+      ],
+      "approval_required_before_execution": true
+    },
+    {
+      "arm_id": "A4",
+      "name": "No Failure Lessons",
+      "paper_behavior": "Remove Failure Lessons from the skill generation/refinement process.",
+      "implementation_type": "prompt_patch_preferred",
+      "implementation_method": "Preferred path: patch generation/refinement prompts so they neither request nor emit a Failure Lessons section. Fallback path: remove the final '## Failure lessons' section before held-out evaluation and label it as a weaker post-process ablation.",
+      "config_overrides": {
+        "generation.include_failure_lessons": false,
+        "refinement.include_failure_lessons": false
+      },
+      "patch_or_wrapper_path": "artifacts/ablation_patches/A4_no_failure_lessons_prompt.patch",
+      "deviation_label": "reconstructed_no_failure_lessons_prompt",
+      "safety_note": "If the fallback post-process path is used, record that the generator still saw failure evidence during construction.",
+      "rollback_note": "Restore the original generation/refinement prompts and skill post-processing.",
+      "status": "ready_for_reconstructed_ablation_execution",
+      "expected_artifact_outputs": [
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A4/train_stdout.txt",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A4/train_stderr.txt",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A4/skill_output",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A4/eval_results.json",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A4/eval_results_trajectories",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A4/deviation_note.md"
+      ],
+      "approval_required_before_execution": true
+    },
+    {
+      "arm_id": "A5",
+      "name": "Plain-text skill, no script/reference bundle",
+      "paper_behavior": "Disable executable helper scripts and reference bundles so the skill is plain text only.",
+      "implementation_type": "config_only",
+      "implementation_method": "Set generation.generate_scripts and generation.generate_references to false for this arm.",
+      "config_overrides": {
+        "generation.generate_scripts": false,
+        "generation.generate_references": false
+      },
+      "patch_or_wrapper_path": "artifacts/ablation_configs/A5_plain_text_skill.yaml",
+      "deviation_label": "reconstructed_plain_text_skill_config",
+      "safety_note": "Only compare A5 against Full on dataset-model pairs where Full actually enables script/reference bundles.",
+      "rollback_note": "Restore script/reference generation to the Full arm setting.",
+      "status": "ready_for_reconstructed_ablation_execution",
+      "expected_artifact_outputs": [
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A5/train_stdout.txt",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A5/train_stderr.txt",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A5/skill_output",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A5/eval_results.json",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A5/eval_results_trajectories",
+        "artifacts/raw_benchmark_outputs/ablation/{layer}/{dataset_id}/{model_slug}/A5/deviation_note.md"
+      ],
+      "approval_required_before_execution": true
+    }
+  ],
+  "execution_layers": [
+    {
+      "layer": "smoke_reconstructed_ablation",
+      "status": "ready_for_reconstructed_ablation_execution",
+      "purpose": "Exercise Full and A1-A5 mechanics on one cheap approved dataset-model pair before paper-target matrix execution.",
+      "default_target": "skillgen_aime_smoke",
+      "acceptance_criteria": [
+        "Every arm writes config or patch artifacts before execution.",
+        "Every arm writes raw stdout/stderr and eval_results.json.",
+        "The A3 run preserves failed-gate verification evidence before gate override.",
+        "The output claim comparison labels the run as reconstructed smoke evidence."
+      ]
+    },
+    {
+      "layer": "paper_target_reconstructed_ablation",
+      "status": "blocked",
+      "purpose": "Run the reconstructed ablation matrix on the Figure 3 dataset-model pairs after those pairs are explicitly reviewed.",
+      "remaining_blockers": [
+        "Figure 3 dataset-model pair list must be confirmed from paper/report artifacts.",
+        "Human must approve any prompt/code patch before execution.",
+        "Full Table 1 structural blockers may still limit paper-target pair availability."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "run_label": "gemma3_4b_stratified",
+  "run_type": "solution_validation",
+  "classification": "partially_solution_validated",
+  "classification_reason": "The patched stratified verification sampler was exercised and construction verification passed with positive net gain on selected training failures, but held-out evaluation did not improve over baseline and introduced one regression.",
+  "not_paper_reproduction": true,
+  "timestamp": "2026-06-06 12:18:48 EDT -0400",
+  "environment": {
+    "model": "gemma3:4b",
+    "local_openai_compatible_endpoint": "http://127.0.0.1:11434/v1",
+    "embedding_mode": "hash",
+    "external_openai_api_unset": true,
+    "external_openrouter_api_unset": true,
+    "direct_openai_fallback_disabled": true,
+    "post_run_ollama_loaded": {
+      "model": "gemma3:4b",
+      "size": "3.2 GB",
+      "processor": "100% GPU",
+      "context": 131072
+    },
+    "post_run_memory_free_percent": 24
+  },
+  "commands": {
+    "preflight_tests": {
+      "command": "python3 -m unittest discover -s tests",
+      "result": "Ran 13 tests / OK"
+    },
+    "train_attempt_1": {
+      "exit_code": 1,
+      "runtime_seconds": 2873,
+      "outcome": "failed_to_run",
+      "reason": "Sandboxed local Ollama/OpenAI-compatible HTTP access failed with Operation not permitted.",
+      "stdout": "train_attempt1_stdout.txt",
+      "stderr": "train_attempt1_stderr.txt",
+      "status": "train_attempt1_command_status.json"
+    },
+    "train_primary_rerun": {
+      "exit_code": 0,
+      "runtime_seconds": 2682,
+      "status": "train_command_status.json"
+    },
+    "held_out_eval": {
+      "exit_code": 0,
+      "runtime_seconds": 1961,
+      "status": "eval_command_status.json"
+    }
+  },
+  "train": {
+    "dataset": "data/mcp_bench/train.json",
+    "dataset_id": "mcp_bench_single_train_n40_seed42",
+    "n_instances": 40,
+    "baseline_failures": 5,
+    "baseline_successes": 35,
+    "failure_clusters": 2,
+    "success_clusters": 2,
+    "contrastive_pairs": 4,
+    "same_type_pairs": 4,
+    "artifact_run_id": "20260606-105511",
+    "artifact_run_path": "artifacts/runs/20260606-105511",
+    "candidate_skill_id_in_verification_summary": "8358dd90-a6d9-4306-a03d-51d6c0b0972e",
+    "persisted_active_skill_id": "bd029056-5133-4626-b151-3a21e8e67ea2",
+    "persisted_active_skill_path": "skill_output/2026-06-06_10-55-11/bd029056-5133-4626-b151-3a21e8e67ea2.json",
+    "persisted_active_skill_status": "active",
+    "persisted_active_skill_version": 1,
+    "persisted_active_skill_token_count": 738
+  },
+  "construction_verification": {
+    "sample_size": 4,
+    "target_failure_count": 2,
+    "success_guard_count": 2,
+    "target_failure_ids": [
+      "call_for_papers_001",
+      "movie_recommender_001"
+    ],
+    "success_guard_ids": [
+      "medical_calculator_001",
+      "nasa_data_000"
+    ],
+    "baseline_acc": 0.5,
+    "skill_acc": 0.75,
+    "repair_count": 2,
+    "regression_count": 1,
+    "repair_rate": 1.0,
+    "regression_rate": 0.5,
+    "net_gain": 1,
+    "passed": true,
+    "repaired_ids": [
+      "call_for_papers_001",
+      "movie_recommender_001"
+    ],
+    "regression_ids": [
+      "medical_calculator_001"
+    ]
+  },
+  "held_out_eval": {
+    "dataset": "data/mcp_bench/test.json",
+    "n_sampled": 16,
+    "seed": 42,
+    "model": "gemma3:4b",
+    "judge_model": "gemma3:4b",
+    "skill_id": "bd029056-5133-4626-b151-3a21e8e67ea2",
+    "skill_status": "active",
+    "drop_blank": true,
+    "n_paired_raw": 16,
+    "n_blank_either": 0,
+    "baseline_pass": 16,
+    "skill_pass": 15,
+    "baseline_acc": 1.0,
+    "skill_acc": 0.9375,
+    "delta_acc": -0.0625,
+    "repair": 0,
+    "regression": 1,
+    "repair_rate": 0.0,
+    "regression_rate": 0.0625,
+    "net_gain": -1,
+    "baseline_mean_score": 0.6991815476190476,
+    "skill_mean_score": 0.6739583333333333,
+    "score_delta": -0.0252232142857143,
+    "baseline_mean_latency_seconds": 50.70531338453293,
+    "skill_mean_latency_seconds": 41.79067389667034,
+    "regression_cases": [
+      {
+        "instance_id": "car_price_evaluator_000",
+        "baseline_success": true,
+        "baseline_score": 0.6833333333333332,
+        "skill_success": false,
+        "skill_score": 0.10000000000000002
+      }
+    ],
+    "tools": {
+      "enable_web_search": false,
+      "execute_scripts": false
+    }
+  },
+  "token_usage": {
+    "train_total_tokens": 347521,
+    "eval_total_tokens": 200036
+  },
+  "acceptance_observations": {
+    "stratified_sampler_selected_failures": true,
+    "construction_verification_passed": true,
+    "held_out_eval_ran": true,
+    "held_out_net_gain_positive": false,
+    "skill_effectiveness_validated_on_held_out": false
+  }
+}

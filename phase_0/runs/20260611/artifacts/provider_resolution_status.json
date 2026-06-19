@@ -1,0 +1,201 @@
+{
+  "schema_version": "0.1",
+  "scope": "Provider availability policy for SkillGen full-matrix execution.",
+  "run_dir": "20260611",
+  "status": "openai_ready_non_openai_waiting_route_resolution",
+  "policy": {
+    "direct_openai_fallback": true,
+    "include_non_openai": false,
+    "allow_openrouter_after_402": false,
+    "model_substitution_allowed": false,
+    "non_openai_direct_provider_runner_status": "not_integrated_by_current_runner",
+    "matrix_behavior": "Run executable entries; record provider-unavailable entries without treating provider failure as benchmark evidence."
+  },
+  "env_key_inventory": {
+    "project_root": ".",
+    "dotenv_path": ".env",
+    "keys": {
+      "OPENROUTER_API_KEY": {
+        "present": true,
+        "sources": [
+          "process_env",
+          "project_root_dotenv"
+        ]
+      },
+      "OPENAI_API_KEY": {
+        "present": true,
+        "sources": [
+          "process_env",
+          "project_root_dotenv"
+        ]
+      },
+      "ANTHROPIC_API_KEY": {
+        "present": false,
+        "sources": []
+      },
+      "GOOGLE_API_KEY": {
+        "present": false,
+        "sources": []
+      },
+      "GEMINI_API_KEY": {
+        "present": false,
+        "sources": []
+      },
+      "MISTRAL_API_KEY": {
+        "present": false,
+        "sources": []
+      },
+      "XAI_API_KEY": {
+        "present": false,
+        "sources": []
+      },
+      "GROQ_API_KEY": {
+        "present": false,
+        "sources": []
+      },
+      "TOGETHER_API_KEY": {
+        "present": false,
+        "sources": []
+      },
+      "FIREWORKS_API_KEY": {
+        "present": false,
+        "sources": []
+      },
+      "DEEPINFRA_API_KEY": {
+        "present": false,
+        "sources": []
+      }
+    },
+    "security_note": "Only key presence and source type are recorded; secret values are never written."
+  },
+  "openrouter_billing_failure": {
+    "detected": false,
+    "evidence_files": []
+  },
+  "provider_summary": {
+    "openai_candidate_ready_models": 2,
+    "non_openai_provider_unavailable_models": 0,
+    "non_openai_waiting_route_resolution_models": 6
+  },
+  "routes": [
+    {
+      "paper_display_name": "Gemma-4-26B",
+      "provider_route_id": "google/gemma-4-26b-a4b-it",
+      "route_status": "route_resolved_equivalent",
+      "route_is_openai": false,
+      "execution_status": "waiting_provider_route_resolution",
+      "runner_status": "waiting_provider_route_resolution",
+      "reason": "Non-OpenAI routes are intentionally skipped by default; pass --include-non-openai only after provider execution is intentionally enabled.",
+      "direct_provider_key_hints": [
+        "GOOGLE_API_KEY",
+        "GEMINI_API_KEY"
+      ],
+      "direct_provider_keys_present": [],
+      "direct_provider_runner_status": "not_integrated_by_current_runner"
+    },
+    {
+      "paper_display_name": "Llama-3.1-8B",
+      "provider_route_id": "meta-llama/llama-3.1-8b-instruct",
+      "route_status": "route_resolved_exact",
+      "route_is_openai": false,
+      "execution_status": "waiting_provider_route_resolution",
+      "runner_status": "waiting_provider_route_resolution",
+      "reason": "Non-OpenAI routes are intentionally skipped by default; pass --include-non-openai only after provider execution is intentionally enabled.",
+      "direct_provider_key_hints": [
+        "TOGETHER_API_KEY",
+        "FIREWORKS_API_KEY",
+        "DEEPINFRA_API_KEY",
+        "GROQ_API_KEY"
+      ],
+      "direct_provider_keys_present": [],
+      "direct_provider_runner_status": "not_integrated_by_current_runner"
+    },
+    {
+      "paper_display_name": "Mistral-Nemo",
+      "provider_route_id": "mistralai/mistral-nemo",
+      "route_status": "route_resolved_exact",
+      "route_is_openai": false,
+      "execution_status": "waiting_provider_route_resolution",
+      "runner_status": "waiting_provider_route_resolution",
+      "reason": "Non-OpenAI routes are intentionally skipped by default; pass --include-non-openai only after provider execution is intentionally enabled.",
+      "direct_provider_key_hints": [
+        "MISTRAL_API_KEY"
+      ],
+      "direct_provider_keys_present": [],
+      "direct_provider_runner_status": "not_integrated_by_current_runner"
+    },
+    {
+      "paper_display_name": "Qwen-2.5-7B",
+      "provider_route_id": "qwen/qwen-2.5-7b-instruct",
+      "route_status": "route_resolved_exact",
+      "route_is_openai": false,
+      "execution_status": "waiting_provider_route_resolution",
+      "runner_status": "waiting_provider_route_resolution",
+      "reason": "Non-OpenAI routes are intentionally skipped by default; pass --include-non-openai only after provider execution is intentionally enabled.",
+      "direct_provider_key_hints": [
+        "TOGETHER_API_KEY",
+        "FIREWORKS_API_KEY",
+        "DEEPINFRA_API_KEY"
+      ],
+      "direct_provider_keys_present": [],
+      "direct_provider_runner_status": "not_integrated_by_current_runner"
+    },
+    {
+      "paper_display_name": "Claude-Haiku-4.5",
+      "provider_route_id": "anthropic/claude-haiku-4.5",
+      "route_status": "route_resolved_exact",
+      "route_is_openai": false,
+      "execution_status": "waiting_provider_route_resolution",
+      "runner_status": "waiting_provider_route_resolution",
+      "reason": "Non-OpenAI routes are intentionally skipped by default; pass --include-non-openai only after provider execution is intentionally enabled.",
+      "direct_provider_key_hints": [
+        "ANTHROPIC_API_KEY"
+      ],
+      "direct_provider_keys_present": [],
+      "direct_provider_runner_status": "not_integrated_by_current_runner"
+    },
+    {
+      "paper_display_name": "GPT-5.4-Nano",
+      "provider_route_id": "openai/gpt-5.4-nano",
+      "route_status": "route_resolved_exact",
+      "route_is_openai": true,
+      "execution_status": "executable_via_direct_openai",
+      "runner_status": "candidate_ready",
+      "reason": "OpenAI paper route can bypass OpenRouter through SKILLGEN_DIRECT_OPENAI_FOR_OPENAI_MODELS=1.",
+      "direct_provider_key_hints": [],
+      "direct_provider_keys_present": [],
+      "direct_provider_runner_status": "available_for_openai_only"
+    },
+    {
+      "paper_display_name": "GPT-5.4-Mini",
+      "provider_route_id": "openai/gpt-5.4-mini",
+      "route_status": "route_resolved_exact",
+      "route_is_openai": true,
+      "execution_status": "executable_via_direct_openai",
+      "runner_status": "candidate_ready",
+      "reason": "OpenAI paper route can bypass OpenRouter through SKILLGEN_DIRECT_OPENAI_FOR_OPENAI_MODELS=1.",
+      "direct_provider_key_hints": [],
+      "direct_provider_keys_present": [],
+      "direct_provider_runner_status": "available_for_openai_only"
+    },
+    {
+      "paper_display_name": "Grok-4-Fast",
+      "provider_route_id": "x-ai/grok-4.3",
+      "route_status": "route_resolved_equivalent",
+      "route_is_openai": false,
+      "execution_status": "waiting_provider_route_resolution",
+      "runner_status": "waiting_provider_route_resolution",
+      "reason": "Non-OpenAI routes are intentionally skipped by default; pass --include-non-openai only after provider execution is intentionally enabled.",
+      "direct_provider_key_hints": [
+        "XAI_API_KEY"
+      ],
+      "direct_provider_keys_present": [],
+      "direct_provider_runner_status": "not_integrated_by_current_runner"
+    }
+  ],
+  "operational_decision": [
+    "Continue full-matrix execution for openai/* routes with direct OpenAI fallback enabled.",
+    "Do not attempt non-OpenAI routes while OpenRouter 402 evidence is present unless OpenRouter credits/key are repaired or a reviewed direct-provider integration is added.",
+    "Do not substitute non-OpenAI paper models with OpenAI models for Table 1 reproduction; any substitute-model run must be marked as an extended/deviation-backed experiment."
+  ]
+}

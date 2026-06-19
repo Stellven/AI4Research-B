@@ -1,0 +1,19 @@
+{
+  "name": "py_compile_core_entrypoints",
+  "argv": [
+    "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/baselines/Trace2Skill/.venv_probe/bin/python",
+    "-m",
+    "py_compile",
+    "analyze_results.py",
+    "analysis/run_error_analysis.py",
+    "analysis/run_success_analysis_llm.py",
+    "skill_evolver/run_parallel_skill_evolution.py"
+  ],
+  "cwd": "phase_0/runs/skillgen_phase0_thorough_20260602/code/official/baselines/Trace2Skill",
+  "started": true,
+  "timed_out": false,
+  "returncode": 0,
+  "stdout_path": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/baseline_native_feasibility/trace2skill/py_compile_core_entrypoints_stdout.txt",
+  "stderr_path": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/baseline_native_feasibility/trace2skill/py_compile_core_entrypoints_stderr.txt",
+  "status_path": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/all_solutions_verification_20260610/baseline_native_feasibility/trace2skill/py_compile_core_entrypoints_status.json"
+}

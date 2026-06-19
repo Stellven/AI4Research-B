@@ -1,0 +1,22 @@
+{
+  "schema_version": "0.3",
+  "command_plan_approved": true,
+  "approved_targets": [
+    "skillgen_aime_smoke"
+  ],
+  "allow_install": false,
+  "allow_benchmark": false,
+  "allow_network": false,
+  "allow_paid_api": false,
+  "allow_project_local_install": true,
+  "skip_install_if_environment_present": true,
+  "auto_retry_approved": true,
+  "max_retry_attempts": 1,
+  "long_inference_approved": true,
+  "dependency_scope_required": "inside_project_directory",
+  "max_cost_usd": 0.0,
+  "approved_by": "codex",
+  "approval_source": "codex_rerun_no_external_api",
+  "approved_at": "2026-06-11T13:44:48.158862+00:00",
+  "notes": "Rerun approved for local artifact regeneration only; install, benchmark execution, network, and paid APIs are intentionally disabled."
+}

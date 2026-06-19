@@ -1,0 +1,12 @@
+{
+  "analysis_id": "ddc79533-ea7d-4f71-8f73-7d859708d782",
+  "dataset_id": "chemllmbench_property_prediction",
+  "task_name": "chemllmbench_property_prediction_train",
+  "n_failures": 14,
+  "n_successes": 16,
+  "n_failure_clusters": 2,
+  "n_success_clusters": 2,
+  "n_contrastive_pairs": 4,
+  "same_type_pairs": 4,
+  "contextual_abstract": "This task asks the agent to act as a chemoinformatics classifier: given a molecule encoded as a SMILES string, it must predict a binary biological or toxicological property and output only a single-word label, \"Yes\" or \"No\". Solving it requires recognizing structure\u2013activity relationships from molecular graphs, including functional groups, ring systems, charge states, polarity, and other features that correlate with properties such as target inhibition, permeability, or pathway toxicity. The inputs vary by the specific property being queried and by the chemical structure itself, but the output format is always strictly constrained to one binary decision. Overall, this is a set of short-form molecular property prediction problems where the main challenge is mapping chemical structure to a yes/no classification without any external tools."
+}

@@ -1,0 +1,9 @@
+Held-out eval was not executed.
+
+Reason: the successful training run stopped early after Stage 1 because the
+baseline model produced 40 successes and 0 failures on the 40-instance
+mcp_bench_single training set. SkillGen therefore produced no skill repository
+to pass to eval_skill.py.
+
+Expected skill output directory was empty:
+phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_12b/skill_output/2026-06-04_22-55-35

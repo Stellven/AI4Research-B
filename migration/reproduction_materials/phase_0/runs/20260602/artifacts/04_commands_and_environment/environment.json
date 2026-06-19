@@ -1,0 +1,41 @@
+{
+  "schema_version": "0.3",
+  "status": "install_succeeded",
+  "python_venv": "code/official/.venv",
+  "uv_cache": "code/official/.uv-cache",
+  "dependency_scope": "inside_project_directory",
+  "api_key_values_printed": false,
+  "commands": [
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "venv",
+        "code/official/.venv"
+      ],
+      "workdir": ".",
+      "stdout": "outputs/install_stdout.txt",
+      "stderr": "outputs/install_stderr.txt",
+      "started_at": "2026-06-02T06:02:19.349087+00:00",
+      "ended_at": "2026-06-02T06:02:20.267577+00:00",
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "uv",
+        "pip",
+        "install",
+        "--python",
+        "code/official/.venv/bin/python",
+        "-r",
+        "code/official/requirements.txt"
+      ],
+      "workdir": ".",
+      "stdout": "outputs/install_stdout.txt",
+      "stderr": "outputs/install_stderr.txt",
+      "started_at": "2026-06-02T06:02:20.267773+00:00",
+      "ended_at": "2026-06-02T06:02:24.050171+00:00",
+      "exit_code": 0
+    }
+  ]
+}

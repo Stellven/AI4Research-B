@@ -1,0 +1,202 @@
+{
+  "analysis_id": "ddc79533-ea7d-4f71-8f73-7d859708d782",
+  "dataset_id": "chemllmbench_property_prediction",
+  "task_name": "chemllmbench_property_prediction_train",
+  "task_type": "binary",
+  "contextual_abstract": "This task asks the agent to act as a chemoinformatics classifier: given a molecule encoded as a SMILES string, it must predict a binary biological or toxicological property and output only a single-word label, \"Yes\" or \"No\". Solving it requires recognizing structure\u2013activity relationships from molecular graphs, including functional groups, ring systems, charge states, polarity, and other features that correlate with properties such as target inhibition, permeability, or pathway toxicity. The inputs vary by the specific property being queried and by the chemical structure itself, but the output format is always strictly constrained to one binary decision. Overall, this is a set of short-form molecular property prediction problems where the main challenge is mapping chemical structure to a yes/no classification without any external tools.",
+  "n_total": 30,
+  "n_failures": 14,
+  "n_successes": 16,
+  "failure_clusters": [
+    {
+      "cluster_id": "8721a279-3651-4cbc-bf29-50354d3dbe0e",
+      "kind": "failure",
+      "member_trajectory_ids": [
+        "4bda81aa-6a55-4da8-9ffb-67615ee2e29b",
+        "3dad42b5-4732-4778-bc3d-ff8bef311d8f",
+        "2d57d434-189d-4d5a-be59-421a5aa901ec",
+        "6d7136e1-0177-48b0-9e13-8d94f487a213",
+        "77bd7170-d8bb-4a78-9d5f-9dd1f4da1120",
+        "6b9a2eb5-1bf5-44e5-bc07-d339f2a4a6e8"
+      ],
+      "member_instance_ids": [
+        "property_prediction_00001",
+        "property_prediction_00003",
+        "property_prediction_00011",
+        "property_prediction_00013",
+        "property_prediction_00021",
+        "property_prediction_00023"
+      ],
+      "member_summaries": [
+        "The agent appears to have made an unsupported binary guess without analyzing the molecule\u2019s structural features associated with BACE1 inhibition. It missed the key medicinal-chemistry reasoning step of recognizing a BACE1-like scaffold and pharmacophoric elements, leading to an incorrect \u201cNo\u201d prediction.",
+        "The agent likely failed because it made an unsupported binary guess without properly analyzing the molecule\u2019s BBB-relevant properties. It missed the key reasoning step of weighing the compound\u2019s high polarity/ionization from the sulfonic acid salt against the lipophilic, brain-penetrant scaffold, leading to an unreliable conclusion.",
+        "The agent appears to have guessed without using the molecule\u2019s structural features that are relevant to BACE1 inhibition. It missed the key medicinal-chemistry pattern of a highly lipophilic, amide-containing scaffold with a protonated amine and aromatic substituents, which are common in BACE1 inhibitor-like compounds.",
+        "The agent failed by giving an unsupported binary answer without showing any chemical reasoning about BBB permeability. It appears to have skipped the key property assessment step\u2014considering factors like molecular size, polarity, heteroatom count, and lipophilicity\u2014so the response was effectively a guess rather than an informed prediction.",
+        "The agent likely relied on a superficial guess instead of recognizing the molecule\u2019s BACE1-inhibitor-like scaffold. It missed the key structure\u2013activity pattern: a rigid, lipophilic, heteroatom-rich, centrally constrained scaffold with aryl substituents that is characteristic of known BACE1 inhibitors.",
+        "The agent failed by giving an unsupported binary prediction without showing any chemical reasoning about blood-brain barrier permeability. It appears to have missed the key property assessment step\u2014evaluating factors like lipophilicity, polarity, and ionization\u2014so it likely guessed rather than inferring from the molecule\u2019s structure."
+      ],
+      "pattern": "Name: Ungrounded structure-property reasoning\nRoot cause: The agent lacks reliable chemistry-to-property inference and instead falls back to unsupported binary guessing. It fails to connect structural features to the relevant endpoint, such as recognizing how scaffold shape, polarity, ionization, and lipophilicity drive BBB permeability or BACE1-like activity.\nTypical mistake sequence: The agent sees a molecule and immediately outputs yes/no without first extracting the key medicinal-chemistry features. It then ignores or underweights the decisive property tradeoffs, such as polar/ionizable groups versus lipophilic, constrained, aromatic scaffolds, so the conclusion is effectively a guess.\nObservable signals: The response gives a binary prediction with little or no mention of structural features, physicochemical properties, or SAR reasoning.; The task involves endpoints that depend on balancing properties like polarity, ionization, lipophilicity, size, and scaffold class, but the answer does not explicitly evaluate them.\nCorrect behavior: The agent should first identify the molecule\u2019s relevant structural motifs and then reason step by step from those motifs to the target property. It should explicitly weigh the competing features that favor or disfavor the endpoint before committing to a prediction.",
+      "size": 6
+    },
+    {
+      "cluster_id": "bbf1e738-3f4c-44dd-be5f-39248554a617",
+      "kind": "failure",
+      "member_trajectory_ids": [
+        "32882bc2-93c0-4800-802b-debd0e82bde2",
+        "fc7f8f22-7b38-421c-9f3a-63db9e593e99",
+        "fb452197-53cb-40f9-ae2f-5b0130424d9d",
+        "ee00fbb8-0366-4bed-98a0-25b9cf50ff38",
+        "22da7b1b-26d1-4574-8abb-0b05961e0b2c",
+        "4a208858-91e7-4f80-84b6-97d0af59a466",
+        "8585c52a-c283-4279-94bb-d59178665943",
+        "b0d1c4e6-1a52-492a-bc48-45e7aaa79b62"
+      ],
+      "member_instance_ids": [
+        "property_prediction_00007",
+        "property_prediction_00009",
+        "property_prediction_00015",
+        "property_prediction_00017",
+        "property_prediction_00019",
+        "property_prediction_00025",
+        "property_prediction_00027",
+        "property_prediction_00029"
+      ],
+      "member_summaries": [
+        "The agent failed because it gave an unsupported binary prediction without any chemical reasoning or structure-based analysis. It appears to have guessed instead of recognizing that the molecule contains a known heteroaromatic scaffold and evaluating whether that scaffold is associated with HIV replication inhibition.",
+        "The agent failed by giving an unsupported binary label without any chemical reasoning, so it likely missed the key structure\u2013activity cues needed for NR-AR toxicity prediction. In particular, it did not recognize or evaluate the steroid-like scaffold and conjugated ketone features that are often relevant to androgen receptor activity, leading to an unjustified \u201cNo.\u201d",
+        "The agent failed because it gave an unsupported binary guess without reasoning from the molecule\u2019s structure or any evidence about clinical outcomes. It appears to have missed the key task requirement: infer toxicity-related trial failure from chemical features and known pharmacological context, rather than defaulting to a generic \u201cNo.\u201d",
+        "The agent failed because it gave an unsupported binary judgment without analyzing the molecule\u2019s structural features against known HIV-inhibitory motifs. It appears to have relied on a guess rather than reasoning about the compound\u2019s pharmacophore-like elements, leading to a likely false negative.",
+        "The agent appears to have guessed the label without analyzing the molecule\u2019s structural features relevant to NR-AR activity. It missed the key reasoning step of recognizing that this is a complex bioactive scaffold with functional groups and motifs that could plausibly interact with nuclear receptors, so it defaulted to an unsupported \u201cNo.\u201d",
+        "The agent failed because it gave an unsupported guess without analyzing the molecule\u2019s structural features or relating them to known toxicity/clinical failure patterns. It appears to have skipped the key reasoning step of assessing whether the compound\u2019s scaffold and functional groups are associated with toxic liabilities, leading to an arbitrary yes/no choice.",
+        "The agent failed because it gave an unsupported binary prediction without any chemical reasoning or evidence-based analysis of the structure\u2019s likely antiviral activity. It appears to have skipped the key step of relating the molecule\u2019s scaffold and functional groups to known HIV-inhibitory motifs, leading to a guess rather than a justified classification.",
+        "The agent failed by giving an unsupported binary prediction without any chemical reasoning, so it likely missed the key structure\u2013activity cues needed for NR-AR toxicity assessment. In particular, it did not evaluate whether the molecule contains features associated with androgen receptor activity, such as aromatic heterocycles and hydrophobic substituents that can influence receptor binding."
+      ],
+      "pattern": "Name: Ungrounded structure-activity guessing\nRoot cause: The core capability gap is failure to perform evidence-based structure\u2013activity reasoning before making a binary property prediction. The agent does not connect molecular motifs, scaffold class, and known pharmacological/toxicological context to the target label, so it defaults to an unsupported guess.\nTypical mistake sequence: The agent sees a complex bioactive molecule, skips identifying the relevant scaffold and functional groups, and then outputs a bare yes/no label without explaining why those features would support or oppose the property. This often becomes a false negative or arbitrary classification because no task-specific chemical reasoning is applied.\nObservable signals: The response gives a binary label with little or no mention of structural features, motifs, or mechanism-relevant chemistry.; The task clearly depends on recognizing scaffold-level cues or known activity/toxicity patterns, but the answer contains no evidence-based justification.\nCorrect behavior: The agent should first identify the molecule\u2019s key scaffold and functional groups, then explicitly relate them to known activity, receptor-binding, antiviral, or toxicity patterns relevant to the task. It should only commit to a label after that reasoning, and the answer should reflect the specific structural evidence used.",
+      "size": 8
+    }
+  ],
+  "success_clusters": [
+    {
+      "cluster_id": "b513ba83-3fbe-4757-ba9d-855c5348ad9e",
+      "kind": "success",
+      "member_trajectory_ids": [
+        "c8fd6106-8237-4dbc-b4cc-9c84a72ccde1",
+        "7197de43-7309-4a17-885c-fe937188a256",
+        "380b7255-95ee-4dfb-ab7d-ba7a665a77d0",
+        "6f6ac481-18e1-4bd7-9209-7ea91d819a83",
+        "0f5b1246-66fc-4679-b9ca-8600566b8ff0",
+        "b6a6604f-09b2-4479-83cb-f42782add328",
+        "71ea903d-1aff-4d06-981a-8836e21969cf"
+      ],
+      "member_instance_ids": [
+        "property_prediction_00004",
+        "property_prediction_00005",
+        "property_prediction_00008",
+        "property_prediction_00014",
+        "property_prediction_00018",
+        "property_prediction_00024",
+        "property_prediction_00028"
+      ],
+      "member_summaries": [
+        "The agent recognized the molecule as a known drug-like structure and assessed whether its features matched a toxicity-driven clinical failure pattern. It then made a direct binary classification from that structural judgment and answered \u201cNo.\u201d",
+        "The agent recognized the SMILES as a known drug-like structure associated with a clinical failure due to toxicity and directly mapped that structural identity to the label. It then confirmed the binary classification and returned the corresponding \u201cYes\u201d answer.",
+        "The agent identified the molecule as a carbamate ester attached to a substituted aromatic ring and judged that this structure lacks the typical features associated with NR-AR activity. It then directly mapped that structural assessment to the binary toxicity label and answered \u201cNo.\u201d",
+        "The agent inspected the molecule\u2019s structure for obvious toxicity-related red flags and likely clinical-failure motifs, then made a binary judgment based on that assessment. It concluded there was no strong evidence that this compound failed clinical trials due to toxicity, so it answered **No**.",
+        "The agent identified the molecule as a saturated bicyclic amine with no aromatic ring system or other features typically associated with NR-AR activity. Based on the absence of structural motifs linked to androgen receptor toxicity, it concluded the compound was unlikely to be toxic via the NR-AR pathway and answered \u201cNo.\u201d",
+        "The agent recognized the molecule as a complex natural-product-like glycoside with no obvious structural alerts strongly associated with clinical toxicity failure. It then made a binary judgment that the compound was not known to have failed trials due to toxicity, and returned **No**.",
+        "The agent identified the molecule as a simple diphenyl ether/phenol derivative and judged that it lacks the structural features typically associated with androgen receptor activity. Based on that structural assessment, it concluded the compound is unlikely to be toxic via the NR-AR pathway and answered **No**."
+      ],
+      "pattern": "Technique: structure-to-label motif matching\nProcedure: The agent first parsed the molecule\u2019s scaffold and functional groups, then compared those structural cues against known toxicity- or NR-AR-associated motifs. It made a direct binary decision by mapping the presence or absence of those motifs to the target label, rather than trying to infer activity from deeper mechanistic reasoning. In practice, it treated recognizable drug-like or natural-product-like structures as evidence only if they matched a known failure pattern; otherwise it defaulted to the negative class.\nObservable signals: The prompt asks for a binary property label from a molecule/SMILES string.; The summaries mention structural features, scaffolds, aromatic rings, carbamates, glycosides, bicyclic amines, or other functional-group-based judgments.; The target is tied to toxicity, clinical failure, or NR-AR activity rather than a general chemical property.\nRobustness checks: The agent sanity-checked for obvious red flags or known failure motifs before committing to the label, and it also verified the absence of typical NR-AR-associated features when deciding No. This helped prevent overcalling toxicity when the structure was merely drug-like or complex but not clearly linked to the adverse outcome.",
+      "size": 7
+    },
+    {
+      "cluster_id": "12c384aa-7d12-4989-bf23-55cef3212382",
+      "kind": "success",
+      "member_trajectory_ids": [
+        "f49df99c-ef3a-403a-bf50-04fb33b3af9f",
+        "ec014bc3-0c8c-4e52-a89c-64968189f63c",
+        "f6a36dc1-bd18-4041-9e86-185e669140a4",
+        "b095fc94-2fc8-4de5-b9d8-ba0c3d52faba",
+        "b48e85b6-033d-43fc-a393-df90949a8886",
+        "ea495353-93b9-4571-984b-bb47af0980c3",
+        "eb5f5c64-ce9f-4c1c-b8ea-9338108ae35c",
+        "35d71850-9a8f-48d0-9c54-16e21a8a3cf4",
+        "bbb29451-f317-44dc-b7f3-72763fd77228"
+      ],
+      "member_instance_ids": [
+        "property_prediction_00000",
+        "property_prediction_00002",
+        "property_prediction_00006",
+        "property_prediction_00010",
+        "property_prediction_00012",
+        "property_prediction_00016",
+        "property_prediction_00020",
+        "property_prediction_00022",
+        "property_prediction_00026"
+      ],
+      "member_summaries": [
+        "The agent identified the molecule as lacking the typical BACE1-inhibitor scaffold and pharmacophoric features associated with known active compounds, especially the strongly optimized heteroaromatic core and binding motif patterns. It then made a binary classification based on this structural comparison and concluded the compound is not a BACE1 inhibitor.",
+        "The agent inspected the molecule\u2019s structure and recognized features that reduce blood-brain barrier penetration, especially the presence of multiple heteroatoms and a polar carboxylic acid group. Based on this high polarity and likely poor passive diffusion into the CNS, it concluded the compound would not penetrate the blood-brain barrier.",
+        "The agent identified the molecule as a small fused heterocyclic ester lacking features commonly associated with HIV reverse-transcriptase or protease inhibitors, such as a larger pharmacophore or strongly binding functional groups. Based on that structural assessment, it classified the compound as unlikely to inhibit HIV replication and answered \u201cNo.\u201d",
+        "The agent inspected the molecule\u2019s structural features and compared them to known BACE1 inhibitor motifs, then judged that it lacked the characteristic scaffold needed for inhibition. It made a direct binary classification from the SMILES and committed to the negative prediction.",
+        "The agent identified that the molecule is highly polar and likely ionized, with multiple heteroatoms, a carboxylic acid, and an amide-rich scaffold that would strongly hinder passive diffusion across the blood-brain barrier. Based on these structural features associated with poor CNS permeability, it concluded the compound would not penetrate the BBB and answered \u201cNo.\u201d",
+        "The agent identified the molecule\u2019s key structural features and recognized it as a sulfonamide/urea-like aromatic compound rather than a known HIV-replication inhibitor scaffold. It then matched this structural pattern against the likely activity class and concluded the compound was not expected to inhibit HIV replication, so it answered **No**.",
+        "The agent inspected the molecule\u2019s structural features and compared them to typical BACE1 inhibitor motifs, then judged that it lacked the key pharmacophore pattern needed for inhibition. Based on that structural assessment, it committed to the negative class and answered **No**.",
+        "The agent identified the molecule as a polar, heteroatom-rich structure with multiple hydrogen-bond donors/acceptors and a bulky, ionizable amine, which are features that generally reduce blood-brain barrier permeability. Based on that structural assessment, it concluded the compound is unlikely to penetrate the BBB and answered **No**.",
+        "The agent identified the molecule as a non-obvious HIV inhibitor candidate and effectively relied on structural pattern recognition rather than explicit computation. It recognized that the compound lacks the key features typically associated with known HIV replication inhibitors and therefore concluded \u201cNo.\u201d"
+      ],
+      "pattern": "Technique: scaffold-and-permeability pattern matching\nProcedure: The agent first inspects the molecule\u2019s SMILES/structure and compares it against known active-class motifs or property-enabling features for the target task. It then makes a binary decision by checking whether the compound contains the expected pharmacophore/scaffold for inhibition, or the expected physicochemical profile for BBB penetration, and defaults to a negative call when those hallmark features are absent. This is a direct structure-to-label classification rather than a mechanistic simulation or docking-style reasoning.\nObservable signals: The prompt asks about a binary property such as BACE1 inhibition, HIV replication inhibition, or BBB penetration.; The molecule is described as lacking a known inhibitor scaffold or as being highly polar/heteroatom-rich/ionizable with carboxylic acid, amide, sulfonamide, or bulky amine features.\nRobustness checks: The agent repeatedly sanity-checks whether the structure matches a known active motif versus a non-matching scaffold, and whether polarity/ionization would plausibly block passive CNS diffusion. It also cross-validates the conclusion by looking for multiple reinforcing features, not just a single functional group, before committing to the negative class.",
+      "size": 9
+    }
+  ],
+  "contrastive_pairs": [
+    {
+      "failure_instance_id": "property_prediction_00001",
+      "failure_trajectory_id": "4bda81aa-6a55-4da8-9ffb-67615ee2e29b",
+      "success_instance_id": "property_prediction_00010",
+      "success_trajectory_id": "b095fc94-2fc8-4de5-b9d8-ba0c3d52faba",
+      "similarity": 0.9318014948529788,
+      "same_type": true,
+      "same_type_reason": "Both tasks are the same binary medicinal-chemistry classification problem: decide BACE1 inhibition from a SMILES by recognizing inhibitor-like structural motifs.",
+      "analysis": "The successful trajectory correctly treated the problem as a scaffold-based BACE1 SAR judgment and made a direct binary call from the molecule\u2019s pharmacophore pattern. The failure went off track by guessing \"No\" without checking whether the SMILES contained a BACE1-like inhibitor core, especially the protonatable amine, adjacent hydroxyl/amide features, and bulky hydrophobic/aromatic groups. The transferable rule is to look for the characteristic BACE1 inhibitor motif and overall balance of cationic center plus hydrophobic/aromatic substituents before deciding. Applying that structural check to the failing molecule would have led to a positive prediction rather than an unsupported negative guess."
+    },
+    {
+      "failure_instance_id": "property_prediction_00011",
+      "failure_trajectory_id": "2d57d434-189d-4d5a-be59-421a5aa901ec",
+      "success_instance_id": "property_prediction_00010",
+      "success_trajectory_id": "b095fc94-2fc8-4de5-b9d8-ba0c3d52faba",
+      "similarity": 0.9226088632971909,
+      "same_type": true,
+      "same_type_reason": "Both instances are the same binary BACE1-inhibitor classification task from SMILES, requiring the same medicinal-chemistry pattern recognition approach.",
+      "analysis": "The successful trajectory correctly recognized that the molecule lacked the characteristic BACE1 inhibitor scaffold and therefore chose the negative class. The failure went off track by not properly weighing the structural motifs that usually support BACE1 inhibition, especially the balance of a protonated amine, amide-linked aromatic/lipophilic groups, and overall scaffold similarity. The transferable rule is to judge the full pharmacophore-like pattern, not just the presence of one or two favorable fragments; if the core BACE1-binding motif is incomplete or atypical, predict No."
+    },
+    {
+      "failure_instance_id": "property_prediction_00025",
+      "failure_trajectory_id": "4a208858-91e7-4f80-84b6-97d0af59a466",
+      "success_instance_id": "property_prediction_00014",
+      "success_trajectory_id": "6f6ac481-18e1-4bd7-9209-7ea91d819a83",
+      "similarity": 0.9178515540395523,
+      "same_type": true,
+      "same_type_reason": "Both tasks ask for a binary toxicity-based clinical-failure prediction from a molecule\u2019s SMILES using the same medicinal-chemistry pattern recognition.",
+      "analysis": "The successful trajectory did the crucial step of inspecting the structure for toxicity-related liabilities and then making a grounded binary call from those features. The failure went off track by skipping structural analysis and giving an unsupported guess. The transferable rule is to first look for known toxicophores, reactive groups, or other clinical-failure motifs in the scaffold, and only then decide Yes or No based on whether such red flags are present."
+    },
+    {
+      "failure_instance_id": "property_prediction_00015",
+      "failure_trajectory_id": "fb452197-53cb-40f9-ae2f-5b0130424d9d",
+      "success_instance_id": "property_prediction_00014",
+      "success_trajectory_id": "6f6ac481-18e1-4bd7-9209-7ea91d819a83",
+      "similarity": 0.9178352125730042,
+      "same_type": true,
+      "same_type_reason": "Both tasks ask for a binary toxicity-failure prediction from a molecule\u2019s SMILES using the same medicinal-chemistry pattern recognition.",
+      "analysis": "The successful trajectory did the essential step of inspecting structural features and judging whether they plausibly indicate toxicity-related clinical failure, then answered conservatively when no strong red flags were present. The failure went off track by defaulting to an unsupported guess instead of evaluating the molecule\u2019s motifs and known risk signals. The transferable rule is to base the Yes/No call on structural toxicity liabilities and clinical-failure plausibility, not on a generic bias toward one label. Applying that discipline would have produced a justified prediction rather than an arbitrary one."
+    }
+  ],
+  "metadata": {
+    "contextual_model": "openai/gpt-5.4-mini",
+    "summary_model": "openai/gpt-5.4-mini",
+    "pattern_model": "openai/gpt-5.4-mini",
+    "contrastive_model": "openai/gpt-5.4-mini",
+    "embedding_model": "text-embedding-3-small",
+    "clustering_method": "kmeans"
+  }
+}

@@ -1,0 +1,44 @@
+Loading skill from: ../../artifacts/raw_benchmark_outputs/scienceworld_token/skill_output/2026-06-02_17-36-34
+  -> 20d74b11-1654-4f2f-a0b5-d7502948b56d: 
+
+Loading dataset: data/scienceworld/test.json
+  -> 100 instances, task_type=open_ended
+  -> Using all 100 instances
+
+Models to test     : ['openai/gpt-5.4-nano']
+Judge model        : openai/gpt-5.4-mini
+Skill web_search   : disabled
+Skill script exec  : disabled (mock)
+Blank-pair policy  : DROP (paired_n shrinks, cleanest)
+
+-- Model: openai/gpt-5.4-nano --
+
+========================================================================
+  SKILL A/B EVALUATION REPORT
+========================================================================
+  Skill ID   : 20d74b11-1654-4f2f-a0b5-d7502948b56d
+  Abstract   : Plan numbered, environment-grounded action sequences for a text-based science simulation. Identify the exact target, follow the required procedure, and use measured state changes or waits to reach the goal.
+  Status     : active
+========================================================================
+
+  Model: openai/gpt-5.4-nano
+      Condition                       N  Pass     Acc   Latency
+      ----------------------------------------------------
+      Without skill                 100    31  31.0%      2.1s
+      With skill                    100    35  35.0%      1.3s
+
+      Accuracy delta : ^ 4.0%  (baseline=31.0%, skill=35.0%)
+      Repair     : 17/69   (24.6% of baseline failures fixed)
+      Regression : 13/31   (41.9% of baseline successes broken)
+      Net gain   : +4 instances
+
+      Paired outcome matrix (N=100 after filter):
+                               Skill pass   Skill fail
+      Baseline pass                    18           13
+      Baseline fail                    17           52
+
+========================================================================
+
+Results saved to: ../../artifacts/raw_benchmark_outputs/scienceworld_token/eval_results.json
+Trajectories   : ../../artifacts/raw_benchmark_outputs/scienceworld_token/eval_results_trajectories/
+Token usage    : prompt=405,258 | completion=70,788 | total=476,046 -> ../../artifacts/raw_benchmark_outputs/scienceworld_token/eval_results.token_usage.json

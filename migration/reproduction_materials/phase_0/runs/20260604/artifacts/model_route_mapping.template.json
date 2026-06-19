@@ -1,0 +1,113 @@
+{
+  "schema_version": "0.1",
+  "scope": "Resolved SkillGen paper model display names to executable provider route IDs",
+  "run_dir": "skillgen_phase0_thorough_20260602",
+  "status": "route_resolved_with_equivalent_deviations",
+  "provider_policy": "OpenRouter can be used for chat routes, but it is not required by the paper. OpenAI is currently required by the official code for embeddings unless that dependency is patched and approved.",
+  "paper_table1_models": [
+    {
+      "paper_display_name": "Gemma-4-26B",
+      "provider_route_id": "google/gemma-4-26b-a4b-it",
+      "status": "route_resolved_equivalent",
+      "resolution_rule": "OpenRouter current catalog exposes Google Gemma 4 26B A4B; treated as the current executable equivalent of the paper display name."
+    },
+    {
+      "paper_display_name": "Llama-3.1-8B",
+      "provider_route_id": "meta-llama/llama-3.1-8b-instruct",
+      "status": "route_resolved_exact",
+      "resolution_rule": "OpenRouter current catalog exact family/size instruction route."
+    },
+    {
+      "paper_display_name": "Mistral-Nemo",
+      "provider_route_id": "mistralai/mistral-nemo",
+      "status": "route_resolved_exact",
+      "resolution_rule": "OpenRouter current catalog exact named route."
+    },
+    {
+      "paper_display_name": "Qwen-2.5-7B",
+      "provider_route_id": "qwen/qwen-2.5-7b-instruct",
+      "status": "route_resolved_exact",
+      "resolution_rule": "OpenRouter current catalog exact family/size instruction route."
+    },
+    {
+      "paper_display_name": "Claude-Haiku-4.5",
+      "provider_route_id": "anthropic/claude-haiku-4.5",
+      "status": "route_resolved_exact",
+      "resolution_rule": "OpenRouter current catalog exact named route."
+    },
+    {
+      "paper_display_name": "GPT-5.4-Nano",
+      "provider_route_id": "openai/gpt-5.4-nano",
+      "status": "route_resolved_exact",
+      "resolution_rule": "OpenRouter current catalog exact named route; also used by the existing smoke config."
+    },
+    {
+      "paper_display_name": "GPT-5.4-Mini",
+      "provider_route_id": "openai/gpt-5.4-mini",
+      "status": "route_resolved_exact",
+      "resolution_rule": "OpenRouter current catalog exact named route; also used by the existing smoke config."
+    },
+    {
+      "paper_display_name": "Grok-4-Fast",
+      "provider_route_id": "x-ai/grok-4.3",
+      "status": "route_resolved_equivalent",
+      "resolution_rule": "OpenRouter current catalog did not expose Grok-4-Fast; x-ai/grok-4.3 is recorded as the closest current Grok 4 series executable route."
+    }
+  ],
+  "paper_transfer_models": [
+    {
+      "paper_display_name": "Qwen-2.5-7B",
+      "provider_route_id": "qwen/qwen-2.5-7b-instruct",
+      "status": "route_resolved_exact",
+      "resolution_rule": "OpenRouter current catalog exact family/size instruction route."
+    },
+    {
+      "paper_display_name": "Llama-3.1-8B",
+      "provider_route_id": "meta-llama/llama-3.1-8b-instruct",
+      "status": "route_resolved_exact",
+      "resolution_rule": "OpenRouter current catalog exact family/size instruction route."
+    },
+    {
+      "paper_display_name": "GPT-OSS-20B",
+      "provider_route_id": "openai/gpt-oss-20b",
+      "status": "route_resolved_exact",
+      "resolution_rule": "OpenRouter current catalog exact named route."
+    },
+    {
+      "paper_display_name": "GPT-5.4-Nano",
+      "provider_route_id": "openai/gpt-5.4-nano",
+      "status": "route_resolved_exact",
+      "resolution_rule": "OpenRouter current catalog exact named route; also used by the existing smoke config."
+    },
+    {
+      "paper_display_name": "GPT-5.4-Mini",
+      "provider_route_id": "openai/gpt-5.4-mini",
+      "status": "route_resolved_exact",
+      "resolution_rule": "OpenRouter current catalog exact named route; also used by the existing smoke config."
+    },
+    {
+      "paper_display_name": "Grok-4-Fast",
+      "provider_route_id": "x-ai/grok-4.3",
+      "status": "route_resolved_equivalent",
+      "resolution_rule": "OpenRouter current catalog did not expose Grok-4-Fast; x-ai/grok-4.3 is recorded as the closest current Grok 4 series executable route."
+    }
+  ],
+  "unresolved_models": [],
+  "equivalent_deviation_models": [
+    "Gemma-4-26B",
+    "Grok-4-Fast"
+  ],
+  "route_resolution_gate": {
+    "required_before": [
+      "full_table1_matrix",
+      "transfer_matrix",
+      "tau_bench_matrix",
+      "chemllmbench_matrix"
+    ],
+    "acceptance_criteria": [
+      "Every paper display name maps to a current executable provider route.",
+      "Any unavailable paper model is marked with an explicit replacement/deviation before execution.",
+      "The chosen judge model route is recorded."
+    ]
+  }
+}

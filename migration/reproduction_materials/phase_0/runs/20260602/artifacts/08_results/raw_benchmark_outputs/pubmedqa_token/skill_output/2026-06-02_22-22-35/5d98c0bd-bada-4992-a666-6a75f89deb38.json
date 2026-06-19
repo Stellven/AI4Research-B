@@ -1,0 +1,30 @@
+{
+  "skill_id": "5d98c0bd-bada-4992-a666-6a75f89deb38",
+  "body": "## Contextual abstract\nThis task is biomedical abstract question answering: read only the abstract, identify what study was done, what was measured, and what the authors concluded, then answer a binary clinical or scientific question from that evidence. The key skill is evidence-based inference from the abstract itself, not outside knowledge or exact keyword matching. Because topics, designs, and outcomes vary widely, the agent must map the question to the abstract\u2019s actual population, comparison, and endpoint before deciding yes or no.\n\n## Successful experiences\n1. **Pin down the asked claim first.** Identify whether the question is about an effect, association, diagnostic value, prognosis, safety, or applicability.\n2. **Match the abstract to the claim.** Find the result that directly bears on the asked outcome, comparison, or population rather than relying on the headline conclusion alone.\n3. **Use the full evidence pattern.** When findings are mixed or indirect, synthesize purpose, results, and conclusion together; let direction, significance, and clinical meaning guide the answer.\n4. **Prioritize the most relevant endpoint.** If several outcomes are reported, choose the one that actually answers the question and ignore peripheral results.\n5. **Check scope before committing.** Verify that the evidence concerns the same population, intervention, and outcome as the question; if it does, convert the reported direction into the binary label.\n\n## Failure lessons\n- **Single-fragment overreach:** A lone null result, subgroup finding, or isolated statistic can look decisive but may not answer the full question. Signal: the abstract contains multiple outcomes or conditional language. Counter-action: reconcile the fragment with the abstract\u2019s overall conclusion before labeling.\n\n- **Keyword dependence:** The abstract may support the claim without using the exact wording asked in the question. Signal: the question asks for a broader implication, while the abstract reports indirect or inferential evidence. Counter-action: infer from the total evidence pattern instead of waiting for an explicit phrase.\n\n- **Scope mismatch:** A result can be true for a narrower subgroup or different endpoint but still fail to answer the asked claim. Signal: the abstract\u2019s population, intervention, or outcome differs from the question\u2019s target. Counter-action: reject unsupported matches and answer no only after confirming the mismatch in scope or outcome.\n\n- **Overly strict proof standard:** Some questions are answered by the abstract\u2019s overall support, not by definitive causation or perfect certainty. Signal: the evidence is partial but consistently points in one direction. Counter-action: choose the label that best fits the abstract\u2019s net implication; a cautious yes is better than an unwarranted no when the study supports the relationship.",
+  "contextual_abstract": "Read a biomedical abstract, identify the exact claim asked, and answer yes/no from the abstract\u2019s own evidence. The main challenge is matching the question to the correct outcome, population, and conclusion, especially when the findings are mixed or indirect.",
+  "scripts": [],
+  "requirements": [],
+  "references": [],
+  "reference_docs": [],
+  "status": "active",
+  "version": 1,
+  "analysis_id": "142a9460-cafb-4cee-87f0-a13f55123c52",
+  "dataset_id": "pubmedqa_train_n150_seed42",
+  "task_name": "pubmedqa_train",
+  "verification_history": [
+    {
+      "round_idx": 0,
+      "passed": true,
+      "net_gain": 1,
+      "repair_count": 1,
+      "regression_count": 0,
+      "baseline_acc": 0.75,
+      "skill_acc": 1.0,
+      "diagnostic": "mode=net_gain_gated, paired_n=4, n_target=1, n_success_guard=3, baseline_acc=75.0%, skill_acc=100.0%, repair=1/1 (100.0%), regression=0/3 (0.0%), net_gain=1, required=1 (abs=1, rel=0.00*n), passed=True",
+      "rejected_no_passing_round": false
+    }
+  ],
+  "token_count": 416,
+  "behavioral_aim": "",
+  "semantic_aim": ""
+}

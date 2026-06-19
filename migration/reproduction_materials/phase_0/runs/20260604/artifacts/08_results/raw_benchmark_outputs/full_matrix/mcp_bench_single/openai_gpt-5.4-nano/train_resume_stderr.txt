@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/main.py", line 98, in <module>
+    main()
+    ~~~~^^
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/main.py", line 81, in main
+    skill = run_pipeline(
+        dataset.instances,
+    ...<6 lines>...
+        resume_dir=args.resume,
+    )
+  File "/Users/jamesyuan/Developer/Github Repos (On Git)/AI4Research-B/phase_0/runs/skillgen_phase0_thorough_20260602/code/official/pipeline.py", line 167, in run_pipeline
+    raise FileNotFoundError(
+        f"No valid checkpoint found in '{resume_dir}'."
+    )
+FileNotFoundError: No valid checkpoint found in '../../artifacts/raw_benchmark_outputs/full_matrix/mcp_bench_single/openai_gpt-5.4-nano/artifacts/runs/20260604-091656'.

@@ -1,0 +1,64 @@
+{
+  "schema_version": "0.1",
+  "group": "C_execution_trace",
+  "scope": "Figure 7 per-round refinement trace extraction and aggregation contract",
+  "run_dir": "skillgen_phase0_thorough_20260602",
+  "status": "blocked",
+  "paper_claim_id": "claim_refinement_best_of_k",
+  "trace_globs": {
+    "verification_baseline": "artifacts/raw_benchmark_outputs/**/artifacts/runs/*/verification/round_*/verification_baseline.jsonl",
+    "verification_with_skill": "artifacts/raw_benchmark_outputs/**/artifacts/runs/*/verification/round_*/verification_with_skill.jsonl",
+    "verification_summary": "artifacts/raw_benchmark_outputs/**/artifacts/runs/*/verification/round_*/verification_summary.json",
+    "verification_case_analyses": "artifacts/raw_benchmark_outputs/**/artifacts/runs/*/verification/round_*/verification_case_analyses.json",
+    "candidate_skill": "artifacts/raw_benchmark_outputs/**/candidates/*_gen.json"
+  },
+  "round_record_schema": {
+    "run_id": "string",
+    "benchmark_row": "string",
+    "paper_model": "string",
+    "round_index": "integer",
+    "candidate_skill_id": "string",
+    "candidate_skill_artifact": "path",
+    "baseline_trace_path": "path",
+    "with_skill_trace_path": "path",
+    "case_analyses_path": "path",
+    "paired_n": "integer",
+    "baseline_acc": "number",
+    "skill_acc": "number",
+    "delta_acc": "number",
+    "repair_count": "integer",
+    "regression_count": "integer",
+    "net_gain": "integer",
+    "gate_passed": "boolean"
+  },
+  "extraction_steps": [
+    "Inventory every verification/round_* directory for each benchmark-model run.",
+    "Reject a round record unless baseline traces, with-skill traces, summary, and case analyses are all present.",
+    "Parse verification_summary.json as the source of accuracy, repair, regression, net_gain, and gate fields.",
+    "Link each round to its candidate skill artifact before calculating best-of-K.",
+    "Compute best_of_k_skill_acc as the cumulative max skill_acc over ordered rounds within a run.",
+    "Aggregate per-round and best-of-K curves across representative runs only after the full paper-scale trace set is available."
+  ],
+  "aggregation_rules": [
+    "per_round_skill_accuracy[K] = mean(skill_acc for round K across included runs).",
+    "best_of_k_skill_accuracy[K] = mean(max(skill_acc for rounds <= K) across included runs).",
+    "Confidence intervals must be computed over run-level curves, not over individual cases pooled across runs."
+  ],
+  "current_inventory": {
+    "rounds_with_summary": 1,
+    "complete_rounds": 1,
+    "rounds": [
+      {
+        "round_dir": "artifacts/08_results/raw_benchmark_outputs/skillgen_aime_smoke/artifacts/runs/20260602-020302/verification/round_1",
+        "verification_summary": "artifacts/08_results/raw_benchmark_outputs/skillgen_aime_smoke/artifacts/runs/20260602-020302/verification/round_1/verification_summary.json",
+        "verification_baseline_exists": true,
+        "verification_with_skill_exists": true,
+        "verification_case_analyses_exists": true
+      }
+    ]
+  },
+  "remaining_blockers": [
+    "The current run does not contain the paper-scale representative per-round trace set for Figure 7.",
+    "Future full runs must preserve round-level files instead of only final skill/eval summaries."
+  ]
+}

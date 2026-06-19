@@ -1,0 +1,390 @@
+{
+  "schema_version": "0.3",
+  "status": "official_code_smoke_completed",
+  "scope": "AIME smoke validation only; not SkillGen Table 1 reproduction",
+  "target_id": "skillgen_aime_smoke",
+  "skill_id": "c9924dba-ba8a-4735-960c-bc07c129b57c",
+  "train": {
+    "skill_output": "artifacts/08_results/raw_benchmark_outputs/skillgen_aime_smoke/skill_output/2026-06-02_02-03-02",
+    "construction_verification": {
+      "paired_n": 4,
+      "baseline_acc": 0.5,
+      "skill_acc": 0.75,
+      "repair": 2,
+      "regression": 1,
+      "net_gain": 1,
+      "passed": true
+    },
+    "token_usage_total": 59226
+  },
+  "eval": {
+    "dataset": "../../artifacts/smoke_data/aime_test_n4_seed42.json",
+    "model": "openai/gpt-5.4-nano",
+    "n_instances": 4,
+    "baseline_acc": 0.25,
+    "skill_acc": 0.25,
+    "delta_acc": 0.0,
+    "repair": 0,
+    "regression": 0,
+    "net_gain": 0,
+    "blank_filter": {
+      "drop_blank": true,
+      "n_paired_raw": 4,
+      "n_blank_baseline": 0,
+      "n_blank_skill": 0,
+      "n_blank_either": 0,
+      "n_blank_both": 0
+    },
+    "token_usage_total": 14396
+  },
+  "raw_outputs": {
+    "eval_results": "artifacts/raw_benchmark_outputs/skillgen_aime_smoke/eval_results.json",
+    "eval_token_usage": "artifacts/raw_benchmark_outputs/skillgen_aime_smoke/eval_results.token_usage.json",
+    "verification_summary": "artifacts/08_results/raw_benchmark_outputs/skillgen_aime_smoke/artifacts/runs/20260602-020302/verification/round_1/verification_summary.json"
+  },
+  "additional_targets": {
+    "tau_bench_retail": {
+      "target_id": "tau_bench_retail",
+      "dataset_label": "tau-Bench retail smoke execution",
+      "status": "official_code_eval_completed",
+      "skill_id": "28b0778e-7dd4-4f88-a89e-c4f39df3c9a1",
+      "skill_rejected": true,
+      "train": {
+        "artifact_run": "artifacts/08_results/raw_benchmark_outputs/tau_bench_retail/artifacts/runs/20260602-165811",
+        "skill_output": "artifacts/08_results/raw_benchmark_outputs/tau_bench_retail/skill_output/2026-06-02_16-58-11",
+        "skill_status": "deprecated",
+        "construction_verification": {
+          "paired_n": 4,
+          "baseline_acc": 0.75,
+          "skill_acc": 0.5,
+          "repair": 1,
+          "regression": 2,
+          "net_gain": -1,
+          "passed": false,
+          "diagnostic_summary": "mode=net_gain_gated, paired_n=4, n_target=1, n_success_guard=3, baseline_acc=75.0%, skill_acc=50.0%, repair=1/1 (100.0%), regression=2/3 (66.7%), net_gain=-1, required=1 (abs=1, rel=0.00*n), passed=False"
+        },
+        "token_usage_total": 1629346
+      },
+      "eval": {
+        "dataset": "data/tau_bench/test_retail_n30_seed42.json",
+        "model": "openai/gpt-5.4-nano",
+        "n_instances": 30,
+        "baseline_acc": 0.23333333333333334,
+        "skill_acc": 0.23333333333333334,
+        "delta_acc": 0.0,
+        "repair": 0,
+        "regression": 0,
+        "net_gain": 0,
+        "blank_filter": {
+          "drop_blank": true,
+          "n_paired_raw": 30,
+          "n_blank_baseline": 0,
+          "n_blank_skill": 0,
+          "n_blank_either": 0,
+          "n_blank_both": 0
+        },
+        "token_usage_total": 1569988
+      },
+      "raw_outputs": {
+        "eval_results": "artifacts/08_results/raw_benchmark_outputs/tau_bench_retail/eval_results.json",
+        "eval_token_usage": "artifacts/08_results/raw_benchmark_outputs/tau_bench_retail/eval_results.token_usage.json",
+        "verification_summary": "artifacts/08_results/raw_benchmark_outputs/tau_bench_retail/artifacts/runs/20260602-165811/verification/round_1/verification_summary.json"
+      },
+      "claim_status": "not_reproduced"
+    },
+    "chemllmbench_property_prediction": {
+      "target_id": "chemllmbench_property_prediction",
+      "dataset_label": "ChemLLMBench property prediction smoke execution",
+      "status": "official_code_eval_completed",
+      "skill_id": "4c1bf7a1-f237-4900-98dd-7270b39e12d9",
+      "skill_rejected": true,
+      "train": {
+        "artifact_run": "artifacts/08_results/raw_benchmark_outputs/chemllmbench_property_prediction/artifacts/runs/20260602-172627",
+        "skill_output": "artifacts/08_results/raw_benchmark_outputs/chemllmbench_property_prediction/skill_output/2026-06-02_17-26-27",
+        "skill_status": "deprecated",
+        "construction_verification": {
+          "paired_n": 4,
+          "baseline_acc": 0.5,
+          "skill_acc": 0.5,
+          "repair": 0,
+          "regression": 0,
+          "net_gain": 0,
+          "passed": false,
+          "diagnostic_summary": "mode=net_gain_gated, paired_n=4, n_target=2, n_success_guard=2, baseline_acc=50.0%, skill_acc=50.0%, repair=0/2 (0.0%), regression=0/2 (0.0%), net_gain=0, required=1 (abs=1, rel=0.00*n), passed=False"
+        },
+        "token_usage_total": 46661
+      },
+      "eval": {
+        "dataset": "data/chemllmbench/property_prediction_test.json",
+        "model": "openai/gpt-5.4-nano",
+        "n_instances": 10,
+        "baseline_acc": 0.6,
+        "skill_acc": 0.6,
+        "delta_acc": 0.0,
+        "repair": 0,
+        "regression": 0,
+        "net_gain": 0,
+        "blank_filter": {
+          "drop_blank": true,
+          "n_paired_raw": 10,
+          "n_blank_baseline": 0,
+          "n_blank_skill": 0,
+          "n_blank_either": 0,
+          "n_blank_both": 0
+        },
+        "token_usage_total": 1514
+      },
+      "raw_outputs": {
+        "eval_results": "artifacts/08_results/raw_benchmark_outputs/chemllmbench_property_prediction/eval_results.json",
+        "eval_token_usage": "artifacts/08_results/raw_benchmark_outputs/chemllmbench_property_prediction/eval_results.token_usage.json",
+        "verification_summary": "artifacts/08_results/raw_benchmark_outputs/chemllmbench_property_prediction/artifacts/runs/20260602-172627/verification/round_1/verification_summary.json"
+      },
+      "claim_status": "not_reproduced"
+    },
+    "chemllmbench_yield_prediction": {
+      "target_id": "chemllmbench_yield_prediction",
+      "dataset_label": "ChemLLMBench yield prediction smoke execution",
+      "status": "official_code_eval_completed",
+      "skill_id": "ad80410d-3091-43d5-93e2-8721d9f1837d",
+      "skill_rejected": true,
+      "train": {
+        "artifact_run": "artifacts/08_results/raw_benchmark_outputs/chemllmbench_yield_prediction/artifacts/runs/20260602-172912",
+        "skill_output": "artifacts/08_results/raw_benchmark_outputs/chemllmbench_yield_prediction/skill_output/2026-06-02_17-29-12",
+        "skill_status": "deprecated",
+        "construction_verification": {
+          "paired_n": 4,
+          "baseline_acc": 1.0,
+          "skill_acc": 1.0,
+          "repair": 0,
+          "regression": 0,
+          "net_gain": 0,
+          "passed": false,
+          "diagnostic_summary": "mode=net_gain_gated, paired_n=4, n_target=0, n_success_guard=4, baseline_acc=100.0%, skill_acc=100.0%, repair=0/0 (0.0%), regression=0/4 (0.0%), net_gain=0, required=1 (abs=1, rel=0.00*n), passed=False"
+        },
+        "token_usage_total": 60179
+      },
+      "eval": {
+        "dataset": "data/chemllmbench/yield_prediction_test.json",
+        "model": "openai/gpt-5.4-nano",
+        "n_instances": 10,
+        "baseline_acc": 0.7,
+        "skill_acc": 0.7,
+        "delta_acc": 0.0,
+        "repair": 0,
+        "regression": 0,
+        "net_gain": 0,
+        "blank_filter": {
+          "drop_blank": true,
+          "n_paired_raw": 10,
+          "n_blank_baseline": 0,
+          "n_blank_skill": 0,
+          "n_blank_either": 0,
+          "n_blank_both": 0
+        },
+        "token_usage_total": 2931
+      },
+      "raw_outputs": {
+        "eval_results": "artifacts/08_results/raw_benchmark_outputs/chemllmbench_yield_prediction/eval_results.json",
+        "eval_token_usage": "artifacts/08_results/raw_benchmark_outputs/chemllmbench_yield_prediction/eval_results.token_usage.json",
+        "verification_summary": "artifacts/08_results/raw_benchmark_outputs/chemllmbench_yield_prediction/artifacts/runs/20260602-172912/verification/round_1/verification_summary.json"
+      },
+      "claim_status": "not_reproduced"
+    },
+    "scienceworld_token": {
+      "target_id": "scienceworld_token",
+      "dataset_label": "ScienceWorld Table 4 token smoke execution",
+      "status": "official_code_eval_completed",
+      "skill_id": "20d74b11-1654-4f2f-a0b5-d7502948b56d",
+      "skill_rejected": false,
+      "train": {
+        "artifact_run": "artifacts/08_results/raw_benchmark_outputs/scienceworld_token/artifacts/runs/20260602-173634",
+        "skill_output": "artifacts/08_results/raw_benchmark_outputs/scienceworld_token/skill_output/2026-06-02_17-36-34",
+        "skill_status": "active",
+        "construction_verification": {
+          "paired_n": 4,
+          "baseline_acc": 0.25,
+          "skill_acc": 1.0,
+          "repair": 3,
+          "regression": 0,
+          "net_gain": 3,
+          "passed": true,
+          "diagnostic_summary": "mode=net_gain_gated, paired_n=4, n_target=3, n_success_guard=1, baseline_acc=25.0%, skill_acc=100.0%, repair=3/3 (100.0%), regression=0/1 (0.0%), net_gain=3, required=1 (abs=1, rel=0.00*n), passed=True"
+        },
+        "token_usage_total": 588035
+      },
+      "eval": {
+        "dataset": "data/scienceworld/test.json",
+        "model": "openai/gpt-5.4-nano",
+        "n_instances": 100,
+        "baseline_acc": 0.31,
+        "skill_acc": 0.35,
+        "delta_acc": 0.03999999999999998,
+        "repair": 17,
+        "regression": 13,
+        "net_gain": 4,
+        "blank_filter": {
+          "drop_blank": true,
+          "n_paired_raw": 100,
+          "n_blank_baseline": 0,
+          "n_blank_skill": 0,
+          "n_blank_either": 0,
+          "n_blank_both": 0
+        },
+        "token_usage_total": 476046
+      },
+      "raw_outputs": {
+        "eval_results": "artifacts/08_results/raw_benchmark_outputs/scienceworld_token/eval_results.json",
+        "eval_token_usage": "artifacts/08_results/raw_benchmark_outputs/scienceworld_token/eval_results.token_usage.json",
+        "verification_summary": "artifacts/08_results/raw_benchmark_outputs/scienceworld_token/artifacts/runs/20260602-173634/verification/round_1/verification_summary.json"
+      },
+      "claim_status": "partially_reproduced"
+    },
+    "pubmedqa_token": {
+      "target_id": "pubmedqa_token",
+      "dataset_label": "PubMedQA Table 4 token smoke execution",
+      "status": "official_code_eval_completed",
+      "skill_id": "5d98c0bd-bada-4992-a666-6a75f89deb38",
+      "skill_rejected": false,
+      "train": {
+        "artifact_run": "artifacts/08_results/raw_benchmark_outputs/pubmedqa_token/artifacts/runs/20260602-222235",
+        "skill_output": "artifacts/08_results/raw_benchmark_outputs/pubmedqa_token/skill_output/2026-06-02_22-22-35",
+        "skill_status": "active",
+        "construction_verification": {
+          "paired_n": 4,
+          "baseline_acc": 0.75,
+          "skill_acc": 1.0,
+          "repair": 1,
+          "regression": 0,
+          "net_gain": 1,
+          "passed": true,
+          "diagnostic_summary": "mode=net_gain_gated, paired_n=4, n_target=1, n_success_guard=3, baseline_acc=75.0%, skill_acc=100.0%, repair=1/1 (100.0%), regression=0/3 (0.0%), net_gain=1, required=1 (abs=1, rel=0.00*n), passed=True"
+        },
+        "token_usage_total": 280169
+      },
+      "eval": {
+        "dataset": "data/pubmedqa/test.json",
+        "model": "openai/gpt-5.4-nano",
+        "n_instances": 100,
+        "baseline_acc": 0.74,
+        "skill_acc": 0.7,
+        "delta_acc": -0.040000000000000036,
+        "repair": 6,
+        "regression": 10,
+        "net_gain": -4,
+        "blank_filter": {
+          "drop_blank": true,
+          "n_paired_raw": 100,
+          "n_blank_baseline": 0,
+          "n_blank_skill": 0,
+          "n_blank_either": 0,
+          "n_blank_both": 0
+        },
+        "token_usage_total": 167834
+      },
+      "raw_outputs": {
+        "eval_results": "artifacts/08_results/raw_benchmark_outputs/pubmedqa_token/eval_results.json",
+        "eval_token_usage": "artifacts/08_results/raw_benchmark_outputs/pubmedqa_token/eval_results.token_usage.json",
+        "verification_summary": "artifacts/08_results/raw_benchmark_outputs/pubmedqa_token/artifacts/runs/20260602-222235/verification/round_1/verification_summary.json"
+      },
+      "claim_status": "not_reproduced"
+    },
+    "mind2web_token": {
+      "target_id": "mind2web_token",
+      "dataset_label": "Mind2Web Table 4 token smoke execution",
+      "status": "official_code_eval_completed",
+      "skill_id": "50227d88-7b7f-471d-81ae-d8456f4fc531",
+      "skill_rejected": true,
+      "train": {
+        "artifact_run": "artifacts/08_results/raw_benchmark_outputs/mind2web_token/artifacts/runs/20260602-232507",
+        "skill_output": "artifacts/08_results/raw_benchmark_outputs/mind2web_token/skill_output/2026-06-02_23-25-07",
+        "skill_status": "deprecated",
+        "construction_verification": {
+          "paired_n": 4,
+          "baseline_acc": 0.75,
+          "skill_acc": 0.5,
+          "repair": 0,
+          "regression": 1,
+          "net_gain": -1,
+          "passed": false,
+          "diagnostic_summary": "mode=net_gain_gated, paired_n=4, n_target=1, n_success_guard=3, baseline_acc=75.0%, skill_acc=50.0%, repair=0/1 (0.0%), regression=1/3 (33.3%), net_gain=-1, required=1 (abs=1, rel=0.00*n), passed=False"
+        },
+        "token_usage_total": 674323
+      },
+      "eval": {
+        "dataset": "data/mind2web/test.json",
+        "model": "openai/gpt-5.4-nano",
+        "n_instances": 100,
+        "baseline_acc": 0.54,
+        "skill_acc": 0.54,
+        "delta_acc": 0.0,
+        "repair": 0,
+        "regression": 0,
+        "net_gain": 0,
+        "blank_filter": {
+          "drop_blank": true,
+          "n_paired_raw": 100,
+          "n_blank_baseline": 0,
+          "n_blank_skill": 0,
+          "n_blank_either": 0,
+          "n_blank_both": 0
+        },
+        "token_usage_total": 265899
+      },
+      "raw_outputs": {
+        "eval_results": "artifacts/08_results/raw_benchmark_outputs/mind2web_token/eval_results.json",
+        "eval_token_usage": "artifacts/08_results/raw_benchmark_outputs/mind2web_token/eval_results.token_usage.json",
+        "verification_summary": "artifacts/08_results/raw_benchmark_outputs/mind2web_token/artifacts/runs/20260602-232507/verification/round_1/verification_summary.json"
+      },
+      "claim_status": "not_reproduced"
+    },
+    "mcp_bench_token": {
+      "target_id": "mcp_bench_token",
+      "dataset_label": "MCPBench Table 4 token smoke execution",
+      "status": "official_code_eval_completed",
+      "skill_id": "b0dfb61d-84a8-42c9-8c98-50369635966c",
+      "skill_rejected": true,
+      "train": {
+        "artifact_run": "artifacts/08_results/raw_benchmark_outputs/mcp_bench_token/artifacts/runs/20260602-233206",
+        "skill_output": "artifacts/08_results/raw_benchmark_outputs/mcp_bench_token/skill_output/2026-06-02_23-32-06",
+        "skill_status": "deprecated",
+        "construction_verification": {
+          "paired_n": 4,
+          "baseline_acc": 0.5,
+          "skill_acc": 0.5,
+          "repair": 0,
+          "regression": 0,
+          "net_gain": 0,
+          "passed": false,
+          "diagnostic_summary": "mode=net_gain_gated, paired_n=4, n_target=2, n_success_guard=2, baseline_acc=50.0%, skill_acc=50.0%, repair=0/2 (0.0%), regression=0/2 (0.0%), net_gain=0, required=1 (abs=1, rel=0.00*n), passed=False"
+        },
+        "token_usage_total": 448252
+      },
+      "eval": {
+        "dataset": "data/mcp_bench_all/test_all_n16_seed42.json",
+        "model": "openai/gpt-5.4-nano",
+        "n_instances": 16,
+        "baseline_acc": 0.9375,
+        "skill_acc": 0.9375,
+        "delta_acc": 0.0,
+        "repair": 0,
+        "regression": 0,
+        "net_gain": 0,
+        "blank_filter": {
+          "drop_blank": true,
+          "n_paired_raw": 16,
+          "n_blank_baseline": 0,
+          "n_blank_skill": 0,
+          "n_blank_either": 0,
+          "n_blank_both": 0
+        },
+        "token_usage_total": 120830
+      },
+      "raw_outputs": {
+        "eval_results": "artifacts/08_results/raw_benchmark_outputs/mcp_bench_token/eval_results.json",
+        "eval_token_usage": "artifacts/08_results/raw_benchmark_outputs/mcp_bench_token/eval_results.token_usage.json",
+        "verification_summary": "artifacts/08_results/raw_benchmark_outputs/mcp_bench_token/artifacts/runs/20260602-233206/verification/round_1/verification_summary.json"
+      },
+      "claim_status": "not_reproduced"
+    }
+  }
+}

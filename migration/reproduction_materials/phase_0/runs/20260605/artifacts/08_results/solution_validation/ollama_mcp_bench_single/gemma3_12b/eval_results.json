@@ -1,0 +1,12 @@
+{
+  "status": "not_run",
+  "reason": "Held-out skill evaluation was not executed because the successful training run produced no skill repository. Stage 1 baseline collection had 40 successes and 0 failures, so SkillGen stopped early with nothing to learn.",
+  "benchmark": "mcp_bench_single",
+  "model": "gemma3:12b",
+  "dataset": "data/mcp_bench/test.json",
+  "requested_n": 16,
+  "seed": 42,
+  "skill_repo_path": "phase_0/runs/skillgen_phase0_thorough_20260602/artifacts/08_results/solution_validation/ollama_mcp_bench_single/gemma3_12b/skill_output/2026-06-04_22-55-35",
+  "skill_repo_exists": true,
+  "skill_repo_file_count": 0
+}

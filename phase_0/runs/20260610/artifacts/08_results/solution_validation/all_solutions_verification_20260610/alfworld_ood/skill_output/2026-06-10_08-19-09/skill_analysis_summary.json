@@ -1,0 +1,12 @@
+{
+  "analysis_id": "ebe34e22-cd8e-4cd2-9e93-7e18a5eefd7b",
+  "dataset_id": "alfworld_ood_train_n500_seed42_local_smoke_train_20260610",
+  "task_name": "alfworld_ood",
+  "n_failures": 3,
+  "n_successes": 1,
+  "n_failure_clusters": 1,
+  "n_success_clusters": 1,
+  "n_contrastive_pairs": 1,
+  "same_type_pairs": 1,
+  "contextual_abstract": "This task involves generating ALFWorld text actions to accomplish a specific goal, requiring the agent to understand and execute instructions within a simulated offline planning environment. The agent must interpret complex prompts involving object manipulation, spatial reasoning, and potentially iterative problem-solving.  The task\u2019s success hinges on accurately translating human intent into a sequence of discrete actions that effectively achieve the desired outcome \u2013 in this case, placing an item on a counter. Input instances vary significantly in their complexity, ranging from simple object placement to more involved tasks requiring multiple steps and contextual understanding. The agent must demonstrate reasoning skills related to spatial relationships, tool usage, and potentially follow-up instructions within the ALFWorld environment."
+}

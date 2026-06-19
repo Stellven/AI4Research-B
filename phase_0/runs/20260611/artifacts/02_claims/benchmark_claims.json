@@ -1,0 +1,23 @@
+{
+  "schema_version": "0.1",
+  "benchmark_claims": [
+    {
+      "id": "bench_skillgen_table1_paired_accuracy",
+      "claim_id": "claim_skillgen_table1_average_gains",
+      "claim_type": "paired_intervention",
+      "baseline_condition": "base agent rollout without generated SkillGen skill",
+      "treatment_condition": "same base agent and same task instance with the generated SkillGen skill loaded",
+      "instance_matching": "same held-out task instance identifier and random seed, as described in Appendix C.2",
+      "metric": "accuracy",
+      "expected_direction": "higher_is_better",
+      "repair_regression_required": true,
+      "reported_delta_min_pp": 3.27,
+      "reported_delta_max_pp": 10.08,
+      "reported_improved_entries": 50,
+      "reported_unchanged_entries": 25,
+      "reported_regressed_entries": 5,
+      "reported_total_entries": 80,
+      "paper_location": "Table 1 and Appendix C.2"
+    }
+  ]
+}

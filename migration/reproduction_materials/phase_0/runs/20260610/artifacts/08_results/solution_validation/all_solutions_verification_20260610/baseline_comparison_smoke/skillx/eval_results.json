@@ -1,0 +1,37 @@
+{
+  "skill_id": "baseline-smoke-skillx",
+  "semantic_aim": "Mechanical baseline comparison smoke for skillx",
+  "skill_status": "active",
+  "skill_rejected": false,
+  "dataset": "data/mcp_bench/test.json",
+  "n_sampled": 1,
+  "seed": 42,
+  "drop_blank": true,
+  "results": [
+    {
+      "model": "gemma3:1b",
+      "skill_id": "baseline-smoke-skillx",
+      "n_instances": 1,
+      "baseline_acc": 0.0,
+      "skill_acc": 0.0,
+      "delta_acc": 0.0,
+      "repair": 0,
+      "regression": 0,
+      "repair_rate": 0.0,
+      "regression_rate": 0.0,
+      "net_gain": 0,
+      "blank_filter": {
+        "drop_blank": true,
+        "n_paired_raw": 1,
+        "n_blank_baseline": 0,
+        "n_blank_skill": 0,
+        "n_blank_either": 0,
+        "n_blank_both": 0
+      },
+      "tools": {
+        "enable_web_search": false,
+        "execute_scripts": false
+      }
+    }
+  ]
+}
